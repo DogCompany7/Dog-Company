@@ -12,29 +12,31 @@
   body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
   a { text-decoration:none; }
 
-  /* Menú superior */
+  /* Header fijo */
   header {
     position: fixed; top:0; width:100%; background: rgba(255,255,255,0.9);
     backdrop-filter: blur(10px); z-index:999; display:flex;
     justify-content:space-between; align-items:center; padding:15px 40px;
     transition: background 0.3s ease, color 0.3s ease;
   }
-  header.scrolled { background: rgba(255,255,255,0.95); color:black; }
+  header.scrolled { background: rgba(255,255,255,0.95); }
   header h1 { font-family:'Playfair Display', serif; font-size:1.8em; margin:0; color:black; }
   nav a { margin-left:25px; color:inherit; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
-  /* Hero */
+  /* Hero / Carrusel */
   .hero-slider { position:relative; height:100vh; overflow:hidden; }
   .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
   .slide.active { opacity:1; }
+
+  /* Texto hero flotante */
   .hero-text {
     position:absolute; top:50%; left:50%;
     transform:translate(-50%,-50%);
     text-align:center; color:white;
   }
-  .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; }
-  .hero-text p { font-size:1.3em; margin-bottom:20px; }
+  .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
+  .hero-text p { font-size:1.3em; margin-bottom:20px; text-shadow:1px 1px 5px rgba(0,0,0,0.6);}
   .hero-text .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; }
 
   /* Secciones */
@@ -46,7 +48,7 @@
   .service-box:hover { transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; margin-bottom:15px; }
   .service-box p { font-size:1.1em; margin-bottom:10px; }
-  .horarios { color:red; font-size:2em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
+  .horarios { color:red; font-size:2.2em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
 
   #servicios h2 { text-align:center; font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:50px; color:#333; }
   #servicios .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; font-size:1.1em; text-decoration:none; }
@@ -63,7 +65,7 @@
   .whatsapp-icon { position:fixed; bottom:20px; right:20px; z-index:1000; }
   .whatsapp-icon img { width:60px; display:block; }
 
-  /* Texto especial para precio fijo */
+  /* Precio fijo negrita y subrayado */
   .precio-fijo { font-weight:bold; text-decoration:underline; }
 
   @media(max-width:768px){
@@ -87,7 +89,7 @@
   </nav>
 </header>
 
-<!-- Hero -->
+<!-- Hero / Carrusel -->
 <div class="hero-slider">
   <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8');"></div>
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1583337130417-91ee189f1b9e');"></div>
