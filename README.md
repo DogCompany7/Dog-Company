@@ -91,9 +91,9 @@
   footer .ubicacion { font-size:1.2em; margin-bottom:10px; font-weight:bold; }
   footer .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; text-decoration:none; margin-top:15px; display:inline-block; }
 
-  /* WhatsApp flotante y botón consulta */
+  /* WhatsApp flotante y botón consulta más pequeño */
   .whatsapp-container { position:fixed; bottom:20px; right:20px; z-index:1000; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
-  .whatsapp-container a.btn-consulta { background:#128C7E; color:white; padding:10px 20px; border-radius:20px; font-weight:bold; }
+  .whatsapp-container a.btn-consulta { background:#128C7E; color:white; padding:8px 16px; border-radius:20px; font-weight:bold; font-size:0.9em; }
   .whatsapp-container img { width:60px; }
 
   @media(max-width:768px){
@@ -190,7 +190,7 @@
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Más información por WhatsApp</a>
 </footer>
 
-<!-- WhatsApp flotante y consulta -->
+<!-- WhatsApp flotante y consulta más pequeño -->
 <div class="whatsapp-container">
   <a class="btn-consulta" href="https://wa.me/34TUNUMERO" target="_blank">Consulta disponibilidad</a>
   <a href="https://wa.me/34TUNUMERO" target="_blank">
