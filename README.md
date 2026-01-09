@@ -2,129 +2,120 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<title>Dog Company - Residencia Canina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dog Company</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: #222;
-}
+body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
+a { text-decoration:none; }
 
-/* HEADER */
+/* Header */
 header {
-  padding: 20px 40px;
+  position: fixed; top:0; width:100%; z-index:999;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 40px; background:rgba(255,255,255,0.95);
 }
 
-.logo-box {
-  background: #f2c94c;
-  display: inline-block;
-  padding: 15px 35px;
-  border-radius: 0 40px 40px 0;
-}
+nav a { margin-left:25px; color:#333; font-weight:600; }
+nav a:hover { color:#128C7E; }
 
-.logo-box h1 {
-  margin: 0;
-  color: #000;
-  font-size: 26px;
+/* Logo */
+.logo-container { position:relative; display:inline-block; margin-left:-40px; }
+.logo-container::before {
+  content:""; position:absolute; top:0; left:0;
+  width:420px; height:100px; background:#F5C223;
+  border-bottom-right-radius:25px; z-index:-1;
 }
+.logo { font-family:'Playfair Display', serif; font-size:2em; font-weight:bold; color:black; padding:25px 20px; }
 
-/* HERO */
-.hero {
-  padding: 20px 40px;
-}
+/* Hero */
+.hero-slider { position:relative; height:100vh; overflow:hidden; }
+.slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
+.slide.active { opacity:1; }
 
-.hero p {
-  max-width: 600px;
-  line-height: 1.6;
+.hero-text {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  text-align:center; color:white; z-index:2; max-width:60%;
 }
+.hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; }
+.hero-text p { font-size:1.3em; }
+.hero-text .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; }
 
-/* CARRUSEL */
-.carousel {
-  margin: 40px;
-  height: 300px;
-  background: #eee;
-  border-radius: 20px;
-}
-
-/* SECCIONES */
-.section {
-  padding: 40px;
-  max-width: 900px;
-}
-
-.section h2 {
-  font-size: 24px;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-/* SERVICIOS */
-.service {
-  margin: 30px 0;
-}
-
-.service h3 {
-  margin-bottom: 8px;
-}
-
-/* HORARIOS */
-.horarios {
-  margin-top: 40px;
-  font-size: 22px;
-  font-weight: 600;
-  color: red;
-  text-transform: uppercase;
-}
-
-/* BOTÓN */
-.button {
-  display: inline-block;
-  margin: 50px 40px;
-  padding: 14px 26px;
-  background: #25d366;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.whatsapp-float img {
-  width: 34px;
-}
-
-/* DECORACIÓN */
-.decor {
-  text-align: center;
-  margin: 60px 0;
-}
-
-.decor svg {
-  width: 130px;
-}
+/* Decoración */
+.decor { text-align:center; margin:70px 0; }
+.decor svg { width:140px; }
 
 .decor-paws {
-  text-align: center;
-  font-size: 24px;
-  opacity: 0.5;
-  margin: 40px 0;
+  text-align:center;
+  font-size:26px;
+  opacity:0.4;
+  margin:50px 0;
+}
+
+/* Presentación */
+.presentacion {
+  font-family:'Merriweather', serif;
+  font-size:1.4em; color:#444; text-align:center;
+  margin:50px 0; line-height:1.8;
+}
+
+/* Servicios */
+section { padding:80px 20px; max-width:1000px; margin:auto; }
+.services {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px; margin-top:40px;
+}
+.service-box {
+  padding:25px; border-radius:15px;
+  background:#f9f9f9;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+  text-align:center;
+}
+.service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; }
+.precio-fijo { font-weight:bold; text-decoration:underline; }
+.horarios {
+  color:red; font-size:2.6em; font-weight:bold;
+  text-transform:uppercase;
+}
+
+#servicios h2 {
+  text-align:center; font-family:'Playfair Display', serif;
+  font-size:2.5em; margin-bottom:50px;
+  text-decoration:underline;
+}
+
+.highlight {
+  text-align:center;
+  font-size:1.5em;
+  font-weight:bold;
+  margin:60px 0;
+}
+
+/* Footer */
+footer { background:#222; color:white; text-align:center; padding:60px 20px; }
+footer .ubicacion { font-size:1.2em; font-weight:bold; }
+footer .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; display:inline-block; }
+
+/* WhatsApp */
+.whatsapp-container {
+  position:fixed; bottom:20px; right:20px; z-index:1000;
+  display:flex; flex-direction:column; align-items:flex-end; gap:10px;
+}
+.whatsapp-container a.btn-consulta {
+  background:#128C7E; color:white;
+  padding:8px 16px; border-radius:20px;
+  font-weight:bold; font-size:0.9em;
+}
+.whatsapp-container img { width:60px; }
+
+@media(max-width:768px){
+  .hero-text h1{font-size:2em;}
+  .hero-text p{font-size:1.1em;}
+  .logo-container::before { width:300px; height:80px; }
 }
 </style>
 </head>
@@ -132,77 +123,104 @@ header {
 <body>
 
 <header>
-  <div class="logo-box">
-    <h1>DOG COMPANY</h1>
+  <div class="logo-container">
+    <div class="logo">Dog Company</div>
   </div>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
-<section class="hero">
-  <p>
-    Residencia canina privada en entorno familiar.  
-    Cuidado personalizado y atención consciente.
-    <br><strong>📍 Alicante centro</strong>
-  </p>
-</section>
+<div class="hero-slider">
+  <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8');"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1583337130417-91ee189f1b9e');"></div>
+  <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1558788353-f76d92427f16');"></div>
 
-<!-- DECORACIÓN -->
+  <div class="hero-text">
+    <h1>Dog Company</h1>
+    <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
+  </div>
+</div>
+
+<script>
+let slides=document.querySelectorAll('.slide');
+let current=0;
+setInterval(()=>{
+  slides[current].classList.remove('active');
+  current=(current+1)%slides.length;
+  slides[current].classList.add('active');
+},5000);
+</script>
+
+<!-- Decoración -->
 <div class="decor">
   <svg viewBox="0 0 200 40">
     <path d="M10 20 Q50 0 90 20 T170 20"
-      fill="none"
-      stroke="#f2c94c"
-      stroke-width="4"
-      stroke-linecap="round"/>
+          fill="none" stroke="#F5C223"
+          stroke-width="4" stroke-linecap="round"/>
   </svg>
 </div>
 
-<div class="carousel"></div>
+<section>
+  <p class="presentacion">
+    Somos una residencia canina de ambiente familiar donde los perros conviven en calma, con atención individual y respeto por sus ritmos.
+  </p>
+  <p class="presentacion">
+    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
+  </p>
+</section>
 
-<!-- HUELLAS -->
-<div class="decor-paws">
-  🐾 🐾 🐾
-</div>
+<div class="decor-paws">🐾 🐾 🐾</div>
 
-<section class="section">
+<section id="servicios">
   <h2>NUESTROS SERVICIOS</h2>
 
-  <div class="service">
-    <h3>Alojamiento noche</h3>
-    <p>Perro adulto: <strong>24€</strong></p>
-    <p>Cachorros o cuidados especiales: <strong>26€</strong></p>
-  </div>
+  <div class="services">
+    <div class="service-box">
+      <h3>Alojamiento Noche</h3>
+      <p>Perro adulto: <strong>24€ / noche</strong></p>
+      <p>Cachorros y cuidados especiales: <strong>26€ / noche</strong></p>
+    </div>
 
-  <div class="service">
-    <h3>Guardería de día</h3>
-    <p><strong><u>Precio fijo hasta un máximo de 6 horas</u></strong></p>
-    <p>Perro adulto: <strong>22€</strong></p>
-    <p>Cachorros o cuidados especiales: <strong>24€</strong></p>
-  </div>
+    <div class="service-box">
+      <h3>Guardería de Día</h3>
+      <p>Perro adulto: <strong>22€</strong></p>
+      <p>Cachorros y cuidados especiales: <strong>24€</strong></p>
+      <p class="precio-fijo">Precio fijo hasta un máximo de 6 horas</p>
+    </div>
 
-  <!-- PERRO LINEAL -->
-  <div class="decor">
-    <svg viewBox="0 0 120 80">
-      <path d="M10 50 Q40 10 70 30 T110 40"
-        fill="none"
-        stroke="#000"
-        stroke-width="3"
-        stroke-linecap="round"/>
-    </svg>
-  </div>
-
-  <div class="horarios">
-    HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE<br>
-    10:00H A 20:00H · LUNES A DOMINGO
+    <div class="service-box">
+      <p class="horarios">HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE<br>10:00H A 20:00H · LUNES A DOMINGO</p>
+    </div>
   </div>
 </section>
 
-<a class="button" href="https://wa.me/34XXXXXXXXX" target="_blank">
-Más información por WhatsApp
-</a>
+<!-- Trazo final -->
+<div class="decor">
+  <svg viewBox="0 0 120 60">
+    <path d="M10 40 Q40 10 70 30 T110 35"
+          fill="none" stroke="#000"
+          stroke-width="3" stroke-linecap="round"/>
+  </svg>
+</div>
 
-<a class="whatsapp-float" href="https://wa.me/34XXXXXXXXX" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
+<section class="highlight">
+  Tu perro no es un número.<br>Es uno más en casa.
+</section>
+
+<footer id="contacto">
+  <p class="ubicacion">Ubicación: Alicante Centro</p>
+  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Más información por WhatsApp</a>
+</footer>
+
+<div class="whatsapp-container">
+  <a class="btn-consulta" href="https://wa.me/34TUNUMERO" target="_blank">Consulta disponibilidad</a>
+  <a href="https://wa.me/34TUNUMERO" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  </a>
+</div>
 
 </body>
 </html>
