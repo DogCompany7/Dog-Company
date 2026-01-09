@@ -81,7 +81,7 @@
   .service-box h3 { font-family: 'Playfair Display', serif; font-size: 1.6em; margin-bottom: 15px; }
   .service-box p { font-size: 1.1em; margin-bottom: 10px; }
 
-  /* Horarios destacadas en Guardería */
+  /* Horarios destacados */
   .horarios {
     color:red; font-size:1.3em; font-weight:bold; text-transform:uppercase; margin-top:10px;
   }
@@ -177,22 +177,26 @@
 <section id="servicios">
   <h2>NUESTROS SERVICIOS</h2>
   <div class="services">
+    <!-- Alojamiento noche -->
     <div class="service-box">
-      <h3>Residencia Noche</h3>
+      <h3>Alojamiento Noche</h3>
       <p>Perro adulto: <strong>24€ / noche</strong></p>
       <p>Cachorros 1-12 meses y perritos con cuidados especiales: <strong>26€ / noche</strong></p>
     </div>
+
+    <!-- Guardería de día -->
     <div class="service-box">
-      <h3>Residencia Diurna (máx. 6 horas)</h3>
+      <h3>Guardería de Día</h3>
       <p>Perro adulto: <strong>22€</strong></p>
       <p>Cachorros 1-12 meses y perritos con cuidados especiales: <strong>24€</strong></p>
     </div>
+
+    <!-- Horarios -->
     <div class="service-box">
-      <h3>Guardería de Día</h3>
-      <p>Atención personalizada y cuidados durante el día para tu perro.</p>
       <p class="horarios">HORARIOS DE APERTURA: 10:00H A 20:00H, LUNES A DOMINGO</p>
     </div>
   </div>
+
   <div style="text-align:center; margin-top:40px;">
     <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
   </div>
