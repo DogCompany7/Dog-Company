@@ -10,52 +10,52 @@
 
 <style>
   body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
-
   a { text-decoration:none; }
 
   /* Header fijo */
   header {
     position: fixed; top:0; width:100%; z-index:999; display:flex;
     justify-content:space-between; align-items:center; padding:15px 40px;
+    background: rgba(255,255,255,0.95);
   }
 
-  nav a { margin-left:25px; color:white; font-weight:600; transition: color 0.3s; }
+  nav a { margin-left:25px; color:#333; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
+
+  /* Logo con franja amarilla extendida */
+  .logo-container {
+    position: relative;
+    display:inline-block;
+  }
+
+  .logo-container::before {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100vw; /* Se extiende hasta el final de la ventana */
+    height:50px; /* Altura de la franja */
+    background-color:#F5C223; /* amarillo mostaza */
+    z-index:-1;
+  }
+
+  .logo {
+    font-family:'Playfair Display', serif;
+    font-size:2em;
+    font-weight:bold;
+    color:black;
+    padding:10px 20px;
+  }
 
   /* Hero / Carrusel */
   .hero-slider { position:relative; height:100vh; overflow:hidden; }
-
   .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
   .slide.active { opacity:1; }
 
-  /* Franja amarilla grande */
-  .hero-yellow {
-    position:absolute;
-    top:0; left:0;
-    width:50%; /* cubre mitad izquierda, puedes ajustar al gusto */
-    height:100%;
-    background-color:#F5C223; /* amarillo mostaza */
-    z-index:1;
-  }
-
-  /* Logo negro encima de la franja */
-  .logo {
-    position:absolute;
-    top:20px;
-    left:40px;
-    font-family:'Playfair Display', serif;
-    font-size:2.2em;
-    font-weight:bold;
-    color:black;
-    z-index:2;
-  }
-
-  /* Texto hero flotante */
   .hero-text {
-    position:absolute; top:50%; left:55%;
+    position:absolute; top:50%; left:50%;
     transform:translate(-50%,-50%);
-    text-align:left; color:white; z-index:2;
-    max-width:40%;
+    text-align:center; color:white; z-index:2;
+    max-width:60%;
   }
   .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
   .hero-text p { font-size:1.3em; margin-bottom:20px; text-shadow:1px 1px 5px rgba(0,0,0,0.6);}
@@ -83,20 +83,33 @@
   footer .ubicacion { font-size:1.2em; margin-bottom:10px; font-weight:bold; }
   footer .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; text-decoration:none; margin-top:15px; display:inline-block; }
 
-  .whatsapp-icon { position:fixed; bottom:20px; right:20px; z-index:1000; }
-  .whatsapp-icon img { width:60px; display:block; }
+  /* WhatsApp flotante y botón consulta */
+  .whatsapp-container { position:fixed; bottom:20px; right:20px; z-index:1000; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
+  .whatsapp-container a.btn-consulta { background:#128C7E; color:white; padding:10px 20px; border-radius:20px; font-weight:bold; }
+  .whatsapp-container img { width:60px; }
 
   @media(max-width:768px){
     .hero-text { left:50%; max-width:80%; text-align:center; }
     .hero-text h1{font-size:2em;}
     .hero-text p{font-size:1.1em;}
     .services{grid-template-columns:1fr;}
-    .logo { font-size:1.8em; top:15px; left:20px; }
+    .logo { font-size:1.8em; }
   }
 </style>
 </head>
 
 <body>
+
+<!-- Header -->
+<header>
+  <div class="logo-container">
+    <div class="logo">Dog Company</div>
+  </div>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
 
 <!-- Hero / Carrusel -->
 <div class="hero-slider">
@@ -104,13 +117,6 @@
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1583337130417-91ee189f1b9e');"></div>
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1558788353-f76d92427f16');"></div>
 
-  <!-- Franja amarilla grande -->
-  <div class="hero-yellow"></div>
-
-  <!-- Logo encima -->
-  <div class="logo">Dog Company</div>
-
-  <!-- Texto hero -->
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
@@ -119,6 +125,7 @@
 </div>
 
 <script>
+  // Carrusel automático
   let slides=document.querySelectorAll('.slide');
   let current=0;
   setInterval(()=>{
@@ -159,10 +166,6 @@
       <p class="horarios">HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE: 10:00H A 20:00H, LUNES A DOMINGO</p>
     </div>
   </div>
-
-  <div style="text-align:center; margin-top:40px;">
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
-  </div>
 </section>
 
 <!-- Destacado -->
@@ -179,10 +182,13 @@
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Más información por WhatsApp</a>
 </footer>
 
-<!-- WhatsApp flotante -->
-<a class="whatsapp-icon" href="https://wa.me/34TUNUMERO" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-</a>
+<!-- WhatsApp flotante y consulta -->
+<div class="whatsapp-container">
+  <a class="btn-consulta" href="https://wa.me/34TUNUMERO" target="_blank">Consulta disponibilidad</a>
+  <a href="https://wa.me/34TUNUMERO" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+</div>
 
 </body>
 </html>
