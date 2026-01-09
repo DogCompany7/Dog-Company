@@ -8,7 +8,6 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- Estilos Premium -->
 <style>
   body {
     margin: 0;
@@ -16,7 +15,6 @@
     color: #333;
     line-height: 1.6;
   }
-
   a { text-decoration: none; }
 
   /* Menú superior */
@@ -31,7 +29,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
   }
   header.scrolled { background: #25D366; color: white; }
   header h1 {
@@ -82,6 +80,11 @@
   .service-box:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
   .service-box h3 { font-family: 'Playfair Display', serif; font-size: 1.6em; margin-bottom: 15px; }
   .service-box p { font-size: 1.1em; margin-bottom: 10px; }
+
+  /* Horarios destacadas en Guardería */
+  .horarios {
+    color:red; font-size:1.3em; font-weight:bold; text-transform:uppercase; margin-top:10px;
+  }
 
   #servicios h2 {
     text-align: center; font-family: 'Playfair Display', serif;
@@ -187,7 +190,7 @@
     <div class="service-box">
       <h3>Guardería de Día</h3>
       <p>Atención personalizada y cuidados durante el día para tu perro.</p>
-      <p><strong>HORARIOS DE APERTURA:</strong> 10:00H A 20:00H, LUNES A DOMINGO</p>
+      <p class="horarios">HORARIOS DE APERTURA: 10:00H A 20:00H, LUNES A DOMINGO</p>
     </div>
   </div>
   <div style="text-align:center; margin-top:40px;">
