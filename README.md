@@ -16,7 +16,6 @@
       color: #333;
       line-height: 1.6;
     }
-
     a {
       text-decoration: none;
     }
@@ -27,7 +26,6 @@
       height: 100vh;
       overflow: hidden;
     }
-
     .slide {
       position: absolute;
       width: 100%;
@@ -37,11 +35,9 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-
     .slide.active {
       opacity: 1;
     }
-
     .hero-text {
       position: absolute;
       top: 50%;
@@ -50,18 +46,15 @@
       text-align: center;
       color: white;
     }
-
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3em;
       margin-bottom: 10px;
     }
-
     .hero-text p {
       font-size: 1.3em;
       margin-bottom: 20px;
     }
-
     .hero-text .btn {
       background: #25D366;
       color: white;
@@ -77,17 +70,49 @@
       margin: auto;
     }
 
+    /* Servicios */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      margin-top: 40px;
+    }
+    .service-box {
+      padding: 25px;
+      border-radius: 12px;
+      background: #f5f5f5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
     }
-
-    .service-box {
-      padding: 20px;
-      border-radius: 10px;
-      background: #f5f5f5;
+    .service-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .service-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+    .service-box p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    #servicios h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      margin-bottom: 40px;
+      color: #333;
+    }
+    #servicios .btn {
+      background: #25D366;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
     }
 
     .highlight {
@@ -103,7 +128,6 @@
       text-align: center;
       padding: 40px 20px;
     }
-
     footer .btn {
       background: #25D366;
       color: white;
@@ -119,7 +143,6 @@
       right: 20px;
       z-index: 1000;
     }
-
     .whatsapp-icon img {
       width: 60px;
       display: block;
@@ -132,6 +155,9 @@
       }
       .hero-text p {
         font-size: 1.1em;
+      }
+      .services {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -175,18 +201,28 @@
 </section>
 
 <!-- Servicios -->
-<section class="services">
-  <div class="service-box">
-    <h3>Alojamiento familiar</h3>
-    <p>Convivencia en entorno seguro y tranquilo.</p>
+<section id="servicios">
+  <h2>NUESTROS SERVICIOS</h2>
+  <div class="services">
+    <div class="service-box">
+      <h3>Residencia Noche</h3>
+      <p>Perro adulto: <strong>24€ / noche</strong></p>
+      <p>Cachorros 1-12 meses y perritos con cuidados especiales: <strong>26€ / noche</strong></p>
+    </div>
+    <div class="service-box">
+      <h3>Residencia Diurna (máx. 6 horas)</h3>
+      <p>Perro adulto: <strong>22€</strong></p>
+      <p>Cachorros 1-12 meses y perritos con cuidados especiales: <strong>24€</strong></p>
+    </div>
+    <div class="service-box">
+      <h3>Guardería de Día</h3>
+      <p>Atención personalizada y cuidados durante el día para tu perro.</p>
+      <p><strong>HORARIOS DE APERTURA:</strong> 10:00H A 20:00H, LUNES A DOMINGO</p>
+    </div>
   </div>
-  <div class="service-box">
-    <h3>Atención personalizada</h3>
-    <p>Adaptada a cada perro y su carácter.</p>
-  </div>
-  <div class="service-box">
-    <h3>Contacto directo</h3>
-    <p>Comunicación constante por WhatsApp.</p>
+
+  <div style="text-align:center; margin-top:40px;">
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
   </div>
 </section>
 
