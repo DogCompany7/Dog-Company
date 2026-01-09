@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dog Company – Residencia Canina</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #222;
     background: #fff;
 }
@@ -19,20 +19,20 @@ body {
 header {
     display: flex;
     align-items: center;
-    padding: 20px 40px;
-    position: relative;
+    padding: 25px 40px;
 }
 
 .header-accent {
     background: #f2c94c;
-    padding: 18px 40px 18px 30px;
-    border-radius: 0 40px 40px 0;
+    padding: 22px 50px 22px 35px;
+    border-radius: 0 50px 50px 0;
 }
 
 header h1 {
     margin: 0;
+    font-family: 'Playfair Display', serif;
     color: #000;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 600;
 }
 
@@ -42,9 +42,9 @@ header h1 {
 }
 
 .hero p {
-    max-width: 600px;
-    font-size: 17px;
-    line-height: 1.6;
+    max-width: 650px;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
 /* CARRUSEL */
@@ -52,63 +52,80 @@ header h1 {
     margin: 40px;
     height: 320px;
     background: #eee;
-    border-radius: 18px;
+    border-radius: 20px;
 }
 
-/* SEPARADOR ORGÁNICO */
+/* SEPARADOR */
 .separator {
     margin: 80px 0;
     text-align: center;
 }
 
 .separator svg {
-    width: 120px;
+    width: 140px;
 }
 
-/* SERVICIOS */
+/* SECCIONES */
 .section {
     padding: 40px;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .section h2 {
-    font-size: 26px;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
     font-weight: 600;
     text-decoration: underline;
+    margin-bottom: 40px;
 }
 
+/* TARJETAS */
 .service {
-    margin: 30px 0;
+    background: #fafafa;
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 30px;
 }
 
 .service h3 {
-    margin-bottom: 10px;
-    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .service p {
-    margin: 6px 0;
+    margin: 8px 0;
+    font-size: 17px;
 }
 
 /* HORARIOS */
-.horarios {
-    margin-top: 40px;
-    font-size: 22px;
-    font-weight: 600;
+.horarios-box {
+    background: #fff3f3;
+    border-radius: 18px;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.horarios-box p {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
     color: red;
     text-transform: uppercase;
+    line-height: 1.5;
 }
 
 /* BOTÓN */
 .button {
     display: inline-block;
-    margin: 50px 40px;
-    padding: 14px 28px;
+    margin: 60px 40px;
+    padding: 15px 32px;
     background: #25d366;
     color: white;
     text-decoration: none;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 16px;
 }
 
 /* WHATSAPP FLOAT */
@@ -171,9 +188,11 @@ header h1 {
         <p>Cachorros o cuidados especiales: <strong>24€</strong></p>
     </div>
 
-    <div class="horarios">
-        HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE<br>
-        10:00H A 20:00H · LUNES A DOMINGO
+    <div class="horarios-box">
+        <p>
+            HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE<br>
+            10:00H A 20:00H · LUNES A DOMINGO
+        </p>
     </div>
 </section>
 
