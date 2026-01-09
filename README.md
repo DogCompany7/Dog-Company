@@ -22,7 +22,7 @@
   nav a { margin-left:25px; color:#333; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
-  /* Logo con cenefa amarilla más ancha */
+  /* Logo con banner amarillo alineado a la izquierda */
   .logo-container {
     position: relative;
     display:inline-block;
@@ -32,10 +32,11 @@
     content:"";
     position:absolute;
     top:0; left:0;
-    width:100vw; /* se extiende hasta el final de la ventana */
-    height:90px; /* más ancho que antes */
+    width:400px; /* más ancho que antes, solo hasta cierto punto del carrusel */
+    height:100px; /* altura del banner */
     background-color:#F5C223; /* amarillo mostaza */
     z-index:-1;
+    border-bottom-right-radius:25px; /* borde suavizado */
   }
 
   .logo {
@@ -43,7 +44,7 @@
     font-size:2em;
     font-weight:bold;
     color:black;
-    padding:20px 20px;
+    padding:25px 20px;
   }
 
   /* Hero / Carrusel */
@@ -101,6 +102,7 @@
     .hero-text p{font-size:1.1em;}
     .services{grid-template-columns:1fr;}
     .logo { font-size:1.8em; }
+    .logo-container::before { width:250px; height:80px; }
   }
 </style>
 </head>
