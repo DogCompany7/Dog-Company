@@ -20,7 +20,18 @@
     transition: background 0.3s ease, color 0.3s ease;
   }
   header.scrolled { background: rgba(255,255,255,0.95); }
-  header h1 { font-family:'Playfair Display', serif; font-size:1.8em; margin:0; color:black; }
+
+  /* Cenefa amarilla y nombre negro */
+  .logo {
+    background-color:#F5C223; /* Amarillo mostaza */
+    padding:5px 15px;
+    border-radius:5px;
+    font-family:'Playfair Display', serif;
+    font-size:1.8em;
+    font-weight:bold;
+    color:black;
+  }
+
   nav a { margin-left:25px; color:inherit; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
@@ -78,6 +89,7 @@
     header{padding:10px 20px;}
     nav a{margin-left:15px;}
     .presentacion { font-size:1.2em; }
+    .logo { font-size:1.5em; padding:5px 10px;}
   }
 </style>
 </head>
@@ -86,7 +98,7 @@
 
 <!-- Menú -->
 <header id="header">
-  <h1>Dog Company</h1>
+  <div class="logo">Dog Company</div>
   <nav>
     <a href="#servicios">Servicios</a>
     <a href="#contacto">Contacto</a>
