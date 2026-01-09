@@ -83,7 +83,7 @@
 
   /* Horarios destacados */
   .horarios {
-    color:red; font-size:1.3em; font-weight:bold; text-transform:uppercase; margin-top:10px;
+    color:red; font-size:1.6em; font-weight:bold; text-transform:uppercase; margin-top:10px;
   }
 
   #servicios h2 {
@@ -189,11 +189,14 @@
       <h3>Guardería de Día</h3>
       <p>Perro adulto: <strong>22€</strong></p>
       <p>Cachorros 1-12 meses y perritos con cuidados especiales: <strong>24€</strong></p>
+      <p>Precio fijo hasta un máximo de 6 horas</p>
     </div>
 
     <!-- Horarios -->
     <div class="service-box">
-      <p class="horarios">HORARIOS DE APERTURA: 10:00H A 20:00H, LUNES A DOMINGO</p>
+      <p class="horarios">
+        HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE: 10:00H A 20:00H, LUNES A DOMINGO
+      </p>
     </div>
   </div>
 
