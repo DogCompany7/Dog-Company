@@ -26,17 +26,18 @@
   .logo-container {
     position: relative;
     display:inline-block;
+    margin-left: -40px; /* desplazamos hacia la izquierda */
   }
 
   .logo-container::before {
     content:"";
     position:absolute;
     top:0; left:0;
-    width:400px; /* más ancho que antes, solo hasta cierto punto del carrusel */
-    height:100px; /* altura del banner */
+    width:420px; /* un poco más ancho */
+    height:100px;
     background-color:#F5C223; /* amarillo mostaza */
     z-index:-1;
-    border-bottom-right-radius:25px; /* borde suavizado */
+    border-bottom-right-radius:25px;
   }
 
   .logo {
@@ -102,7 +103,8 @@
     .hero-text p{font-size:1.1em;}
     .services{grid-template-columns:1fr;}
     .logo { font-size:1.8em; }
-    .logo-container::before { width:250px; height:80px; }
+    .logo-container::before { width:300px; height:80px; }
+    .logo-container { margin-left:-20px; }
   }
 </style>
 </head>
