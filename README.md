@@ -23,13 +23,22 @@
 
   /* Cenefa amarilla y nombre negro */
   .logo {
-    background-color:#F5C223; /* Amarillo mostaza */
-    padding:5px 15px;
-    border-radius:5px;
+    position:relative;
     font-family:'Playfair Display', serif;
     font-size:1.8em;
     font-weight:bold;
     color:black;
+    padding:5px 15px;
+    border-radius:5px;
+  }
+  .logo::before {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background-color:#F5C223; /* Amarillo mostaza */
+    z-index:-1;
+    border-radius:5px;
   }
 
   nav a { margin-left:25px; color:inherit; font-weight:600; transition: color 0.3s; }
@@ -62,7 +71,7 @@
   .service-box:hover { transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; margin-bottom:15px; }
   .service-box p { font-size:1.1em; margin-bottom:10px; }
-  .horarios { color:red; font-size:2.2em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
+  .horarios { color:red; font-size:2.4em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
 
   #servicios h2 { text-align:center; font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:50px; color:#333; }
   #servicios .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; font-size:1.1em; text-decoration:none; }
@@ -72,6 +81,7 @@
 
   /* Footer */
   footer { background:#222; color:white; text-align:center; padding:60px 20px; }
+  footer .ubicacion { font-size:1.2em; margin-bottom:10px; font-weight:bold; }
   footer .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; text-decoration:none; margin-top:15px; display:inline-block; }
   footer p { margin:10px 0; font-size:1.1em; }
 
@@ -177,10 +187,11 @@
 
 <!-- Footer -->
 <footer id="contacto">
+  <p class="ubicacion">Ubicación: Alicante Centro</p>
   <p>Contacto y reservas</p>
   <p>Email: info@dogcompany.com</p>
   <p>Teléfono: +34 TUNUMERO</p>
-  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Escríbeme por WhatsApp</a>
+  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Más información por WhatsApp</a>
 </footer>
 
 <!-- WhatsApp flotante -->
