@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOG COMPANY>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -132,4 +132,5 @@
 <a class="whatsapp" href="https://wa.me/698562083">WhatsApp</a>
 
 </body>
+
 </html>
