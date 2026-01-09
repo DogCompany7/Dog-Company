@@ -19,7 +19,7 @@
     justify-content:space-between; align-items:center; padding:15px 40px;
     transition: background 0.3s ease, color 0.3s ease;
   }
-  header.scrolled { background: rgba(255,255,255,0.95); color:black; } /* Sin verde, solo blanco translúcido */
+  header.scrolled { background: rgba(255,255,255,0.95); color:black; }
   header h1 { font-family:'Playfair Display', serif; font-size:1.8em; margin:0; color:black; }
   nav a { margin-left:25px; color:inherit; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
@@ -46,7 +46,7 @@
   .service-box:hover { transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; margin-bottom:15px; }
   .service-box p { font-size:1.1em; margin-bottom:10px; }
-  .horarios { color:red; font-size:1.6em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
+  .horarios { color:red; font-size:2em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
 
   #servicios h2 { text-align:center; font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:50px; color:#333; }
   #servicios .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; font-size:1.1em; text-decoration:none; }
@@ -62,6 +62,9 @@
   /* WhatsApp flotante */
   .whatsapp-icon { position:fixed; bottom:20px; right:20px; z-index:1000; }
   .whatsapp-icon img { width:60px; display:block; }
+
+  /* Texto especial para precio fijo */
+  .precio-fijo { font-weight:bold; text-decoration:underline; }
 
   @media(max-width:768px){
     .hero-text h1{font-size:2em;}
@@ -107,7 +110,7 @@
     slides[current].classList.add('active');
   },5000);
 
-  // Cambiar color header al scroll (queda blanco/transparente)
+  // Cambiar color header al scroll
   const header=document.getElementById('header');
   window.addEventListener('scroll',()=>{ window.scrollY>50 ? header.classList.add('scrolled') : header.classList.remove('scrolled'); });
 </script>
@@ -132,7 +135,7 @@
       <h3>Guardería de Día</h3>
       <p>Perro adulto: <strong>22€</strong></p>
       <p>Cachorros 1-12 meses y perritos con cuidados especiales: <strong>24€</strong></p>
-      <p>Precio fijo hasta un máximo de 6 horas</p>
+      <p class="precio-fijo">Precio fijo hasta un máximo de 6 horas</p>
     </div>
 
     <div class="service-box">
