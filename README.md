@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
   body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
@@ -38,6 +38,9 @@
   .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
   .hero-text p { font-size:1.3em; margin-bottom:20px; text-shadow:1px 1px 5px rgba(0,0,0,0.6);}
   .hero-text .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; }
+
+  /* Presentación con nueva fuente */
+  .presentacion { font-family:'Merriweather', serif; font-size:1.4em; color:#444; text-align:center; margin:50px 0; line-height:1.8; }
 
   /* Secciones */
   section { padding:80px 20px; max-width:1000px; margin:auto; }
@@ -74,6 +77,7 @@
     .services{grid-template-columns:1fr;}
     header{padding:10px 20px;}
     nav a{margin-left:15px;}
+    .presentacion { font-size:1.2em; }
   }
 </style>
 </head>
@@ -119,8 +123,12 @@
 
 <!-- Presentación -->
 <section>
-  <p>Somos una residencia canina de ambiente familiar donde los perros conviven en calma, con atención individual y respeto por sus ritmos.</p>
-  <p>Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.</p>
+  <p class="presentacion">
+    Somos una residencia canina de ambiente familiar donde los perros conviven en calma, con atención individual y respeto por sus ritmos.
+  </p>
+  <p class="presentacion">
+    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
+  </p>
 </section>
 
 <!-- Servicios -->
