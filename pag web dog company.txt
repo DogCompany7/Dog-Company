@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Residencia Canina Familiar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: url("https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8") center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #25D366;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .service-box {
+      padding: 20px;
+      border-radius: 10px;
+      background: #f5f5f5;
+    }
+
+    .highlight {
+      text-align: center;
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    /* Botón WhatsApp flotante */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Residencia canina familiar</h1>
+  <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
+  <a class="btn" href="https://wa.me/34TUNUMERO">Reservar por WhatsApp</a>
+</header>
+
+<section>
+  <p>
+    Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
+    con atención individual y respeto por sus ritmos.
+  </p>
+  <p>
+    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
+  </p>
+</section>
+
+<section class="services">
+  <div class="service-box">
+    <h3>Alojamiento familiar</h3>
+    <p>Convivencia en entorno seguro y tranquilo.</p>
+  </div>
+  <div class="service-box">
+    <h3>Atención personalizada</h3>
+    <p>Adaptada a cada perro y su carácter.</p>
+  </div>
+  <div class="service-box">
+    <h3>Contacto directo</h3>
+    <p>Comunicación constante por WhatsApp.</p>
+  </div>
+</section>
+
+<section class="highlight">
+  Tu perro no es un número. <br>
+  Es uno más en casa.
+</section>
+
+<footer>
+  <p>Para reservas y consultas</p>
+  <a class="btn" href="https://wa.me/698562083">Escríbeme por WhatsApp</a>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/698562083">WhatsApp</a>
+
+</body>
+</html>
