@@ -22,7 +22,7 @@
   nav a { margin-left:25px; color:#333; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
-  /* Logo con franja amarilla extendida */
+  /* Logo con cenefa amarilla más alta */
   .logo-container {
     position: relative;
     display:inline-block;
@@ -33,7 +33,7 @@
     position:absolute;
     top:0; left:0;
     width:100vw; /* Se extiende hasta el final de la ventana */
-    height:50px; /* Altura de la franja */
+    height:70px; /* Más alta que antes */
     background-color:#F5C223; /* amarillo mostaza */
     z-index:-1;
   }
@@ -43,7 +43,7 @@
     font-size:2em;
     font-weight:bold;
     color:black;
-    padding:10px 20px;
+    padding:15px 20px;
   }
 
   /* Hero / Carrusel */
@@ -72,9 +72,17 @@
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; margin-bottom:15px; }
   .service-box p { font-size:1.1em; margin-bottom:10px; }
   .precio-fijo { font-weight:bold; text-decoration:underline; }
-  .horarios { color:red; font-size:2.4em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
+  .horarios { color:red; font-size:2.6em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
 
-  #servicios h2 { text-align:center; font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:50px; color:#333; }
+  #servicios h2 { 
+    text-align:center; 
+    font-family:'Playfair Display', serif; 
+    font-size:2.5em; 
+    margin-bottom:50px; 
+    color:#333; 
+    font-weight:bold; 
+    text-decoration:underline;
+  }
   #servicios .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; font-size:1.1em; text-decoration:none; }
 
   .highlight { text-align:center; font-size:1.5em; font-weight:bold; margin:50px 0; }
