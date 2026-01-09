@@ -14,13 +14,13 @@
 
   /* Menú superior */
   header {
-    position: fixed; top:0; width:100%; background: rgba(255,255,255,0.8);
+    position: fixed; top:0; width:100%; background: rgba(255,255,255,0.9);
     backdrop-filter: blur(10px); z-index:999; display:flex;
     justify-content:space-between; align-items:center; padding:15px 40px;
     transition: background 0.3s ease, color 0.3s ease;
   }
-  header.scrolled { background:#25D366; color:white; }
-  header h1 { font-family:'Playfair Display', serif; font-size:1.8em; margin:0; }
+  header.scrolled { background: rgba(255,255,255,0.95); color:black; } /* Sin verde, solo blanco translúcido */
+  header h1 { font-family:'Playfair Display', serif; font-size:1.8em; margin:0; color:black; }
   nav a { margin-left:25px; color:inherit; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
@@ -29,12 +29,12 @@
   .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
   .slide.active { opacity:1; }
   .hero-text {
-    position:absolute; bottom:0; width:100%; padding:40px 20px;
-    background-color:#D4A017; /* amarillo mostaza */
-    text-align:center; color:black;
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center; color:white;
   }
-  .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin:0 0 10px 0; color:black; }
-  .hero-text p { font-size:1.3em; margin-bottom:20px; color:black; }
+  .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; }
+  .hero-text p { font-size:1.3em; margin-bottom:20px; }
   .hero-text .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; }
 
   /* Secciones */
@@ -107,7 +107,7 @@
     slides[current].classList.add('active');
   },5000);
 
-  // Cambiar color header al scroll
+  // Cambiar color header al scroll (queda blanco/transparente)
   const header=document.getElementById('header');
   window.addEventListener('scroll',()=>{ window.scrollY>50 ? header.classList.add('scrolled') : header.classList.remove('scrolled'); });
 </script>
