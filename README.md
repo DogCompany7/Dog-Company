@@ -1,44 +1,76 @@
-<Dog Company>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Residencia Canina Familiar</title>
+  <title>Dog Company - Residencia Canina</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
+    /* Estilos generales */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       color: #333;
       line-height: 1.6;
     }
 
-    header {
-      background: url("https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8") center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 120px 20px;
+    a {
+      text-decoration: none;
     }
 
-    header h1 {
-      font-size: 2.5em;
+    /* Hero / Carrusel */
+    .hero-slider {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
       margin-bottom: 10px;
     }
 
-    header p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+    .hero-text p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
     }
 
-    .btn {
+    .hero-text .btn {
       background: #25D366;
       color: white;
       padding: 15px 30px;
-      text-decoration: none;
       border-radius: 30px;
       font-weight: bold;
     }
 
+    /* Secciones */
     section {
       padding: 60px 20px;
       max-width: 900px;
@@ -62,6 +94,7 @@
       text-align: center;
       font-size: 1.4em;
       font-weight: bold;
+      margin: 40px 0;
     }
 
     footer {
@@ -71,29 +104,66 @@
       padding: 40px 20px;
     }
 
-    /* Botón WhatsApp flotante */
-    .whatsapp {
+    footer .btn {
+      background: #25D366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    /* Botón WhatsApp minimalista */
+    .whatsapp-icon {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
+      z-index: 1000;
+    }
+
+    .whatsapp-icon img {
+      width: 60px;
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 2em;
+      }
+      .hero-text p {
+        font-size: 1.1em;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Residencia canina familiar</h1>
-  <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-  <a class="btn" href="https://wa.me/34TUNUMERO">Reservar por WhatsApp</a>
-</header>
+<!-- Hero / Carrusel -->
+<div class="hero-slider">
+  <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8');"></div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1583337130417-91ee189f1b9e');"></div>
+  <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558788353-f76d92427f16');"></div>
 
+  <div class="hero-text">
+    <h1>Dog Company</h1>
+    <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
+  </div>
+</div>
+
+<script>
+  // Carrusel automático
+  let slides = document.querySelectorAll('.slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+</script>
+
+<!-- Presentación -->
 <section>
   <p>
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
@@ -104,6 +174,7 @@
   </p>
 </section>
 
+<!-- Servicios -->
 <section class="services">
   <div class="service-box">
     <h3>Alojamiento familiar</h3>
@@ -119,17 +190,22 @@
   </div>
 </section>
 
+<!-- Destacado -->
 <section class="highlight">
   Tu perro no es un número. <br>
   Es uno más en casa.
 </section>
 
+<!-- Footer -->
 <footer>
   <p>Para reservas y consultas</p>
-  <a class="btn" href="https://wa.me/698562083">Escríbeme por WhatsApp</a>
+  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Escríbeme por WhatsApp</a>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/698562083">WhatsApp</a>
+<!-- WhatsApp icon flotante -->
+<a class="whatsapp-icon" href="https://wa.me/34TUNUMERO" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
 </body>
 </html>
