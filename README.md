@@ -22,33 +22,32 @@
   nav a { margin-left:25px; color:#333; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
-  /* Logo */
-  .logo { 
-    font-family:'Playfair Display', serif; 
-    font-size:2em; 
-    font-weight:bold; 
-    color:black; 
-    padding:15px 20px; 
+  /* Logo con cenefa amarilla más ancha */
+  .logo-container {
+    position: relative;
+    display:inline-block;
   }
 
-  /* Hero / Carrusel con cenefa amarilla completa */
-  .hero-slider { 
-    position:relative; 
-    height:100vh; 
-    overflow:hidden; 
-  }
-
-  .hero-slider::before {
+  .logo-container::before {
     content:"";
     position:absolute;
     top:0; left:0;
-    width:100%;
-    height:100%;
+    width:100vw; /* se extiende hasta el final de la ventana */
+    height:90px; /* más ancho que antes */
     background-color:#F5C223; /* amarillo mostaza */
-    z-index:1;
-    opacity:0.95; /* ligeramente transparente para ver el fondo */
+    z-index:-1;
   }
 
+  .logo {
+    font-family:'Playfair Display', serif;
+    font-size:2em;
+    font-weight:bold;
+    color:black;
+    padding:20px 20px;
+  }
+
+  /* Hero / Carrusel */
+  .hero-slider { position:relative; height:100vh; overflow:hidden; }
   .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
   .slide.active { opacity:1; }
 
@@ -84,7 +83,6 @@
     font-weight:bold; 
     text-decoration:underline;
   }
-  #servicios .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; font-size:1.1em; text-decoration:none; }
 
   .highlight { text-align:center; font-size:1.5em; font-weight:bold; margin:50px 0; }
 
@@ -111,8 +109,8 @@
 
 <!-- Header -->
 <header>
-  <div class="logo">
-    Dog Company
+  <div class="logo-container">
+    <div class="logo">Dog Company</div>
   </div>
   <nav>
     <a href="#servicios">Servicios</a>
