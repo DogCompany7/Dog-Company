@@ -10,110 +10,93 @@
 
 <style>
   body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
+
   a { text-decoration:none; }
 
   /* Header fijo */
   header {
-    position: fixed; top:0; width:100%; background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(10px); z-index:999; display:flex;
+    position: fixed; top:0; width:100%; z-index:999; display:flex;
     justify-content:space-between; align-items:center; padding:15px 40px;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  header.scrolled { background: rgba(255,255,255,0.95); }
-
-  /* Cenefa amarilla y nombre negro */
-  .logo {
-    position:relative;
-    font-family:'Playfair Display', serif;
-    font-size:1.8em;
-    font-weight:bold;
-    color:black;
-    padding:5px 15px;
-    border-radius:5px;
-  }
-  .logo::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background-color:#F5C223; /* Amarillo mostaza */
-    z-index:-1;
-    border-radius:5px;
   }
 
-  nav a { margin-left:25px; color:inherit; font-weight:600; transition: color 0.3s; }
+  nav a { margin-left:25px; color:white; font-weight:600; transition: color 0.3s; }
   nav a:hover { color:#128C7E; }
 
   /* Hero / Carrusel */
   .hero-slider { position:relative; height:100vh; overflow:hidden; }
+
   .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
   .slide.active { opacity:1; }
 
+  /* Franja amarilla grande */
+  .hero-yellow {
+    position:absolute;
+    top:0; left:0;
+    width:50%; /* cubre mitad izquierda, puedes ajustar al gusto */
+    height:100%;
+    background-color:#F5C223; /* amarillo mostaza */
+    z-index:1;
+  }
+
+  /* Logo negro encima de la franja */
+  .logo {
+    position:absolute;
+    top:20px;
+    left:40px;
+    font-family:'Playfair Display', serif;
+    font-size:2.2em;
+    font-weight:bold;
+    color:black;
+    z-index:2;
+  }
+
   /* Texto hero flotante */
   .hero-text {
-    position:absolute; top:50%; left:50%;
+    position:absolute; top:50%; left:55%;
     transform:translate(-50%,-50%);
-    text-align:center; color:white;
+    text-align:left; color:white; z-index:2;
+    max-width:40%;
   }
   .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
   .hero-text p { font-size:1.3em; margin-bottom:20px; text-shadow:1px 1px 5px rgba(0,0,0,0.6);}
   .hero-text .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; }
 
-  /* Presentación con nueva fuente */
+  /* Presentación */
   .presentacion { font-family:'Merriweather', serif; font-size:1.4em; color:#444; text-align:center; margin:50px 0; line-height:1.8; }
 
-  /* Secciones */
-  section { padding:80px 20px; max-width:1000px; margin:auto; }
-
   /* Servicios */
+  section { padding:80px 20px; max-width:1000px; margin:auto; }
   .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:40px; }
   .service-box { padding:25px; border-radius:15px; background:#f9f9f9; box-shadow:0 6px 18px rgba(0,0,0,0.12); text-align:center; transition:transform 0.3s, box-shadow 0.3s; }
   .service-box:hover { transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; margin-bottom:15px; }
   .service-box p { font-size:1.1em; margin-bottom:10px; }
+  .precio-fijo { font-weight:bold; text-decoration:underline; }
   .horarios { color:red; font-size:2.4em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
 
   #servicios h2 { text-align:center; font-family:'Playfair Display', serif; font-size:2.5em; margin-bottom:50px; color:#333; }
   #servicios .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; font-size:1.1em; text-decoration:none; }
 
-  /* Destacado */
   .highlight { text-align:center; font-size:1.5em; font-weight:bold; margin:50px 0; }
 
-  /* Footer */
   footer { background:#222; color:white; text-align:center; padding:60px 20px; }
   footer .ubicacion { font-size:1.2em; margin-bottom:10px; font-weight:bold; }
   footer .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; text-decoration:none; margin-top:15px; display:inline-block; }
-  footer p { margin:10px 0; font-size:1.1em; }
 
-  /* WhatsApp flotante */
   .whatsapp-icon { position:fixed; bottom:20px; right:20px; z-index:1000; }
   .whatsapp-icon img { width:60px; display:block; }
 
-  /* Precio fijo negrita y subrayado */
-  .precio-fijo { font-weight:bold; text-decoration:underline; }
-
   @media(max-width:768px){
+    .hero-text { left:50%; max-width:80%; text-align:center; }
     .hero-text h1{font-size:2em;}
     .hero-text p{font-size:1.1em;}
     .services{grid-template-columns:1fr;}
-    header{padding:10px 20px;}
-    nav a{margin-left:15px;}
-    .presentacion { font-size:1.2em; }
-    .logo { font-size:1.5em; padding:5px 10px;}
+    .logo { font-size:1.8em; top:15px; left:20px; }
   }
 </style>
 </head>
 
 <body>
-
-<!-- Menú -->
-<header id="header">
-  <div class="logo">Dog Company</div>
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-</header>
 
 <!-- Hero / Carrusel -->
 <div class="hero-slider">
@@ -121,6 +104,13 @@
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1583337130417-91ee189f1b9e');"></div>
   <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1558788353-f76d92427f16');"></div>
 
+  <!-- Franja amarilla grande -->
+  <div class="hero-yellow"></div>
+
+  <!-- Logo encima -->
+  <div class="logo">Dog Company</div>
+
+  <!-- Texto hero -->
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
@@ -129,7 +119,6 @@
 </div>
 
 <script>
-  // Carrusel automático
   let slides=document.querySelectorAll('.slide');
   let current=0;
   setInterval(()=>{
@@ -137,10 +126,6 @@
     current=(current+1)%slides.length;
     slides[current].classList.add('active');
   },5000);
-
-  // Cambiar color header al scroll
-  const header=document.getElementById('header');
-  window.addEventListener('scroll',()=>{ window.scrollY>50 ? header.classList.add('scrolled') : header.classList.remove('scrolled'); });
 </script>
 
 <!-- Presentación -->
