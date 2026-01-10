@@ -91,7 +91,15 @@
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.4em; margin-bottom:12px; }
   .service-box p { font-size:1em; margin-bottom:8px; }
   .precio-fijo { font-weight:bold; text-decoration:underline; }
-  .horarios { color:red; font-size:1em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
+
+  /* Horarios en amarillo */
+  .horarios { 
+    color:#F5C223; 
+    font-size:1em; 
+    font-weight:bold; 
+    text-transform:uppercase; 
+    margin-top:10px; 
+  }
 
   #servicios h2 { 
     text-align:center; 
@@ -193,7 +201,7 @@
     </div>
 
     <div class="service-box">
-      <p class="horarios">HORARIOS DE APERTURA: 10:00 A 20:00, LUNES A DOMINGO</p>
+      <p class="horarios">De 10:00h a 20:00h, de lunes a domingo</p>
     </div>
   </div>
 </section>
