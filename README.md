@@ -8,6 +8,9 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+<!-- Icono reloj de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p0n0+/VjvJmW9rFXq6Z/30NQXbbN5e6zI9t9rXxH+9jR8VbP+2+8/e6yF5k5Y3k0A3DzO1s4wO7A8rH1GdJzHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
   body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
   a { text-decoration:none; }
@@ -89,13 +92,16 @@
     min-height:230px; /* altura uniforme */
   }
   .service-box:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
-  .service-box h3 { font-family:'Playfair Display', serif; font-size:1.4em; margin-bottom:12px; }
+  .service-box h3 { font-family:'Playfair Display', serif; font-size:1.4em; margin-bottom:12px; display:flex; align-items:center; justify-content:center; gap:8px; }
   .service-box p { font-size:1em; margin-bottom:8px; }
   .precio-fijo { font-weight:bold; text-decoration:underline; }
 
-  /* Horarios en amarillo con descripción completa */
+  /* Horarios con fondo amarillo suave y icono */
+  .service-box.horario-box {
+    background:#FFF3B0; /* amarillo suave */
+  }
   .horarios { 
-    color:#F5C223; 
+    color:#333; 
     font-size:1em; 
     font-weight:bold; 
     text-align:center;
@@ -202,8 +208,8 @@
       <p class="precio-fijo">Precio fijo hasta un máximo de 6 horas</p>
     </div>
 
-    <div class="service-box">
-      <h3>Horarios</h3>
+    <div class="service-box horario-box">
+      <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
       <p class="horarios">
         Horario de atención al cliente:<br>
         10:00h a 20:00h, de lunes a domingo<br><br>
