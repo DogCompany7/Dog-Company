@@ -206,7 +206,7 @@
         Horario de atención al cliente:<br>
         10:00h a 20:00h, de lunes a domingo<br><br>
         Horario de entrada y salida de reservas:<br>
-        10:00h a 12:00h entrada / 18:00h a 20:00h salida
+        10:00h a 20:00h
       </p>
     </div>
   </div>
