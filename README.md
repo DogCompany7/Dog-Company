@@ -74,6 +74,7 @@
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
     gap:20px; 
     margin-top:30px; 
+    align-items:start; /* títulos alineados */
   }
   .service-box { 
     padding:20px; 
@@ -84,8 +85,8 @@
     transition:transform 0.3s, box-shadow 0.3s; 
     display:flex; 
     flex-direction:column; 
-    justify-content:center; 
-    height:230px; /* altura uniforme */
+    justify-content:flex-start; /* títulos arriba */
+    min-height:230px; /* altura uniforme */
   }
   .service-box:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
   .service-box h3 { font-family:'Playfair Display', serif; font-size:1.4em; margin-bottom:12px; }
@@ -132,7 +133,7 @@
     .logo { font-size:1.8em; }
     .logo-container::before { width:300px; height:80px; }
     .logo-container { margin-left:-20px; }
-    .service-box { height:auto; padding:18px; }
+    .service-box { min-height:auto; padding:18px; }
   }
 </style>
 </head>
@@ -202,6 +203,7 @@
     </div>
 
     <div class="service-box">
+      <h3>Horarios</h3>
       <p class="horarios">
         Horario de atención al cliente:<br>
         10:00h a 20:00h, de lunes a domingo<br><br>
