@@ -26,16 +26,17 @@
   .logo-container {
     position: relative;
     display:inline-block;
-    margin-left: -40px; /* desplazamos hacia la izquierda */
+    margin-left: -40px;
   }
 
   .logo-container::before {
     content:"";
     position:absolute;
-    top:0; left:0;
-    width:420px; /* un poco más ancho */
+    top:50%; transform:translateY(-50%);
+    left:0;
+    width:420px;
     height:100px;
-    background-color:#F5C223; /* amarillo mostaza */
+    background-color:#F5C223;
     z-index:-1;
     border-bottom-right-radius:25px;
   }
@@ -49,7 +50,7 @@
   }
 
   /* Hero / Carrusel */
-  .hero-slider { position:relative; height:100vh; overflow:hidden; }
+  .hero-slider { position:relative; height:60vh; overflow:hidden; }
   .slide { position:absolute; width:100%; height:100%; background-size:cover; background-position:center; opacity:0; transition:opacity 1s; }
   .slide.active { opacity:1; }
 
@@ -59,52 +60,70 @@
     text-align:center; color:white; z-index:2;
     max-width:60%;
   }
-  .hero-text h1 { font-family:'Playfair Display', serif; font-size:3em; margin-bottom:10px; text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
-  .hero-text p { font-size:1.3em; margin-bottom:20px; text-shadow:1px 1px 5px rgba(0,0,0,0.6);}
-  .hero-text .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; }
+  .hero-text h1 { font-family:'Playfair Display', serif; font-size:2.2em; margin-bottom:10px; text-shadow:2px 2px 8px rgba(0,0,0,0.6);}
+  .hero-text p { font-size:1.1em; margin-bottom:20px; text-shadow:1px 1px 5px rgba(0,0,0,0.6);}
+  .hero-text .btn { background:#25D366; color:white; padding:12px 28px; border-radius:30px; font-weight:bold; }
 
   /* Presentación */
-  .presentacion { font-family:'Merriweather', serif; font-size:1.4em; color:#444; text-align:center; margin:50px 0; line-height:1.8; }
+  .presentacion { font-family:'Merriweather', serif; font-size:1.3em; color:#444; text-align:center; margin:50px 0; line-height:1.7; }
 
   /* Servicios */
   section { padding:80px 20px; max-width:1000px; margin:auto; }
-  .services { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; margin-top:40px; }
-  .service-box { padding:25px; border-radius:15px; background:#f9f9f9; box-shadow:0 6px 18px rgba(0,0,0,0.12); text-align:center; transition:transform 0.3s, box-shadow 0.3s; }
-  .service-box:hover { transform:translateY(-6px); box-shadow:0 10px 25px rgba(0,0,0,0.15); }
-  .service-box h3 { font-family:'Playfair Display', serif; font-size:1.6em; margin-bottom:15px; }
-  .service-box p { font-size:1.1em; margin-bottom:10px; }
+  .services { 
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
+    gap:20px; 
+    margin-top:30px; 
+  }
+  .service-box { 
+    padding:20px; 
+    border-radius:12px; 
+    background:#f9f9f9; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.12); 
+    text-align:center; 
+    transition:transform 0.3s, box-shadow 0.3s; 
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center; 
+    height:230px; /* altura uniforme */
+  }
+  .service-box:hover { transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+  .service-box h3 { font-family:'Playfair Display', serif; font-size:1.4em; margin-bottom:12px; }
+  .service-box p { font-size:1em; margin-bottom:8px; }
   .precio-fijo { font-weight:bold; text-decoration:underline; }
-  .horarios { color:red; font-size:2.6em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
+  .horarios { color:red; font-size:1em; font-weight:bold; text-transform:uppercase; margin-top:10px; }
 
   #servicios h2 { 
     text-align:center; 
     font-family:'Playfair Display', serif; 
-    font-size:2.5em; 
-    margin-bottom:50px; 
+    font-size:2em; 
+    margin-bottom:40px; 
     color:#333; 
     font-weight:bold; 
     text-decoration:underline;
   }
 
-  .highlight { text-align:center; font-size:1.5em; font-weight:bold; margin:50px 0; }
+  .highlight { text-align:center; font-size:1.3em; font-weight:bold; margin:50px 0; }
 
   footer { background:#222; color:white; text-align:center; padding:60px 20px; }
   footer .ubicacion { font-size:1.2em; margin-bottom:10px; font-weight:bold; }
-  footer .btn { background:#25D366; color:white; padding:15px 35px; border-radius:30px; font-weight:bold; text-decoration:none; margin-top:15px; display:inline-block; }
+  footer .btn { background:#25D366; color:white; padding:12px 28px; border-radius:30px; font-weight:bold; text-decoration:none; margin-top:15px; display:inline-block; }
 
   /* WhatsApp flotante y botón consulta más pequeño */
   .whatsapp-container { position:fixed; bottom:20px; right:20px; z-index:1000; display:flex; flex-direction:column; align-items:flex-end; gap:10px; }
-  .whatsapp-container a.btn-consulta { background:#128C7E; color:white; padding:8px 16px; border-radius:20px; font-weight:bold; font-size:0.9em; }
-  .whatsapp-container img { width:60px; }
+  .whatsapp-container a.btn-consulta { background:#128C7E; color:white; padding:8px 16px; border-radius:20px; font-weight:bold; font-size:0.9em; transition:transform 0.2s; }
+  .whatsapp-container a.btn-consulta:hover { transform:scale(1.1); }
+  .whatsapp-container img { width:50px; }
 
   @media(max-width:768px){
     .hero-text { left:50%; max-width:80%; text-align:center; }
-    .hero-text h1{font-size:2em;}
-    .hero-text p{font-size:1.1em;}
-    .services{grid-template-columns:1fr;}
+    .hero-text h1{font-size:1.8em;}
+    .hero-text p{font-size:1em;}
+    .services{grid-template-columns:1fr; gap:15px;}
     .logo { font-size:1.8em; }
     .logo-container::before { width:300px; height:80px; }
     .logo-container { margin-left:-20px; }
+    .service-box { height:auto; padding:18px; }
   }
 </style>
 </head>
@@ -174,7 +193,7 @@
     </div>
 
     <div class="service-box">
-      <p class="horarios">HORARIOS DE APERTURA Y ATENCIÓN AL CLIENTE: 10:00H A 20:00H, LUNES A DOMINGO</p>
+      <p class="horarios">HORARIOS DE APERTURA: 10:00 A 20:00, LUNES A DOMINGO</p>
     </div>
   </div>
 </section>
