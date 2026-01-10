@@ -92,12 +92,13 @@
   .service-box p { font-size:1em; margin-bottom:8px; }
   .precio-fijo { font-weight:bold; text-decoration:underline; }
 
-  /* Horarios en amarillo */
+  /* Horarios en amarillo con descripción completa */
   .horarios { 
     color:#F5C223; 
     font-size:1em; 
     font-weight:bold; 
-    text-transform:uppercase; 
+    text-align:center;
+    line-height:1.4;
     margin-top:10px; 
   }
 
@@ -201,7 +202,12 @@
     </div>
 
     <div class="service-box">
-      <p class="horarios">De 10:00h a 20:00h, de lunes a domingo</p>
+      <p class="horarios">
+        Horario de atención al cliente:<br>
+        10:00h a 20:00h, de lunes a domingo<br><br>
+        Horario de entrada y salida de reservas:<br>
+        10:00h a 12:00h entrada / 18:00h a 20:00h salida
+      </p>
     </div>
   </div>
 </section>
