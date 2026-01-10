@@ -232,6 +232,7 @@
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="text" name="telefono" placeholder="Tu teléfono" required>
     <input type="text" name="mascota" placeholder="Nombre de tu perro" required>
+    <input type="text" name="descripcion" placeholder="Descripción de tu perro" required>
     <select name="servicio" required>
       <option value="Alojamiento Noche">Alojamiento Noche</option>
       <option value="Guardería de Día">Guardería de Día</option>
@@ -247,9 +248,11 @@
       const nombre = form.nombre.value;
       const telefono = form.telefono.value;
       const mascota = form.mascota.value;
+      const descripcion = form.descripcion.value;
       const servicio = form.servicio.value;
       const fecha = form.fecha.value;
-      const mensaje = `Reserva Dog Company:%0ANombre: ${nombre}%0ATeléfono: ${telefono}%0ANombre del perro: ${mascota}%0AServicio: ${servicio}%0AFecha: ${fecha}`;
+
+      const mensaje = `Reserva Dog Company:%0ANombre: ${nombre}%0ATeléfono: ${telefono}%0ANombre del perro: ${mascota}%0ADescripción: ${descripcion}%0AServicio: ${servicio}%0AFecha: ${fecha}`;
       window.open(`https://wa.me/34TUNUMERO?text=${mensaje}`, '_blank');
     });
   </script>
