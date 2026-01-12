@@ -105,7 +105,7 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
 }
 
 /* Servicios */
-section { padding:80px 20px; max-width:1000px; margin:auto; }
+section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 
 #servicios h2 {
   text-align:center;
@@ -120,6 +120,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; }
   gap:20px;
   flex-wrap:wrap;
   align-items:stretch;
+  position:relative; /* para que los elementos de fondo no afecten layout */
 }
 
 .service-box {
@@ -129,6 +130,8 @@ section { padding:80px 20px; max-width:1000px; margin:auto; }
   background:#f9f9f9;
   box-shadow:0 4px 12px rgba(0,0,0,0.12);
   text-align:center;
+  position:relative;
+  z-index:1; /* encima de los dibujos */
 }
 
 .service-box h3 {
@@ -151,6 +154,25 @@ section { padding:80px 20px; max-width:1000px; margin:auto; }
   font-size:1em;
   font-weight:bold;
   line-height:1.4;
+}
+
+/* Fondo decorativo tipo Paya Pau */
+#servicios::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background-image:
+    url('https://i.ibb.co/9N2bXqL/patita1.svg'),
+    url('https://i.ibb.co/8z8jYgW/rabo.svg'),
+    url('https://i.ibb.co/D7Vd3Xv/huesito.svg'),
+    url('https://i.ibb.co/WgzrWgX/patita2.svg');
+  background-repeat: no-repeat;
+  background-position: 10% 20%, 80% 15%, 25% 80%, 70% 70%;
+  background-size: 60px 60px, 80px 40px, 50px 50px, 60px 60px;
+  opacity:0.08;
+  z-index:0;
+  pointer-events:none;
 }
 
 /* Formulario */
@@ -256,11 +278,7 @@ footer .btn {
 <script>
 let slides=document.querySelectorAll('.slide');
 let current=0;
-setInterval(()=>{
-  slides[current].classList.remove('active');
-  current=(current+1)%slides.length;
-  slides[current].classList.add('active');
-},5000);
+setInterval(()=>{slides[current].classList.remove('active');current=(current+1)%slides.length;slides[current].classList.add('active');},5000);
 </script>
 
 <section>
