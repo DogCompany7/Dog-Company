@@ -18,7 +18,15 @@ header {
   justify-content:space-between; align-items:center; padding:15px 40px;
   background: rgba(255,255,255,0.95);
 }
-nav a { margin-left:25px; color:#333; font-weight:600; }
+
+/* Ajuste para botones más a la izquierda */
+header nav {
+  margin-left: 0;        /* Más pegados a la izquierda */
+  display: flex;
+  gap: 20px;             /* Separación entre botones */
+  color: #333;
+  font-weight: 600;
+}
 
 .logo-container {
   position: relative;
@@ -221,7 +229,7 @@ footer .btn {
 .whatsapp-container img { width:50px; }
 
 .testimonios {
-  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:flex-start;
 }
 .testimonio-box {
   flex:1 1 250px;
@@ -336,12 +344,12 @@ setInterval(()=>{
 </section>
 
 <!-- SECCIONES AL PIE DE PÁGINA -->
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto;">
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:left;">
 
   <!-- RESEÑAS -->
   <div id="resenas-footer" style="margin-bottom:60px;">
-    <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
-    <div class="testimonios">
+    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
+    <div class="testimonios" style="justify-content:flex-start;">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
         <div class="autor">- Ana G.</div>
@@ -359,7 +367,7 @@ setInterval(()=>{
 
   <!-- QUIÉNES SOMOS -->
   <div id="quienes-somos-footer">
-    <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Quiénes somos</h2>
+    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Quiénes somos</h2>
     <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
       En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
       ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
