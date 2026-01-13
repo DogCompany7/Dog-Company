@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
-body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
+body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
 a { text-decoration:none; }
 
 /* Header fijo */
@@ -93,25 +93,6 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
   border-radius:30px;
   font-weight:bold;
 }
-
-/* Sección Quiénes somos y Reseñas - Tabs */
-.tab-btn.active { background:#25D366; color:white; }
-.tab-btn { background:#eee; color:#333; border:none; padding:10px 20px; margin:0 10px; border-radius:20px; cursor:pointer; font-weight:bold; }
-
-/* Testimonios */
-.testimonios {
-  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
-}
-.testimonio-box {
-  flex:1 1 250px;
-  background:#f9f9f9; padding:20px; border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.12); text-align:left;
-}
-.testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; }
-.testimonio-box .autor { font-weight:bold; color:#25D366; }
-
-/* Contenido de tab */
-.tab-content { display:none; }
 
 /* Presentación */
 .presentacion {
@@ -239,6 +220,17 @@ footer .btn {
 }
 .whatsapp-container img { width:50px; }
 
+.testimonios {
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+}
+.testimonio-box {
+  flex:1 1 250px;
+  background:#f9f9f9; padding:20px; border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12); text-align:left;
+}
+.testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; }
+.testimonio-box .autor { font-weight:bold; color:#25D366; }
+
 @media(max-width:768px){
   .hero-slider { height:45vh; }
   .services, .testimonios { flex-direction:column; }
@@ -255,6 +247,8 @@ footer .btn {
   <nav>
     <a href="#servicios">Servicios</a>
     <a href="#contacto">Contacto</a>
+    <a href="#resenas-footer">Reseñas</a>
+    <a href="#quienes-somos-footer">Quiénes somos</a>
   </nav>
 </header>
 
@@ -284,56 +278,6 @@ setInterval(()=>{
   slides[current].classList.add('active');
 },5000);
 </script>
-
-<!-- SECCIÓN DE PESTAÑAS -->
-<section id="tabs-section" style="padding:60px 20px; max-width:1000px; margin:auto;">
-  <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Explora</h2>
-
-  <!-- BOTONES DE TABS -->
-  <div style="text-align:center; margin-bottom:30px;">
-    <button class="tab-btn active" data-tab="resenas">Reseñas</button>
-    <button class="tab-btn" data-tab="quienes-somos-tab">Quiénes somos</button>
-  </div>
-
-  <!-- CONTENIDO DE RESEÑAS -->
-  <div id="resenas" class="tab-content" style="display:block;">
-    <div class="testimonios">
-      <div class="testimonio-box">
-        <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
-        <div class="autor">- Ana G.</div>
-      </div>
-      <div class="testimonio-box">
-        <p>"Excelente cuidado y ambiente familiar, muy recomendable."</p>
-        <div class="autor">- Luis M.</div>
-      </div>
-      <div class="testimonio-box">
-        <p>"Se nota el amor y respeto que tienen por los animales."</p>
-        <div class="autor">- Marta R.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTENIDO QUIÉNES SOMOS -->
-  <div id="quienes-somos-tab" class="tab-content" style="display:none; text-align:left; max-width:900px; margin:auto; padding:20px;">
-    <h3 style="font-family:'Playfair Display', serif; font-size:1.8em; color:#333; margin-bottom:15px;">Quiénes somos</h3>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
-      En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
-      ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
-      Nuestro centro nace de la convicción de brindar un ambiente <strong>tranquilo, familiar y seguro</strong>
-      donde cada perro recibe atención personalizada con cariño y respeto por su ritmo y necesidades.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
-      Creemos firmemente en el trabajo bien hecho, en la profesionalidad y en el trato humano tanto con
-      las mascotas como con sus familias. Nuestro objetivo es que cada estancia sea una experiencia
-      feliz y sin estrés para tu perro.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7;">
-      Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
-    </p>
-  </div>
-</section>
 
 <section>
   <p class="presentacion">
@@ -391,6 +335,51 @@ setInterval(()=>{
   Tu perro no es un número.<br>Es uno más en casa.
 </section>
 
+<!-- SECCIONES AL PIE DE PÁGINA -->
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto;">
+
+  <!-- RESEÑAS -->
+  <div id="resenas-footer" style="margin-bottom:60px;">
+    <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
+    <div class="testimonios">
+      <div class="testimonio-box">
+        <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
+        <div class="autor">- Ana G.</div>
+      </div>
+      <div class="testimonio-box">
+        <p>"Excelente cuidado y ambiente familiar, muy recomendable."</p>
+        <div class="autor">- Luis M.</div>
+      </div>
+      <div class="testimonio-box">
+        <p>"Se nota el amor y respeto que tienen por los animales."</p>
+        <div class="autor">- Marta R.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIÉNES SOMOS -->
+  <div id="quienes-somos-footer">
+    <h2 style="text-align:center; font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Quiénes somos</h2>
+    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
+      En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
+      ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
+    </p>
+    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
+      Nuestro centro nace de la convicción de brindar un ambiente <strong>tranquilo, familiar y seguro</strong>
+      donde cada perro recibe atención personalizada con cariño y respeto por su ritmo y necesidades.
+    </p>
+    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
+      Creemos firmemente en el trabajo bien hecho, en la profesionalidad y en el trato humano tanto con
+      las mascotas como con sus familias. Nuestro objetivo es que cada estancia sea una experiencia
+      feliz y sin estrés para tu perro.
+    </p>
+    <p style="font-size:1.1em; color:#444; line-height:1.7;">
+      Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
+    </p>
+  </div>
+
+</section>
+
 <footer id="contacto">
   <p>Ubicación: Alicante Centro</p>
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
@@ -410,17 +399,6 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   const f=e.target;
   const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
-});
-
-// Tabs
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-    const targetId = btn.getAttribute('data-tab');
-    document.getElementById(targetId).style.display = 'block';
-  });
 });
 </script>
 
