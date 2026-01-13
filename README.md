@@ -120,7 +120,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   gap:20px;
   flex-wrap:wrap;
   align-items:stretch;
-  position:relative; /* para que los elementos de fondo no afecten layout */
+  position:relative;
 }
 
 .service-box {
@@ -131,7 +131,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   box-shadow:0 4px 12px rgba(0,0,0,0.12);
   text-align:center;
   position:relative;
-  z-index:1; /* encima de los dibujos */
+  z-index:1;
 }
 
 .service-box h3 {
@@ -156,7 +156,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   line-height:1.4;
 }
 
-/* Fondo decorativo tipo Paya Pau con SVG inline */
+/* Fondo decorativo real estilo Paya Pau */
 #servicios::before {
   content:"";
   position:absolute;
@@ -164,12 +164,15 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   width:100%; height:100%;
   z-index:0;
   pointer-events:none;
-  background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><circle cx='30' cy='30' r='8' fill='black' opacity='0.1'/></svg>") 10% 20% no-repeat,
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40'><rect width='20' height='10' fill='black' opacity='0.1' rx='5'/></svg>") 80% 15% no-repeat,
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><polygon points='0,0 50,0 25,50' fill='black' opacity='0.1'/></svg>") 25% 80% no-repeat,
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><circle cx='30' cy='30' r='10' fill='black' opacity='0.1'/></svg>") 70% 70% no-repeat;
-  background-size: 60px 60px, 80px 40px, 50px 50px, 60px 60px;
+  background-image:
+    url('imagenes/patita1.svg'),
+    url('imagenes/patita2.svg'),
+    url('imagenes/rabo.svg'),
+    url('imagenes/huesito.svg');
+  background-repeat: no-repeat;
+  background-position: 10% 15%, 70% 10%, 40% 60%, 85% 70%;
+  background-size: 60px 60px, 50px 50px, 70px 30px, 40px 40px;
+  opacity:0.08;
 }
 
 /* Formulario */
@@ -257,9 +260,9 @@ footer .btn {
 
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider">
-  <div class="slide active" style="background-image:url('https://tu-dominio.com/carrusel1.jpg');"></div>
-  <div class="slide" style="background-image:url('https://tu-dominio.com/carrusel2.jpg');"></div>
-  <div class="slide" style="background-image:url('https://tu-dominio.com/carrusel3.jpg');"></div>
+  <div class="slide active" style="background-image:url('imagenes/carrusel1.jpg');"></div>
+  <div class="slide" style="background-image:url('imagenes/carrusel2.jpg');"></div>
+  <div class="slide" style="background-image:url('imagenes/carrusel3.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
