@@ -94,6 +94,63 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
   font-weight:bold;
 }
 
+/* Sección Quiénes somos */
+#quienes-somos {
+  padding:60px 20px;
+  text-align:center;
+  max-width:900px;
+  margin:auto;
+}
+#quienes-somos h2 {
+  font-family:'Playfair Display', serif;
+  font-size:2em;
+  margin-bottom:20px;
+  text-decoration:underline;
+}
+#quienes-somos p {
+  font-family:'Merriweather', serif;
+  font-size:1.2em;
+  line-height:1.7;
+  color:#444;
+}
+
+/* Sección Reseñas */
+#resenas {
+  padding:60px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+#resenas h2 {
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size:2em;
+  margin-bottom:40px;
+  text-decoration:underline;
+}
+.testimonios {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+.testimonio-box {
+  flex:1 1 250px;
+  background:#f9f9f9;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+  text-align:left;
+}
+.testimonio-box p {
+  font-size:1em;
+  margin-bottom:10px;
+  color:#333;
+}
+.testimonio-box .autor {
+  font-weight:bold;
+  color:#25D366;
+}
+
 /* Presentación */
 .presentacion {
   font-family:'Merriweather', serif;
@@ -154,25 +211,6 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   font-size:1em;
   font-weight:bold;
   line-height:1.4;
-}
-
-/* Fondo decorativo real estilo Paya Pau */
-#servicios::before {
-  content:"";
-  position:absolute;
-  top:0; left:0;
-  width:100%; height:100%;
-  z-index:0;
-  pointer-events:none;
-  background-image:
-    url('imagenes/patita1.svg'),
-    url('imagenes/patita2.svg'),
-    url('imagenes/rabo.svg'),
-    url('imagenes/huesito.svg');
-  background-repeat: no-repeat;
-  background-position: 10% 15%, 70% 10%, 40% 60%, 85% 70%;
-  background-size: 60px 60px, 50px 50px, 70px 30px, 40px 40px;
-  opacity:0.08;
 }
 
 /* Formulario */
@@ -241,7 +279,7 @@ footer .btn {
 
 @media(max-width:768px){
   .hero-slider { height:45vh; }
-  .services { flex-direction:column; }
+  .services, .testimonios { flex-direction:column; }
 }
 </style>
 </head>
@@ -284,6 +322,30 @@ setInterval(()=>{
   slides[current].classList.add('active');
 },5000);
 </script>
+
+<!-- NUEVAS SECCIONES -->
+<section id="quienes-somos">
+  <h2>Quiénes Somos</h2>
+  <p>En Dog Company ofrecemos un ambiente familiar, tranquilo y seguro para tu perro, con atención individual y cariño en cada detalle. No hay jaulas, solo cuidado y presencia real.</p>
+</section>
+
+<section id="resenas">
+  <h2>Reseñas</h2>
+  <div class="testimonios">
+    <div class="testimonio-box">
+      <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
+      <div class="autor">- Ana G.</div>
+    </div>
+    <div class="testimonio-box">
+      <p>"Excelente cuidado y ambiente familiar, muy recomendable."</p>
+      <div class="autor">- Luis M.</div>
+    </div>
+    <div class="testimonio-box">
+      <p>"Se nota el amor y respeto que tienen por los animales."</p>
+      <div class="autor">- Marta R.</div>
+    </div>
+  </div>
+</section>
 
 <section>
   <p class="presentacion">
