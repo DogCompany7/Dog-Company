@@ -14,23 +14,16 @@ a { text-decoration:none; }
 
 /* Header fijo */
 header {
-  position: fixed; top:0; width:100%; z-index:999; display:flex;
-  justify-content:space-between; align-items:center; padding:15px 40px;
+  position: fixed; top:0; width:100%; z-index:999;
+  display: flex; align-items:center; padding:15px 40px;
   background: rgba(255,255,255,0.95);
-}
-
-header nav {
-  margin-left: 120px; /* Ajusta este valor para mover los botones hacia el centro */
-  display: flex;
-  gap: 20px;
-  color: #333;
-  font-weight: 600;
 }
 
 .logo-container {
   position: relative;
   display:inline-block;
   margin-left: -40px;
+  flex: 0 0 auto; /* Mantener logo a la izquierda */
 }
 .logo-container::before {
   content:"";
@@ -49,6 +42,15 @@ header nav {
   font-weight:bold;
   color:black;
   padding:25px 20px;
+}
+
+/* Nav botones */
+header nav {
+  display: flex;
+  gap: 25px;
+  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
+  color:#333;
+  font-weight:600;
 }
 
 /* Hero / Carrusel */
