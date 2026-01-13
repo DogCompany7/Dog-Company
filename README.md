@@ -156,23 +156,20 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   line-height:1.4;
 }
 
-/* Fondo decorativo tipo Paya Pau */
+/* Fondo decorativo tipo Paya Pau con SVG inline */
 #servicios::before {
   content:"";
   position:absolute;
   top:0; left:0;
   width:100%; height:100%;
-  background-image:
-    url('https://i.ibb.co/9N2bXqL/patita1.svg'),
-    url('https://i.ibb.co/8z8jYgW/rabo.svg'),
-    url('https://i.ibb.co/D7Vd3Xv/huesito.svg'),
-    url('https://i.ibb.co/WgzrWgX/patita2.svg');
-  background-repeat: no-repeat;
-  background-position: 10% 20%, 80% 15%, 25% 80%, 70% 70%;
-  background-size: 60px 60px, 80px 40px, 50px 50px, 60px 60px;
-  opacity:0.08;
   z-index:0;
   pointer-events:none;
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><circle cx='30' cy='30' r='8' fill='black' opacity='0.1'/></svg>") 10% 20% no-repeat,
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40'><rect width='20' height='10' fill='black' opacity='0.1' rx='5'/></svg>") 80% 15% no-repeat,
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><polygon points='0,0 50,0 25,50' fill='black' opacity='0.1'/></svg>") 25% 80% no-repeat,
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><circle cx='30' cy='30' r='10' fill='black' opacity='0.1'/></svg>") 70% 70% no-repeat;
+  background-size: 60px 60px, 80px 40px, 50px 50px, 60px 60px;
 }
 
 /* Formulario */
@@ -258,11 +255,11 @@ footer .btn {
   </nav>
 </header>
 
-<!-- 🔁 CARRUSEL (ÚNICO CAMBIO) -->
+<!-- 🔁 CARRUSEL -->
 <div class="hero-slider">
-  <div class="slide active" style="background-image:url('carrusel1.jpg');"></div>
-  <div class="slide" style="background-image:url('carrusel2.jpg');"></div>
-  <div class="slide" style="background-image:url('carrusel3.jpg');"></div>
+  <div class="slide active" style="background-image:url('https://tu-dominio.com/carrusel1.jpg');"></div>
+  <div class="slide" style="background-image:url('https://tu-dominio.com/carrusel2.jpg');"></div>
+  <div class="slide" style="background-image:url('https://tu-dominio.com/carrusel3.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
@@ -278,7 +275,11 @@ footer .btn {
 <script>
 let slides=document.querySelectorAll('.slide');
 let current=0;
-setInterval(()=>{slides[current].classList.remove('active');current=(current+1)%slides.length;slides[current].classList.add('active');},5000);
+setInterval(()=>{
+  slides[current].classList.remove('active');
+  current=(current+1)%slides.length;
+  slides[current].classList.add('active');
+},5000);
 </script>
 
 <section>
