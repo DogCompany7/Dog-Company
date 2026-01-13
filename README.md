@@ -19,11 +19,10 @@ header {
   background: rgba(255,255,255,0.95);
 }
 
-/* Ajuste para botones más a la izquierda */
 header nav {
-  margin-left: 0;        /* Más pegados a la izquierda */
+  margin-left: 120px; /* Ajusta este valor para mover los botones hacia el centro */
   display: flex;
-  gap: 20px;             /* Separación entre botones */
+  gap: 20px;
   color: #333;
   font-weight: 600;
 }
