@@ -5,11 +5,18 @@
 <title>Dog Company - Residencia Canina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- Fuentes nuevas -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
-body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
+body { 
+  margin:0; 
+  font-family:'Open Sans', sans-serif; 
+  color:#333; 
+  line-height:1.6; 
+  scroll-behavior:smooth; 
+}
 a { text-decoration:none; }
 
 /* Header fijo */
@@ -23,7 +30,7 @@ header {
   position: relative;
   display:inline-block;
   margin-left: -40px;
-  flex: 0 0 auto;
+  flex: 0 0 auto; 
 }
 .logo-container::before {
   content:"";
@@ -37,7 +44,7 @@ header {
   border-bottom-right-radius:25px;
 }
 .logo {
-  font-family:'Playfair Display', serif;
+  font-family:'Montserrat', sans-serif;
   font-size:2em;
   font-weight:bold;
   color:black;
@@ -48,9 +55,10 @@ header {
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px;
+  margin-left: 100px; 
   color:#333;
   font-weight:600;
+  font-family:'Montserrat', sans-serif;
 }
 
 /* Hero / Carrusel */
@@ -85,12 +93,13 @@ header nav {
   max-width:70%;
 }
 .hero-text h1 {
-  font-family:'Playfair Display', serif;
+  font-family:'Montserrat', sans-serif;
   font-size:2.2em;
   margin-bottom:10px;
   text-shadow:2px 2px 8px rgba(0,0,0,0.6);
 }
 .hero-text p {
+  font-family:'Open Sans', sans-serif;
   font-size:1.1em;
   margin-bottom:20px;
   text-shadow:1px 1px 5px rgba(0,0,0,0.6);
@@ -105,7 +114,7 @@ header nav {
 
 /* Presentación */
 .presentacion {
-  font-family:'Merriweather', serif;
+  font-family:'Open Sans', sans-serif;
   font-size:1.3em;
   color:#444;
   text-align:center;
@@ -118,7 +127,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 
 #servicios h2 {
   text-align:center;
-  font-family:'Playfair Display', serif;
+  font-family:'Montserrat', sans-serif;
   font-size:2em;
   margin-bottom:40px;
   text-decoration:underline;
@@ -144,7 +153,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 }
 
 .service-box h3 {
-  font-family:'Playfair Display', serif;
+  font-family:'Montserrat', sans-serif;
   font-size:1.4em;
   margin-bottom:12px;
   display:flex;
@@ -153,7 +162,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   gap:8px;
 }
 
-.service-box p { font-size:1em; margin-bottom:8px; }
+.service-box p { font-family:'Open Sans', sans-serif; font-size:1em; margin-bottom:8px; }
 .precio-fijo { font-weight:bold; text-decoration:underline; }
 
 .service-box.horario-box { background:#FFF3B0; }
@@ -163,6 +172,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   font-size:1em;
   font-weight:bold;
   line-height:1.4;
+  font-family:'Open Sans', sans-serif;
 }
 
 /* Formulario */
@@ -182,6 +192,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   border-radius:8px;
   border:1px solid #ccc;
   font-size:1em;
+  font-family:'Open Sans', sans-serif;
 }
 .reserva-form button {
   background:#25D366;
@@ -197,6 +208,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   font-size:1.3em;
   font-weight:bold;
   margin:50px 0;
+  font-family:'Open Sans', sans-serif;
 }
 
 /* Footer */
@@ -215,6 +227,7 @@ footer .btn {
   text-decoration:none;
   display:inline-block;
   margin-top:15px;
+  font-family:'Open Sans', sans-serif;
 }
 
 /* WhatsApp flotante */
@@ -237,15 +250,12 @@ footer .btn {
   background:#f9f9f9; padding:20px; border-radius:12px;
   box-shadow:0 4px 12px rgba(0,0,0,0.12); text-align:left;
 }
-.testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; }
-.testimonio-box .autor { font-weight:bold; color:#25D366; }
+.testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; font-family:'Open Sans', sans-serif; }
+.testimonio-box .autor { font-weight:bold; color:#25D366; font-family:'Open Sans', sans-serif; }
 
-/* CENTRADO RESEÑAS Y QUIÉNES SOMOS */
-#resenas-footer h2,
-#resenas-footer p,
-#quienes-somos-footer h2,
-#quienes-somos-footer p {
-  text-align:center;
+#resenas-footer h2, #resenas-footer p,
+#quienes-somos-footer h2, #quienes-somos-footer p {
+  text-align:center; /* centra título y descripción */
 }
 
 @media(max-width:768px){
@@ -272,13 +282,19 @@ footer .btn {
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider">
   <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
+
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
+
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
+
   <div class="hero-overlay"></div>
+
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
+      Reservar por WhatsApp
+    </a>
   </div>
 </div>
 
@@ -348,12 +364,10 @@ setInterval(()=>{
   Tu perro no es un número.<br>Es uno más en casa.
 </section>
 
-<!-- SECCIONES AL PIE DE PÁGINA -->
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto;">
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:left;">
 
-  <!-- RESEÑAS -->
   <div id="resenas-footer" style="margin-bottom:60px;">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
+    <h2 style="font-family:'Montserrat', sans-serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
     <div class="testimonios" style="justify-content:flex-start;">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
@@ -370,9 +384,8 @@ setInterval(()=>{
     </div>
   </div>
 
-  <!-- QUIÉNES SOMOS -->
   <div id="quienes-somos-footer">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Quiénes somos</h2>
+    <h2 style="font-family:'Montserrat', sans-serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Quiénes somos</h2>
     <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
       En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
       ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
