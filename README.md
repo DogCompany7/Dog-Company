@@ -14,13 +14,27 @@ a { text-decoration:none; }
 
 /* Header fijo */
 header {
-  position: fixed; top:0; width:100%; z-index:999; display:flex;
-  align-items:center; padding:15px 40px;
+  position: fixed;
+  top:0;
+  width:100%;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  padding:15px 40px;
   background: rgba(255,255,255,0.95);
 }
-nav { margin-left:120px; }
-nav a { margin-left:25px; color:#333; font-weight:600; }
 
+nav {
+  margin-left:120px; /* SOLO mueve los botones */
+}
+
+nav a {
+  margin-left:25px;
+  color:#333;
+  font-weight:600;
+}
+
+/* Logo */
 .logo-container {
   position: relative;
   display:inline-block;
@@ -29,7 +43,8 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
 .logo-container::before {
   content:"";
   position:absolute;
-  top:50%; transform:translateY(-50%);
+  top:50%;
+  transform:translateY(-50%);
   left:0;
   width:420px;
   height:100px;
@@ -46,7 +61,13 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
 }
 
 /* Hero / Carrusel */
-.hero-slider { position:relative; height:60vh; overflow:hidden; margin-top:90px; }
+.hero-slider {
+  position:relative;
+  height:60vh;
+  overflow:hidden;
+  margin-top:90px;
+}
+
 .slide {
   position:absolute;
   width:100%;
@@ -56,6 +77,7 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
   opacity:0;
   transition:opacity 1s;
 }
+
 .slide.active { opacity:1; }
 
 .hero-overlay {
@@ -63,7 +85,8 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
   width:100%;
   height:100%;
   background: rgba(0,0,0,0.35);
-  top:0; left:0;
+  top:0;
+  left:0;
 }
 
 .hero-text {
@@ -76,15 +99,18 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
   z-index:2;
   max-width:70%;
 }
+
 .hero-text h1 {
   font-family:'Playfair Display', serif;
   font-size:2.2em;
   margin-bottom:10px;
 }
+
 .hero-text p {
   font-size:1.1em;
   margin-bottom:20px;
 }
+
 .hero-text .btn {
   background:#25D366;
   color:white;
@@ -100,11 +126,17 @@ nav a { margin-left:25px; color:#333; font-weight:600; }
   color:#444;
   text-align:center;
   margin:50px 0;
+  line-height:1.7;
+}
+
+/* Secciones */
+section {
+  padding:80px 20px;
+  max-width:1000px;
+  margin:auto;
 }
 
 /* Servicios */
-section { padding:80px 20px; max-width:1000px; margin:auto; }
-
 #servicios h2 {
   text-align:center;
   font-family:'Playfair Display', serif;
@@ -134,7 +166,54 @@ section { padding:80px 20px; max-width:1000px; margin:auto; }
   margin-bottom:12px;
 }
 
-.service-box.horario-box { background:#FFF3B0; }
+.precio-fijo {
+  font-weight:bold;
+  text-decoration:underline;
+}
+
+.service-box.horario-box {
+  background:#FFF3B0;
+}
+
+.horarios {
+  font-weight:bold;
+}
+
+/* Formulario */
+.reserva-form {
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:30px;
+  max-width:400px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.reserva-form input,
+.reserva-form select,
+.reserva-form button {
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:1em;
+}
+
+.reserva-form button {
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+}
+
+/* Frase */
+.highlight {
+  text-align:center;
+  font-size:1.3em;
+  font-weight:bold;
+  margin:50px 0;
+}
 
 /* Footer */
 footer {
@@ -143,6 +222,7 @@ footer {
   text-align:center;
   padding:60px 20px;
 }
+
 footer .btn {
   background:#25D366;
   color:white;
@@ -160,7 +240,15 @@ footer .btn {
   right:20px;
   z-index:1000;
 }
-.whatsapp-container img { width:50px; }
+
+.whatsapp-container img {
+  width:50px;
+}
+
+@media(max-width:768px){
+  nav { margin-left:40px; }
+  .hero-slider { height:45vh; }
+}
 </style>
 </head>
 
@@ -176,11 +264,11 @@ footer .btn {
   </nav>
 </header>
 
-<!-- CARRUSEL FUNCIONANDO -->
+<!-- CARRUSEL -->
 <div class="hero-slider">
-  <div class="slide active" style="background-image:url('data:image/jpeg;base64,AAA_PRIMERA_IMAGEN');"></div>
-  <div class="slide" style="background-image:url('data:image/jpeg;base64,AAA_SEGUNDA_IMAGEN');"></div>
-  <div class="slide" style="background-image:url('data:image/jpeg;base64,AAA_TERCERA_IMAGEN');"></div>
+  <div class="slide active" style="background-image:url('carrusel1.jpg');"></div>
+  <div class="slide" style="background-image:url('carrusel2.jpg');"></div>
+  <div class="slide" style="background-image:url('carrusel3.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
@@ -194,17 +282,70 @@ footer .btn {
 </div>
 
 <script>
-let slides=document.querySelectorAll('.slide');
-let current=0;
-setInterval(()=>{
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+
+setInterval(() => {
   slides[current].classList.remove('active');
-  current=(current+1)%slides.length;
+  current = (current + 1) % slides.length;
   slides[current].classList.add('active');
-},5000);
+}, 5000);
 </script>
+
+<section>
+  <p class="presentacion">
+    Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
+    con atención individual y respeto por sus ritmos.
+  </p>
+  <p class="presentacion">
+    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
+  </p>
+</section>
 
 <section id="servicios">
   <h2>NUESTROS SERVICIOS</h2>
+
+  <div class="services">
+    <div class="service-box">
+      <h3><i class="fa-solid fa-bed"></i> Alojamiento Noche</h3>
+      <p>Perro adulto: <strong>24€ / noche</strong></p>
+      <p>Cachorros y cuidados especiales: <strong>26€ / noche</strong></p>
+    </div>
+
+    <div class="service-box">
+      <h3><i class="fa-solid fa-sun"></i> Guardería de Día</h3>
+      <p>Perro adulto: <strong>22€</strong></p>
+      <p>Cachorros y cuidados especiales: <strong>24€</strong></p>
+      <p class="precio-fijo">Precio fijo hasta 6 horas</p>
+    </div>
+
+    <div class="service-box horario-box">
+      <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
+      <p class="horarios">
+        Atención al cliente<br>
+        10:00h a 20:00h · Lunes a Domingo<br><br>
+        Entradas y salidas<br>
+        10:00h a 20:00h
+      </p>
+    </div>
+  </div>
+
+  <form id="reservaForm" class="reserva-form">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <input type="text" name="telefono" placeholder="Tu teléfono" required>
+    <input type="text" name="mascota" placeholder="Nombre de tu perro" required>
+    <input type="text" name="descripcion" placeholder="Descripción de tu perro" required>
+    <select name="servicio" required>
+      <option>Alojamiento Noche</option>
+      <option>Guardería de Día</option>
+    </select>
+    <input type="date" name="fecha" required>
+    <button type="submit">Enviar por WhatsApp</button>
+  </form>
+</section>
+
+<section class="highlight">
+  Tu perro no es un número.<br>Es uno más en casa.
 </section>
 
 <footer id="contacto">
@@ -219,6 +360,15 @@ setInterval(()=>{
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   </a>
 </div>
+
+<script>
+document.getElementById('reservaForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = e.target;
+  const msg = `Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
+  window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
+});
+</script>
 
 </body>
 </html>
