@@ -5,7 +5,7 @@
 <title>Dog Company - Residencia Canina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
@@ -23,7 +23,7 @@ header {
   position: relative;
   display:inline-block;
   margin-left: -40px;
-  flex: 0 0 auto;
+  flex: 0 0 auto; /* Mantener logo a la izquierda */
 }
 .logo-container::before {
   content:"";
@@ -48,7 +48,7 @@ header {
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px;
+  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
   color:#333;
   font-weight:600;
 }
@@ -206,7 +206,6 @@ footer {
   text-align:center;
   padding:60px 20px;
 }
-
 footer .btn {
   background:#25D366;
   color:white;
@@ -256,7 +255,7 @@ footer .btn {
   </div>
   <nav>
     <a href="#servicios">Servicios</a>
-    <a href="#reservaForm">Reservas</a>
+    <a href="#reserva-formulario">Reservas</a>
     <a href="#resenas-footer">Reseñas</a>
     <a href="#quienes-somos-footer">Quiénes somos</a>
   </nav>
@@ -328,9 +327,11 @@ setInterval(()=>{
       </p>
     </div>
   </div>
+</section>
 
+<section id="reserva-formulario">
   <h2 style="text-align:center; font-family:'Montserrat', sans-serif; margin-top:60px;">
-    <span style="color:#F5C223;">Haz tu reserva</span> · <span style="color:#000000;">Consulta disponibilidad</span>
+    <span style="color:#000000;">Consulta disponibilidad</span> · <span style="color:#F5C223;">Haz tu reserva</span>
   </h2>
 
   <form id="reservaForm" class="reserva-form">
@@ -356,7 +357,7 @@ setInterval(()=>{
 
   <!-- RESEÑAS -->
   <div id="resenas-footer" style="margin-bottom:60px;">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Reseñas</h2>
+    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
     <div class="testimonios" style="justify-content:flex-start;">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
@@ -375,21 +376,21 @@ setInterval(()=>{
 
   <!-- QUIÉNES SOMOS -->
   <div id="quienes-somos-footer">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Quiénes somos</h2>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
+    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Quiénes somos</h2>
+    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
       En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
       ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
     </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
+    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
       Nuestro centro nace de la convicción de brindar un ambiente <strong>tranquilo, familiar y seguro</strong>
       donde cada perro recibe atención personalizada con cariño y respeto por su ritmo y necesidades.
     </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
+    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px;">
       Creemos firmemente en el trabajo bien hecho, en la profesionalidad y en el trato humano tanto con
       las mascotas como con sus familias. Nuestro objetivo es que cada estancia sea una experiencia
       feliz y sin estrés para tu perro.
     </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; text-align:center;">
+    <p style="font-size:1.1em; color:#444; line-height:1.7;">
       Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
     </p>
   </div>
@@ -397,7 +398,6 @@ setInterval(()=>{
 </section>
 
 <footer id="contacto">
-  <p>Dog Company</p>
   <p>Ubicación: Alicante Centro</p>
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
     Más información por WhatsApp
@@ -417,14 +417,6 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
 });
-
-let slides=document.querySelectorAll('.slide');
-let current=0;
-setInterval(()=>{
-  slides[current].classList.remove('active');
-  current=(current+1)%slides.length;
-  slides[current].classList.add('active');
-},5000);
 </script>
 
 </body>
