@@ -5,7 +5,7 @@
 <title>Dog Company - Residencia Canina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
@@ -23,7 +23,7 @@ header {
   position: relative;
   display:inline-block;
   margin-left: -40px;
-  flex: 0 0 auto; /* Mantener logo a la izquierda */
+  flex: 0 0 auto;
 }
 .logo-container::before {
   content:"";
@@ -48,7 +48,7 @@ header {
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
+  margin-left: 100px;
   color:#333;
   font-weight:600;
 }
@@ -206,6 +206,29 @@ footer {
   text-align:center;
   padding:60px 20px;
 }
+
+footer .logo-footer {
+  font-family:'Playfair Display', serif;
+  font-size:2em;
+  font-weight:bold;
+  color:black;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+footer .logo-footer::after {
+  content: attr(data-text);
+  display: block;
+  transform: scaleY(-1);
+  opacity: 0.25;
+  margin-top: 5px;
+  color: black;
+  font-family:'Playfair Display', serif;
+  font-size:2em;
+  font-weight:bold;
+}
+
 footer .btn {
   background:#25D366;
   color:white;
@@ -329,7 +352,7 @@ setInterval(()=>{
   </div>
 
   <h2 style="text-align:center; font-family:'Montserrat', sans-serif; margin-top:60px;">
-    Haz tu reserva · Consulta disponibilidad
+    <span style="color:#F5C223;">Haz tu reserva</span> · <span style="color:#000000;">Consulta disponibilidad</span>
   </h2>
 
   <form id="reservaForm" class="reserva-form">
@@ -396,6 +419,7 @@ setInterval(()=>{
 </section>
 
 <footer id="contacto">
+  <div class="logo-footer" data-text="Dog Company">Dog Company</div>
   <p>Ubicación: Alicante Centro</p>
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
     Más información por WhatsApp
@@ -415,6 +439,14 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
 });
+
+let slides=document.querySelectorAll('.slide');
+let current=0;
+setInterval(()=>{
+  slides[current].classList.remove('active');
+  current=(current+1)%slides.length;
+  slides[current].classList.add('active');
+},5000);
 </script>
 
 </body>
