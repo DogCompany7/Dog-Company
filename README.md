@@ -207,28 +207,6 @@ footer {
   padding:60px 20px;
 }
 
-footer .logo-footer {
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  font-weight:bold;
-  color:black;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 40px;
-}
-
-footer .logo-footer::after {
-  content: attr(data-text);
-  display: block;
-  transform: scaleY(-1);
-  opacity: 0.25;
-  margin-top: 5px;
-  color: black;
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  font-weight:bold;
-}
-
 footer .btn {
   background:#25D366;
   color:white;
@@ -419,7 +397,7 @@ setInterval(()=>{
 </section>
 
 <footer id="contacto">
-  <div class="logo-footer" data-text="Dog Company">Dog Company</div>
+  <p>Dog Company</p>
   <p>Ubicación: Alicante Centro</p>
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
     Más información por WhatsApp
