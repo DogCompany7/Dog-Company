@@ -23,7 +23,7 @@ header {
   position: relative;
   display:inline-block;
   margin-left: -40px;
-  flex: 0 0 auto;
+  flex: 0 0 auto; /* Mantener logo a la izquierda */
 }
 .logo-container::before {
   content:"";
@@ -48,33 +48,23 @@ header {
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px;
+  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
   color:#333;
   font-weight:600;
 }
 
 /* Hero / Carrusel */
-.hero-slider {
-  position: relative;
-  height: 60vh;
-  overflow: hidden;
-  margin-top: 90px;
-  background-color: transparent; /* bordes transparentes */
-}
-
+.hero-slider { position:relative; height:60vh; overflow:hidden; margin-top:90px; }
 .slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: contain;       /* toda la imagen visible */
-  background-repeat: no-repeat;   /* no repetir */
-  background-position: center;    /* centrada */
-  opacity: 0;
-  transition: opacity 1s;
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1s;
 }
-.slide.active {
-  opacity: 1;
-}
+.slide.active { opacity:1; }
 
 .hero-overlay {
   position:absolute;
