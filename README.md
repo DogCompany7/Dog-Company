@@ -263,9 +263,9 @@ footer .btn {
 
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider">
-  <div class="slide active" style="background-image:url('imagenes/carrusel1.jpg');"></div>
-  <div class="slide" style="background-image:url('imagenes/carrusel2.jpg');"></div>
-  <div class="slide" style="background-image:url('imagenes/carrusel3.jpg');"></div>
+  <div class="slide active" style="background-image:url('imagenes/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
+  <div class="slide" style="background-image:url('imagenes/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
+  <div class="slide" style="background-image:url('imagenes/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
