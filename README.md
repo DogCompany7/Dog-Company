@@ -230,7 +230,7 @@ footer .btn {
 .whatsapp-container img { width:50px; }
 
 .testimonios {
-  display:flex; flex-wrap:wrap; gap:20px; justify-content:flex-start;
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
 }
 .testimonio-box {
   flex:1 1 250px;
@@ -353,12 +353,12 @@ setInterval(()=>{
 </section>
 
 <!-- SECCIONES AL PIE DE PÁGINA -->
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:left;">
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:center;">
 
   <!-- RESEÑAS -->
   <div id="resenas-footer" style="margin-bottom:60px;">
     <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline;">Reseñas</h2>
-    <div class="testimonios" style="justify-content:flex-start;">
+    <div class="testimonios" style="justify-content:center;">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
         <div class="autor">- Ana G.</div>
