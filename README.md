@@ -15,42 +15,39 @@ a { text-decoration:none; }
 /* Header fijo */
 header {
   position: fixed; top:0; width:100%; z-index:999;
-  display: flex; align-items:center; padding:15px 40px;
+  display: flex; align-items:center; justify-content:space-between; padding:15px 40px;
   background: rgba(255,255,255,0.95);
 }
 
+/* Logo centrado */
 .logo-container {
-  position: relative;
-  display:inline-block;
-  margin-left: -40px;
-  flex: 0 0 auto; /* Mantener logo a la izquierda */
-}
-.logo-container::before {
-  content:"";
-  position:absolute;
-  top:50%; transform:translateY(-50%);
-  left:0;
-  width:420px;
-  height:100px;
-  background-color:#F5C223;
-  z-index:-1;
-  border-bottom-right-radius:25px;
+  position: absolute; left:50%; transform:translateX(-50%);
 }
 .logo {
   font-family:'Playfair Display', serif;
   font-size:2em;
   font-weight:bold;
   color:black;
-  padding:25px 20px;
+  padding:10px 20px;
 }
 
-/* Nav botones */
+/* Nav botones izquierda */
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
   color:#333;
   font-weight:600;
+  align-items:center;
+}
+
+/* Botón reservar derecha */
+header .btn-reservar {
+  background:#F5C223;
+  color:black;
+  padding:12px 28px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /* Hero / Carrusel */
@@ -243,6 +240,10 @@ footer .btn {
 @media(max-width:768px){
   .hero-slider { height:45vh; }
   .services, .testimonios { flex-direction:column; }
+  header { flex-direction:column; align-items:flex-start; padding:10px; }
+  header nav { margin-bottom:10px; }
+  header .btn-reservar { margin-top:5px; }
+  .logo-container { position:relative; left:auto; transform:none; margin:0 auto; }
 }
 </style>
 </head>
@@ -250,27 +251,23 @@ footer .btn {
 <body>
 
 <header>
-  <div class="logo-container">
-    <div class="logo">Dog Company</div>
-  </div>
   <nav>
     <a href="#servicios">Servicios</a>
-    <a href="#reserva-formulario">Reservas</a>
     <a href="#resenas-footer">Reseñas</a>
     <a href="#quienes-somos-footer">Quiénes somos</a>
   </nav>
+  <div class="logo-container">
+    <div class="logo">Dog Company</div>
+  </div>
+  <a href="#reserva-formulario" class="btn-reservar">Reservas</a>
 </header>
 
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider">
   <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
-
   <div class="hero-overlay"></div>
-
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
