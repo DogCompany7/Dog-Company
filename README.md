@@ -9,42 +9,25 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
-body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; }
+body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
 a { text-decoration:none; }
 
-/* Header fijo */
 header {
-  position: fixed;
-  top:0;
-  width:100%;
-  z-index:999;
-  display:flex;
-  align-items:center;
-  padding:15px 40px;
+  position: fixed; top:0; width:100%; z-index:999;
+  display: flex; align-items:center; padding:15px 40px;
   background: rgba(255,255,255,0.95);
 }
 
-nav {
-  margin-left:120px; /* SOLO mueve los botones */
-}
-
-nav a {
-  margin-left:25px;
-  color:#333;
-  font-weight:600;
-}
-
-/* Logo */
 .logo-container {
   position: relative;
   display:inline-block;
   margin-left: -40px;
+  flex: 0 0 auto;
 }
 .logo-container::before {
   content:"";
   position:absolute;
-  top:50%;
-  transform:translateY(-50%);
+  top:50%; transform:translateY(-50%);
   left:0;
   width:420px;
   height:100px;
@@ -60,14 +43,14 @@ nav a {
   padding:25px 20px;
 }
 
-/* Hero / Carrusel */
-.hero-slider {
-  position:relative;
-  height:60vh;
-  overflow:hidden;
-  margin-top:90px;
+header nav {
+  display: flex;
+  gap: 25px;
+  margin-left: 100px;
+  font-weight:600;
 }
 
+.hero-slider { position:relative; height:60vh; overflow:hidden; margin-top:90px; }
 .slide {
   position:absolute;
   width:100%;
@@ -77,16 +60,14 @@ nav a {
   opacity:0;
   transition:opacity 1s;
 }
-
 .slide.active { opacity:1; }
 
 .hero-overlay {
   position:absolute;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.35);
-  top:0;
-  left:0;
+  background: rgba(0,0,0,0.3);
+  top:0; left:0;
 }
 
 .hero-text {
@@ -99,18 +80,17 @@ nav a {
   z-index:2;
   max-width:70%;
 }
-
 .hero-text h1 {
   font-family:'Playfair Display', serif;
   font-size:2.2em;
   margin-bottom:10px;
+  text-shadow:2px 2px 8px rgba(0,0,0,0.6);
 }
-
 .hero-text p {
   font-size:1.1em;
   margin-bottom:20px;
+  text-shadow:1px 1px 5px rgba(0,0,0,0.6);
 }
-
 .hero-text .btn {
   background:#25D366;
   color:white;
@@ -119,7 +99,6 @@ nav a {
   font-weight:bold;
 }
 
-/* Presentación */
 .presentacion {
   font-family:'Merriweather', serif;
   font-size:1.3em;
@@ -129,14 +108,8 @@ nav a {
   line-height:1.7;
 }
 
-/* Secciones */
-section {
-  padding:80px 20px;
-  max-width:1000px;
-  margin:auto;
-}
+section { padding:80px 20px; max-width:1000px; margin:auto; }
 
-/* Servicios */
 #servicios h2 {
   text-align:center;
   font-family:'Playfair Display', serif;
@@ -166,48 +139,33 @@ section {
   margin-bottom:12px;
 }
 
-.precio-fijo {
-  font-weight:bold;
-  text-decoration:underline;
-}
+.precio-fijo { font-weight:bold; text-decoration:underline; }
+.service-box.horario-box { background:#FFF3B0; }
 
-.service-box.horario-box {
-  background:#FFF3B0;
-}
+.horarios { font-weight:bold; }
 
-.horarios {
-  font-weight:bold;
-}
-
-/* Formulario */
 .reserva-form {
   display:flex;
   flex-direction:column;
   gap:15px;
   margin-top:30px;
   max-width:400px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:auto;
 }
-
 .reserva-form input,
 .reserva-form select,
 .reserva-form button {
   padding:12px;
   border-radius:8px;
   border:1px solid #ccc;
-  font-size:1em;
 }
-
 .reserva-form button {
   background:#25D366;
   color:white;
   font-weight:bold;
   border:none;
-  cursor:pointer;
 }
 
-/* Frase */
 .highlight {
   text-align:center;
   font-size:1.3em;
@@ -215,14 +173,12 @@ section {
   margin:50px 0;
 }
 
-/* Footer */
 footer {
   background:#222;
   color:white;
   text-align:center;
   padding:60px 20px;
 }
-
 footer .btn {
   background:#25D366;
   color:white;
@@ -233,21 +189,30 @@ footer .btn {
   margin-top:15px;
 }
 
-/* WhatsApp flotante */
 .whatsapp-container {
   position:fixed;
   bottom:20px;
   right:20px;
-  z-index:1000;
+}
+.whatsapp-container img { width:50px; }
+
+.testimonios {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
-.whatsapp-container img {
-  width:50px;
+.testimonio-box {
+  flex:1 1 250px;
+  background:#f9f9f9;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
 }
 
 @media(max-width:768px){
-  nav { margin-left:40px; }
   .hero-slider { height:45vh; }
+  .services, .testimonios { flex-direction:column; }
 }
 </style>
 </head>
@@ -261,6 +226,8 @@ footer .btn {
   <nav>
     <a href="#servicios">Servicios</a>
     <a href="#contacto">Contacto</a>
+    <a href="#resenas-footer">Reseñas</a>
+    <a href="#quienes-somos-footer">Quiénes somos</a>
   </nav>
 </header>
 
@@ -275,84 +242,46 @@ footer .btn {
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
-      Reservar por WhatsApp
-    </a>
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
   </div>
 </div>
 
 <script>
-let slides = document.querySelectorAll('.slide');
-let current = 0;
-
-setInterval(() => {
+let slides=document.querySelectorAll('.slide');
+let current=0;
+setInterval(()=>{
   slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
+  current=(current+1)%slides.length;
   slides[current].classList.add('active');
-}, 5000);
+},5000);
 </script>
 
 <section>
-  <p class="presentacion">
-    Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
-    con atención individual y respeto por sus ritmos.
-  </p>
-  <p class="presentacion">
-    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
-  </p>
+  <p class="presentacion">Somos una residencia canina de ambiente familiar donde los perros conviven en calma.</p>
+  <p class="presentacion">Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.</p>
 </section>
 
 <section id="servicios">
   <h2>NUESTROS SERVICIOS</h2>
-
   <div class="services">
     <div class="service-box">
-      <h3><i class="fa-solid fa-bed"></i> Alojamiento Noche</h3>
-      <p>Perro adulto: <strong>24€ / noche</strong></p>
-      <p>Cachorros y cuidados especiales: <strong>26€ / noche</strong></p>
+      <h3>Alojamiento Noche</h3>
+      <p>24€ / noche</p>
     </div>
-
     <div class="service-box">
-      <h3><i class="fa-solid fa-sun"></i> Guardería de Día</h3>
-      <p>Perro adulto: <strong>22€</strong></p>
-      <p>Cachorros y cuidados especiales: <strong>24€</strong></p>
-      <p class="precio-fijo">Precio fijo hasta 6 horas</p>
+      <h3>Guardería de Día</h3>
+      <p>22€</p>
     </div>
-
     <div class="service-box horario-box">
-      <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
-      <p class="horarios">
-        Atención al cliente<br>
-        10:00h a 20:00h · Lunes a Domingo<br><br>
-        Entradas y salidas<br>
-        10:00h a 20:00h
-      </p>
+      <h3>Horarios</h3>
+      <p class="horarios">10:00h a 20:00h</p>
     </div>
   </div>
-
-  <form id="reservaForm" class="reserva-form">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="text" name="telefono" placeholder="Tu teléfono" required>
-    <input type="text" name="mascota" placeholder="Nombre de tu perro" required>
-    <input type="text" name="descripcion" placeholder="Descripción de tu perro" required>
-    <select name="servicio" required>
-      <option>Alojamiento Noche</option>
-      <option>Guardería de Día</option>
-    </select>
-    <input type="date" name="fecha" required>
-    <button type="submit">Enviar por WhatsApp</button>
-  </form>
-</section>
-
-<section class="highlight">
-  Tu perro no es un número.<br>Es uno más en casa.
 </section>
 
 <footer id="contacto">
   <p>Ubicación: Alicante Centro</p>
-  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
-    Más información por WhatsApp
-  </a>
+  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Más info por WhatsApp</a>
 </footer>
 
 <div class="whatsapp-container">
@@ -360,15 +289,6 @@ setInterval(() => {
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   </a>
 </div>
-
-<script>
-document.getElementById('reservaForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const f = e.target;
-  const msg = `Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
-  window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
-});
-</script>
 
 </body>
 </html>
