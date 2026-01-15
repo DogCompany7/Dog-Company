@@ -23,7 +23,7 @@ header {
   position: relative;
   display:inline-block;
   margin-left: -40px;
-  flex: 0 0 auto; /* Mantener logo a la izquierda */
+  flex: 0 0 auto;
 }
 .logo-container::before {
   content:"";
@@ -48,7 +48,7 @@ header {
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
+  margin-left: 100px;
   color:#333;
   font-weight:600;
 }
@@ -240,6 +240,14 @@ footer .btn {
 .testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; }
 .testimonio-box .autor { font-weight:bold; color:#25D366; }
 
+/* CENTRADO RESEÑAS Y QUIÉNES SOMOS */
+#resenas-footer h2,
+#resenas-footer p,
+#quienes-somos-footer h2,
+#quienes-somos-footer p {
+  text-align:center;
+}
+
 @media(max-width:768px){
   .hero-slider { height:45vh; }
   .services, .testimonios { flex-direction:column; }
@@ -264,19 +272,13 @@ footer .btn {
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider">
   <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
-
   <div class="hero-overlay"></div>
-
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
-      Reservar por WhatsApp
-    </a>
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
   </div>
 </div>
 
@@ -347,7 +349,7 @@ setInterval(()=>{
 </section>
 
 <!-- SECCIONES AL PIE DE PÁGINA -->
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:left;">
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto;">
 
   <!-- RESEÑAS -->
   <div id="resenas-footer" style="margin-bottom:60px;">
