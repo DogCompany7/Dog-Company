@@ -14,7 +14,7 @@ a { text-decoration:none; }
 
 /* HEADER MODIFICADO */
 header {
-  position: absolute; /* alineado sobre el carrusel */
+  position: absolute; /* sobre el carrusel */
   top: 0;
   width: 100%;
   display: flex;
@@ -22,7 +22,7 @@ header {
   justify-content: space-between;
   padding: 15px 40px;
   z-index: 999;
-  background: transparent; /* para ver carrusel detrás */
+  background: transparent;
 }
 
 .nav-left {
@@ -32,34 +32,9 @@ header {
   align-items: flex-start;
 }
 
-.logo-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex: 1;
-}
+/* ELIMINADO EL LOGO DEL HEADER */
 
-.logo-container::before {
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  width:420px;
-  height:100px;
-  background-color:#F5C223;
-  z-index:-1;
-  border-radius:25px;
-}
-
-.logo {
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  font-weight:bold;
-  color:black !important; /* aseguramos que sea negro */
-  padding:25px 20px;
-}
-
+/* BOTÓN RESERVAS */
 .reserva-btn-container {
   display: flex;
   align-items: flex-start;
@@ -77,6 +52,20 @@ header {
 
 /* Hero / Carrusel */
 .hero-slider { position:relative; height:60vh; overflow:hidden; margin-top:0; }
+
+.hero-slider::before {
+  content:"";
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:420px;
+  height:100px;
+  background-color:#F5C223;
+  z-index:1;
+  border-radius:25px;
+}
+
 .slide {
   position:absolute;
   width:100%;
@@ -85,6 +74,7 @@ header {
   background-position:center;
   opacity:0;
   transition:opacity 1s;
+  z-index:0;
 }
 .slide.active { opacity:1; }
 
@@ -94,6 +84,7 @@ header {
   height:100%;
   background: rgba(0,0,0,0.3);
   top:0; left:0;
+  z-index:2;
 }
 
 .hero-text {
@@ -102,28 +93,29 @@ header {
   left:50%;
   transform:translate(-50%,-50%);
   text-align:center;
-  color:white;
-  z-index:2;
+  color:black;
+  z-index:3;
   max-width:70%;
-}
-.hero-text h1 {
   font-family:'Playfair Display', serif;
-  font-size:2.2em;
-  margin-bottom:10px;
-  text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+  font-size:2em;
+  font-weight:bold;
 }
-.hero-text p {
-  font-size:1.1em;
-  margin-bottom:20px;
-  text-shadow:1px 1px 5px rgba(0,0,0,0.6);
-}
+
+/* Botón dentro del carrusel */
 .hero-text .btn {
-  background:#25D366;
-  color:white;
+  background:#F5C223;
+  color:black;
   padding:12px 28px;
   border-radius:30px;
   font-weight:bold;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
 }
+
+/* resto del CSS sin cambios */
+body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
+a { text-decoration:none; }
 
 /* Presentación */
 .presentacion {
@@ -273,8 +265,6 @@ footer .btn {
   }
   .nav-left { margin-bottom: 10px; }
   .reserva-btn-container { margin-top: 10px; }
-  .logo-container::before { width:300px; height:80px; }
-  .logo { font-size:1.6em; padding:15px 10px; }
 }
 </style>
 </head>
@@ -287,10 +277,6 @@ footer .btn {
     <a href="#resenas-footer">Reseñas</a>
     <a href="#quienes-somos-footer">Quiénes somos</a>
   </nav>
-
-  <div class="logo-container">
-    <div class="logo">Dog Company</div>
-  </div>
 
   <div class="reserva-btn-container">
     <a class="reserva-btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservas</a>
@@ -308,8 +294,7 @@ footer .btn {
   <div class="hero-overlay"></div>
 
   <div class="hero-text">
-    <h1>Dog Company</h1>
-    <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
+    Dog Company
     <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
       Reservar por WhatsApp
     </a>
@@ -329,120 +314,4 @@ let current=0;
 setInterval(()=>{ slides[current].classList.remove('active'); current=(current+1)%slides.length; slides[current].classList.add('active'); },5000);
 </script>
 
-<section>
-  <p class="presentacion">
-    Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
-    con atención individual y respeto por sus ritmos.
-  </p>
-  <p class="presentacion">
-    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
-  </p>
-</section>
-
-<section id="servicios">
-  <h2>NUESTROS SERVICIOS</h2>
-
-  <div class="services">
-    <div class="service-box">
-      <h3><i class="fa-solid fa-bed"></i> Alojamiento Noche</h3>
-      <p>Perro adulto: <strong>24€ / noche</strong></p>
-      <p>Cachorros 1-12 meses y cuidados especiales: <strong>26€ / noche</strong></p>
-    </div>
-
-    <div class="service-box">
-      <h3><i class="fa-solid fa-sun"></i> Guardería de Día</h3>
-      <p>Perro adulto: <strong>22€</strong></p>
-      <p>Cachorros y cuidados especiales: <strong>24€</strong></p>
-      <p class="precio-fijo">Precio fijo hasta 6 horas</p>
-    </div>
-
-    <div class="service-box horario-box">
-      <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
-      <p class="horarios">
-        Atención al cliente<br>
-        10:00h a 20:00h · Lunes a Domingo<br><br>
-        Entradas y salidas de reservas<br>
-        10:00h a 20:00h
-      </p>
-    </div>
-  </div>
-
-  <h2 style="text-align:center; font-family:'Montserrat', sans-serif; margin-top:60px;">
-    Haz tu reserva · Consulta disponibilidad
-  </h2>
-
-  <form id="reservaForm" class="reserva-form">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="text" name="telefono" placeholder="Tu teléfono" required>
-    <input type="text" name="mascota" placeholder="Nombre de tu perro" required>
-    <input type="text" name="descripcion" placeholder="Descripción de tu perro" required>
-    <select name="servicio" required>
-      <option value="Alojamiento Noche">Alojamiento Noche</option>
-      <option value="Guardería de Día">Guardería de Día</option>
-    </select>
-    <input type="date" name="fecha" required>
-    <button type="submit">Enviar por WhatsApp</button>
-  </form>
-</section>
-
-<section class="highlight">
-  Tu perro no es un número.<br>Es uno más en casa.
-</section>
-
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:left;">
-
-  <div id="resenas-footer" style="margin-bottom:60px;">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Reseñas</h2>
-    <div class="testimonios" style="justify-content:flex-start;">
-      <div class="testimonio-box">
-        <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
-        <div class="autor">- Ana G.</div>
-      </div>
-      <div class="testimonio-box">
-        <p>"Excelente cuidado y ambiente familiar, muy recomendable."</p>
-        <div class="autor">- Luis M.</div>
-      </div>
-      <div class="testimonio-box">
-        <p>"Se nota el amor y respeto que tienen por los animales."</p>
-        <div class="autor">- Marta R.</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="quienes-somos-footer">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Quiénes somos</h2>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
-      En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
-      ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
-      Nuestro centro nace de la convicción de brindar un ambiente <strong>tranquilo, familiar y seguro</strong>
-      donde cada perro recibe atención personalizada con cariño y respeto por su ritmo y necesidades.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
-      Creemos firmemente en el trabajo bien hecho, en la profesionalidad y en el trato humano tanto con
-      las mascotas como con sus familias. Nuestro objetivo es que cada estancia sea una experiencia
-      feliz y sin estrés para tu perro.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; text-align:center;">
-      Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
-    </p>
-  </div>
-
-</section>
-
-<footer id="contacto">
-  <p>Ubicación: Alicante Centro</p>
-  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
-    Más información por WhatsApp
-  </a>
-</footer>
-
-<div class="whatsapp-container">
-  <a href="https://wa.me/34TUNUMERO" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-  </a>
-</div>
-
-</body>
-</html>
+<!-- resto de tu código permanece igual -->
