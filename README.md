@@ -5,246 +5,232 @@
 <title>Dog Company - Residencia Canina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
-a { text-decoration:none; color:#333; }
-
-/* ===== HEADER CORREGIDO ===== */
-.header-fixed{
-  position:fixed;
-  top:0;
-  width:100%;
-  height:90px;
-  background:rgba(255,255,255,0.95);
-  display:grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items:center;
-  z-index:999;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Poppins, sans-serif;
+  background:#fff;
+  color:#111;
 }
 
-/* izquierda */
-.nav-left{
+/* CONTENEDOR GENERAL */
+.wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* HEADER */
+header{
+  border-bottom:1px solid #eee;
+}
+.header-inner{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  height:80px;
+}
+
+/* MENÚ IZQUIERDA */
+nav ul{
+  list-style:none;
   display:flex;
   gap:25px;
-  margin-left:40px;
-  font-weight:600;
+}
+nav a{
+  text-decoration:none;
+  color:#111;
+  font-weight:500;
 }
 
-/* centro real */
-.logo-wrapper{
-  position:relative;
-  justify-self:center;
-}
-.logo-wrapper::before{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:420px;
-  height:90px;
-  background:#F5C223;
-  border-bottom-right-radius:25px;
-  z-index:-1;
+/* LOGO CENTRO */
+.logo-wrap{
+  display:flex;
+  justify-content:center;
 }
 .logo{
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  font-weight:bold;
-  color:black;
-  padding:25px 40px;
+  background:#FFD600;
+  padding:10px 28px;
+  border-radius:40px;
+  font-weight:700;
+  font-size:20px;
 }
 
-/* derecha */
-.nav-right{
-  justify-self:end;
-  margin-right:40px;
-}
-.btn-reservas{
-  background:#F5C223;
-  color:black;
-  padding:12px 28px;
-  border-radius:30px;
-  font-weight:bold;
-}
-
-/* ===== HERO ===== */
-.hero-slider { position:relative; height:60vh; overflow:hidden; margin-top:90px; }
-.slide {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  transition:opacity 1s;
-}
-.slide.active { opacity:1; }
-
-.hero-overlay {
-  position:absolute;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.3);
-  top:0; left:0;
-}
-
-.hero-text {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
-  color:white;
-  z-index:2;
-  max-width:70%;
-}
-.hero-text h1 {
-  font-family:'Playfair Display', serif;
-  font-size:2.2em;
-  margin-bottom:10px;
-  text-shadow:2px 2px 8px rgba(0,0,0,0.6);
-}
-.hero-text p {
-  font-size:1.1em;
-  margin-bottom:20px;
-  text-shadow:1px 1px 5px rgba(0,0,0,0.6);
-}
-.hero-text .btn {
-  background:#25D366;
-  color:white;
-  padding:12px 28px;
-  border-radius:30px;
-  font-weight:bold;
-}
-
-/* resto del CSS SIN CAMBIOS */
-.presentacion {
-  font-family:'Merriweather', serif;
-  font-size:1.3em;
-  color:#444;
-  text-align:center;
-  margin:50px 0;
-  line-height:1.7;
-}
-
-section { padding:80px 20px; max-width:1000px; margin:auto; }
-
-#servicios h2 {
-  text-align:center;
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  margin-bottom:40px;
-  text-decoration:underline;
-}
-
-.services {
+/* BOTÓN RESERVAR DERECHA */
+.reserve-wrap{
   display:flex;
-  gap:20px;
-  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.reserve-btn{
+  background:#FFD600;
+  padding:12px 26px;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
+  color:#111;
 }
 
-.service-box {
-  flex:1 1 250px;
-  padding:20px;
-  border-radius:12px;
-  background:#f9f9f9;
-  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+/* CARRUSEL */
+.carousel{
+  margin:40px auto;
+  overflow:hidden;
+  border-radius:18px;
+}
+.carousel img{
+  width:100%;
+  display:block;
+}
+
+/* SECCIONES */
+section{
+  margin:80px 0;
   text-align:center;
 }
+section h2{
+  font-size:28px;
+  margin-bottom:30px;
+}
 
-.service-box.horario-box { background:#FFF3B0; }
+/* SERVICIOS */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+.service{
+  border:1px solid #eee;
+  padding:30px;
+  border-radius:18px;
+}
 
-.reserva-form {
+/* RESEÑAS */
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+.review{
+  background:#f9f9f9;
+  padding:25px;
+  border-radius:18px;
+}
+
+/* FORMULARIO */
+form{
+  max-width:500px;
+  margin:0 auto;
   display:flex;
   flex-direction:column;
   gap:15px;
-  margin-top:30px;
-  max-width:400px;
-  margin-left:auto;
-  margin-right:auto;
 }
-
-.reserva-form input,
-.reserva-form select,
-.reserva-form button {
-  padding:12px;
-  border-radius:8px;
+input, textarea{
+  padding:14px;
+  border-radius:12px;
   border:1px solid #ccc;
+  font-family:inherit;
+}
+.form-actions{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+}
+.btn-black{
+  background:#000;
+  color:#000;
+  border:none;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
+  background:#fff;
+  border:2px solid #000;
+}
+.btn-yellow{
+  background:#FFD600;
+  color:#111;
+  border:none;
+  padding:14px 22px;
+  border-radius:30px;
+  font-weight:600;
 }
 
-.highlight {
+/* FOOTER */
+footer{
+  border-top:1px solid #eee;
+  padding:30px 0;
   text-align:center;
-  font-size:1.3em;
-  font-weight:bold;
-  margin:50px 0;
-}
-
-footer {
-  background:#222;
-  color:white;
-  text-align:center;
-  padding:60px 20px;
-}
-
-.whatsapp-container {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-}
-.whatsapp-container img { width:50px; }
-
-@media(max-width:768px){
-  .hero-slider { height:45vh; }
+  font-weight:600;
 }
 </style>
 </head>
 
 <body>
 
-<header class="header-fixed">
-  <nav class="nav-left">
-    <a href="#servicios">Servicios</a>
-    <a href="#resenas-footer">Reseñas</a>
-    <a href="#quienes-somos-footer">Quiénes somos</a>
-  </nav>
+<header>
+  <div class="wrapper header-inner">
+    <nav>
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#quienes">Quiénes somos</a></li>
+        <li><a href="#resenas">Reseñas</a></li>
+      </ul>
+    </nav>
 
-  <div class="logo-wrapper">
-    <div class="logo">Dog Company</div>
-  </div>
+    <div class="logo-wrap">
+      <div class="logo">Dog Company</div>
+    </div>
 
-  <div class="nav-right">
-    <a href="#reservaForm" class="btn-reservas">Reservas</a>
+    <div class="reserve-wrap">
+      <a href="#reserva-formulario" class="reserve-btn">Reservar</a>
+    </div>
   </div>
 </header>
 
-<!-- CARRUSEL -->
-<div class="hero-slider">
-  <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
-
-  <div class="hero-overlay"></div>
-
-  <div class="hero-text">
-    <h1>Dog Company</h1>
-    <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
+<div class="wrapper">
+  <div class="carousel">
+    <img src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8" alt="Perros felices">
   </div>
+
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="services">
+      <div class="service">Residencia canina</div>
+      <div class="service">Guardería de día</div>
+      <div class="service">Paseos personalizados</div>
+    </div>
+  </section>
+
+  <section id="quienes">
+    <h2>Quiénes somos</h2>
+    <p>Cuidado familiar, consciente y respetuoso. Aquí los perros se sienten en casa.</p>
+  </section>
+
+  <section id="resenas">
+    <h2>Reseñas</h2>
+    <div class="reviews">
+      <div class="review">“Mi perro feliz como nunca.”</div>
+      <div class="review">“Confianza total, repetiremos.”</div>
+    </div>
+  </section>
+
+  <section id="reserva-formulario">
+    <h2>Reserva</h2>
+    <form>
+      <input type="text" placeholder="Nombre">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Mensaje"></textarea>
+      <div class="form-actions">
+        <button class="btn-black" type="button">Consulta disponibilidad</button>
+        <button class="btn-yellow" type="submit">Haz tu reserva</button>
+      </div>
+    </form>
+  </section>
 </div>
 
-<script>
-let slides=document.querySelectorAll('.slide');
-let current=0;
-setInterval(()=>{
-  slides[current].classList.remove('active');
-  current=(current+1)%slides.length;
-  slides[current].classList.add('active');
-},5000);
-</script>
+<footer>
+  Dog Company
+</footer>
 
 </body>
 </html>
