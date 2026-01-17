@@ -56,7 +56,7 @@ header {
   font-family:'Playfair Display', serif;
   font-size:2em;
   font-weight:bold;
-  color:black;
+  color:black !important; /* aseguramos que sea negro */
   padding:25px 20px;
 }
 
@@ -317,6 +317,13 @@ footer .btn {
 </div>
 
 <script>
+document.getElementById('reservaForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f=e.target;
+  const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
+  window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
+});
+
 let slides=document.querySelectorAll('.slide');
 let current=0;
 setInterval(()=>{ slides[current].classList.remove('active'); current=(current+1)%slides.length; slides[current].classList.add('active'); },5000);
@@ -436,19 +443,6 @@ setInterval(()=>{ slides[current].classList.remove('active'); current=(current+1
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
   </a>
 </div>
-
-<script>
-document.getElementById('reservaForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const f=e.target;
-  const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
-  window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
-});
-
-let slides=document.querySelectorAll('.slide');
-let current=0;
-setInterval(()=>{ slides[current].classList.remove('active'); current=(current+1)%slides.length; slides[current].classList.add('active'); },5000);
-</script>
 
 </body>
 </html>
