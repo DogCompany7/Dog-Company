@@ -2,278 +2,122 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Dog Company - Residencia Canina</title>
+<title>Dog Company | Residencia Canina y Guardería</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dog Company - Residencia canina y guardería de día. Cuidado profesional, trato familiar y reservas online fáciles.">
+<meta name="keywords" content="residencia canina, guardería canina, dog sitter, cuidado de perros">
 
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --wrap: 1200px;
-  --header-h: 90px;
-  --header-h-m: 150px;
+  --primary:#7b6cf6;
+  --secondary:#f6f4ff;
+  --accent:#ffd36e;
+  --dark:#2c2c2c;
 }
 
-/* 🌸 FONDO GLOBAL DIFUMINADO CON PATITAS */
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-  margin:0;
-  font-family:'Poppins', sans-serif;
-  color:#333;
+  font-family:'Poppins',sans-serif;
+  background:var(--secondary);
+  color:var(--dark);
   line-height:1.6;
-  scroll-behavior:smooth;
-
-  background:
-    /* capa patitas */
-    url("data:image/svg+xml;utf8,\
-    <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'>\
-      <g fill='rgba(255,255,255,0.25)'>\
-        <circle cx='35' cy='30' r='10'/>\
-        <circle cx='55' cy='25' r='8'/>\
-        <circle cx='75' cy='30' r='10'/>\
-        <ellipse cx='55' cy='55' rx='18' ry='14'/>\
-      </g>\
-    </svg>") repeat,
-
-    /* gradiente suave */
-    linear-gradient(135deg, #fde2f3 0%, #f5e9ff 50%, #eaf6ff 100%);
 }
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:auto;padding:80px 20px}
 
-/* Los bloques mantienen fondo limpio */
-section,
-footer{
-  background: transparent;
-}
-
-a{ text-decoration:none; color:inherit; }
-
-/* Evita que el header tape las secciones */
-#top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
-  scroll-margin-top: calc(var(--header-h) + 15px);
-}
-@media(max-width:768px){
-  #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
-    scroll-margin-top: calc(var(--header-h-m) + 15px);
-  }
-}
-
-/* Header fijo */
+/* HEADER */
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:999;
-  background: rgba(255,255,255,0.95);
-}
-
-/* Header layout */
-.header-inner{
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 15px 20px;
-  display:grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items:center;
-  column-gap: 18px;
-}
-
-/* Nav izquierda */
-header nav{
+  position:fixed;top:0;width:100%;z-index:999;
+  background:white;
   display:flex;
-  gap: 22px;
-  font-weight:700;
-  justify-self:start;
-  white-space:nowrap;
-  font-size:0.95em;
-  color:#333;
-}
-header nav a{
-  padding: 6px 3px;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-header nav a:hover{
-  color:#25D366;
-  transform: scale(1.08);
-}
-
-/* Logo centrado */
-.logo-container{
-  justify-self:center;
-  position:relative;
-  display:flex;
+  justify-content:space-between;
   align-items:center;
-  justify-content:center;
-}
-.logo-container::before{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:420px;
-  height:100px;
-  background-color:#F5C223;
-  z-index:-1;
-  border-bottom-right-radius:25px;
+  padding:15px 30px;
+  box-shadow:0 2px 10px rgba(0,0,0,.05)
 }
 .logo{
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  font-weight:bold;
-  color:black;
-  padding:25px 20px;
-  white-space:nowrap;
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-weight:600
 }
-
-/* Botón Reservar derecha */
-.reserve-btn{
-  justify-self:end;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+nav a{
+  margin-left:20px;
+  font-weight:500
+}
+.cta{
+  background:var(--primary);
+  color:white;
   padding:10px 18px;
-  border-radius:999px;
-  font-weight:700;
-  background:#25D366;
-  color:white;
-  white-space:nowrap;
-}
-
-/* Carrusel */
-.hero-slider{
-  position:relative;
-  width:100%;
-  height:55vh;
-  overflow:hidden;
-  margin-top: var(--header-h);
-  background:#000;
-}
-.slide{
-  position:absolute;
-  inset:0;
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
-  opacity:0;
-  transition:opacity 1s;
-}
-.slide.active{ opacity:1; }
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background: rgba(0,0,0,0.3);
-}
-
-.hero-text{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  text-align:center;
-  color:white;
-  z-index:2;
-  max-width:80%;
-}
-.hero-text h1{
-  font-family:'Playfair Display', serif;
-  font-size:2.4em;
-  margin-bottom:10px;
-  text-shadow:2px 2px 8px rgba(0,0,0,0.6);
-}
-.hero-text p{
-  font-size:1.15em;
-  margin-bottom:20px;
-  text-shadow:1px 1px 5px rgba(0,0,0,0.6);
-}
-.hero-text .btn{
-  background:#25D366;
-  color:white;
-  padding:12px 28px;
   border-radius:30px;
-  font-weight:bold;
 }
 
-/* Secciones */
-section{
-  padding:80px 20px;
-  max-width: var(--wrap);
-  margin:auto;
-}
-
-/* Presentación */
-.presentacion{
-  font-family:'Merriweather', serif;
-  font-size:1.3em;
-  color:#444;
-  text-align:center;
-  margin:50px 0;
-  line-height:1.7;
-}
-
-/* Servicios */
-#servicios h2{
-  text-align:center;
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  margin-bottom:40px;
-  text-decoration:underline;
-}
-
-.services{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-}
-.service-box{
-  flex:1 1 250px;
-  padding:20px;
-  border-radius:12px;
-  background:rgba(255,255,255,0.85);
-  box-shadow:0 4px 12px rgba(0,0,0,0.12);
-  text-align:center;
-}
-.service-box.horario-box{ background:#FFF3B0; }
-
-/* Footer */
-footer{
-  background:#222;
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(rgba(123,108,246,.85),rgba(123,108,246,.85)),url('https://images.unsplash.com/photo-1558788353-f76d92427f16') center/cover;
   color:white;
+  display:flex;
+  align-items:center;
   text-align:center;
-  padding:60px 20px;
+}
+.hero h1{
+  font-size:42px;
+  font-family:'Playfair Display',serif;
+}
+.hero p{margin:20px 0;font-size:18px}
+
+/* SECTIONS */
+section{background:white;margin:40px 0;border-radius:30px;padding:60px 40px}
+h2{
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px
 }
 
-/* WhatsApp flotante */
-.whatsapp-container{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  z-index:1000;
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px
 }
-.whatsapp-container img{ width:50px; }
+.card{
+  background:var(--secondary);
+  padding:30px;
+  border-radius:20px;
+}
+.price{font-size:22px;color:var(--primary);margin:10px 0}
 
-/* Responsive */
+/* FORM */
+form{
+  display:grid;
+  gap:15px;
+  max-width:500px
+}
+input,select,textarea,button{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-family:inherit
+}
+button{
+  background:var(--primary);
+  color:white;
+  border:none;
+  cursor:pointer
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px;
+  color:#777
+}
+
+/* MOBILE */
 @media(max-width:768px){
-  .hero-slider{ height:42vh; margin-top: var(--header-h-m); }
-
-  .header-inner{
-    grid-template-columns: 1fr;
-    row-gap:10px;
-    justify-items:center;
-  }
-
-  header nav{
-    gap:14px;
-    font-size:0.88em;
-    flex-wrap:wrap;
-    justify-content:center;
-    text-align:center;
-  }
-
-  .logo-container::before{ width:260px; height:80px; }
-  .logo{ font-size:1.6em; padding:18px 14px; }
-
-  .reserve-btn{ width:100%; max-width:320px; }
+  nav{display:none}
+  .hero h1{font-size:32px}
 }
 </style>
 </head>
@@ -281,48 +125,78 @@ footer{
 <body>
 
 <header>
-  <div class="header-inner">
-    <nav>
-      <a href="#top">Inicio</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#resenas-footer">Reseñas</a>
-      <a href="#quienes-somos-footer">Quiénes somos</a>
-    </nav>
-
-    <div class="logo-container">
-      <div class="logo">Dog Company</div>
-    </div>
-
-    <a class="reserve-btn" href="#reservaForm">Reservar</a>
-  </div>
+  <div class="logo">Dog Company</div>
+  <nav>
+    <a href="#servicios">Servicios</a>
+    <a href="#reservas">Reservas</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <a class="cta" href="#reservas">Reservar</a>
 </header>
 
-<!-- CARRUSEL -->
-<div class="hero-slider" id="top">
-  <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
-
-  <div class="hero-overlay"></div>
-
-  <div class="hero-text">
-    <h1>Dog Company</h1>
-    <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
+<section class="hero">
+  <div class="container">
+    <h1>Tu perro cuidado como en casa</h1>
+    <p>Residencia canina y guardería de día con trato familiar, profesional y reservas fáciles.</p>
+    <a class="cta" href="#reservas">Reserva ahora</a>
   </div>
-</div>
+</section>
+
+<section id="servicios" class="container">
+  <h2>Servicios</h2>
+  <div class="services">
+    <div class="card">
+      <h3>Guardería de día</h3>
+      <p>Cuidado diurno en un entorno seguro, tranquilo y supervisado.</p>
+      <div class="price">Precio: —</div>
+    </div>
+    <div class="card">
+      <h3>Alojamiento nocturno</h3>
+      <p>Estancias con atención personalizada, descanso y bienestar.</p>
+      <div class="price">Precio: —</div>
+    </div>
+  </div>
+</section>
+
+<section id="reservas" class="container">
+  <h2>Reserva online</h2>
+  <form id="reservaForm">
+    <select id="servicio" required>
+      <option value="">Selecciona servicio</option>
+      <option>Guardería de día</option>
+      <option>Alojamiento nocturno</option>
+    </select>
+    <input type="date" id="fecha" required>
+    <input type="text" id="dueno" placeholder="Nombre del dueño" required>
+    <input type="text" id="perro" placeholder="Nombre del perro" required>
+    <textarea id="info" placeholder="Observaciones (edad, carácter, necesidades)"></textarea>
+    <button type="submit">Confirmar reserva</button>
+  </form>
+</section>
+
+<section id="contacto" class="container">
+  <h2>Contacto</h2>
+  <p>¿Dudas? Escríbenos directamente por WhatsApp.</p>
+  <a class="cta" href="https://wa.me/TU_WHATSAPP" target="_blank">Hablar por WhatsApp</a>
+</section>
+
+<footer>
+  © Dog Company · Residencia Canina
+</footer>
 
 <script>
-let slides=document.querySelectorAll('.slide');
-let current=0;
-setInterval(()=>{
-  slides[current].classList.remove('active');
-  current=(current+1)%slides.length;
-  slides[current].classList.add('active');
-},5000);
-</script>
+document.getElementById('reservaForm').addEventListener('submit',function(e){
+  e.preventDefault()
+  const servicio=servicio.value
+  const fecha=fecha.value
+  const dueno=dueno.value
+  const perro=perro.value
+  const info=document.getElementById('info').value
 
-<!-- AQUÍ SIGUE TODO TU CONTENIDO ORIGINAL (presentación, servicios, etc.) -->
+  const mensaje=`Reserva Dog Company:%0AServicio: ${servicio}%0AFecha: ${fecha}%0ADueño: ${dueno}%0APerro: ${perro}%0AInfo: ${info}`
+  window.open(`https://wa.me/TU_WHATSAPP?text=${mensaje}`,'_blank')
+})
+</script>
 
 </body>
 </html>
