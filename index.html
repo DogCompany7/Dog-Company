@@ -8,6 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
+<!-- ✅ Calendly (calendario real con bloqueo gestionado en Calendly) -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
 <style>
 :root{
   --wrap: 1200px;
@@ -139,7 +143,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .reserve-btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(37,211,102,.28); }
 
-/* Botón menú móvil (se activa solo en mobile) */
+/* Botón menú móvil */
 .menu-btn{
   display:none;
   justify-self:end;
@@ -170,7 +174,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .mobile-nav a:hover{ background: rgba(255,255,255,0.92); }
 
-/* ===== Hero / Carrusel (re-estructurado arriba) ===== */
+/* ===== Hero / Carrusel ===== */
 .hero-slider{
   position:relative;
   width:100%;
@@ -191,7 +195,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .slide.active{ opacity:1; }
 
-/* Overlay más “cinematográfico” (no tan oscuro plano) */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -200,7 +203,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
     linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.20));
 }
 
-/* Contenedor hero: alinea card y deja el carrusel respirar */
 .hero-content{
   position:absolute;
   inset:0;
@@ -211,7 +213,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   padding: 24px 18px;
 }
 
-/* Card de mensaje (ancla el copy, sube conversión) */
 .hero-card{
   width: min(860px, 92vw);
   background: var(--card);
@@ -236,7 +237,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   max-width: 58ch;
 }
 
-/* “Píldoras” de confianza rápidas */
 .trust-row{
   display:flex;
   flex-wrap:wrap;
@@ -258,7 +258,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .trust-pill i{ color:#7b6cf6; }
 
-/* CTA */
 .hero-actions{
   display:flex;
   gap:12px;
@@ -292,7 +291,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .btn-secondary:hover{ transform: translateY(-1px); background: rgba(0,0,0,0.08); }
 
-/* Hint scroll (sutil) */
 .scroll-hint{
   margin-top: 12px;
   font-weight:800;
@@ -300,7 +298,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   color: rgba(0,0,0,0.58);
 }
 
-/* ===== Secciones (mismo contenido, más “tarjeta” sobre fondo violeta) ===== */
+/* ===== Secciones ===== */
 section{
   padding:80px 20px;
   max-width: var(--wrap);
@@ -358,14 +356,30 @@ section{
 }
 .service-box p{ font-size:1em; margin-bottom:8px; }
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
-.service-box.horario-box{
-  background: #fff6c9;
-}
+.service-box.horario-box{ background: #fff6c9; }
 .horarios{
   color:#333;
   font-size:1em;
   font-weight:bold;
   line-height:1.4;
+}
+
+/* Botones selector calendario */
+.cal-btn{
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  border:1px solid rgba(0,0,0,0.12);
+  background:rgba(255,255,255,0.85);
+  cursor:pointer;
+  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.cal-btn:hover{ transform: translateY(-1px); }
+.cal-btn-active{
+  background: var(--brand);
+  color:#fff;
+  border-color: transparent;
+  box-shadow: 0 14px 28px rgba(37,211,102,.20);
 }
 
 /* Formulario */
@@ -490,7 +504,7 @@ footer .btn{
     align-items:center;
   }
 
-  header nav{ display:none; } /* se reemplaza por menú */
+  header nav{ display:none; }
   .logo-container{ grid-area: logo; justify-self:start; }
   .menu-btn{ grid-area: menu; display:flex; justify-self:end; }
   .reserve-btn{ grid-area: reserve; justify-self:stretch; width:100%; text-align:center; }
@@ -536,7 +550,6 @@ footer .btn{
     <a class="reserve-btn" href="#reservaForm">Reservar</a>
   </div>
 
-  <!-- Menú móvil -->
   <div class="mobile-nav" id="mobileNav">
     <a href="#top">Inicio</a>
     <a href="#servicios">Servicios</a>
@@ -553,7 +566,6 @@ footer .btn{
 
   <div class="hero-overlay"></div>
 
-  <!-- ✅ Nuevo bloque “above the fold” (mismo mensaje, más estructura) -->
   <div class="hero-content">
     <div class="hero-card">
       <h1>Dog Company</h1>
@@ -590,15 +602,12 @@ setInterval(() => {
 }, 5000);
 
 /* Menú móvil */
-const header = document.getElementById('siteHeader');
 const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
 
 menuBtn?.addEventListener('click', () => {
   document.body.classList.toggle('mobile-open');
 });
-
-/* Cierra menú móvil al clicar una opción */
 mobileNav?.addEventListener('click', (e) => {
   if(e.target.tagName === 'A') document.body.classList.remove('mobile-open');
 });
@@ -646,6 +655,23 @@ mobileNav?.addEventListener('click', (e) => {
     Haz tu reserva · Consulta disponibilidad
   </h2>
 
+  <!-- ✅ Calendario real con bloqueo (Calendly) -->
+  <div style="max-width:920px;margin:20px auto 10px auto;">
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+      <button type="button" class="cal-btn cal-btn-active" data-cal="guarderia">Guardería de Día</button>
+      <button type="button" class="cal-btn" data-cal="alojamiento">Alojamiento Noche</button>
+    </div>
+
+    <div id="calendlyWrap" style="border-radius:18px;overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.06);background:#fff;">
+      <div id="calendlyInline" style="min-width:320px;height:720px;"></div>
+    </div>
+
+    <p style="text-align:center;margin-top:10px;color:#444;font-weight:700;">
+      Selecciona servicio y elige fecha/hora disponible. Si no aparece un día, está completo.
+    </p>
+  </div>
+
+  <!-- Formulario (se mantiene) -->
   <form id="reservaForm" class="reserva-form">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="text" name="telefono" placeholder="Tu teléfono" required>
@@ -718,6 +744,38 @@ mobileNav?.addEventListener('click', (e) => {
 </div>
 
 <script>
+/* ✅ CONFIG: pega aquí tus 2 links de Calendly (uno por servicio) */
+const CALENDLY_GUARDERIA   = "https://calendly.com/TU_USUARIO/guarderia";    // <-- cambia esto
+const CALENDLY_ALOJAMIENTO = "https://calendly.com/TU_USUARIO/alojamiento";  // <-- cambia esto
+
+function loadCalendly(url){
+  const el = document.getElementById("calendlyInline");
+  if(!el) return;
+  el.innerHTML = "";
+  if(window.Calendly){
+    window.Calendly.initInlineWidget({
+      url,
+      parentElement: el
+    });
+  }else{
+    setTimeout(() => loadCalendly(url), 250);
+  }
+}
+
+/* Carga inicial */
+loadCalendly(CALENDLY_GUARDERIA);
+
+/* Toggle servicio */
+document.querySelectorAll(".cal-btn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    document.querySelectorAll(".cal-btn").forEach(b=>b.classList.remove("cal-btn-active"));
+    btn.classList.add("cal-btn-active");
+
+    const type = btn.getAttribute("data-cal");
+    loadCalendly(type === "alojamiento" ? CALENDLY_ALOJAMIENTO : CALENDLY_GUARDERIA);
+  });
+});
+
 /* WhatsApp del formulario */
 document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
