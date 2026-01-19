@@ -10,9 +10,9 @@
 
 <style>
 :root{
-  --wrap: 1000px;     /* mismo límite visual */
-  --header-h: 90px;   /* altura header desktop */
-  --header-h-m: 150px;/* altura header móvil */
+  --wrap: 1000px;      /* mismo límite visual que carrusel y secciones */
+  --header-h: 90px;    /* altura header desktop */
+  --header-h-m: 150px; /* altura header móvil */
 }
 
 body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
@@ -27,7 +27,7 @@ header {
   background: rgba(255,255,255,0.95);
 }
 
-/* Contenedor del header (MISMO ancho que carrusel y secciones) */
+/* Contenedor del header (MISMO ancho que carrusel) */
 .header-inner{
   max-width: var(--wrap);
   margin: 0 auto;
@@ -41,17 +41,16 @@ header {
 /* Nav izquierda */
 header nav{
   display:flex;
-  gap: 18px;                       /* para que no rompa línea */
+  gap: 18px;
   font-weight:600;
   justify-self:start;
   white-space:nowrap;
   font-size:0.98em;
+  color:#333;
 }
-header nav a{
-  color:#1a3d8f;                    /* azul similar al de tu captura (si lo quieres negro, lo quito) */
-}
+header nav a{ color:#333; }
 
-/* Logo centrado */
+/* Logo centrado highlighting */
 .logo-container{
   justify-self:center;
   position:relative;
