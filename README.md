@@ -10,13 +10,23 @@
 
 <style>
 :root{
-  --wrap: 1000px;      /* mismo límite visual que carrusel y secciones */
-  --header-h: 90px;    /* altura header desktop */
-  --header-h-m: 150px; /* altura header móvil */
+  --wrap: 1000px;
+  --header-h: 90px;
+  --header-h-m: 150px;
 }
 
 body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
+
+/* ✅ Esto evita que el header tape las secciones al hacer clic en el menú */
+#top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto {
+  scroll-margin-top: calc(var(--header-h) + 15px);
+}
+@media(max-width:768px){
+  #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto {
+    scroll-margin-top: calc(var(--header-h-m) + 15px);
+  }
+}
 
 /* Header fijo */
 header {
@@ -31,7 +41,7 @@ header {
 .header-inner{
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 15px 0;                 /* sin padding lateral para que el nav arranque justo en el límite */
+  padding: 15px 0;                 /* sin padding lateral */
   display:grid;
   grid-template-columns: 1fr auto 1fr; /* nav / logo / reservar */
   align-items:center;
@@ -50,7 +60,7 @@ header nav{
 }
 header nav a{ color:#333; }
 
-/* Logo centrado highlighting */
+/* Logo centrado */
 .logo-container{
   justify-self:center;
   position:relative;
@@ -99,7 +109,7 @@ header nav a{ color:#333; }
   height:60vh;
   overflow:hidden;
   max-width: var(--wrap);
-  margin: var(--header-h) auto 0;  /* deja sitio para el header fijo */
+  margin: var(--header-h) auto 0;
 }
 .slide{
   position:absolute;
@@ -345,9 +355,7 @@ footer .btn{
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
   <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
 
   <div class="hero-overlay"></div>
