@@ -15,21 +15,34 @@ a { text-decoration:none; }
 /* Header fijo */
 header {
   position: fixed; top:0; width:100%; z-index:999;
-  display: flex; align-items:center; padding:15px 40px;
   background: rgba(255,255,255,0.95);
 }
 
+/* NUEVO: contenedor interno para alinear al "límite del carrusel" */
+.header-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+}
+
+/* Logo centrado */
 .logo-container {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display:inline-block;
-  margin-left: -40px;
-  flex: 0 0 auto; /* Mantener logo a la izquierda */
+  flex: 0 0 auto;
+  margin-left: 0;
 }
 .logo-container::before {
   content:"";
   position:absolute;
   top:50%; transform:translateY(-50%);
-  left:0;
+  left:50%; transform:translate(-50%,-50%);
   width:420px;
   height:100px;
   background-color:#F5C223;
@@ -42,15 +55,29 @@ header {
   font-weight:bold;
   color:black;
   padding:25px 20px;
+  text-align:center;
+  white-space:nowrap;
 }
 
-/* Nav botones */
+/* Nav botones (izquierda) */
 header nav {
   display: flex;
   gap: 25px;
-  margin-left: 100px; /* Ajusta este valor para mover los botones hacia el centro */
+  margin-left: 0;
   color:#333;
   font-weight:600;
+  flex: 0 0 auto;
+}
+
+/* Botón Reservar (derecha) */
+.reserve-btn{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:999px;
+  font-weight:700;
+  background:#25D366;
+  color:white;
+  flex: 0 0 auto;
 }
 
 /* Hero / Carrusel */
@@ -243,6 +270,14 @@ footer .btn {
 @media(max-width:768px){
   .hero-slider { height:45vh; }
   .services, .testimonios { flex-direction:column; }
+
+  /* Responsive header: evita solapes */
+  .header-inner{ padding:12px 16px; }
+  .logo-container{ position:static; transform:none; }
+  .logo-container::before{ left:0; transform:translateY(-50%); width:260px; height:80px; }
+  .logo{ padding:18px 14px; font-size:1.6em; }
+  header nav{ gap:14px; font-size:0.95em; }
+  .reserve-btn{ padding:9px 14px; font-size:0.95em; }
 }
 </style>
 </head>
@@ -250,19 +285,24 @@ footer .btn {
 <body>
 
 <header>
-  <div class="logo-container">
-    <div class="logo">Dog Company</div>
+  <div class="header-inner">
+    <nav>
+      <a href="#top">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#resenas-footer">Reseñas</a>
+      <a href="#quienes-somos-footer">Quiénes somos</a>
+    </nav>
+
+    <div class="logo-container">
+      <div class="logo">Dog Company</div>
+    </div>
+
+    <a class="reserve-btn" href="#reservaForm">Reservar</a>
   </div>
-  <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#reservaForm">Reservas</a>
-    <a href="#resenas-footer">Reseñas</a>
-    <a href="#quienes-somos-footer">Quiénes somos</a>
-  </nav>
 </header>
 
 <!-- 🔁 CARRUSEL -->
-<div class="hero-slider">
+<div class="hero-slider" id="top">
   <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
 
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
