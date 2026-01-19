@@ -18,9 +18,9 @@ header {
   background: rgba(255,255,255,0.95);
 }
 
-/* NUEVO: contenedor interno para alinear al "límite del carrusel" */
+/* contenedor interno para alinear al "límite del carrusel" */
 .header-inner{
-  max-width: 1200px;
+  max-width: 1000px; /* AJUSTE: antes 1200px */
   margin: 0 auto;
   padding: 15px 40px;
   display:flex;
@@ -34,15 +34,16 @@ header {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  display:inline-block;
-  flex: 0 0 auto;
-  margin-left: 0;
+  display:flex;            /* AJUSTE: antes inline-block */
+  align-items:center;      /* AJUSTE */
+  justify-content:center;  /* AJUSTE */
 }
 .logo-container::before {
   content:"";
   position:absolute;
-  top:50%; transform:translateY(-50%);
-  left:50%; transform:translate(-50%,-50%);
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%); /* AJUSTE: corregido transform duplicado */
   width:420px;
   height:100px;
   background-color:#F5C223;
