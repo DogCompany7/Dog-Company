@@ -491,4 +491,9 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
   const f=e.target;
   const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
-  window.open(`https://wa
+  window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
+});
+</script>
+
+</body>
+</html>
