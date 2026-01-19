@@ -16,40 +16,38 @@ a { text-decoration:none; }
 header {
   position: fixed; top:0; width:100%; z-index:999;
   background: rgba(255,255,255,0.95);
+  padding:15px 0;                 /* AJUSTE: antes el padding estaba en header-inner */
 }
 
-/* AJUSTE: layout armonizado (3 columnas reales) */
+/* AJUSTE: el header se alinea EXACTO con el ancho del carrusel */
 .header-inner{
-  width:100%;
-  max-width:none;
+  max-width: 1000px;              /* AJUSTE: mismo ancho que el carrusel */
   margin: 0 auto;
-  padding: 15px 40px;
-  display:grid;                         /* AJUSTE */
-  grid-template-columns: 1fr auto 1fr;  /* AJUSTE */
-  align-items:center;                   /* AJUSTE */
-  column-gap: 25px;                     /* AJUSTE */
+  padding: 0;                     /* AJUSTE: para que los botones empiecen justo en el límite */
+  display:grid;
+  grid-template-columns: auto 1fr auto; /* AJUSTE: izq = nav, centro = logo, dcha = botón */
+  align-items:center;
   position:relative;
 }
 
 /* Nav botones (izquierda) */
 header nav {
-  display: flex;
-  gap: 25px;
-  margin-left: 0;
+  display:flex;
+  gap:25px;
   color:#333;
   font-weight:600;
-  justify-self:start;   /* AJUSTE */
-  z-index:3;            /* AJUSTE */
+  justify-self:start;
+  z-index:3;
 }
 
-/* Logo centrado (ya NO absoluto, para que no tape el botón) */
+/* Logo centrado en el MISMO eje del carrusel */
 .logo-container {
-  position: relative;        /* AJUSTE */
-  justify-self:center;       /* AJUSTE */
+  justify-self:center;
   display:flex;
   align-items:center;
   justify-content:center;
-  z-index:2;                 /* AJUSTE */
+  position:relative;
+  z-index:2;
 }
 .logo-container::before {
   content:"";
@@ -75,18 +73,25 @@ header nav {
 
 /* Botón Reservar (derecha) */
 .reserve-btn{
-  display:inline-block;
+  display:inline-block;           /* AJUSTE: aseguramos que se vea siempre */
   padding:10px 18px;
   border-radius:999px;
   font-weight:700;
   background:#25D366;
   color:white;
-  justify-self:end;   /* AJUSTE */
-  z-index:3;          /* AJUSTE */
+  justify-self:end;
+  z-index:3;
 }
 
 /* Hero / Carrusel */
-.hero-slider { position:relative; height:60vh; overflow:hidden; margin-top:90px; }
+.hero-slider {
+  position:relative;
+  height:60vh;
+  overflow:hidden;
+
+  max-width:1000px;               /* AJUSTE: mismo límite que el header */
+  margin:90px auto 0;             /* AJUSTE: centrado + respeta header fijo */
+}
 .slide {
   position:absolute;
   width:100%;
@@ -274,14 +279,15 @@ footer .btn {
 
 @media(max-width:768px){
   .hero-slider { height:45vh; }
+
   .services, .testimonios { flex-direction:column; }
 
-  /* Responsive header: evita solapes */
+  header{ padding:12px 0; }
   .header-inner{
-    padding:12px 16px;
-    grid-template-columns: 1fr;   /* AJUSTE */
-    row-gap: 10px;               /* AJUSTE */
-    justify-items: center;       /* AJUSTE */
+    padding:0 16px;
+    grid-template-columns: 1fr;     /* apila */
+    row-gap:10px;
+    justify-items:center;
   }
   header nav{ gap:14px; font-size:0.95em; justify-self:center; }
   .reserve-btn{ padding:9px 14px; font-size:0.95em; justify-self:center; }
