@@ -10,45 +10,51 @@
 
 <style>
 :root{
-  --wrap: 1000px;     /* mismo ancho visual que el carrusel y secciones */
-  --header-h: 90px;   /* altura header en desktop */
-  --header-h-m: 140px;/* altura header en móvil (al apilar) */
+  --wrap: 1000px;     /* mismo límite visual */
+  --header-h: 90px;   /* altura header desktop */
+  --header-h-m: 150px;/* altura header móvil */
 }
 
 body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
-a { text-decoration:none; }
+a { text-decoration:none; color:inherit; }
 
 /* Header fijo */
 header {
-  position: fixed; top:0; width:100%; z-index:999;
+  position: fixed;
+  top:0;
+  width:100%;
+  z-index:999;
   background: rgba(255,255,255,0.95);
 }
 
-/* CONTENEDOR: MISMO LÍMITE que el carrusel */
+/* Contenedor del header (MISMO ancho que carrusel y secciones) */
 .header-inner{
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 15px 0; /* 0 para que los botones empiecen justo en el límite del carrusel */
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;  /* izquierda / logo centrado / derecha */
-  align-items: center;
-  column-gap: 24px;
-  position: relative;
+  padding: 15px 0;                 /* sin padding lateral para que el nav arranque justo en el límite */
+  display:grid;
+  grid-template-columns: 1fr auto 1fr; /* nav / logo / reservar */
+  align-items:center;
+  column-gap: 18px;
 }
 
-/* Nav (izquierda, arranca en el límite del carrusel) */
+/* Nav izquierda */
 header nav{
   display:flex;
-  gap: 22px;
+  gap: 18px;                       /* para que no rompa línea */
   font-weight:600;
-  justify-self: start;
-  white-space: nowrap;
+  justify-self:start;
+  white-space:nowrap;
+  font-size:0.98em;
+}
+header nav a{
+  color:#1a3d8f;                    /* azul similar al de tu captura (si lo quieres negro, lo quito) */
 }
 
-/* Logo (centro exacto del contenedor => mismo centro que el H1 del carrusel) */
+/* Logo centrado */
 .logo-container{
-  justify-self: center;
-  position: relative;
+  justify-self:center;
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -71,12 +77,12 @@ header nav{
   font-weight:bold;
   color:black;
   padding:25px 20px;
-  white-space: nowrap;
+  white-space:nowrap;
 }
 
-/* Botón Reservar (derecha, al límite del carrusel) */
+/* Botón Reservar derecha */
 .reserve-btn{
-  justify-self: end;
+  justify-self:end;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -89,15 +95,14 @@ header nav{
 }
 
 /* Hero / Carrusel */
-.hero-slider {
+.hero-slider{
   position:relative;
   height:60vh;
   overflow:hidden;
-
-  max-width: var(--wrap);     /* MISMO límite que header */
-  margin: var(--header-h) auto 0; /* baja justo debajo del header fijo */
+  max-width: var(--wrap);
+  margin: var(--header-h) auto 0;  /* deja sitio para el header fijo */
 }
-.slide {
+.slide{
   position:absolute;
   width:100%;
   height:100%;
@@ -106,17 +111,15 @@ header nav{
   opacity:0;
   transition:opacity 1s;
 }
-.slide.active { opacity:1; }
+.slide.active{ opacity:1; }
 
-.hero-overlay {
+.hero-overlay{
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
   background: rgba(0,0,0,0.3);
-  top:0; left:0;
 }
 
-.hero-text {
+.hero-text{
   position:absolute;
   top:50%;
   left:50%;
@@ -126,18 +129,18 @@ header nav{
   z-index:2;
   max-width:70%;
 }
-.hero-text h1 {
+.hero-text h1{
   font-family:'Playfair Display', serif;
   font-size:2.2em;
   margin-bottom:10px;
   text-shadow:2px 2px 8px rgba(0,0,0,0.6);
 }
-.hero-text p {
+.hero-text p{
   font-size:1.1em;
   margin-bottom:20px;
   text-shadow:1px 1px 5px rgba(0,0,0,0.6);
 }
-.hero-text .btn {
+.hero-text .btn{
   background:#25D366;
   color:white;
   padding:12px 28px;
@@ -146,7 +149,7 @@ header nav{
 }
 
 /* Presentación */
-.presentacion {
+.presentacion{
   font-family:'Merriweather', serif;
   font-size:1.3em;
   color:#444;
@@ -156,9 +159,9 @@ header nav{
 }
 
 /* Servicios */
-section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
+section{ padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 
-#servicios h2 {
+#servicios h2{
   text-align:center;
   font-family:'Playfair Display', serif;
   font-size:2em;
@@ -166,7 +169,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   text-decoration:underline;
 }
 
-.services {
+.services{
   display:flex;
   gap:20px;
   flex-wrap:wrap;
@@ -174,7 +177,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   position:relative;
 }
 
-.service-box {
+.service-box{
   flex:1 1 250px;
   padding:20px;
   border-radius:12px;
@@ -185,7 +188,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   z-index:1;
 }
 
-.service-box h3 {
+.service-box h3{
   font-family:'Playfair Display', serif;
   font-size:1.4em;
   margin-bottom:12px;
@@ -195,12 +198,12 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
   gap:8px;
 }
 
-.service-box p { font-size:1em; margin-bottom:8px; }
-.precio-fijo { font-weight:bold; text-decoration:underline; }
+.service-box p{ font-size:1em; margin-bottom:8px; }
+.precio-fijo{ font-weight:bold; text-decoration:underline; }
 
-.service-box.horario-box { background:#FFF3B0; }
+.service-box.horario-box{ background:#FFF3B0; }
 
-.horarios {
+.horarios{
   color:#333;
   font-size:1em;
   font-weight:bold;
@@ -208,7 +211,7 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 }
 
 /* Formulario */
-.reserva-form {
+.reserva-form{
   display:flex;
   flex-direction:column;
   gap:15px;
@@ -219,13 +222,13 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 }
 .reserva-form input,
 .reserva-form select,
-.reserva-form button {
+.reserva-form button{
   padding:12px;
   border-radius:8px;
   border:1px solid #ccc;
   font-size:1em;
 }
-.reserva-form button {
+.reserva-form button{
   background:#25D366;
   color:white;
   font-weight:bold;
@@ -234,21 +237,33 @@ section { padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
 }
 
 /* Destacado */
-.highlight {
+.highlight{
   text-align:center;
   font-size:1.3em;
   font-weight:bold;
   margin:50px 0;
 }
 
+/* Reseñas */
+.testimonios{
+  display:flex; flex-wrap:wrap; gap:20px; justify-content:flex-start;
+}
+.testimonio-box{
+  flex:1 1 250px;
+  background:#f9f9f9; padding:20px; border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12); text-align:left;
+}
+.testimonio-box p{ font-size:1em; margin-bottom:10px; color:#333; }
+.testimonio-box .autor{ font-weight:bold; color:#25D366; }
+
 /* Footer */
-footer {
+footer{
   background:#222;
   color:white;
   text-align:center;
   padding:60px 20px;
 }
-footer .btn {
+footer .btn{
   background:#25D366;
   color:white;
   padding:12px 28px;
@@ -260,7 +275,7 @@ footer .btn {
 }
 
 /* WhatsApp flotante */
-.whatsapp-container {
+.whatsapp-container{
   position:fixed;
   bottom:20px;
   right:20px;
@@ -269,45 +284,42 @@ footer .btn {
   flex-direction:column;
   gap:10px;
 }
-.whatsapp-container img { width:50px; }
+.whatsapp-container img{ width:50px; }
 
-.testimonios {
-  display:flex; flex-wrap:wrap; gap:20px; justify-content:flex-start;
-}
-.testimonio-box {
-  flex:1 1 250px;
-  background:#f9f9f9; padding:20px; border-radius:12px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.12); text-align:left;
-}
-.testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; }
-.testimonio-box .autor { font-weight:bold; color:#25D366; }
-
-/* ✅ MÓVIL: apilado y usable */
+/* ✅ Responsive móvil */
 @media(max-width:768px){
-  .hero-slider { height:45vh; margin-top: var(--header-h-m); max-width: 100%; }
+  .hero-slider{
+    height:45vh;
+    max-width:100%;
+    margin-top: var(--header-h-m);
+  }
+
   .header-inner{
-    max-width: 100%;
-    padding: 10px 16px;
+    max-width:100%;
+    padding:12px 16px;
     grid-template-columns: 1fr;
     row-gap: 10px;
-    justify-items: center;
+    justify-items:center;
   }
 
   header nav{
-    gap: 14px;
-    font-size: 0.95em;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
+    gap:14px;
+    font-size:0.95em;
+    flex-wrap:wrap;
+    justify-content:center;
+    text-align:center;
+    white-space:normal;
   }
 
   .logo-container::before{ width:260px; height:80px; }
   .logo{ font-size:1.6em; padding:18px 14px; }
 
   .reserve-btn{
-    width: 100%;
-    max-width: 320px;
+    width:100%;
+    max-width:320px;
   }
+
+  .services, .testimonios{ flex-direction:column; }
 }
 </style>
 </head>
@@ -344,9 +356,7 @@ footer .btn {
   <div class="hero-text">
     <h1>Dog Company</h1>
     <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
-    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
-      Reservar por WhatsApp
-    </a>
+    <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Reservar por WhatsApp</a>
   </div>
 </div>
 
@@ -467,9 +477,7 @@ setInterval(()=>{
 
 <footer id="contacto">
   <p>Ubicación: Alicante Centro</p>
-  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">
-    Más información por WhatsApp
-  </a>
+  <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank">Más información por WhatsApp</a>
 </footer>
 
 <div class="whatsapp-container">
@@ -483,9 +491,4 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
   const f=e.target;
   const msg=`Reserva Dog Company:%0ANombre: ${f.nombre.value}%0ATeléfono: ${f.telefono.value}%0APerro: ${f.mascota.value}%0ADescripción: ${f.descripcion.value}%0AServicio: ${f.servicio.value}%0AFecha: ${f.fecha.value}`;
-  window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
-});
-</script>
-
-</body>
-</html>
+  window.open(`https://wa
