@@ -15,7 +15,14 @@
   --header-h-m: 150px;
 }
 
-body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
+body { 
+  margin:0; 
+  font-family:'Poppins', sans-serif; 
+  color:#333; 
+  line-height:1.6; 
+  scroll-behavior:smooth; 
+  background:white;
+}
 a { text-decoration:none; color:inherit; }
 
 /* Evita que el header tape las secciones */
@@ -37,11 +44,11 @@ header {
   background: rgba(255,255,255,0.95);
 }
 
-/* Header */
+/* Header layout */
 .header-inner{
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 15px 0;
+  padding: 15px 20px;
   display:grid;
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
@@ -113,21 +120,22 @@ header nav a:hover{
   white-space:nowrap;
 }
 
-/* 🎯 Hero / Carrusel ajustado */
+/* ✅ Carrusel FULL WIDTH sin zonas grises */
 .hero-slider{
   position:relative;
-  height:52vh;                    /* ⬅️ antes 60vh */
+  width:100%;
+  height:55vh;
   overflow:hidden;
-  max-width: var(--wrap);
-  margin: var(--header-h) auto 0;
+  margin-top: var(--header-h);
+  background:black;
 }
 
 .slide{
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
   background-size: cover;
-  background-position: center 40%;   /* ⬅️ subimos un poco el encuadre */
+  background-position: center;
+  background-repeat:no-repeat;
   opacity:0;
   transition:opacity 1s;
 }
@@ -147,16 +155,16 @@ header nav a:hover{
   text-align:center;
   color:white;
   z-index:2;
-  max-width:70%;
+  max-width:80%;
 }
 .hero-text h1{
   font-family:'Playfair Display', serif;
-  font-size:2.2em;
+  font-size:2.4em;
   margin-bottom:10px;
   text-shadow:2px 2px 8px rgba(0,0,0,0.6);
 }
 .hero-text p{
-  font-size:1.1em;
+  font-size:1.15em;
   margin-bottom:20px;
   text-shadow:1px 1px 5px rgba(0,0,0,0.6);
 }
@@ -166,6 +174,14 @@ header nav a:hover{
   padding:12px 28px;
   border-radius:30px;
   font-weight:bold;
+}
+
+/* Secciones */
+section{ 
+  padding:80px 20px; 
+  max-width: var(--wrap); 
+  margin:auto; 
+  position:relative; 
 }
 
 /* Presentación */
@@ -178,26 +194,136 @@ header nav a:hover{
   line-height:1.7;
 }
 
-/* Secciones */
-section{ padding:80px 20px; max-width: var(--wrap); margin:auto; position:relative; }
+/* Servicios */
+#servicios h2{
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size:2em;
+  margin-bottom:40px;
+  text-decoration:underline;
+}
 
-/* Responsive móvil */
+.services{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  align-items:stretch;
+}
+
+.service-box{
+  flex:1 1 250px;
+  padding:20px;
+  border-radius:12px;
+  background:#f9f9f9;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+  text-align:center;
+}
+
+.service-box h3{
+  font-family:'Playfair Display', serif;
+  font-size:1.4em;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+
+.service-box p { font-size:1em; margin-bottom:8px; }
+.precio-fijo { font-weight:bold; text-decoration:underline; }
+
+.service-box.horario-box { background:#FFF3B0; }
+
+.horarios{
+  color:#333;
+  font-size:1em;
+  font-weight:bold;
+  line-height:1.4;
+}
+
+/* Formulario */
+.reserva-form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:30px;
+  max-width:400px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.reserva-form input,
+.reserva-form select,
+.reserva-form button{
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:1em;
+}
+.reserva-form button{
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  border:none;
+  cursor:pointer;
+}
+
+/* Destacado */
+.highlight{
+  text-align:center;
+  font-size:1.3em;
+  font-weight:bold;
+  margin:50px 0;
+}
+
+/* Reseñas */
+.testimonios{
+  display:flex; 
+  flex-wrap:wrap; 
+  gap:20px; 
+}
+.testimonio-box{
+  flex:1 1 250px;
+  background:#f9f9f9; 
+  padding:20px; 
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12); 
+  text-align:left;
+}
+.testimonio-box .autor{ font-weight:bold; color:#25D366; }
+
+/* Footer */
+footer{
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+}
+footer .btn{
+  background:#25D366;
+  color:white;
+  padding:12px 28px;
+  border-radius:30px;
+  font-weight:bold;
+  display:inline-block;
+  margin-top:15px;
+}
+
+/* WhatsApp flotante */
+.whatsapp-container{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:1000;
+}
+.whatsapp-container img{ width:50px; }
+
+/* Responsive */
 @media(max-width:768px){
-  .hero-slider{
-    height:42vh;                 /* ⬅️ más bajo en móvil */
-    max-width:100%;
-    margin-top: var(--header-h-m);
-  }
-
-  .slide{
-    background-position: center 35%;   /* ⬅️ ajuste móvil */
-  }
+  .hero-slider{ height:42vh; margin-top: var(--header-h-m); }
 
   .header-inner{
-    max-width:100%;
-    padding:12px 16px;
     grid-template-columns: 1fr;
-    row-gap: 10px;
+    row-gap:10px;
     justify-items:center;
   }
 
@@ -206,17 +332,14 @@ section{ padding:80px 20px; max-width: var(--wrap); margin:auto; position:relati
     font-size:0.9em;
     flex-wrap:wrap;
     justify-content:center;
-    text-align:center;
-    white-space:normal;
   }
 
   .logo-container::before{ width:260px; height:80px; }
   .logo{ font-size:1.6em; padding:18px 14px; }
 
-  .reserve-btn{
-    width:100%;
-    max-width:320px;
-  }
+  .reserve-btn{ width:100%; max-width:320px; }
+
+  .services, .testimonios{ flex-direction:column; }
 }
 </style>
 </head>
@@ -255,7 +378,18 @@ section{ padding:80px 20px; max-width: var(--wrap); margin:auto; position:relati
   </div>
 </div>
 
-<!-- resto del contenido permanece igual -->
+<script>
+let slides=document.querySelectorAll('.slide');
+let current=0;
+setInterval(()=>{
+  slides[current].classList.remove('active');
+  current=(current+1)%slides.length;
+  slides[current].classList.add('active');
+},5000);
+</script>
+
+<!-- TODO TU CONTENIDO ORIGINAL SIGUE DEBAJO -->
+<!-- Presentación, Servicios, Formulario, Reseñas, Quiénes Somos, Footer, WhatsApp -->
 
 </body>
 </html>
