@@ -18,26 +18,38 @@ header {
   background: rgba(255,255,255,0.95);
 }
 
-/* contenedor interno para alinear al "límite del carrusel" */
+/* AJUSTE: layout armonizado (3 columnas reales) */
 .header-inner{
-  width:100%;            /* AJUSTE */
-  max-width:none;        /* AJUSTE: antes 1000px */
+  width:100%;
+  max-width:none;
   margin: 0 auto;
   padding: 15px 40px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display:grid;                         /* AJUSTE */
+  grid-template-columns: 1fr auto 1fr;  /* AJUSTE */
+  align-items:center;                   /* AJUSTE */
+  column-gap: 25px;                     /* AJUSTE */
   position:relative;
 }
 
-/* Logo centrado */
+/* Nav botones (izquierda) */
+header nav {
+  display: flex;
+  gap: 25px;
+  margin-left: 0;
+  color:#333;
+  font-weight:600;
+  justify-self:start;   /* AJUSTE */
+  z-index:3;            /* AJUSTE */
+}
+
+/* Logo centrado (ya NO absoluto, para que no tape el botón) */
 .logo-container {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;        /* AJUSTE */
+  justify-self:center;       /* AJUSTE */
   display:flex;
   align-items:center;
   justify-content:center;
+  z-index:2;                 /* AJUSTE */
 }
 .logo-container::before {
   content:"";
@@ -61,16 +73,6 @@ header {
   white-space:nowrap;
 }
 
-/* Nav botones (izquierda) */
-header nav {
-  display: flex;
-  gap: 25px;
-  margin-left: 0;
-  color:#333;
-  font-weight:600;
-  flex: 0 0 auto;
-}
-
 /* Botón Reservar (derecha) */
 .reserve-btn{
   display:inline-block;
@@ -79,7 +81,8 @@ header nav {
   font-weight:700;
   background:#25D366;
   color:white;
-  flex: 0 0 auto;
+  justify-self:end;   /* AJUSTE */
+  z-index:3;          /* AJUSTE */
 }
 
 /* Hero / Carrusel */
@@ -274,12 +277,16 @@ footer .btn {
   .services, .testimonios { flex-direction:column; }
 
   /* Responsive header: evita solapes */
-  .header-inner{ padding:12px 16px; }
-  .logo-container{ position:static; transform:none; }
-  .logo-container::before{ left:0; transform:translateY(-50%); width:260px; height:80px; }
+  .header-inner{
+    padding:12px 16px;
+    grid-template-columns: 1fr;   /* AJUSTE */
+    row-gap: 10px;               /* AJUSTE */
+    justify-items: center;       /* AJUSTE */
+  }
+  header nav{ gap:14px; font-size:0.95em; justify-self:center; }
+  .reserve-btn{ padding:9px 14px; font-size:0.95em; justify-self:center; }
+  .logo-container::before{ width:260px; height:80px; }
   .logo{ padding:18px 14px; font-size:1.6em; }
-  header nav{ gap:14px; font-size:0.95em; }
-  .reserve-btn{ padding:9px 14px; font-size:0.95em; }
 }
 </style>
 </head>
