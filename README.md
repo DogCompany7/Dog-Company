@@ -20,7 +20,8 @@ header {
 
 /* contenedor interno para alinear al "límite del carrusel" */
 .header-inner{
-  max-width: 1000px; /* AJUSTE: antes 1200px */
+  width:100%;            /* AJUSTE */
+  max-width:none;        /* AJUSTE: antes 1000px */
   margin: 0 auto;
   padding: 15px 40px;
   display:flex;
@@ -34,16 +35,16 @@ header {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  display:flex;            /* AJUSTE: antes inline-block */
-  align-items:center;      /* AJUSTE */
-  justify-content:center;  /* AJUSTE */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .logo-container::before {
   content:"";
   position:absolute;
   top:50%;
   left:50%;
-  transform:translate(-50%,-50%); /* AJUSTE: corregido transform duplicado */
+  transform:translate(-50%,-50%);
   width:420px;
   height:100px;
   background-color:#F5C223;
