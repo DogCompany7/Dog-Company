@@ -9,6 +9,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
+:root{
+  --wrap: 1000px;     /* mismo ancho visual que el carrusel y secciones */
+  --header-h: 90px;   /* altura header en desktop */
+  --header-h-m: 140px;/* altura header en móvil (al apilar) */
+}
+
 body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
 a { text-decoration:none; }
 
@@ -16,40 +22,38 @@ a { text-decoration:none; }
 header {
   position: fixed; top:0; width:100%; z-index:999;
   background: rgba(255,255,255,0.95);
-  padding:15px 0;                 /* AJUSTE: antes el padding estaba en header-inner */
 }
 
-/* AJUSTE: el header se alinea EXACTO con el ancho del carrusel */
+/* CONTENEDOR: MISMO LÍMITE que el carrusel */
 .header-inner{
-  max-width: 1000px;              /* AJUSTE: mismo ancho que el carrusel */
+  max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0;                     /* AJUSTE: para que los botones empiecen justo en el límite */
-  display:grid;
-  grid-template-columns: auto 1fr auto; /* AJUSTE: izq = nav, centro = logo, dcha = botón */
-  align-items:center;
-  position:relative;
+  padding: 15px 0; /* 0 para que los botones empiecen justo en el límite del carrusel */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;  /* izquierda / logo centrado / derecha */
+  align-items: center;
+  column-gap: 24px;
+  position: relative;
 }
 
-/* Nav botones (izquierda) */
-header nav {
+/* Nav (izquierda, arranca en el límite del carrusel) */
+header nav{
   display:flex;
-  gap:25px;
-  color:#333;
+  gap: 22px;
   font-weight:600;
-  justify-self:start;
-  z-index:3;
+  justify-self: start;
+  white-space: nowrap;
 }
 
-/* Logo centrado en el MISMO eje del carrusel */
-.logo-container {
-  justify-self:center;
+/* Logo (centro exacto del contenedor => mismo centro que el H1 del carrusel) */
+.logo-container{
+  justify-self: center;
+  position: relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  position:relative;
-  z-index:2;
 }
-.logo-container::before {
+.logo-container::before{
   content:"";
   position:absolute;
   top:50%;
@@ -61,26 +65,27 @@ header nav {
   z-index:-1;
   border-bottom-right-radius:25px;
 }
-.logo {
+.logo{
   font-family:'Playfair Display', serif;
   font-size:2em;
   font-weight:bold;
   color:black;
   padding:25px 20px;
-  text-align:center;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
-/* Botón Reservar (derecha) */
+/* Botón Reservar (derecha, al límite del carrusel) */
 .reserve-btn{
-  display:inline-block;           /* AJUSTE: aseguramos que se vea siempre */
+  justify-self: end;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:10px 18px;
   border-radius:999px;
   font-weight:700;
   background:#25D366;
   color:white;
-  justify-self:end;
-  z-index:3;
+  white-space:nowrap;
 }
 
 /* Hero / Carrusel */
@@ -89,8 +94,8 @@ header nav {
   height:60vh;
   overflow:hidden;
 
-  max-width:1000px;               /* AJUSTE: mismo límite que el header */
-  margin:90px auto 0;             /* AJUSTE: centrado + respeta header fijo */
+  max-width: var(--wrap);     /* MISMO límite que header */
+  margin: var(--header-h) auto 0; /* baja justo debajo del header fijo */
 }
 .slide {
   position:absolute;
@@ -277,22 +282,32 @@ footer .btn {
 .testimonio-box p { font-size:1em; margin-bottom:10px; color:#333; }
 .testimonio-box .autor { font-weight:bold; color:#25D366; }
 
+/* ✅ MÓVIL: apilado y usable */
 @media(max-width:768px){
-  .hero-slider { height:45vh; }
-
-  .services, .testimonios { flex-direction:column; }
-
-  header{ padding:12px 0; }
+  .hero-slider { height:45vh; margin-top: var(--header-h-m); max-width: 100%; }
   .header-inner{
-    padding:0 16px;
-    grid-template-columns: 1fr;     /* apila */
-    row-gap:10px;
-    justify-items:center;
+    max-width: 100%;
+    padding: 10px 16px;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    justify-items: center;
   }
-  header nav{ gap:14px; font-size:0.95em; justify-self:center; }
-  .reserve-btn{ padding:9px 14px; font-size:0.95em; justify-self:center; }
+
+  header nav{
+    gap: 14px;
+    font-size: 0.95em;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
   .logo-container::before{ width:260px; height:80px; }
-  .logo{ padding:18px 14px; font-size:1.6em; }
+  .logo{ font-size:1.6em; padding:18px 14px; }
+
+  .reserve-btn{
+    width: 100%;
+    max-width: 320px;
+  }
 }
 </style>
 </head>
