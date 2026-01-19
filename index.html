@@ -18,7 +18,7 @@
 body { margin:0; font-family:'Poppins', sans-serif; color:#333; line-height:1.6; scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
 
-/* ✅ Evita que el header tape las secciones al hacer clic */
+/* Evita que el header tape las secciones */
 #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto {
   scroll-margin-top: calc(var(--header-h) + 15px);
 }
@@ -37,13 +37,13 @@ header {
   background: rgba(255,255,255,0.95);
 }
 
-/* Header: mismo límite que el carrusel */
+/* Header: mismo límite que carrusel */
 .header-inner{
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 15px 0;                  /* sin padding lateral = empieza en el límite del carrusel */
+  padding: 15px 0;
   display:grid;
-  grid-template-columns: 1fr auto 1fr; /* nav / logo / reservar */
+  grid-template-columns: 1fr auto 1fr;
   align-items:center;
   column-gap: 18px;
 }
@@ -51,14 +51,24 @@ header {
 /* Nav izquierda */
 header nav{
   display:flex;
-  gap: 18px;
-  font-weight:600;
+  gap: 28px;
+  font-weight:700;
   justify-self:start;
   white-space:nowrap;
-  font-size:0.98em;
+  font-size:1.12em;
   color:#333;
 }
-header nav a{ color:#333; }
+
+header nav a{
+  color:#333;
+  padding: 8px 4px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+header nav a:hover{
+  color:#25D366;
+  transform: scale(1.08);
+}
 
 /* Logo centrado */
 .logo-container{
@@ -295,7 +305,7 @@ footer .btn{
 }
 .whatsapp-container img{ width:50px; }
 
-/* ✅ Responsive móvil */
+/* Responsive móvil */
 @media(max-width:768px){
   .hero-slider{
     height:45vh;
