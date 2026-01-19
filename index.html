@@ -10,7 +10,7 @@
 
 <style>
 :root{
-  --wrap: 1000px;
+  --wrap: 1200px;   /* ✅ antes 1000px: más amplitud */
   --header-h: 90px;
   --header-h-m: 150px;
 }
@@ -51,17 +51,17 @@ header {
 /* Nav izquierda */
 header nav{
   display:flex;
-  gap: 22px;                /* un poco menos separación */
+  gap: 22px;
   font-weight:700;
   justify-self:start;
   white-space:nowrap;
-  font-size:0.98em;         /* 🔽 texto más pequeño */
+  font-size:0.98em;
   color:#333;
 }
 
 header nav a{
   color:#333;
-  padding: 6px 3px;         /* área clicable más compacta */
+  padding: 6px 3px;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
@@ -177,8 +177,8 @@ header nav a:hover{
   line-height:1.7;
 }
 
-/* Servicios */
-section{ padding:80px 20px; max-width:1000px; margin:auto; position:relative; }
+/* ✅ Servicios / Secciones: ahora siguen el mismo wrap */
+section{ padding:80px 20px; max-width: var(--wrap); margin:auto; position:relative; }
 
 #servicios h2{
   text-align:center;
@@ -365,7 +365,9 @@ footer .btn{
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
   <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
+
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
+
   <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
 
   <div class="hero-overlay"></div>
@@ -447,8 +449,10 @@ setInterval(()=>{
   Tu perro no es un número.<br>Es uno más en casa.
 </section>
 
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1000px; margin:auto; text-align:left;">
+<!-- SECCIONES AL PIE DE PÁGINA -->
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1200px; margin:auto; text-align:left;">
 
+  <!-- RESEÑAS -->
   <div id="resenas-footer" style="margin-bottom:60px;">
     <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Reseñas</h2>
     <div class="testimonios" style="justify-content:flex-start;">
@@ -467,6 +471,7 @@ setInterval(()=>{
     </div>
   </div>
 
+  <!-- QUIÉNES SOMOS -->
   <div id="quienes-somos-footer">
     <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Quiénes somos</h2>
     <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
