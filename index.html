@@ -23,19 +23,26 @@
 /* ===== Base ===== */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
+
 body{
   font-family:'Poppins', sans-serif;
   color:#333;
   line-height:1.6;
   scroll-behavior:smooth;
 
+  /* Fondo blanco-violeta + patitas + huesos (ligero) */
   background:
-    radial-gradient(1200px 700px at 12% 10%, var(--violet-2), transparent 60%),
-    radial-gradient(1100px 650px at 88% 18%, #f3efff, transparent 55%),
-    radial-gradient(900px 700px at 50% 95%, #f7f4ff, transparent 60%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cg fill='%237b6cf6' fill-opacity='0.055'%3E%3Ccircle cx='42' cy='40' r='8'/%3E%3Ccircle cx='63' cy='28' r='8'/%3E%3Ccircle cx='78' cy='45' r='8'/%3E%3Ccircle cx='60' cy='58' r='16'/%3E%3Cg transform='translate(95 95)'%3E%3Ccircle cx='42' cy='40' r='8'/%3E%3Ccircle cx='63' cy='28' r='8'/%3E%3Ccircle cx='78' cy='45' r='8'/%3E%3Ccircle cx='60' cy='58' r='16'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-  background-color: var(--violet-1);
+    radial-gradient(1200px 600px at 10% 10%, #f3eeff, transparent 60%),
+    radial-gradient(1000px 600px at 90% 20%, #f8f5ff, transparent 55%),
+    radial-gradient(900px 700px at 50% 95%, #f1ecff, transparent 60%),
+    #ffffff;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='%238b7cf6' fill-opacity='0.08'%3E%3Ccircle cx='70' cy='60' r='9'/%3E%3Ccircle cx='92' cy='50' r='9'/%3E%3Ccircle cx='114' cy='60' r='9'/%3E%3Ccircle cx='92' cy='84' r='20'/%3E%3C/g%3E%3Cg fill='%238b7cf6' fill-opacity='0.06'%3E%3Crect x='148' y='154' width='34' height='12' rx='6'/%3E%3Crect x='159' y='145' width='12' height='34' rx='6'/%3E%3C/g%3E%3Cg fill='%238b7cf6' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='165' r='7'/%3E%3Ccircle cx='58' cy='155' r='7'/%3E%3Ccircle cx='76' cy='165' r='7'/%3E%3Ccircle cx='58' cy='183' r='16'/%3E%3C/g%3E%3C/svg%3E");
+
+  background-repeat: repeat;
 }
+
 a{ text-decoration:none; color:inherit; }
 
 /* Evita que el header tape las secciones */
@@ -651,13 +658,11 @@ footer .btn{
   .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
   .scroll-hint{ display:none; }
 
-  /* ✅ CAMBIO: en móvil, el vídeo principal rellena el carrusel (se ve “bien”) */
+  /* Móvil: vídeo rellena para que se vea “bien” */
   .hero-video-main{
-    object-fit: cover;          /* 🔥 móvil: evita “bandas” y queda estético */
+    object-fit: cover;
     object-position: center 45%;
   }
-
-  /* fondo blur un pelín más suave en móvil */
   .hero-video-bg{
     filter: blur(16px) brightness(.64);
   }
@@ -701,7 +706,7 @@ footer .btn{
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
 
-  <!-- ✅ VÍDEO (COMPLETO EN DESKTOP + BIEN EN MÓVIL) -->
+  <!-- Vídeo -->
   <div class="slide video active">
     <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
