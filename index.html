@@ -171,7 +171,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background:#000;
 }
 
-/* ✅ Slides ahora con "imagen completa + fondo blur" (sin huecos) */
+/* Slides: imagen completa + fondo blur */
 .slide{
   position:absolute;
   inset:0;
@@ -180,7 +180,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .slide.active{ opacity:1; }
 
-/* Fondo relleno: misma imagen ampliada + blur */
+/* Fondo relleno */
 .slide::before{
   content:"";
   position:absolute;
@@ -192,7 +192,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   transform: scale(1.08);
 }
 
-/* Imagen principal: completa */
+/* Imagen principal */
 .slide::after{
   content:"";
   position:absolute;
@@ -203,7 +203,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* Overlay más suave para no matar la foto en móvil */
+/* Overlay */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -212,7 +212,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
     linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0.08));
 }
 
-/* Contenido lateral */
+/* Contenido */
 .hero-content{
   position:absolute;
   inset:0;
@@ -225,20 +225,24 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
-/* ✅ Caja más transparente + límite para que en móvil NO tape todo */
+/* ✅ MÁS TRANSPARENTE + MÁS PEQUEÑA (PC) */
 .hero-card{
-  width: min(440px, 92vw);
-  max-height: 64vh;               /* ✅ evita que invada todo */
-  overflow:auto;                  /* ✅ si aún así no cabe, scroll interno */
-  background: rgba(255,255,255,0.40);
-  border: 1px solid rgba(255,255,255,0.28);
+  width: min(380px, 86vw);
+  max-height: 58vh;
+  overflow:auto;
+  background: rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 14px;
-  box-shadow: 0 18px 45px rgba(0,0,0,.18);
-  padding: 14px 14px 12px 14px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.16);
+  padding: 12px 12px 10px 12px;
   text-align:left;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
+
+/* Reduce un poco todos los textos internos */
+.hero-card h1{ font-family:'Playfair Display', serif; font-size:1.55em; color:#111; margin-bottom:4px; }
+.hero-card p{ font-size:0.92em; color:#2b2b2b; margin: 0 0 8px 0; max-width: 56ch; }
 
 .hero-badge{
   display:inline-flex;
@@ -248,24 +252,11 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   color:#111;
   font-weight:900;
   border-radius:999px;
-  padding: 7px 11px;
-  font-size:0.84em;
+  padding: 6px 10px;
+  font-size:0.80em;
   letter-spacing:.4px;
   margin-bottom:8px;
   text-transform:uppercase;
-}
-
-.hero-card h1{
-  font-family:'Playfair Display', serif;
-  font-size: 1.75em;
-  color: #111;
-  margin-bottom:4px;
-}
-.hero-card p{
-  font-size:0.95em;
-  color:#2b2b2b;
-  margin: 0 0 8px 0;
-  max-width: 56ch;
 }
 
 .trust-row{
@@ -279,13 +270,13 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding: 6px 9px;
+  padding: 5px 8px;
   border-radius:999px;
   background: rgba(123,108,246,0.10);
   border: 1px solid rgba(123,108,246,0.18);
   font-weight:800;
   color:#2b2b2b;
-  font-size:0.88em;
+  font-size:0.84em;
 }
 .trust-pill i{ color:#7b6cf6; }
 
@@ -301,13 +292,13 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding: 9px 14px;
+  padding: 8px 12px;
   border-radius:999px;
   font-weight:900;
   border:none;
   cursor:pointer;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-  font-size:0.92em;
+  font-size:0.90em;
 }
 .btn-primary{
   background: var(--brand);
@@ -325,8 +316,8 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 .scroll-hint{
   margin-top: 8px;
   font-weight:800;
-  font-size:0.88em;
-  color: rgba(0,0,0,0.62);
+  font-size:0.86em;
+  color: rgba(0,0,0,0.58);
 }
 
 /* ===== Secciones ===== */
@@ -563,23 +554,27 @@ footer .btn{
   .logo-container::before{ width:240px; height:72px; border-bottom-right-radius:22px; }
   .logo{ font-size:1.55em; padding:16px 14px; }
 
-  /* ✅ Armonía en móvil: caja más compacta + abajo + no tapa tanto */
+  /* ✅ MÁS PEQUEÑA Y MÁS TRANSPARENTE EN MÓVIL */
   .hero-content{
     justify-content:center;
     align-items:flex-end;
-    padding-bottom: 16px;
+    padding-bottom: 12px;
   }
   .hero-card{
-    width: min(520px, 92vw);
-    max-height: 46vh;
-    padding: 12px 12px 10px 12px;
+    width: min(360px, 90vw);
+    max-height: 40vh;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 10px 10px 8px 10px;
     text-align:center;
-    border-radius: 16px;
   }
-  .hero-card h1{ font-size:1.55em; }
-  .hero-card p{ font-size:0.92em; }
-  .trust-row{ justify-content:center; }
-  .hero-actions{ justify-content:center; }
+  .hero-badge{ font-size:0.78em; padding:6px 10px; }
+  .hero-card h1{ font-size:1.35em; }
+  .hero-card p{ font-size:0.90em; }
+
+  .trust-pill{ font-size:0.82em; padding:5px 8px; }
+  .hero-actions .btn{ font-size:0.88em; padding:8px 12px; }
+
   .scroll-hint{ display:none; }
 
   .section-title h2{ font-size:1.85em; }
