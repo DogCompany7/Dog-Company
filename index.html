@@ -30,16 +30,16 @@ body{
   line-height:1.6;
   scroll-behavior:smooth;
 
-  /* Fondo blanco-violeta + patitas + huesos (ligero) */
+  /* Fondo blanco-violeta suave */
   background:
     radial-gradient(1200px 600px at 10% 10%, #f3eeff, transparent 60%),
     radial-gradient(1000px 600px at 90% 20%, #f8f5ff, transparent 55%),
     radial-gradient(900px 700px at 50% 95%, #f1ecff, transparent 60%),
     #ffffff;
 
+  /* ✅ Patitas más “realistas” tipo silueta (como tu imagen) */
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='%238b7cf6' fill-opacity='0.08'%3E%3Ccircle cx='70' cy='60' r='9'/%3E%3Ccircle cx='92' cy='50' r='9'/%3E%3Ccircle cx='114' cy='60' r='9'/%3E%3Ccircle cx='92' cy='84' r='20'/%3E%3C/g%3E%3Cg fill='%238b7cf6' fill-opacity='0.06'%3E%3Crect x='148' y='154' width='34' height='12' rx='6'/%3E%3Crect x='159' y='145' width='12' height='34' rx='6'/%3E%3C/g%3E%3Cg fill='%238b7cf6' fill-opacity='0.05'%3E%3Ccircle cx='40' cy='165' r='7'/%3E%3Ccircle cx='58' cy='155' r='7'/%3E%3Ccircle cx='76' cy='165' r='7'/%3E%3Ccircle cx='58' cy='183' r='16'/%3E%3C/g%3E%3C/svg%3E");
-
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300' viewBox='0 0 520 300'%3E%3Cg fill='%237b6cf6' fill-opacity='0.08'%3E%3C!-- Paw 1 (grande) --%3E%3Cg transform='translate(270 55) scale(1.35)'%3E%3Cellipse cx='35' cy='18' rx='12' ry='15'/%3E%3Cellipse cx='60' cy='14' rx='12' ry='15'/%3E%3Cellipse cx='85' cy='18' rx='12' ry='15'/%3E%3Cellipse cx='58' cy='34' rx='16' ry='18'/%3E%3Cpath d='M45 50 C45 36 71 36 71 50 C71 66 45 66 45 50 Z'/%3E%3C/g%3E%3C!-- Paw 2 (mediana) --%3E%3Cg transform='translate(60 40) rotate(-10) scale(0.95)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 3 (mediana) --%3E%3Cg transform='translate(410 70) rotate(8) scale(0.9)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 4 (pequeña) --%3E%3Cg transform='translate(35 200) rotate(12) scale(0.75)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 5 (mediana inferior) --%3E%3Cg transform='translate(235 205) rotate(-6) scale(1.0)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 6 (pequeña derecha) --%3E%3Cg transform='translate(455 200) rotate(-14) scale(0.70)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat;
 }
 
@@ -223,7 +223,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   inset:0;
   width:100%;
   height:100%;
-  object-fit: contain;      /* desktop: vídeo completo */
+  object-fit: contain;
   object-position:center;
 }
 
@@ -645,7 +645,6 @@ footer .btn{
     max-height: 34vh;
     padding: 10px 10px 8px 10px;
     text-align:left;
-
     background: rgba(0,0,0,0.14);
     border: 1px solid rgba(255,255,255,0.12);
     backdrop-filter: blur(8px);
@@ -658,7 +657,6 @@ footer .btn{
   .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
   .scroll-hint{ display:none; }
 
-  /* Móvil: vídeo rellena para que se vea “bien” */
   .hero-video-main{
     object-fit: cover;
     object-position: center 45%;
