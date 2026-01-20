@@ -780,13 +780,13 @@ footer .btn{
       <option value="Guardería de Día">Guardería de día</option>
     </select>
 
-    <!-- ✅ Check-in / Check-out + hora (10:00 a 20:00) -->
+    <!-- ✅ Check-in / Check-out + hora (texto como quieres) -->
     <div class="form-grid-2">
       <div class="field">
         <div class="field-label"><i class="fa-regular fa-calendar-check"></i> Check-in</div>
         <input type="date" name="entrada" required aria-label="Fecha de entrada (Check-in)">
-        <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de entrada</div>
-        <select name="horaEntrada" required aria-label="Hora de entrada">
+        <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de check-in</div>
+        <select name="horaEntrada" required aria-label="Hora de check-in">
           <option value="" disabled selected>Selecciona hora (10:00–20:00)</option>
           <option>10:00</option><option>10:30</option>
           <option>11:00</option><option>11:30</option>
@@ -805,8 +805,8 @@ footer .btn{
       <div class="field">
         <div class="field-label"><i class="fa-regular fa-calendar-xmark"></i> Check-out</div>
         <input type="date" name="salida" required aria-label="Fecha de salida (Check-out)">
-        <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de salida</div>
-        <select name="horaSalida" required aria-label="Hora de salida">
+        <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de check-out</div>
+        <select name="horaSalida" required aria-label="Hora de check-out">
           <option value="" disabled selected>Selecciona hora (10:00–20:00)</option>
           <option>10:00</option><option>10:30</option>
           <option>11:00</option><option>11:30</option>
@@ -865,9 +865,9 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
     `Descripción: ${encodeURIComponent(f.descripcion.value)}%0A`+
     `Servicio: ${encodeURIComponent(f.servicio.value)}%0A`+
     `Check-in: ${encodeURIComponent(entrada)}%0A`+
-    `Hora entrada: ${encodeURIComponent(f.horaEntrada.value)}%0A`+
+    `Hora de check-in: ${encodeURIComponent(f.horaEntrada.value)}%0A`+
     `Check-out: ${encodeURIComponent(salida)}%0A`+
-    `Hora salida: ${encodeURIComponent(f.horaSalida.value)}`;
+    `Hora de check-out: ${encodeURIComponent(f.horaSalida.value)}`;
 
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
 });
