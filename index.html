@@ -171,7 +171,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background:#000;
 }
 
-/* ✅ Slides: foto completa + relleno blur (sin huecos) */
+/* Slides: foto completa + relleno blur (sin huecos) */
 .slide{
   position:absolute;
   inset:0;
@@ -199,7 +199,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* Overlay algo más suave */
+/* Overlay suave */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -220,7 +220,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
-/* ✅ Ajuste solicitado: más pequeño + más transparente y sin “bloque gris” */
+/* Hero card (perfecto en móvil ya) */
 .hero-card{
   width: min(360px, 86vw);
   max-height: 58vh;
@@ -433,20 +433,24 @@ section{
   flex-direction:column;
   gap:12px;
   margin-top:14px;
-  max-width:420px;
+  max-width:520px;
   margin-left:auto;
   margin-right:auto;
 }
 .reserva-form input,
 .reserva-form select,
+.reserva-form textarea,
 .reserva-form button{
   padding:12px;
   border-radius:12px;
   border:1px solid rgba(0,0,0,0.16);
   font-size:1em;
+  font-family:inherit;
 }
+.reserva-form textarea{ min-height:90px; resize:vertical; }
 .reserva-form input:focus,
-.reserva-form select:focus{
+.reserva-form select:focus,
+.reserva-form textarea:focus{
   outline: 3px solid rgba(123,108,246,0.18);
   border-color: rgba(123,108,246,0.45);
 }
@@ -460,6 +464,16 @@ section{
   transition: transform .15s ease, box-shadow .2s ease;
 }
 .reserva-form button:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
+
+/* Grid para fechas en desktop */
+.form-grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media(max-width:520px){
+  .form-grid-2{ grid-template-columns: 1fr; }
+}
 
 /* Destacado */
 .highlight{
@@ -561,7 +575,7 @@ footer .btn{
   .logo-container::before{ width:240px; height:72px; border-bottom-right-radius:22px; }
   .logo{ font-size:1.55em; padding:16px 14px; }
 
-  /* ✅ Armonía móvil: tarjeta pequeña y ultra ligera */
+  /* Armonía móvil (mantener) */
   .hero-content{
     justify-content:center;
     align-items:flex-end;
@@ -578,12 +592,9 @@ footer .btn{
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-
   .hero-badge{ font-size:0.74em; padding:6px 10px; }
   .hero-card h1{ font-size:1.25em; }
   .hero-card p{ font-size:0.88em; }
-
-  /* ✅ evita que tape el carrusel */
   .trust-row{ display:none; }
   .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
   .scroll-hint{ display:none; }
@@ -733,16 +744,48 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
     Nos pondremos en contacto contigo para confirmar todos los detalles con calma 🤍
   </p>
 
+  <!-- ✅ FORMULARIO MODIFICADO (según tu orden) -->
   <form id="reservaForm" class="reserva-form">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="text" name="telefono" placeholder="Tu teléfono" required>
-    <input type="text" name="mascota" placeholder="Nombre de tu perro" required>
-    <input type="text" name="descripcion" placeholder="Descripción de tu perro" required>
-    <select name="servicio" required>
-      <option value="Alojamiento Noche">Alojamiento Noche</option>
-      <option value="Guardería de Día">Guardería de Día</option>
+
+    <select name="numPerros" required>
+      <option value="" disabled selected>Número de perros</option>
+      <option value="1">1 perro</option>
+      <option value="2">2 perros</option>
+      <option value="3">3 perros</option>
+      <option value="4">4 perros</option>
+      <option value="5+">5 o más</option>
     </select>
-    <input type="date" name="fecha" required>
+
+    <input type="text" name="raza" placeholder="Raza de tu perro" required>
+
+    <select name="peso" required>
+      <option value="" disabled selected>Peso de tu perro</option>
+      <option value="0.5-5kg">0.5kg – 5kg</option>
+      <option value="5-10kg">5kg – 10kg</option>
+      <option value="10-15kg">10kg – 15kg</option>
+      <option value="15-20kg">15kg – 20kg</option>
+      <option value="20-25kg">20kg – 25kg</option>
+      <option value="25-30kg">25kg – 30kg</option>
+      <option value="30-35kg">30kg – 35kg</option>
+      <option value="35-40kg">35kg – 40kg</option>
+      <option value="40-45kg">40kg – 45kg</option>
+      <option value="45kg+">Más de 45kg</option>
+    </select>
+
+    <textarea name="descripcion" placeholder="Descripción de tu perro (carácter, necesidades, sociabilidad...)" required></textarea>
+
+    <select name="servicio" required>
+      <option value="" disabled selected>Selecciona servicio</option>
+      <option value="Alojamiento Noche">Alojamiento de noche</option>
+      <option value="Guardería de Día">Guardería de día</option>
+    </select>
+
+    <div class="form-grid-2">
+      <input type="date" name="entrada" required>
+      <input type="date" name="salida" required>
+    </div>
+
     <button type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
   </form>
 </section>
@@ -751,10 +794,9 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
   Tu perro no es un número.<br>Es uno más en casa.
 </div>
 
-<section id="secciones-cliente" style="padding:60px 20px; max-width:1200px; margin:auto; text-align:left;">
+<section id="secciones-cliente" style="padding:60px 20px; max-width:1200px; margin:auto; text-align:left; background:#fff;">
 
   <div id="resenas-footer" style="margin-bottom:60px;">
-
     <div class="section-title">
       <div class="badge">
         <i class="fa-solid fa-star"></i>
@@ -829,20 +871,38 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 /* Año automático */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* WhatsApp del formulario */
+/* WhatsApp del formulario (actualizado) */
 document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
-  const f=e.target;
-  const msg=
+  const f = e.target;
+
+  // Validación simple: salida >= entrada
+  const entrada = f.entrada.value;
+  const salida  = f.salida.value;
+  if(entrada && salida && salida < entrada){
+    alert('La fecha de salida no puede ser anterior a la fecha de entrada.');
+    return;
+  }
+
+  const msg =
     `Reserva Dog Company:%0A`+
     `Nombre: ${encodeURIComponent(f.nombre.value)}%0A`+
-    `Teléfono: ${encodeURIComponent(f.telefono.value)}%0A`+
-    `Perro: ${encodeURIComponent(f.mascota.value)}%0A`+
+    `Número de perros: ${encodeURIComponent(f.numPerros.value)}%0A`+
+    `Raza: ${encodeURIComponent(f.raza.value)}%0A`+
+    `Peso: ${encodeURIComponent(f.peso.value)}%0A`+
     `Descripción: ${encodeURIComponent(f.descripcion.value)}%0A`+
     `Servicio: ${encodeURIComponent(f.servicio.value)}%0A`+
-    `Fecha: ${encodeURIComponent(f.fecha.value)}`;
+    `Entrada: ${encodeURIComponent(entrada)}%0A`+
+    `Salida: ${encodeURIComponent(salida)}`;
+
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
 });
+
+/* Menú móvil */
+const menuBtn = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+menuBtn?.addEventListener('click', () => document.body.classList.toggle('mobile-open'));
+mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') document.body.classList.remove('mobile-open'); });
 </script>
 
 </body>
