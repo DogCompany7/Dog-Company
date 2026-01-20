@@ -32,7 +32,6 @@ body{
   line-height:1.6;
   scroll-behavior:smooth;
 
-  /* Fondo violeta + patitas */
   background:
     radial-gradient(1200px 700px at 12% 10%, var(--violet-2), transparent 60%),
     radial-gradient(1100px 650px at 88% 18%, #f3efff, transparent 55%),
@@ -190,7 +189,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
     linear-gradient(to top, rgba(0,0,0,0.50), rgba(0,0,0,0.12));
 }
 
-/* ✅ Contenido alineado a un lado */
 .hero-content{
   position:absolute;
   inset:0;
@@ -203,10 +201,9 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
-/* ✅ Caja estilo referencia: más transparente y más reducida */
 .hero-card{
-  width: min(440px, 92vw);                 /* más reducida */
-  background: rgba(255,255,255,0.62);      /* más transparente */
+  width: min(440px, 92vw);
+  background: rgba(255,255,255,0.62);
   border: 1px solid rgba(255,255,255,0.45);
   border-radius: 14px;
   box-shadow: 0 16px 40px rgba(0,0,0,.14);
@@ -216,7 +213,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   -webkit-backdrop-filter: blur(7px);
 }
 
-/* ✅ Etiqueta amarilla */
 .hero-badge{
   display:inline-flex;
   align-items:center;
@@ -234,12 +230,12 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 
 .hero-card h1{
   font-family:'Playfair Display', serif;
-  font-size: 1.75em;   /* más pequeño */
+  font-size: 1.75em;
   color: #111;
   margin-bottom:4px;
 }
 .hero-card p{
-  font-size:0.95em;    /* más pequeño */
+  font-size:0.95em;
   color:#2b2b2b;
   margin: 0 0 8px 0;
   max-width: 56ch;
@@ -278,13 +274,13 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding: 9px 14px;   /* más pequeño */
+  padding: 9px 14px;
   border-radius:999px;
   font-weight:900;
   border:none;
   cursor:pointer;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
-  font-size:0.92em;    /* más pequeño */
+  font-size:0.92em;
 }
 .btn-primary{
   background: var(--brand);
@@ -329,14 +325,51 @@ section{
   max-width: 70ch;
 }
 
-/* Servicios */
-#servicios h2{
+/* ✅ Títulos de sección (nuevo componente) */
+.section-title{
   text-align:center;
-  font-family:'Playfair Display', serif;
-  font-size:2em;
-  margin-bottom:40px;
-  text-decoration:underline;
+  margin: 0 auto 34px auto;
+  max-width: 900px;
 }
+.section-title .badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 12px;
+  border-radius:999px;
+  background: var(--gold);
+  color:#111;
+  font-weight:900;
+  letter-spacing:.35px;
+  text-transform:uppercase;
+  font-size:0.86em;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+.section-title h2{
+  font-family:'Playfair Display', serif;
+  font-size:2.2em;
+  color:#1f1f1f;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: .2px;
+}
+/* subrayado moderno */
+.section-title .line{
+  width: 160px;
+  height: 4px;
+  border-radius:999px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, rgba(123,108,246,0.15), rgba(123,108,246,0.65), rgba(123,108,246,0.15));
+}
+/* mini texto opcional */
+.section-title .sub{
+  margin-top: 10px;
+  color:#555;
+  font-weight:700;
+  font-size:1.02em;
+}
+
+/* Servicios */
 .services{
   display:flex;
   gap:20px;
@@ -505,11 +538,14 @@ footer .btn{
   .logo-container::before{ width:240px; height:72px; border-bottom-right-radius:22px; }
   .logo{ font-size:1.55em; padding:16px 14px; }
 
-  /* En móvil centrado para lectura */
   .hero-content{ justify-content:center; }
   .hero-card{ width: min(520px, 94vw); text-align:center; }
   .trust-row{ justify-content:center; }
   .hero-actions{ justify-content:center; }
+
+  /* ✅ títulos sección más compactos */
+  .section-title h2{ font-size:1.85em; }
+  .section-title .sub{ font-size:1em; }
 }
 
 /* Estado menú móvil */
@@ -609,7 +645,14 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 </section>
 
 <section id="servicios">
-  <h2>NUESTROS SERVICIOS</h2>
+
+  <!-- ✅ NUEVO TÍTULO SERVICIOS -->
+  <div class="section-title">
+    <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
+    <h2>NUESTROS SERVICIOS</h2>
+    <div class="line"></div>
+    <div class="sub">Alojamiento de noche y guardería de día con atención real</div>
+  </div>
 
   <div class="services">
     <div class="service-box">
@@ -659,8 +702,17 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 </div>
 
 <section id="secciones-cliente" style="padding:60px 20px; max-width:1200px; margin:auto; text-align:left;">
+
   <div id="resenas-footer" style="margin-bottom:60px;">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Reseñas</h2>
+
+    <!-- ✅ NUEVO TÍTULO RESEÑAS -->
+    <div class="section-title">
+      <div class="badge"><i class="fa-solid fa-star"></i> RESEÑAS</div>
+      <h2>Reseñas</h2>
+      <div class="line"></div>
+      <div class="sub">Opiniones reales de familias que repiten</div>
+    </div>
+
     <div class="testimonios" style="justify-content:flex-start;">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
@@ -696,6 +748,7 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
       Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
     </p>
   </div>
+
 </section>
 
 <footer id="contacto">
