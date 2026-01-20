@@ -8,10 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
-<!-- ✅ Calendly (calendario real con bloqueo gestionado en Calendly) -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
 <style>
 :root{
   --wrap: 1200px;
@@ -364,24 +360,6 @@ section{
   line-height:1.4;
 }
 
-/* Botones selector calendario */
-.cal-btn{
-  padding:10px 16px;
-  border-radius:999px;
-  font-weight:900;
-  border:1px solid rgba(0,0,0,0.12);
-  background:rgba(255,255,255,0.85);
-  cursor:pointer;
-  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
-}
-.cal-btn:hover{ transform: translateY(-1px); }
-.cal-btn-active{
-  background: var(--brand);
-  color:#fff;
-  border-color: transparent;
-  box-shadow: 0 14px 28px rgba(37,211,102,.20);
-}
-
 /* Formulario */
 .reserva-form{
   display:flex;
@@ -655,23 +633,6 @@ mobileNav?.addEventListener('click', (e) => {
     Haz tu reserva · Consulta disponibilidad
   </h2>
 
-  <!-- ✅ Calendario real con bloqueo (Calendly) -->
-  <div style="max-width:920px;margin:20px auto 10px auto;">
-    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
-      <button type="button" class="cal-btn cal-btn-active" data-cal="guarderia">Guardería de Día</button>
-      <button type="button" class="cal-btn" data-cal="alojamiento">Alojamiento Noche</button>
-    </div>
-
-    <div id="calendlyWrap" style="border-radius:18px;overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,0.08);border:1px solid rgba(0,0,0,0.06);background:#fff;">
-      <div id="calendlyInline" style="min-width:320px;height:720px;"></div>
-    </div>
-
-    <p style="text-align:center;margin-top:10px;color:#444;font-weight:700;">
-      Selecciona servicio y elige fecha/hora disponible. Si no aparece un día, está completo.
-    </p>
-  </div>
-
-  <!-- Formulario (se mantiene) -->
   <form id="reservaForm" class="reserva-form">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
     <input type="text" name="telefono" placeholder="Tu teléfono" required>
@@ -744,38 +705,6 @@ mobileNav?.addEventListener('click', (e) => {
 </div>
 
 <script>
-/* ✅ CONFIG: pega aquí tus 2 links de Calendly (uno por servicio) */
-const CALENDLY_GUARDERIA   = "https://calendly.com/TU_USUARIO/guarderia";    // <-- cambia esto
-const CALENDLY_ALOJAMIENTO = "https://calendly.com/TU_USUARIO/alojamiento";  // <-- cambia esto
-
-function loadCalendly(url){
-  const el = document.getElementById("calendlyInline");
-  if(!el) return;
-  el.innerHTML = "";
-  if(window.Calendly){
-    window.Calendly.initInlineWidget({
-      url,
-      parentElement: el
-    });
-  }else{
-    setTimeout(() => loadCalendly(url), 250);
-  }
-}
-
-/* Carga inicial */
-loadCalendly(CALENDLY_GUARDERIA);
-
-/* Toggle servicio */
-document.querySelectorAll(".cal-btn").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.querySelectorAll(".cal-btn").forEach(b=>b.classList.remove("cal-btn-active"));
-    btn.classList.add("cal-btn-active");
-
-    const type = btn.getAttribute("data-cal");
-    loadCalendly(type === "alojamiento" ? CALENDLY_ALOJAMIENTO : CALENDLY_GUARDERIA);
-  });
-});
-
 /* WhatsApp del formulario */
 document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
