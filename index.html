@@ -325,7 +325,7 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ Títulos de sección (nuevo componente) */
+/* ✅ Títulos de sección */
 .section-title{
   text-align:center;
   margin: 0 auto 34px auto;
@@ -353,7 +353,6 @@ section{
   margin-bottom: 10px;
   letter-spacing: .2px;
 }
-/* subrayado moderno */
 .section-title .line{
   width: 160px;
   height: 4px;
@@ -361,7 +360,6 @@ section{
   margin: 0 auto;
   background: linear-gradient(90deg, rgba(123,108,246,0.15), rgba(123,108,246,0.65), rgba(123,108,246,0.15));
 }
-/* mini texto opcional */
 .section-title .sub{
   margin-top: 10px;
   color:#555;
@@ -543,7 +541,6 @@ footer .btn{
   .trust-row{ justify-content:center; }
   .hero-actions{ justify-content:center; }
 
-  /* ✅ títulos sección más compactos */
   .section-title h2{ font-size:1.85em; }
   .section-title .sub{ font-size:1em; }
 }
@@ -646,7 +643,6 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 
 <section id="servicios">
 
-  <!-- ✅ NUEVO TÍTULO SERVICIOS -->
   <div class="section-title">
     <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
     <h2>NUESTROS SERVICIOS</h2>
@@ -705,9 +701,15 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 
   <div id="resenas-footer" style="margin-bottom:60px;">
 
-    <!-- ✅ NUEVO TÍTULO RESEÑAS -->
     <div class="section-title">
-      <div class="badge"><i class="fa-solid fa-star"></i> RESEÑAS</div>
+      <div class="badge">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        RESEÑAS
+      </div>
       <h2>Reseñas</h2>
       <div class="line"></div>
       <div class="sub">Opiniones reales de familias que repiten</div>
@@ -730,7 +732,14 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
   </div>
 
   <div id="quienes-somos-footer">
-    <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Quiénes somos</h2>
+
+    <div class="section-title">
+      <div class="badge"><i class="fa-solid fa-heart"></i> QUIÉNES SOMOS</div>
+      <h2>Quiénes somos</h2>
+      <div class="line"></div>
+      <div class="sub">Cuidado consciente, experiencia y amor real por los perros</div>
+    </div>
+
     <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
       En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
       ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
