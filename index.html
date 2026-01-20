@@ -220,7 +220,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
-/* Hero card (perfecto en móvil ya) */
+/* Hero card */
 .hero-card{
   width: min(360px, 86vw);
   max-height: 58vh;
@@ -427,7 +427,7 @@ section{
   line-height:1.4;
 }
 
-/* Formulario */
+/* ===== Formulario ===== */
 .reserva-form{
   display:flex;
   flex-direction:column;
@@ -465,7 +465,7 @@ section{
 }
 .reserva-form button:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
 
-/* Grid para fechas en desktop */
+/* Fechas: labels + icono */
 .form-grid-2{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -473,6 +473,22 @@ section{
 }
 @media(max-width:520px){
   .form-grid-2{ grid-template-columns: 1fr; }
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.field-label{
+  font-weight:900;
+  font-size:0.95em;
+  color:#333;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.field-label i{
+  color: rgba(123,108,246,0.9);
 }
 
 /* Destacado */
@@ -575,7 +591,6 @@ footer .btn{
   .logo-container::before{ width:240px; height:72px; border-bottom-right-radius:22px; }
   .logo{ font-size:1.55em; padding:16px 14px; }
 
-  /* Armonía móvil (mantener) */
   .hero-content{
     justify-content:center;
     align-items:flex-end;
@@ -744,7 +759,6 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
     Nos pondremos en contacto contigo para confirmar todos los detalles con calma 🤍
   </p>
 
-  <!-- ✅ FORMULARIO MODIFICADO (según tu orden) -->
   <form id="reservaForm" class="reserva-form">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
 
@@ -781,9 +795,17 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
       <option value="Guardería de Día">Guardería de día</option>
     </select>
 
+    <!-- ✅ Fechas descriptivas: Check-in / Check-out -->
     <div class="form-grid-2">
-      <input type="date" name="entrada" required>
-      <input type="date" name="salida" required>
+      <div class="field">
+        <div class="field-label"><i class="fa-regular fa-calendar-check"></i> Check-in</div>
+        <input type="date" name="entrada" required aria-label="Fecha de entrada (Check-in)">
+      </div>
+
+      <div class="field">
+        <div class="field-label"><i class="fa-regular fa-calendar-xmark"></i> Check-out</div>
+        <input type="date" name="salida" required aria-label="Fecha de salida (Check-out)">
+      </div>
     </div>
 
     <button type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
@@ -876,7 +898,6 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
   const f = e.target;
 
-  // Validación simple: salida >= entrada
   const entrada = f.entrada.value;
   const salida  = f.salida.value;
   if(entrada && salida && salida < entrada){
@@ -892,8 +913,8 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
     `Peso: ${encodeURIComponent(f.peso.value)}%0A`+
     `Descripción: ${encodeURIComponent(f.descripcion.value)}%0A`+
     `Servicio: ${encodeURIComponent(f.servicio.value)}%0A`+
-    `Entrada: ${encodeURIComponent(entrada)}%0A`+
-    `Salida: ${encodeURIComponent(salida)}`;
+    `Check-in: ${encodeURIComponent(entrada)}%0A`+
+    `Check-out: ${encodeURIComponent(salida)}`;
 
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
 });
