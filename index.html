@@ -196,7 +196,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* ===== ✅ ÚNICO CAMBIO: VÍDEO COMPLETO SIN ROMPER EL CARRUSEL ===== */
+/* ===== Vídeo completo + fondo blur ===== */
 .slide.video::before,
 .slide.video::after{ content:none; }
 
@@ -216,7 +216,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   inset:0;
   width:100%;
   height:100%;
-  object-fit: contain;   /* ✅ se ve completo */
+  object-fit: contain;      /* desktop: vídeo completo */
   object-position:center;
 }
 
@@ -651,8 +651,16 @@ footer .btn{
   .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
   .scroll-hint{ display:none; }
 
-  /* ajuste fino móvil del vídeo */
-  .hero-video-bg{ filter: blur(14px) brightness(.68); }
+  /* ✅ CAMBIO: en móvil, el vídeo principal rellena el carrusel (se ve “bien”) */
+  .hero-video-main{
+    object-fit: cover;          /* 🔥 móvil: evita “bandas” y queda estético */
+    object-position: center 45%;
+  }
+
+  /* fondo blur un pelín más suave en móvil */
+  .hero-video-bg{
+    filter: blur(16px) brightness(.64);
+  }
 }
 
 /* Estado menú móvil */
@@ -693,12 +701,12 @@ footer .btn{
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
 
-  <!-- ✅ VÍDEO (COMPLETO + fondo blur) -->
+  <!-- ✅ VÍDEO (COMPLETO EN DESKTOP + BIEN EN MÓVIL) -->
   <div class="slide video active">
-    <video class="hero-video-bg" muted playsinline loop preload="metadata">
+    <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
     </video>
-    <video class="hero-video-main" muted playsinline loop preload="metadata">
+    <video class="hero-video-main" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
     </video>
   </div>
@@ -952,10 +960,9 @@ footer .btn{
 </div>
 
 <script>
-/* Año automático */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* Carrusel (con control de vídeo) */
+/* Carrusel + control de vídeo */
 let slides = document.querySelectorAll('.slide');
 let current = 0;
 
