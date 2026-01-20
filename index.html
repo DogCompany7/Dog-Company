@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Dog Company - Residencia Canina</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
@@ -16,11 +16,8 @@
 
   --violet-1:#f6f3ff;
   --violet-2:#efeaff;
-  --ink:#1f1f1f;
   --brand:#25D366;
   --gold:#F5C223;
-
-  --shadow: 0 18px 45px rgba(0,0,0,.12);
 }
 
 /* ===== Base ===== */
@@ -199,7 +196,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* ===== ✅ ÚNICO CAMBIO: VÍDEO SE VE COMPLETO SIN ROMPER TAMAÑO ===== */
+/* ===== ✅ ÚNICO CAMBIO: VÍDEO COMPLETO SIN ROMPER EL CARRUSEL ===== */
 .slide.video::before,
 .slide.video::after{ content:none; }
 
@@ -208,7 +205,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   inset:-30px;
   width: calc(100% + 60px);
   height: calc(100% + 60px);
-  object-fit: cover;               /* rellena */
+  object-fit: cover;
   object-position:center;
   filter: blur(18px) brightness(.70);
   transform: scale(1.06);
@@ -219,7 +216,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   inset:0;
   width:100%;
   height:100%;
-  object-fit: contain;             /* ✅ completo */
+  object-fit: contain;   /* ✅ se ve completo */
   object-position:center;
 }
 
@@ -654,17 +651,12 @@ footer .btn{
   .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
   .scroll-hint{ display:none; }
 
-  /* ✅ ajuste fino móvil del vídeo (solo estética) */
+  /* ajuste fino móvil del vídeo */
   .hero-video-bg{ filter: blur(14px) brightness(.68); }
 }
 
 /* Estado menú móvil */
 .mobile-open .mobile-nav{ display:block; }
-
-/* Respeta accesibilidad */
-@media (prefers-reduced-motion: reduce){
-  .slide{ transition:none; }
-}
 </style>
 </head>
 
@@ -701,7 +693,7 @@ footer .btn{
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
 
-  <!-- ✅ VÍDEO (solo esto se ha ajustado para verse COMPLETO) -->
+  <!-- ✅ VÍDEO (COMPLETO + fondo blur) -->
   <div class="slide video active">
     <video class="hero-video-bg" muted playsinline loop preload="metadata">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
@@ -755,7 +747,6 @@ footer .btn{
 </section>
 
 <section id="servicios">
-
   <div class="section-title">
     <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
     <h2>NUESTROS SERVICIOS</h2>
@@ -890,7 +881,6 @@ footer .btn{
 </div>
 
 <section id="secciones-cliente" style="padding:60px 20px; max-width:1200px; margin:auto; text-align:left; background:#fff;">
-
   <div id="resenas-footer" style="margin-bottom:60px;">
     <div class="section-title">
       <div class="badge">
@@ -947,7 +937,6 @@ footer .btn{
       Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
     </p>
   </div>
-
 </section>
 
 <footer id="contacto">
@@ -966,38 +955,36 @@ footer .btn{
 /* Año automático */
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ✅ Carrusel + control de vídeo (solo para que no se quede congelado) */
+/* Carrusel (con control de vídeo) */
 let slides = document.querySelectorAll('.slide');
 let current = 0;
 
-function pauseAllVideos(){
-  document.querySelectorAll('.slide.video video').forEach(v=>{
-    try{ v.pause(); }catch(e){}
-  });
+function pauseVideosIn(el){
+  el.querySelectorAll('video').forEach(v=>{ try{ v.pause(); }catch(e){} });
 }
-async function playActiveVideos(){
-  const active = slides[current];
-  const vids = active.querySelectorAll('video');
+async function playVideosIn(el){
+  const vids = el.querySelectorAll('video');
   if(!vids.length) return;
-  vids.forEach(v=>{ v.currentTime = 0; });
   for(const v of vids){
     try{ await v.play(); }catch(e){}
   }
 }
 
-playActiveVideos();
+playVideosIn(slides[current]);
 
-setInterval(async ()=>{
-  slides[current].classList.remove('active');
-  pauseAllVideos();
+setInterval(async () => {
+  const prev = slides[current];
+  prev.classList.remove('active');
+  pauseVideosIn(prev);
 
   current = (current + 1) % slides.length;
 
-  slides[current].classList.add('active');
-  await playActiveVideos();
+  const next = slides[current];
+  next.classList.add('active');
+  await playVideosIn(next);
 }, 5000);
 
-/* WhatsApp del formulario (con horas) */
+/* WhatsApp del formulario */
 document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
   const f = e.target;
