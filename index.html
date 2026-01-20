@@ -199,6 +199,21 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
+/* ✅ Slide de vídeo (sin pseudo-elementos) */
+.slide.video::before,
+.slide.video::after{
+  content:none;
+}
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;        /* adapta sin huecos */
+  object-position: center;
+  background:#000;
+}
+
 /* Overlay suave */
 .hero-overlay{
   position:absolute;
@@ -632,6 +647,8 @@ footer .btn{
   .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
   .scroll-hint{ display:none; }
 
+  /* ✅ vídeo en móvil: también sin huecos */
+  .hero-video{ object-fit: cover; }
   .section-title h2{ font-size:1.85em; }
   .section-title .sub{ font-size:1em; }
 }
@@ -673,7 +690,23 @@ footer .btn{
 
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
-  <div class="slide active" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
+
+  <!-- ✅ VÍDEO (añadido) -->
+  <div class="slide video active">
+    <video
+      class="hero-video"
+      muted
+      playsinline
+      preload="metadata"
+      loop
+      aria-label="Vídeo Dog Company"
+    >
+      <source src="https://raw.githubusercontent.com/DogCompany7/Dog-Company/409591ec08baa6665d6ab330a52c0dd16458054b/document6014938721218992869.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Fotos -->
+  <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
 
@@ -704,17 +737,6 @@ footer .btn{
     </div>
   </div>
 </div>
-
-<script>
-/* Carrusel */
-let slides = document.querySelectorAll('.slide');
-let current = 0;
-setInterval(() => {
-  slides[current].classList.remove('active');
-  current = (current + 1) % slides.length;
-  slides[current].classList.add('active');
-}, 5000);
-</script>
 
 <section>
   <p class="presentacion">
@@ -937,6 +959,44 @@ setInterval(() => {
 <script>
 /* Año automático */
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Carrusel (con control de vídeo) */
+let slides = document.querySelectorAll('.slide');
+let current = 0;
+
+function stopVideo(slideEl){
+  const v = slideEl.querySelector('video');
+  if(v){
+    v.pause();
+    v.currentTime = 0;
+  }
+}
+
+async function playVideo(slideEl){
+  const v = slideEl.querySelector('video');
+  if(v){
+    try{
+      await v.play();
+    }catch(e){
+      /* autoplay puede bloquearse en algunos móviles si no hay interacción */
+    }
+  }
+}
+
+/* intenta reproducir el vídeo inicial si es el activo */
+playVideo(slides[current]);
+
+setInterval(async () => {
+  const prev = slides[current];
+  prev.classList.remove('active');
+  stopVideo(prev);
+
+  current = (current + 1) % slides.length;
+
+  const next = slides[current];
+  next.classList.add('active');
+  await playVideo(next);
+}, 5000);
 
 /* WhatsApp del formulario (con horas) */
 document.getElementById('reservaForm').addEventListener('submit', function(e){
