@@ -170,25 +170,49 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin-top: var(--header-h);
   background:#000;
 }
+
+/* ✅ Slides ahora con "imagen completa + fondo blur" (sin huecos) */
 .slide{
   position:absolute;
   inset:0;
-  background-size: cover;
-  background-position: center;
-  background-repeat:no-repeat;
   opacity:0;
   transition: opacity 1s;
 }
 .slide.active{ opacity:1; }
 
+/* Fondo relleno: misma imagen ampliada + blur */
+.slide::before{
+  content:"";
+  position:absolute;
+  inset:-30px;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(18px);
+  transform: scale(1.08);
+}
+
+/* Imagen principal: completa */
+.slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: var(--bg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay más suave para no matar la foto en móvil */
 .hero-overlay{
   position:absolute;
   inset:0;
   background:
-    radial-gradient(900px 520px at 50% 45%, rgba(0,0,0,0.04), rgba(0,0,0,0.50) 70%),
-    linear-gradient(to top, rgba(0,0,0,0.50), rgba(0,0,0,0.12));
+    radial-gradient(900px 520px at 50% 45%, rgba(0,0,0,0.00), rgba(0,0,0,0.42) 72%),
+    linear-gradient(to top, rgba(0,0,0,0.42), rgba(0,0,0,0.08));
 }
 
+/* Contenido lateral */
 .hero-content{
   position:absolute;
   inset:0;
@@ -201,17 +225,19 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
-/* ✅ Mejora #1: aún más transparente + más blur */
+/* ✅ Caja más transparente + límite para que en móvil NO tape todo */
 .hero-card{
   width: min(440px, 92vw);
-  background: rgba(255,255,255,0.45);
-  border: 1px solid rgba(255,255,255,0.30);
+  max-height: 64vh;               /* ✅ evita que invada todo */
+  overflow:auto;                  /* ✅ si aún así no cabe, scroll interno */
+  background: rgba(255,255,255,0.40);
+  border: 1px solid rgba(255,255,255,0.28);
   border-radius: 14px;
   box-shadow: 0 18px 45px rgba(0,0,0,.18);
   padding: 14px 14px 12px 14px;
   text-align:left;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .hero-badge{
@@ -326,7 +352,7 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ Títulos de sección */
+/* Títulos de sección */
 .section-title{
   text-align:center;
   margin: 0 auto 34px auto;
@@ -537,10 +563,24 @@ footer .btn{
   .logo-container::before{ width:240px; height:72px; border-bottom-right-radius:22px; }
   .logo{ font-size:1.55em; padding:16px 14px; }
 
-  .hero-content{ justify-content:center; }
-  .hero-card{ width: min(520px, 94vw); text-align:center; }
+  /* ✅ Armonía en móvil: caja más compacta + abajo + no tapa tanto */
+  .hero-content{
+    justify-content:center;
+    align-items:flex-end;
+    padding-bottom: 16px;
+  }
+  .hero-card{
+    width: min(520px, 92vw);
+    max-height: 46vh;
+    padding: 12px 12px 10px 12px;
+    text-align:center;
+    border-radius: 16px;
+  }
+  .hero-card h1{ font-size:1.55em; }
+  .hero-card p{ font-size:0.92em; }
   .trust-row{ justify-content:center; }
   .hero-actions{ justify-content:center; }
+  .scroll-hint{ display:none; }
 
   .section-title h2{ font-size:1.85em; }
   .section-title .sub{ font-size:1em; }
@@ -583,9 +623,9 @@ footer .btn{
 
 <!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
-  <div class="slide active" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-  <div class="slide" style="background-image:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
+  <div class="slide active" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
+  <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
+  <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
@@ -676,7 +716,6 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
     </div>
   </div>
 
-  <!-- ✅ Mejora #2: título de reserva con estilo conversión -->
   <div class="section-title" style="margin-top:60px;">
     <div class="badge"><i class="fa-solid fa-calendar-check"></i> RESERVA</div>
     <h2>Haz tu reserva</h2>
