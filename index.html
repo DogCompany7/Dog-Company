@@ -12,16 +12,14 @@
 :root{
   --wrap: 1200px;
   --header-h: 92px;
-  --header-h-m: 118px;
+  --header-h-m: 120px;
 
   --violet-1:#f6f3ff;
   --violet-2:#efeaff;
   --ink:#1f1f1f;
-  --muted:#444;
   --brand:#25D366;
   --gold:#F5C223;
 
-  --card: rgba(255,255,255,0.92);
   --shadow: 0 18px 45px rgba(0,0,0,.12);
 }
 
@@ -34,7 +32,7 @@ body{
   line-height:1.6;
   scroll-behavior:smooth;
 
-  /* Fondo violeta + patitas (sutil, pro) */
+  /* Fondo violeta + patitas */
   background:
     radial-gradient(1200px 700px at 12% 10%, var(--violet-2), transparent 60%),
     radial-gradient(1100px 650px at 88% 18%, #f3efff, transparent 55%),
@@ -54,12 +52,9 @@ a{ text-decoration:none; color:inherit; }
   }
 }
 
-/* ===== Header fijo (más pro y menos invasivo) ===== */
+/* ===== Header ===== */
 header{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:999;
+  position:fixed; top:0; width:100%; z-index:999;
   background: rgba(255,255,255,0.86);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -74,8 +69,6 @@ header{
   align-items:center;
   column-gap: 18px;
 }
-
-/* Nav izquierda */
 header nav{
   display:flex;
   gap: 18px;
@@ -92,7 +85,6 @@ header nav a{
 }
 header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 
-/* Logo centrado */
 .logo-container{
   justify-self:center;
   position:relative;
@@ -122,7 +114,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   white-space:nowrap;
 }
 
-/* Botón Reservar derecha */
 .reserve-btn{
   justify-self:end;
   display:inline-flex;
@@ -139,7 +130,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 }
 .reserve-btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 30px rgba(37,211,102,.28); }
 
-/* Botón menú móvil */
 .menu-btn{
   display:none;
   justify-self:end;
@@ -153,6 +143,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   font-weight:800;
 }
 .menu-btn i{ font-size:1.05em; }
+
 .mobile-nav{
   display:none;
   max-width: var(--wrap);
@@ -195,11 +186,11 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   position:absolute;
   inset:0;
   background:
-    radial-gradient(900px 520px at 50% 45%, rgba(0,0,0,0.06), rgba(0,0,0,0.52) 70%),
-    linear-gradient(to top, rgba(0,0,0,0.52), rgba(0,0,0,0.16));
+    radial-gradient(900px 520px at 50% 45%, rgba(0,0,0,0.04), rgba(0,0,0,0.50) 70%),
+    linear-gradient(to top, rgba(0,0,0,0.50), rgba(0,0,0,0.12));
 }
 
-/* ✅ Ahora el contenido se alinea a un lado (izquierda) */
+/* ✅ Contenido alineado a un lado */
 .hero-content{
   position:absolute;
   inset:0;
@@ -212,28 +203,45 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
-/* ✅ Card más pequeña y lateral */
+/* ✅ Caja estilo referencia: más transparente y más reducida */
 .hero-card{
-  width: min(520px, 92vw);
-  background: var(--card);
-  border: 1px solid rgba(255,255,255,0.65);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 18px 18px 16px 18px;
+  width: min(440px, 92vw);                 /* más reducida */
+  background: rgba(255,255,255,0.62);      /* más transparente */
+  border: 1px solid rgba(255,255,255,0.45);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.14);
+  padding: 14px 14px 12px 14px;
   text-align:left;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+/* ✅ Etiqueta amarilla */
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background: var(--gold);
+  color:#111;
+  font-weight:900;
+  border-radius:999px;
+  padding: 7px 11px;
+  font-size:0.84em;
+  letter-spacing:.4px;
+  margin-bottom:8px;
+  text-transform:uppercase;
 }
 
 .hero-card h1{
   font-family:'Playfair Display', serif;
-  font-size: 2.05em;  /* más pequeño */
-  letter-spacing: 0.2px;
-  color: var(--ink);
-  margin-bottom:8px;
+  font-size: 1.75em;   /* más pequeño */
+  color: #111;
+  margin-bottom:4px;
 }
 .hero-card p{
-  font-size:1.02em;   /* más pequeño */
+  font-size:0.95em;    /* más pequeño */
   color:#2b2b2b;
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   max-width: 56ch;
 }
 
@@ -242,19 +250,19 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   flex-wrap:wrap;
   justify-content:flex-start;
   gap:8px;
-  margin: 8px 0 14px 0;
+  margin: 6px 0 10px 0;
 }
 .trust-pill{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding: 7px 10px;
+  padding: 6px 9px;
   border-radius:999px;
   background: rgba(123,108,246,0.10);
   border: 1px solid rgba(123,108,246,0.18);
   font-weight:800;
   color:#2b2b2b;
-  font-size:0.92em;
+  font-size:0.88em;
 }
 .trust-pill i{ color:#7b6cf6; }
 
@@ -264,26 +272,26 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   justify-content:flex-start;
   align-items:center;
   flex-wrap:wrap;
-  margin-top: 2px;
 }
 .hero-actions .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding: 11px 18px;
+  padding: 9px 14px;   /* más pequeño */
   border-radius:999px;
   font-weight:900;
   border:none;
   cursor:pointer;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  font-size:0.92em;    /* más pequeño */
 }
 .btn-primary{
   background: var(--brand);
   color:white;
-  box-shadow: 0 14px 28px rgba(37,211,102,.28);
+  box-shadow: 0 14px 28px rgba(37,211,102,.22);
 }
-.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.32); }
+.btn-primary:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
 .btn-secondary{
   background: rgba(0,0,0,0.06);
   color:#222;
@@ -292,10 +300,10 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
 .btn-secondary:hover{ transform: translateY(-1px); background: rgba(0,0,0,0.08); }
 
 .scroll-hint{
-  margin-top: 10px;
+  margin-top: 8px;
   font-weight:800;
-  font-size:0.92em;
-  color: rgba(0,0,0,0.58);
+  font-size:0.88em;
+  color: rgba(0,0,0,0.62);
 }
 
 /* ===== Secciones ===== */
@@ -304,7 +312,6 @@ section{
   max-width: var(--wrap);
   margin: 38px auto;
   position:relative;
-
   background: rgba(255,255,255,0.96);
   border-radius: 26px;
   box-shadow: 0 14px 36px rgba(0,0,0,0.06);
@@ -451,10 +458,7 @@ footer .btn{
   text-decoration:none;
   display:inline-block;
   margin-top:15px;
-  box-shadow: 0 14px 28px rgba(37,211,102,.20);
 }
-
-/* ✅ Copy final (copyright) */
 .footer-copy{
   margin-top:22px;
   padding-top:16px;
@@ -477,8 +481,6 @@ footer .btn{
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
-  :root{ --header-h-m: 120px; }
-
   .hero-slider{
     height: 62vh;
     min-height: 470px;
@@ -503,25 +505,14 @@ footer .btn{
   .logo-container::before{ width:240px; height:72px; border-bottom-right-radius:22px; }
   .logo{ font-size:1.55em; padding:16px 14px; }
 
-  /* ✅ En móvil volvemos al centro para que se lea mejor */
-  .hero-content{
-    justify-content:center;
-  }
-  .hero-card{
-    width: min(520px, 94vw);
-    text-align:center;
-  }
+  /* En móvil centrado para lectura */
+  .hero-content{ justify-content:center; }
+  .hero-card{ width: min(520px, 94vw); text-align:center; }
   .trust-row{ justify-content:center; }
   .hero-actions{ justify-content:center; }
-
-  .hero-card h1{ font-size: 1.9em; }
-  .hero-card p{ font-size:1.0em; }
-  .trust-pill{ font-size:0.90em; }
-
-  .services, .testimonios{ flex-direction:column; }
 }
 
-/* Estado del menú móvil */
+/* Estado menú móvil */
 .mobile-open .mobile-nav{ display:block; }
 </style>
 </head>
@@ -566,6 +557,7 @@ footer .btn{
 
   <div class="hero-content">
     <div class="hero-card">
+      <div class="hero-badge">Residencia canina</div>
       <h1>Dog Company</h1>
       <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
 
@@ -602,13 +594,8 @@ setInterval(() => {
 /* Menú móvil */
 const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
-
-menuBtn?.addEventListener('click', () => {
-  document.body.classList.toggle('mobile-open');
-});
-mobileNav?.addEventListener('click', (e) => {
-  if(e.target.tagName === 'A') document.body.classList.remove('mobile-open');
-});
+menuBtn?.addEventListener('click', () => document.body.classList.toggle('mobile-open'));
+mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') document.body.classList.remove('mobile-open'); });
 </script>
 
 <section>
@@ -672,7 +659,6 @@ mobileNav?.addEventListener('click', (e) => {
 </div>
 
 <section id="secciones-cliente" style="padding:60px 20px; max-width:1200px; margin:auto; text-align:left;">
-
   <div id="resenas-footer" style="margin-bottom:60px;">
     <h2 style="font-family:'Playfair Display', serif; font-size:2em; margin-bottom:40px; text-decoration:underline; text-align:center;">Reseñas</h2>
     <div class="testimonios" style="justify-content:flex-start;">
@@ -710,17 +696,12 @@ mobileNav?.addEventListener('click', (e) => {
       Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
     </p>
   </div>
-
 </section>
 
 <footer id="contacto">
   <p>Ubicación: Alicante Centro</p>
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank" rel="noopener">Más información por WhatsApp</a>
-
-  <!-- ✅ Copy final -->
-  <div class="footer-copy">
-    © <span id="year"></span> Dog Company. Todos los derechos reservados.
-  </div>
+  <div class="footer-copy">© <span id="year"></span> Dog Company. Todos los derechos reservados.</div>
 </footer>
 
 <div class="whatsapp-container">
