@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
-/* ================= VARIABLES ================= */
 :root{
   --wrap:1200px;
   --header-h:92px;
@@ -18,7 +17,7 @@
   --gold:#F5C223;
 }
 
-/* ================= BASE ================= */
+/* BASE */
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Poppins',sans-serif;
@@ -27,7 +26,7 @@ body{
 }
 a{text-decoration:none;color:inherit}
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
   position:fixed;
   top:0;
@@ -74,7 +73,7 @@ nav a:hover{color:var(--brand)}
   font-weight:800;
 }
 
-/* ================= HERO ================= */
+/* HERO / CARRUSEL */
 .hero-slider{
   position:relative;
   height:72vh;
@@ -92,20 +91,35 @@ nav a:hover{color:var(--brand)}
 }
 .slide.active{opacity:1}
 
-/* VIDEO */
-.slide.video video{
+/* DOBLE VÍDEO */
+.hero-video-bg{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  filter:blur(18px) brightness(0.7);
+  transform:scale(1.15);
+}
+
+.hero-video-main{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  z-index:1;
 }
 
 /* OVERLAY */
 .hero-overlay{
   position:absolute;
   inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.1));
+  background:linear-gradient(to top,rgba(0,0,0,.45),rgba(0,0,0,.1));
+  z-index:2;
 }
 
+/* CONTENIDO */
 .hero-content{
   position:absolute;
   inset:0;
@@ -113,7 +127,7 @@ nav a:hover{color:var(--brand)}
   align-items:flex-end;
   justify-content:center;
   padding-bottom:18px;
-  z-index:2;
+  z-index:3;
 }
 
 .hero-card{
@@ -157,7 +171,7 @@ nav a:hover{color:var(--brand)}
   color:#fff;
 }
 
-/* ================= SECCIONES ================= */
+/* SECCIONES */
 section{
   max-width:var(--wrap);
   margin:60px auto;
@@ -166,31 +180,7 @@ section{
   border-radius:26px;
 }
 
-/* ================= FORM ================= */
-.reserva-form{
-  max-width:520px;
-  margin:auto;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.reserva-form input,
-.reserva-form select,
-.reserva-form textarea,
-.reserva-form button{
-  padding:12px;
-  border-radius:12px;
-  border:1px solid #ccc;
-  font-family:inherit;
-}
-.reserva-form button{
-  background:var(--brand);
-  color:#fff;
-  font-weight:900;
-  border:none;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   background:#111;
   color:#fff;
@@ -220,9 +210,13 @@ footer{
 <!-- HERO -->
 <div class="hero-slider" id="top">
 
-  <!-- VIDEO (FUNCIONA EN GITHUB PAGES) -->
-  <div class="slide video active">
-    <video autoplay muted loop playsinline preload="auto">
+  <!-- VÍDEO COMPLETO SIN RECORTE -->
+  <div class="slide active">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="./document6014938721218992869.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero-video-main" autoplay muted loop playsinline>
       <source src="./document6014938721218992869.mp4" type="video/mp4">
     </video>
   </div>
