@@ -394,12 +394,12 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ ÚNICO CAMBIO AHORA: bajar un poquito más */
+/* fila perros */
 .section-presentacion{ position:relative; }
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-130px;          /* ⬅ antes -115px */
+  bottom:-130px;
   transform: translateX(-50%);
   pointer-events:none;
   z-index:2;
@@ -460,7 +460,7 @@ section{
   align-items:stretch;
 }
 
-/* Premium + movimiento (como te gustó) */
+/* Premium + movimiento */
 .service-box{
   flex:1 1 250px;
   padding:22px 20px;
@@ -724,24 +724,38 @@ footer .btn{
     border: 1px solid rgba(255,255,255,0.11);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
   }
+
+  /* ✅ DEJAR LA TARJETA DEL CARRUSEL COMO DIJISTE (SOLO MÓVIL) */
+  .hero-card h1{ display:none; }                         /* quita Dog Company */
+  .hero-actions .btn-primary{ display:none; }            /* quita Reservar por WhatsApp */
+  .scroll-hint{ display:none; }                          /* quita "Reserva fácil..." */
+  .trust-row .trust-pill:first-child{ display:none; }    /* quita Trato familiar */
+
+  /* ✅ Poner Entorno seguro + Atención individual en la misma línea y más pequeños */
+  .trust-row{
+    flex-wrap:nowrap;
+    gap:6px;
+    margin: 6px 0 8px 0;
+  }
+  .trust-pill{
+    font-size:0.70em;
+    padding: 3px 6px;
+    gap:6px;
+    white-space:nowrap;
+  }
+
   .hero-badge{
     font-size:0.74em;
     padding: 5px 9px;
     margin-bottom:6px;
   }
-  .hero-card h1{ font-size:1.25em; }
   .hero-card p{ font-size:0.88em; margin-bottom:6px; }
-  .trust-row{ gap:6px; margin: 6px 0 8px 0; }
-  .trust-pill{
-    font-size:0.78em;
-    padding: 4px 7px;
-  }
   .hero-actions .btn{
     font-size:0.86em;
     padding: 7px 10px;
   }
-  .scroll-hint{ font-size:0.80em; margin-top:6px; }
 
   .hero-video-main{
     object-fit: cover;
@@ -756,9 +770,12 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ bajar un pelín más en móvil también */
+  /* ✅ AJUSTE SOLO MÓVIL: los perros pegados al borde inferior de la tarjeta */
   .section-presentacion .dogs-row{
-    bottom:-118px;  /* antes -105px */
+    bottom:-36px;              /* ⬅ antes estaba mucho más abajo */
+  }
+  .section-presentacion .dogs-row img{
+    width: min(420px, 90%);
   }
 
   .service-box:hover{ transform: translateY(-4px); }
