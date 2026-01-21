@@ -222,10 +222,10 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* ✅ Ajuste SOLO para la primera foto en móvil */
+/* ✅ Ajuste SOLO para la primera foto en móvil (menos zoom) */
 @media(max-width:768px){
   .slide.first-photo::after{
-    background-size: cover;
+    background-size: 100% auto;
     background-position: center;
   }
 }
@@ -822,10 +822,8 @@ footer .btn{
 
 <div class="hero-slider" id="top">
 
-  <!-- ✅ (1) Primera foto: ajuste móvil aplicado SOLO a esta -->
   <div class="slide first-photo active" style="--bg:url('fbdfbsdfbds.jpg');"></div>
 
-  <!-- ✅ (2) Vídeo -->
   <div class="slide video">
     <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
@@ -835,7 +833,6 @@ footer .btn{
     </video>
   </div>
 
-  <!-- ✅ (3) Foto que se queda -->
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
 
   <div class="hero-overlay"></div>
