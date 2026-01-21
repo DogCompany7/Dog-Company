@@ -394,12 +394,12 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ AJUSTE 1: BAJAR MÁS LOS PERROS (solo esto) */
+/* ✅ ÚNICO CAMBIO AHORA: bajar un poquito más */
 .section-presentacion{ position:relative; }
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-115px;          /* ⬅⬅⬅ MÁS ABAJO (antes -70px) */
+  bottom:-130px;          /* ⬅ antes -115px */
   transform: translateX(-50%);
   pointer-events:none;
   z-index:2;
@@ -460,7 +460,7 @@ section{
   align-items:stretch;
 }
 
-/* ✅ AJUSTE 2: DEVOLVER “premium + movimiento” a las tarjetas (sin tocar texto) */
+/* Premium + movimiento (como te gustó) */
 .service-box{
   flex:1 1 250px;
   padding:22px 20px;
@@ -514,7 +514,6 @@ section{
 .service-box p{ font-size:1em; margin-bottom:8px; }
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
 
-/* Mantengo tu estilo de horario-box, solo respetando el look premium */
 .service-box.horario-box{
   background: linear-gradient(180deg, rgba(255,246,201,0.98), rgba(255,255,255,0.92));
   border-color: rgba(245,194,35,0.55);
@@ -757,12 +756,11 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ BAJAR MÁS EN MÓVIL TAMBIÉN */
+  /* ✅ bajar un pelín más en móvil también */
   .section-presentacion .dogs-row{
-    bottom:-105px;          /* ⬅⬅⬅ MÁS ABAJO (antes -62px) */
+    bottom:-118px;  /* antes -105px */
   }
 
-  /* en móvil, evita que el hover “salte” demasiado */
   .service-box:hover{ transform: translateY(-4px); }
 }
 
@@ -1120,7 +1118,6 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
     `Check-in: ${encodeURIComponent(entrada)}%0A`+
     `Hora de check-in: ${encodeURIComponent(f.horaEntrada.value)}%0A`+
     `Check-out: ${encodeURIComponent(salida)}%0A`+
-    `Hora de check-out: ${encodeURIComponent(f.salida.value)}%0A`+
     `Hora de check-out: ${encodeURIComponent(f.horaSalida.value)}`;
 
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
