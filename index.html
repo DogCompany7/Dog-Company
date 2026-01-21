@@ -17,10 +17,8 @@
   --brand:#25D366;
   --gold:#F5C223;
 
-  /* ✅ TU ARCHIVO (misma carpeta que index.html) */
   --paws-url: url("./DETGED_Mesa-de-trabajo-1.jpg");
 
-  /* Fondo */
   --paws-opacity: 0.10;
   --paws-size: 920px;
   --paws-shift-x: 0px;
@@ -394,12 +392,20 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ ÚNICO AÑADIDO: imagen fila perros dentro de la tarjeta */
+/* ✅ SOLO CAMBIO: que los perros “salgan” por abajo sin agrandar la tarjeta */
+section:first-of-type{
+  padding-bottom: 48px;     /* tarjeta más pequeña */
+  overflow: visible;        /* permite que el dibujo salga por fuera */
+}
 .dogs-row{
   display:block;
   width: min(760px, 92%);
   height:auto;
-  margin: 18px auto 0 auto;
+  margin: 10px auto 0 auto;
+  position:absolute;
+  left:50%;
+  bottom:-26px;            /* lo hace “salir” de la tarjeta */
+  transform: translateX(-50%);
   pointer-events:none;
 }
 
@@ -667,7 +673,6 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -797,7 +802,6 @@ footer .btn{
     Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
   </p>
 
-  <!-- ✅ AQUÍ: justo debajo del texto, dentro de la tarjeta -->
   <img class="dogs-row" src="./dogs%20%E2%80%93%20AnimalsinaRow.jpg" alt="Fila de perros decorativa">
 </section>
 
