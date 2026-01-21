@@ -389,7 +389,10 @@ body > section:first-of-type::after{
   right:0;
   bottom:0;
   height: 110px;
-  background-image: url("./dogs%20%E2%80%93%20AnimalsinaRow.jpg");
+
+  /* ✅ CAMBIO ÚNICO: usar el nombre EXACTO tal cual (con el guion largo “–”) */
+  background-image: url("./dogs – AnimalsinaRow.jpg");
+
   background-repeat:no-repeat;
   background-position:center bottom;
   background-size: cover;
@@ -407,6 +410,7 @@ body > section:first-of-type::after{
   max-width: 70ch;
 }
 
+/* Títulos de sección */
 .section-title{
   text-align:center;
   margin: 0 auto 34px auto;
@@ -448,6 +452,7 @@ body > section:first-of-type::after{
   font-size:1.02em;
 }
 
+/* Servicios */
 .services{
   display:flex;
   gap:20px;
@@ -461,10 +466,12 @@ body > section:first-of-type::after{
   flex:1 1 250px;
   padding:22px 20px;
   border-radius:18px;
+
   border:1px solid transparent;
   background:
     linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)) padding-box,
     linear-gradient(135deg, rgba(123,108,246,0.40), rgba(245,194,35,0.55)) border-box;
+
   box-shadow: 0 14px 34px rgba(0,0,0,0.08);
   text-align:center;
   transition: transform .18s ease, box-shadow .22s ease, filter .22s ease;
@@ -511,7 +518,6 @@ body > section:first-of-type::after{
   font-size:1.18em;
 }
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
-
 .service-box.horario-box{
   background:
     linear-gradient(rgba(255,246,201,0.95), rgba(255,246,201,0.95)) padding-box,
@@ -638,6 +644,7 @@ body > section:first-of-type::after{
 .testimonio-box p{ font-size:1em; margin-bottom:10px; color:#333; }
 .testimonio-box .autor{ font-weight:900; color: var(--brand); }
 
+/* Footer */
 footer{
   background: rgba(20,20,20,0.92);
   color:white;
