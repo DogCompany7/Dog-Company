@@ -728,12 +728,12 @@ footer .btn{
   }
 
   /* ✅ DEJAR LA TARJETA DEL CARRUSEL COMO DIJISTE (SOLO MÓVIL) */
-  .hero-card h1{ display:none; }                         /* quita Dog Company */
-  .hero-actions .btn-primary{ display:none; }            /* quita Reservar por WhatsApp */
-  .scroll-hint{ display:none; }                          /* quita "Reserva fácil..." */
-  .trust-row .trust-pill:first-child{ display:none; }    /* quita Trato familiar */
+  .hero-card h1{ display:none; }
+  .hero-actions .btn-primary{ display:none; }
+  .scroll-hint{ display:none; }
+  .trust-row .trust-pill:first-child{ display:none; }
 
-  /* ✅ Poner Entorno seguro + Atención individual en la misma línea y más pequeños */
+  /* ✅ Entorno seguro + Atención individual en la misma línea y más pequeños */
   .trust-row{
     flex-wrap:nowrap;
     gap:6px;
@@ -770,12 +770,9 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ AJUSTE SOLO MÓVIL: los perros pegados al borde inferior de la tarjeta */
-  .section-presentacion .dogs-row{
-    bottom:-36px;              /* ⬅ antes estaba mucho más abajo */
-  }
+  /* ✅ SOLO CAMBIO: AUMENTAR TAMAÑO DE LOS PERROS EN MÓVIL */
   .section-presentacion .dogs-row img{
-    width: min(420px, 90%);
+    width: min(520px, 96%);  /* antes: min(420px, 90%) */
   }
 
   .service-box:hover{ transform: translateY(-4px); }
