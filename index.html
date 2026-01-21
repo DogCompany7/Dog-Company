@@ -394,12 +394,12 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ ÚNICO CAMBIO REAL: BAJAR LOS PERROS AL BORDE DE LA TARJETA */
+/* ✅ AJUSTE 1: BAJAR MÁS LOS PERROS (solo esto) */
 .section-presentacion{ position:relative; }
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-70px;            /* ⬅⬅ MÁS ABAJO (antes estaba demasiado alto) */
+  bottom:-115px;          /* ⬅⬅⬅ MÁS ABAJO (antes -70px) */
   transform: translateX(-50%);
   pointer-events:none;
   z-index:2;
@@ -459,15 +459,49 @@ section{
   flex-wrap:wrap;
   align-items:stretch;
 }
+
+/* ✅ AJUSTE 2: DEVOLVER “premium + movimiento” a las tarjetas (sin tocar texto) */
 .service-box{
   flex:1 1 250px;
   padding:22px 20px;
   border-radius:16px;
-  background:#f9f9f9;
-  box-shadow:0 10px 26px rgba(0,0,0,0.10);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,246,255,0.92));
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
   text-align:center;
-  border: 1px solid rgba(0,0,0,0.05);
+
+  border: 1px solid rgba(123,108,246,0.22);
+  position:relative;
+  overflow:hidden;
+
+  transition: transform .18s ease, box-shadow .22s ease, border-color .22s ease;
+  will-change: transform;
 }
+.service-box::before{
+  content:"";
+  position:absolute;
+  top:14px; bottom:14px; left:14px;
+  width:5px;
+  border-radius:999px;
+  background: linear-gradient(180deg, rgba(123,108,246,0.95), rgba(245,194,35,0.95));
+  opacity:.85;
+}
+.service-box::after{
+  content:"";
+  position:absolute;
+  inset:-40% -60%;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.65), transparent 70%);
+  transform: rotate(18deg);
+  opacity:0;
+  transition: opacity .22s ease;
+  pointer-events:none;
+}
+.service-box:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 46px rgba(0,0,0,0.14);
+  border-color: rgba(123,108,246,0.40);
+}
+.service-box:hover::after{ opacity:.55; }
+
 .service-box h3{
   font-family:'Playfair Display', serif;
   font-size:1.4em;
@@ -479,7 +513,15 @@ section{
 }
 .service-box p{ font-size:1em; margin-bottom:8px; }
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
-.service-box.horario-box{ background: #fff6c9; }
+
+/* Mantengo tu estilo de horario-box, solo respetando el look premium */
+.service-box.horario-box{
+  background: linear-gradient(180deg, rgba(255,246,201,0.98), rgba(255,255,255,0.92));
+  border-color: rgba(245,194,35,0.55);
+}
+.service-box.horario-box::before{
+  background: linear-gradient(180deg, rgba(245,194,35,0.98), rgba(123,108,246,0.78));
+}
 .horarios{
   color:#333;
   font-size:1em;
@@ -674,7 +716,6 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -716,10 +757,13 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ mismo cambio en móvil para BAJAR más */
+  /* ✅ BAJAR MÁS EN MÓVIL TAMBIÉN */
   .section-presentacion .dogs-row{
-    bottom:-62px;
+    bottom:-105px;          /* ⬅⬅⬅ MÁS ABAJO (antes -62px) */
   }
+
+  /* en móvil, evita que el hover “salte” demasiado */
+  .service-box:hover{ transform: translateY(-4px); }
 }
 
 /* Estado menú móvil */
@@ -800,7 +844,6 @@ footer .btn{
   </div>
 </div>
 
-<!-- ✅ SOLO CAMBIO: añadir class="section-presentacion" y el bloque dogs-row (para poder bajarlo) -->
 <section class="section-presentacion">
   <p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
@@ -1077,6 +1120,7 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
     `Check-in: ${encodeURIComponent(entrada)}%0A`+
     `Hora de check-in: ${encodeURIComponent(f.horaEntrada.value)}%0A`+
     `Check-out: ${encodeURIComponent(salida)}%0A`+
+    `Hora de check-out: ${encodeURIComponent(f.salida.value)}%0A`+
     `Hora de check-out: ${encodeURIComponent(f.horaSalida.value)}`;
 
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
