@@ -394,15 +394,11 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ SOLO CAMBIO: bajar los perros más al borde inferior de la tarjeta */
-.section-presentacion{
-  overflow: visible;
-  padding-bottom: 90px; /* reduce espacio interior */
-}
+/* ✅ SOLO CAMBIO: BAJAR MÁS la fila de perros al borde inferior */
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-54px; /* MÁS ABAJO: se pega al borde inferior */
+  bottom:18px;              /* <-- AJUSTE: antes estaba más arriba. Ahora va al borde (como tu línea roja) */
   transform: translateX(-50%);
   pointer-events:none;
 }
@@ -412,7 +408,218 @@ section{
   height:auto;
 }
 
-/* ... RESTO CSS SIN CAMBIOS ... */
+/* Títulos de sección */
+.section-title{
+  text-align:center;
+  margin: 0 auto 34px auto;
+  max-width: 900px;
+}
+.section-title .badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 12px;
+  border-radius:999px;
+  background: var(--gold);
+  color:#111;
+  font-weight:900;
+  letter-spacing:.35px;
+  text-transform:uppercase;
+  font-size:0.86em;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+.section-title h2{
+  font-family:'Playfair Display', serif;
+  font-size:2.2em;
+  color:#1f1f1f;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: .2px;
+}
+.section-title .line{
+  width: 160px;
+  height: 4px;
+  border-radius:999px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, rgba(123,108,246,0.15), rgba(123,108,246,0.65), rgba(123,108,246,0.15));
+}
+.section-title .sub{
+  margin-top: 10px;
+  color:#555;
+  font-weight:700;
+  font-size:1.02em;
+}
+
+/* Servicios */
+.services{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  align-items:stretch;
+}
+.service-box{
+  flex:1 1 250px;
+  padding:22px 20px;
+  border-radius:16px;
+  background:#f9f9f9;
+  box-shadow:0 10px 26px rgba(0,0,0,0.10);
+  text-align:center;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.service-box h3{
+  font-family:'Playfair Display', serif;
+  font-size:1.4em;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.service-box p{ font-size:1em; margin-bottom:8px; }
+.precio-fijo{ font-weight:bold; text-decoration:underline; }
+.service-box.horario-box{ background: #fff6c9; }
+.horarios{
+  color:#333;
+  font-size:1em;
+  font-weight:bold;
+  line-height:1.4;
+}
+
+/* ===== Formulario ===== */
+.reserva-form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:14px;
+  max-width:520px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.reserva-form input,
+.reserva-form select,
+.reserva-form textarea,
+.reserva-form button{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.16);
+  font-size:1em;
+  font-family:inherit;
+}
+.reserva-form textarea{ min-height:90px; resize:vertical; }
+.reserva-form input:focus,
+.reserva-form select:focus,
+.reserva-form textarea:focus{
+  outline: 3px solid rgba(123,108,246,0.18);
+  border-color: rgba(123,108,246,0.45);
+}
+.reserva-form button{
+  background: var(--brand);
+  color:white;
+  font-weight:900;
+  border:none;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(37,211,102,.22);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.reserva-form button:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
+
+.form-grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media(max-width:520px){
+  .form-grid-2{ grid-template-columns: 1fr; }
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-width:0;
+}
+.field-label{
+  font-weight:900;
+  font-size:0.90em;
+  line-height:1.1;
+  color:#333;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:2px;
+}
+.field-label i{ color: rgba(123,108,246,0.9); }
+
+.field input[type="date"],
+.field select{
+  width:100%;
+  max-width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.16);
+  font-size:1em;
+  font-family:inherit;
+}
+
+.field-note{
+  font-size:0.82em;
+  color:#666;
+  margin-top:0;
+}
+
+/* Destacado */
+.highlight{
+  text-align:center;
+  font-size:1.35em;
+  font-weight:900;
+  margin: 32px auto;
+  padding: 34px 16px;
+  border-radius: 26px;
+  background:
+    radial-gradient(700px 300px at 50% 50%, rgba(123,108,246,0.14), transparent 70%),
+    rgba(255,255,255,0.95);
+  border: 1px solid rgba(123,108,246,0.16);
+  box-shadow: 0 16px 38px rgba(0,0,0,0.06);
+  max-width: var(--wrap);
+}
+
+/* Reseñas */
+.testimonios{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:flex-start;
+}
+.testimonio-box{
+  flex:1 1 250px;
+  background:#f9f9f9;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.10);
+  text-align:left;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.testimonio-box p{ font-size:1em; margin-bottom:10px; color:#333; }
+.testimonio-box .autor{ font-weight:900; color: var(--brand); }
+
+/* Footer */
+footer{
+  background: rgba(20,20,20,0.92);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer .btn{
+  background: var(--brand);
+  color:white;
+  padding:12px 28px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:15px;
+}
 
 /* WhatsApp flotante */
 .whatsapp-container{
@@ -468,43 +675,15 @@ section{
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
   }
-  .hero-badge{
-    font-size:0.74em;
-    padding: 5px 9px;
-    margin-bottom:6px;
-  }
-  .hero-card h1{ font-size:1.25em; }
-  .hero-card p{ font-size:0.88em; margin-bottom:6px; }
-  .trust-row{ gap:6px; margin: 6px 0 8px 0; }
-  .trust-pill{
-    font-size:0.78em;
-    padding: 4px 7px;
-  }
-  .hero-actions .btn{
-    font-size:0.86em;
-    padding: 7px 10px;
-  }
-  .scroll-hint{ font-size:0.80em; margin-top:6px; }
-
-  .hero-video-main{
-    object-fit: cover;
-    object-position: center 45%;
-  }
-  .hero-video-bg{
-    filter: blur(16px) brightness(.64);
-  }
 
   body::before{
     opacity: 0.08;
     background-size: 1050px;
   }
 
-  /* ✅ bajar también más en móvil */
-  .section-presentacion{
-    padding-bottom: 78px;
-  }
+  /* ✅ SOLO CAMBIO: mismo ajuste en móvil */
   .section-presentacion .dogs-row{
-    bottom:-48px;
+    bottom:14px;
   }
   .section-presentacion .dogs-row img{
     width: min(420px, 92%);
