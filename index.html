@@ -658,7 +658,7 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ CAMBIO ÚNICO: reducir más la tarjeta del carrusel en móvil para que tape menos */
+  /* ✅ Tarjeta más compacta en móvil */
   .hero-card{
     width: min(260px, 84vw);
     max-height: 20vh;
@@ -669,12 +669,17 @@ footer .btn{
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
   }
+
+  /* ✅ CAMBIO ÚNICO: ocultar elementos SOLO en móvil dentro de la tarjeta */
+  .hero-card h1{ display:none; }                 /* quita "Dog Company" */
+  .trust-row .trust-pill:first-child{ display:none; } /* quita "Trato familiar" */
+  .scroll-hint{ display:none; }                  /* quita "Reserva fácil..." */
+
   .hero-badge{
     font-size:0.72em;
     padding: 4px 8px;
     margin-bottom:5px;
   }
-  .hero-card h1{ font-size:1.18em; }
   .hero-card p{ font-size:0.84em; margin-bottom:5px; }
   .trust-row{ gap:6px; margin: 5px 0 7px 0; }
   .trust-pill{
@@ -685,7 +690,6 @@ footer .btn{
     font-size:0.84em;
     padding: 7px 10px;
   }
-  .scroll-hint{ font-size:0.78em; margin-top:5px; }
 
   .hero-video-main{
     object-fit: cover;
