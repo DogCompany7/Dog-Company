@@ -17,14 +17,14 @@
   --brand:#25D366;
   --gold:#F5C223;
 
+  /* ✅ TU ARCHIVO (misma carpeta que index.html) */
   --paws-url: url("./DETGED_Mesa-de-trabajo-1.jpg");
 
+  /* Fondo */
   --paws-opacity: 0.10;
   --paws-size: 920px;
   --paws-shift-x: 0px;
   --paws-shift-y: 0px;
-
-  --cute-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cg fill='none' stroke='none'%3E%3Cg opacity='0.9'%3E%3Cg fill='%237b6cf6'%3E%3Cpath d='M34 52c4.5 0 8-3.6 8-8.1S38.5 36 34 36s-8 3.7-8 7.9S29.5 52 34 52z' opacity='0.55'/%3E%3Cpath d='M58 48c4.3 0 7.7-3.5 7.7-7.8S62.3 32.5 58 32.5s-7.7 3.4-7.7 7.7S53.7 48 58 48z' opacity='0.45'/%3E%3Cpath d='M46 70c0 0 10 3 14 10 3 6-2 14-12 14S28 89 31 80c3-8 15-10 15-10z' opacity='0.38'/%3E%3C/g%3E%3Cg fill='%23f5c223'%3E%3Cpath d='M118 44c3.8 0 6.8-3.1 6.8-6.9S121.8 30.2 118 30.2s-6.8 3.1-6.8 6.9S114.2 44 118 44z' opacity='0.35'/%3E%3Cpath d='M128 66c2.8-2.8 7.3-2.8 10.1 0l2.6 2.6c2.8 2.8 2.8 7.3 0 10.1-2.8 2.8-7.3 2.8-10.1 0l-2.6-2.6c-2.8-2.8-2.8-7.3 0-10.1z' opacity='0.22'/%3E%3Cpath d='M102 98c2.8-2.8 7.3-2.8 10.1 0l2.6 2.6c2.8 2.8 2.8 7.3 0 10.1-2.8 2.8-7.3 2.8-10.1 0l-2.6-2.6c-2.8-2.8-2.8-7.3 0-10.1z' opacity='0.18'/%3E%3Cpath d='M120 104c-2.2 0-4.2.9-5.7 2.4l-7.8 7.8c-3.2 3.2-3.2 8.3 0 11.5 3.2 3.2 8.3 3.2 11.5 0l7.8-7.8c1.5-1.5 2.4-3.5 2.4-5.7 0-4.5-3.7-8.2-8.2-8.2z' opacity='0.14'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -45,6 +45,7 @@ body{
     #ffffff;
 }
 
+/* ✅ Patitas reales */
 body::before{
   content:"";
   position:fixed;
@@ -61,6 +62,7 @@ body::before{
   filter: saturate(0.9) contrast(0.95);
 }
 
+/* Evita que el header tape las secciones */
 #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
@@ -192,6 +194,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background:#000;
 }
 
+/* Slides fotos */
 .slide{
   position:absolute;
   inset:0;
@@ -219,6 +222,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
+/* Vídeo */
 .slide.video::before,
 .slide.video::after{ content:none; }
 
@@ -241,6 +245,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   object-position:center;
 }
 
+/* Overlay */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -262,6 +267,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   margin: 0 auto;
 }
 
+/* Hero card */
 .hero-card{
   width: min(360px, 86vw);
   max-height: 58vh;
@@ -377,29 +383,7 @@ section{
   border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* ✅ SOLO: fila de perros al fondo de la PRIMERA tarjeta (presentación) */
-body > section:first-of-type{
-  overflow:hidden;
-  padding-bottom: 130px;
-}
-body > section:first-of-type::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height: 110px;
-
-  /* ✅ CAMBIO ÚNICO: usar el nombre EXACTO tal cual (con el guion largo “–”) */
-  background-image: url("./dogs – AnimalsinaRow.jpg");
-
-  background-repeat:no-repeat;
-  background-position:center bottom;
-  background-size: cover;
-  opacity: 0.95;
-  pointer-events:none;
-}
-
+/* Presentación */
 .presentacion{
   font-family:'Merriweather', serif;
   font-size:1.3em;
@@ -408,6 +392,15 @@ body > section:first-of-type::after{
   margin:30px auto;
   line-height:1.7;
   max-width: 70ch;
+}
+
+/* ✅ ÚNICO AÑADIDO: imagen fila perros dentro de la tarjeta */
+.dogs-row{
+  display:block;
+  width: min(760px, 92%);
+  height:auto;
+  margin: 18px auto 0 auto;
+  pointer-events:none;
 }
 
 /* Títulos de sección */
@@ -459,70 +452,27 @@ body > section:first-of-type::after{
   flex-wrap:wrap;
   align-items:stretch;
 }
-
 .service-box{
-  position:relative;
-  overflow:hidden;
   flex:1 1 250px;
   padding:22px 20px;
-  border-radius:18px;
-
-  border:1px solid transparent;
-  background:
-    linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)) padding-box,
-    linear-gradient(135deg, rgba(123,108,246,0.40), rgba(245,194,35,0.55)) border-box;
-
-  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+  border-radius:16px;
+  background:#f9f9f9;
+  box-shadow:0 10px 26px rgba(0,0,0,0.10);
   text-align:center;
-  transition: transform .18s ease, box-shadow .22s ease, filter .22s ease;
+  border: 1px solid rgba(0,0,0,0.05);
 }
-.service-box::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image: var(--cute-pattern);
-  background-repeat: repeat;
-  background-size: 220px;
-  opacity: 0.10;
-  pointer-events:none;
-}
-.service-box:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 18px 44px rgba(0,0,0,0.10);
-  filter: saturate(1.02);
-}
-
 .service-box h3{
   font-family:'Playfair Display', serif;
-  font-size:1.42em;
+  font-size:1.4em;
   margin-bottom:12px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:8px;
 }
-.service-box h3 i{
-  width:40px;
-  height:40px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:14px;
-  background: rgba(123,108,246,0.14);
-  border: 1px solid rgba(123,108,246,0.18);
-}
-
 .service-box p{ font-size:1em; margin-bottom:8px; }
-.service-box p strong{
-  font-weight:900;
-  font-size:1.18em;
-}
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
-.service-box.horario-box{
-  background:
-    linear-gradient(rgba(255,246,201,0.95), rgba(255,246,201,0.95)) padding-box,
-    linear-gradient(135deg, rgba(123,108,246,0.35), rgba(245,194,35,0.55)) border-box;
-}
+.service-box.horario-box{ background: #fff6c9; }
 .horarios{
   color:#333;
   font-size:1em;
@@ -611,6 +561,7 @@ body > section:first-of-type::after{
   margin-top:0;
 }
 
+/* Destacado */
 .highlight{
   text-align:center;
   font-size:1.35em;
@@ -626,6 +577,7 @@ body > section:first-of-type::after{
   max-width: var(--wrap);
 }
 
+/* Reseñas */
 .testimonios{
   display:flex;
   flex-wrap:wrap;
@@ -663,7 +615,15 @@ footer .btn{
   display:inline-block;
   margin-top:15px;
 }
+.footer-copy{
+  margin-top:22px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  font-size:0.95em;
+  color: rgba(255,255,255,0.78);
+}
 
+/* WhatsApp flotante */
 .whatsapp-container{
   position:fixed;
   bottom:20px;
@@ -707,52 +667,34 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
+  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
-    width: min(260px, 84vw);
-    max-height: 20vh;
-    padding: 8px 8px 7px 8px;
+    width: min(300px, 86vw);
+    max-height: 26vh;
+    padding: 9px 9px 8px 9px;
     border-radius: 14px;
     background: rgba(0,0,0,0.12);
     border: 1px solid rgba(255,255,255,0.11);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
   }
-
-  .hero-card h1{ display:none; }
-  .trust-row .trust-pill:first-child{ display:none; }
-  .scroll-hint{ display:none; }
-  .hero-actions .btn-primary{ display:none; }
-
-  .trust-row{
-    flex-wrap:nowrap;
-    justify-content:space-between;
-    gap:4px;
-    margin: 4px 0 6px 0;
-  }
-  .trust-pill{
-    flex: 0 0 calc(50% - 2px);
-    justify-content:center;
-    white-space:nowrap;
-    font-size:0.62em;
-    padding: 2px 4px;
-    gap:4px;
-  }
-  .trust-pill i{ font-size:0.88em; }
-
   .hero-badge{
-    font-size:0.72em;
-    padding: 4px 8px;
-    margin-bottom:5px;
+    font-size:0.74em;
+    padding: 5px 9px;
+    margin-bottom:6px;
   }
-  .hero-card p{
-    font-size:0.84em;
-    margin-bottom:5px;
+  .hero-card h1{ font-size:1.25em; }
+  .hero-card p{ font-size:0.88em; margin-bottom:6px; }
+  .trust-row{ gap:6px; margin: 6px 0 8px 0; }
+  .trust-pill{
+    font-size:0.78em;
+    padding: 4px 7px;
   }
-
   .hero-actions .btn{
-    font-size:0.84em;
+    font-size:0.86em;
     padding: 7px 10px;
   }
+  .scroll-hint{ font-size:0.80em; margin-top:6px; }
 
   .hero-video-main{
     object-fit: cover;
@@ -766,16 +708,9 @@ footer .btn{
     opacity: 0.08;
     background-size: 1050px;
   }
-
-  body > section:first-of-type{
-    padding-bottom: 120px;
-  }
-  body > section:first-of-type::after{
-    height: 95px;
-    background-position: center bottom;
-  }
 }
 
+/* Estado menú móvil */
 .mobile-open .mobile-nav{ display:block; }
 </style>
 </head>
@@ -861,6 +796,9 @@ footer .btn{
   <p class="presentacion">
     Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
   </p>
+
+  <!-- ✅ AQUÍ: justo debajo del texto, dentro de la tarjeta -->
+  <img class="dogs-row" src="./dogs%20%E2%80%93%20AnimalsinaRow.jpg" alt="Fila de perros decorativa">
 </section>
 
 <section id="servicios">
@@ -1065,7 +1003,7 @@ footer .btn{
 </footer>
 
 <div class="whatsapp-container">
-  <a href="#reservaForm">
+  <a href="https://wa.me/34TUNUMERO" target="_blank" rel="noopener">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 </div>
@@ -1073,6 +1011,7 @@ footer .btn{
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* Carrusel + control de vídeo */
 let slides = document.querySelectorAll('.slide');
 let current = 0;
 
@@ -1100,6 +1039,7 @@ setInterval(async () => {
   await playVideosIn(next);
 }, 5000);
 
+/* WhatsApp del formulario */
 document.getElementById('reservaForm').addEventListener('submit', function(e){
   e.preventDefault();
   const f = e.target;
@@ -1128,6 +1068,7 @@ document.getElementById('reservaForm').addEventListener('submit', function(e){
   window.open(`https://wa.me/34TUNUMERO?text=${msg}`,'_blank');
 });
 
+/* Menú móvil */
 const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
 menuBtn?.addEventListener('click', () => document.body.classList.toggle('mobile-open'));
