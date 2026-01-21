@@ -670,10 +670,11 @@ footer .btn{
     -webkit-backdrop-filter: blur(7px);
   }
 
-  /* ✅ CAMBIO ÚNICO: ocultar elementos SOLO en móvil dentro de la tarjeta */
-  .hero-card h1{ display:none; }                 /* quita "Dog Company" */
+  /* ✅ CAMBIOS SOLO EN MÓVIL (tarjeta) */
+  .hero-card h1{ display:none; }                      /* quita "Dog Company" */
   .trust-row .trust-pill:first-child{ display:none; } /* quita "Trato familiar" */
-  .scroll-hint{ display:none; }                  /* quita "Reserva fácil..." */
+  .scroll-hint{ display:none; }                       /* quita "Reserva fácil..." */
+  .hero-actions .btn-primary{ display:none; }         /* quita "Reservar por WhatsApp" */
 
   .hero-badge{
     font-size:0.72em;
@@ -995,7 +996,7 @@ footer .btn{
 </footer>
 
 <div class="whatsapp-container">
-  <a href="https://wa.me/34TUNUMERO" target="_blank" rel="noopener">
+  <a href="#reservaForm">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
 </div>
