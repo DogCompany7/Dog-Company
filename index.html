@@ -394,11 +394,11 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ SOLO CAMBIO: BAJAR MÁS la fila de perros al borde inferior */
+/* ✅ ÚNICO AJUSTE: el dibujo VA PEGADO AL BORDE INFERIOR (más abajo) */
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:18px;              /* <-- AJUSTE: antes estaba más arriba. Ahora va al borde (como tu línea roja) */
+  bottom:-8px;            /* <-- MÁS ABAJO (si lo quieres aún más: -14px / -18px) */
   transform: translateX(-50%);
   pointer-events:none;
 }
@@ -681,9 +681,9 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ SOLO CAMBIO: mismo ajuste en móvil */
+  /* ✅ mismo ajuste en móvil */
   .section-presentacion .dogs-row{
-    bottom:14px;
+    bottom:-10px;
   }
   .section-presentacion .dogs-row img{
     width: min(420px, 92%);
@@ -768,6 +768,7 @@ footer .btn{
   </div>
 </div>
 
+<!-- ✅ SOLO para aplicar la posición: añadida la clase section-presentacion -->
 <section class="section-presentacion">
   <p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
