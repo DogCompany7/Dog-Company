@@ -394,6 +394,27 @@ section{
   max-width: 70ch;
 }
 
+/* ====== ✅ SOLO ESTO: perros pegados al borde inferior de la tarjeta de intro ====== */
+.intro-card{
+  padding-bottom: 130px; /* espacio para el dibujo sin aumentar “a lo loco” */
+}
+.dogs-row{
+  position:absolute;
+  left:50%;
+  transform: translateX(-50%);
+  bottom: -22px;            /* ✅ pegado al borde, “saliendo” */
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  pointer-events:none;
+  z-index: 2;
+}
+.dogs-row img{
+  display:block;
+  width: min(520px, 70vw);
+  height:auto;
+}
+
 /* ===== Responsive ===== */
 @media(max-width:768px){
   .hero-slider{
@@ -426,7 +447,7 @@ section{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ tarjeta hero en móvil compacta */
+  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -436,8 +457,24 @@ section{
     border: 1px solid rgba(255,255,255,0.11);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
-    overflow:hidden;
   }
+  .hero-badge{
+    font-size:0.74em;
+    padding: 5px 9px;
+    margin-bottom:6px;
+  }
+  .hero-card h1{ font-size:1.25em; }
+  .hero-card p{ font-size:0.88em; margin-bottom:6px; }
+  .trust-row{ gap:6px; margin: 6px 0 8px 0; }
+  .trust-pill{
+    font-size:0.78em;
+    padding: 4px 7px;
+  }
+  .hero-actions .btn{
+    font-size:0.86em;
+    padding: 7px 10px;
+  }
+  .scroll-hint{ font-size:0.80em; margin-top:6px; }
 
   .hero-video-main{
     object-fit: cover;
@@ -452,10 +489,9 @@ section{
     background-size: 1050px;
   }
 
-  /* ✅ ÚNICO CAMBIO: aumentar tamaño de los perros SOLO en móvil, sin moverlos */
+  /* ✅ SOLO MÓVIL: más grandes sin mover posición */
   .dogs-row img{
-    width: min(520px, 96vw);
-    height: auto;
+    width: min(560px, 96vw);
   }
 }
 
@@ -537,7 +573,8 @@ section{
   </div>
 </div>
 
-<section>
+<!-- ✅ SOLO A ESTA SECTION le añadimos class intro-card y el bloque de perros dentro -->
+<section class="intro-card">
   <p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
     con atención individual y respeto por sus ritmos.
@@ -546,7 +583,10 @@ section{
     Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
   </p>
 
-  <!-- (tu fila de perros ya está en tu HTML actual; NO toco nada aquí) -->
+  <!-- ✅ DIBUJO PEGADO AL BORDE -->
+  <div class="dogs-row" aria-hidden="true">
+    <img src="./ChatGPT%20Image%2021%20ene%202026,%2018_02_15.png" alt="">
+  </div>
 </section>
 
 <section id="servicios">
