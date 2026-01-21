@@ -17,8 +17,10 @@
   --brand:#25D366;
   --gold:#F5C223;
 
+  /* ✅ TU ARCHIVO (misma carpeta que index.html) */
   --paws-url: url("./DETGED_Mesa-de-trabajo-1.jpg");
 
+  /* Fondo */
   --paws-opacity: 0.10;
   --paws-size: 920px;
   --paws-shift-x: 0px;
@@ -392,21 +394,22 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ SOLO CAMBIO: que los perros “salgan” por abajo sin agrandar la tarjeta */
-section:first-of-type{
-  padding-bottom: 48px;     /* tarjeta más pequeña */
-  overflow: visible;        /* permite que el dibujo salga por fuera */
+/* ✅ AJUSTE SOLO PARA LA TARJETA DE PRESENTACIÓN + PERROS (NO TOCA OTRAS SECCIONES) */
+.section-presentacion{
+  overflow: visible;
+  padding-bottom: 140px; /* espacio para que el texto sea legible y quepan los perros */
 }
-.dogs-row{
-  display:block;
-  width: min(760px, 92%);
-  height:auto;
-  margin: 10px auto 0 auto;
+.section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-26px;            /* lo hace “salir” de la tarjeta */
+  bottom:-34px; /* sobresale como “saliendo” de la tarjeta */
   transform: translateX(-50%);
   pointer-events:none;
+}
+.section-presentacion .dogs-row img{
+  display:block;
+  width: min(560px, 92%);
+  height:auto;
 }
 
 /* Títulos de sección */
@@ -673,6 +676,7 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
+  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -712,6 +716,17 @@ footer .btn{
   body::before{
     opacity: 0.08;
     background-size: 1050px;
+  }
+
+  /* ✅ Ajuste SOLO para la tarjeta de presentación en móvil */
+  .section-presentacion{
+    padding-bottom: 120px;
+  }
+  .section-presentacion .dogs-row{
+    bottom: -30px;
+  }
+  .section-presentacion .dogs-row img{
+    width: min(420px, 92%);
   }
 }
 
@@ -793,7 +808,8 @@ footer .btn{
   </div>
 </div>
 
-<section>
+<!-- ✅ SOLO CAMBIO AQUÍ: clase + imagen pegada abajo -->
+<section class="section-presentacion">
   <p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
     con atención individual y respeto por sus ritmos.
@@ -802,7 +818,9 @@ footer .btn{
     Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
   </p>
 
-  <img class="dogs-row" src="./dogs%20%E2%80%93%20AnimalsinaRow.jpg" alt="Fila de perros decorativa">
+  <div class="dogs-row">
+    <img src="./ChatGPT Image 21 ene 2026, 18_02_15.png" alt="Fila de perros decorativa">
+  </div>
 </section>
 
 <section id="servicios">
