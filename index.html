@@ -394,12 +394,12 @@ section{
   max-width: 70ch;
 }
 
-/* fila perros */
+/* fila perros (posición como estaba) */
 .section-presentacion{ position:relative; }
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-130px;
+  bottom:-130px; /* NO TOCAR: se queda donde estaba */
   transform: translateX(-50%);
   pointer-events:none;
   z-index:2;
@@ -724,16 +724,15 @@ footer .btn{
     border: 1px solid rgba(255,255,255,0.11);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
-    overflow: hidden;
+    overflow:hidden;
   }
 
-  /* ✅ DEJAR LA TARJETA DEL CARRUSEL COMO DIJISTE (SOLO MÓVIL) */
+  /* SOLO MÓVIL: tarjeta del carrusel como pediste */
   .hero-card h1{ display:none; }
   .hero-actions .btn-primary{ display:none; }
   .scroll-hint{ display:none; }
   .trust-row .trust-pill:first-child{ display:none; }
 
-  /* ✅ Entorno seguro + Atención individual en la misma línea y más pequeños */
   .trust-row{
     flex-wrap:nowrap;
     gap:6px;
@@ -752,10 +751,6 @@ footer .btn{
     margin-bottom:6px;
   }
   .hero-card p{ font-size:0.88em; margin-bottom:6px; }
-  .hero-actions .btn{
-    font-size:0.86em;
-    padding: 7px 10px;
-  }
 
   .hero-video-main{
     object-fit: cover;
@@ -770,9 +765,9 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ SOLO CAMBIO: AUMENTAR TAMAÑO DE LOS PERROS EN MÓVIL */
+  /* ✅ ÚNICO CAMBIO: aumentar tamaño SOLO en móvil SIN moverlos */
   .section-presentacion .dogs-row img{
-    width: min(520px, 96%);  /* antes: min(420px, 90%) */
+    width: min(520px, 96%); /* antes estaba más pequeño */
   }
 
   .service-box:hover{ transform: translateY(-4px); }
