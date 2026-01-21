@@ -394,15 +394,15 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ AJUSTE SOLO PARA LA TARJETA DE PRESENTACIÓN + PERROS (NO TOCA OTRAS SECCIONES) */
+/* ✅ SOLO CAMBIO: bajar los perros al borde inferior de la tarjeta */
 .section-presentacion{
   overflow: visible;
-  padding-bottom: 140px; /* espacio para que el texto sea legible y quepan los perros */
+  padding-bottom: 110px; /* antes 140 -> deja menos “hueco” */
 }
 .section-presentacion .dogs-row{
   position:absolute;
   left:50%;
-  bottom:-34px; /* sobresale como “saliendo” de la tarjeta */
+  bottom:-20px; /* antes -34 -> se pega más al borde y sobresale un poco */
   transform: translateX(-50%);
   pointer-events:none;
 }
@@ -676,7 +676,6 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -718,12 +717,12 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ Ajuste SOLO para la tarjeta de presentación en móvil */
+  /* ✅ SOLO CAMBIO: bajar más la imagen en móvil también */
   .section-presentacion{
-    padding-bottom: 120px;
+    padding-bottom: 96px;
   }
   .section-presentacion .dogs-row{
-    bottom: -30px;
+    bottom: -18px;
   }
   .section-presentacion .dogs-row img{
     width: min(420px, 92%);
@@ -808,7 +807,6 @@ footer .btn{
   </div>
 </div>
 
-<!-- ✅ SOLO CAMBIO AQUÍ: clase + imagen pegada abajo -->
 <section class="section-presentacion">
   <p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
