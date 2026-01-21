@@ -394,7 +394,7 @@ section{
   max-width: 70ch;
 }
 
-/* ✅ Perros (DEJAR TAL CUAL COMO ESTÁ AHORA) */
+/* ✅ Perros (MÓVIL NO SE TOCA) */
 .intro-card{ padding-bottom: 130px; }
 .dogs-row{
   position:absolute;
@@ -411,6 +411,13 @@ section{
   display:block;
   width: min(520px, 70vw);
   height:auto;
+}
+
+/* ✅ SOLO PC: devolver la colocación “como antes” (más abajo) SIN tocar móvil */
+@media(min-width:769px){
+  .intro-card{ padding-bottom: 170px; }   /* espacio extra solo en PC */
+  .dogs-row{ bottom: -52px; }            /* baja la fila en PC */
+  .dogs-row img{ width: min(560px, 62vw); } /* PC parecido a antes */
 }
 
 /* Títulos de sección */
@@ -455,7 +462,7 @@ section{
   font-size:1.02em;
 }
 
-/* Servicios (VOLVER A “CHICK” / PREMIUM COMO ANTES) */
+/* Servicios (como lo tienes ahora) */
 .services{
   display:flex;
   gap:20px;
@@ -713,7 +720,7 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ DEJAR TARJETA DEL CARRUSEL COMO LA TENÍAS “LIGERA” (solo móvil) */
+  /* ✅ móvil: tarjeta ligera como la querías */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -764,7 +771,7 @@ footer .btn{
     background-size: 1050px;
   }
 
-  /* ✅ Perros: SOLO tamaño en móvil (sin mover altura) */
+  /* ✅ móvil: tamaño perros (NO TOCO POSICIÓN) */
   .dogs-row img{
     width: min(560px, 96vw);
   }
