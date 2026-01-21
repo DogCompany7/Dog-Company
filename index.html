@@ -17,12 +17,12 @@
   --brand:#25D366;
   --gold:#F5C223;
 
-  /* ✅ TU ARCHIVO (en el mismo nivel que index.html) */
+  /* ✅ TU ARCHIVO (misma carpeta que index.html) */
   --paws-url: url("./DETGED_Mesa-de-trabajo-1.jpg");
 
-  /* Ajustes del patrón */
+  /* Fondo */
   --paws-opacity: 0.10;
-  --paws-size: 920px;   /* más grande = menos repetición */
+  --paws-size: 920px;
   --paws-shift-x: 0px;
   --paws-shift-y: 0px;
 }
@@ -38,7 +38,6 @@ body{
   line-height:1.6;
   scroll-behavior:smooth;
 
-  /* Fondo blanco-violeta suave */
   background:
     radial-gradient(1200px 600px at 10% 10%, #f3eeff, transparent 60%),
     radial-gradient(1000px 600px at 90% 20%, #f8f5ff, transparent 55%),
@@ -46,7 +45,7 @@ body{
     #ffffff;
 }
 
-/* ✅ Patitas: exactamente tu JPG repetido */
+/* ✅ Patitas reales */
 body::before{
   content:"";
   position:fixed;
@@ -60,7 +59,6 @@ body::before{
   background-position: var(--paws-shift-x) var(--paws-shift-y);
 
   opacity: var(--paws-opacity);
-  /* opcional: suaviza un pelín sin perder “realismo” */
   filter: saturate(0.9) contrast(0.95);
 }
 
@@ -196,7 +194,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background:#000;
 }
 
-/* Slides fotos: completo + relleno blur (sin huecos) */
+/* Slides fotos */
 .slide{
   position:absolute;
   inset:0;
@@ -224,7 +222,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* ===== Vídeo completo + fondo blur ===== */
+/* Vídeo */
 .slide.video::before,
 .slide.video::after{ content:none; }
 
@@ -238,7 +236,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   filter: blur(18px) brightness(.70);
   transform: scale(1.06);
 }
-
 .hero-video-main{
   position:absolute;
   inset:0;
@@ -248,7 +245,7 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   object-position:center;
 }
 
-/* Overlay suave */
+/* Overlay */
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -512,7 +509,6 @@ section{
 }
 .reserva-form button:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
 
-/* Igualar encuadre de calendario+hora */
 .form-grid-2{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -661,16 +657,35 @@ footer .btn{
     align-items:flex-end;
     padding: 0 14px 12px 14px;
   }
+
+  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
   .hero-card{
-    width: min(320px, 88vw);
-    max-height: 34vh;
-    padding: 10px 10px 8px 10px;
-    text-align:left;
-    background: rgba(0,0,0,0.14);
-    border: 1px solid rgba(255,255,255,0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    width: min(300px, 86vw);     /* antes estaba grande */
+    max-height: 26vh;            /* reduce cuánto tapa */
+    padding: 9px 9px 8px 9px;    /* más compacto */
+    border-radius: 14px;
+    background: rgba(0,0,0,0.12);
+    border: 1px solid rgba(255,255,255,0.11);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
   }
+  .hero-badge{
+    font-size:0.74em;
+    padding: 5px 9px;
+    margin-bottom:6px;
+  }
+  .hero-card h1{ font-size:1.25em; }
+  .hero-card p{ font-size:0.88em; margin-bottom:6px; }
+  .trust-row{ gap:6px; margin: 6px 0 8px 0; }
+  .trust-pill{
+    font-size:0.78em;
+    padding: 4px 7px;
+  }
+  .hero-actions .btn{
+    font-size:0.86em;
+    padding: 7px 10px;
+  }
+  .scroll-hint{ font-size:0.80em; margin-top:6px; }
 
   .hero-video-main{
     object-fit: cover;
@@ -680,7 +695,6 @@ footer .btn{
     filter: blur(16px) brightness(.64);
   }
 
-  /* patrón móvil: un pelín más grande y más suave */
   body::before{
     opacity: 0.08;
     background-size: 1050px;
