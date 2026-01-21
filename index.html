@@ -676,24 +676,32 @@ footer .btn{
   .scroll-hint{ display:none; }                       /* quita "Reserva fácil..." */
   .hero-actions .btn-primary{ display:none; }         /* quita "Reservar por WhatsApp" */
 
-  /* ✅ CAMBIO ÚNICO: forzar 2 pills en la misma línea (sin salto) */
+  /* ✅ CAMBIO ÚNICO: 2 pills en la misma línea + más pequeñas */
   .trust-row{
     flex-wrap:nowrap;
     justify-content:space-between;
-    gap:8px;
+    gap:6px;
+    margin: 4px 0 6px 0;
   }
   .trust-pill{
-    flex: 0 0 calc(50% - 4px);
+    flex: 0 0 calc(50% - 3px);
     justify-content:center;
     white-space:nowrap;
+    font-size:0.70em;
+    padding: 3px 6px;
+    gap:6px;
   }
+  .trust-pill i{ font-size:0.95em; }
 
   .hero-badge{
     font-size:0.72em;
     padding: 4px 8px;
     margin-bottom:5px;
   }
-  .hero-card p{ font-size:0.84em; margin-bottom:5px; }
+  .hero-card p{
+    font-size:0.84em;
+    margin-bottom:5px;
+  }
 
   .hero-actions .btn{
     font-size:0.84em;
