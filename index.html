@@ -222,6 +222,14 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
+/* ✅ Ajuste SOLO para la primera foto en móvil */
+@media(max-width:768px){
+  .slide.first-photo::after{
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 /* Vídeo */
 .slide.video::before,
 .slide.video::after{ content:none; }
@@ -814,10 +822,10 @@ footer .btn{
 
 <div class="hero-slider" id="top">
 
-  <!-- ✅ ÚNICO CAMBIO: esta imagen va ANTES del vídeo y es la primera (active) -->
-  <div class="slide active" style="--bg:url('fbdfbsdfbds.jpg');"></div>
+  <!-- ✅ (1) Primera foto: ajuste móvil aplicado SOLO a esta -->
+  <div class="slide first-photo active" style="--bg:url('fbdfbsdfbds.jpg');"></div>
 
-  <!-- ✅ El vídeo pasa a ser el segundo (sin active) -->
+  <!-- ✅ (2) Vídeo -->
   <div class="slide video">
     <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
@@ -827,9 +835,8 @@ footer .btn{
     </video>
   </div>
 
+  <!-- ✅ (3) Foto que se queda -->
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
-  <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
-  <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
 
   <div class="hero-overlay"></div>
 
