@@ -14,17 +14,25 @@
   --header-h: 92px;
   --header-h-m: 120px;
 
-  --violet-1:#f6f3ff;
-  --violet-2:#efeaff;
   --brand:#25D366;
   --gold:#F5C223;
+
+  /* ✅ TU ARCHIVO (en el mismo nivel que index.html) */
+  --paws-url: url("./DETGED_Mesa-de-trabajo-1.jpg");
+
+  /* Ajustes del patrón */
+  --paws-opacity: 0.10;
+  --paws-size: 920px;   /* más grande = menos repetición */
+  --paws-shift-x: 0px;
+  --paws-shift-y: 0px;
 }
 
-/* ===== Base ===== */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 
 body{
+  position:relative;
+  min-height:100%;
   font-family:'Poppins', sans-serif;
   color:#333;
   line-height:1.6;
@@ -36,14 +44,25 @@ body{
     radial-gradient(1000px 600px at 90% 20%, #f8f5ff, transparent 55%),
     radial-gradient(900px 700px at 50% 95%, #f1ecff, transparent 60%),
     #ffffff;
-
-  /* ✅ Patitas más “realistas” tipo silueta (como tu imagen) */
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='300' viewBox='0 0 520 300'%3E%3Cg fill='%237b6cf6' fill-opacity='0.08'%3E%3C!-- Paw 1 (grande) --%3E%3Cg transform='translate(270 55) scale(1.35)'%3E%3Cellipse cx='35' cy='18' rx='12' ry='15'/%3E%3Cellipse cx='60' cy='14' rx='12' ry='15'/%3E%3Cellipse cx='85' cy='18' rx='12' ry='15'/%3E%3Cellipse cx='58' cy='34' rx='16' ry='18'/%3E%3Cpath d='M45 50 C45 36 71 36 71 50 C71 66 45 66 45 50 Z'/%3E%3C/g%3E%3C!-- Paw 2 (mediana) --%3E%3Cg transform='translate(60 40) rotate(-10) scale(0.95)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 3 (mediana) --%3E%3Cg transform='translate(410 70) rotate(8) scale(0.9)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 4 (pequeña) --%3E%3Cg transform='translate(35 200) rotate(12) scale(0.75)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 5 (mediana inferior) --%3E%3Cg transform='translate(235 205) rotate(-6) scale(1.0)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C!-- Paw 6 (pequeña derecha) --%3E%3Cg transform='translate(455 200) rotate(-14) scale(0.70)'%3E%3Cellipse cx='28' cy='16' rx='9' ry='11'/%3E%3Cellipse cx='48' cy='13' rx='9' ry='11'/%3E%3Cellipse cx='66' cy='16' rx='9' ry='11'/%3E%3Cpath d='M34 38 C34 26 60 26 60 38 C60 54 34 54 34 38 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
 }
 
-a{ text-decoration:none; color:inherit; }
+/* ✅ Patitas: exactamente tu JPG repetido */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+
+  background-image: var(--paws-url);
+  background-repeat: repeat;
+  background-size: var(--paws-size);
+  background-position: var(--paws-shift-x) var(--paws-shift-y);
+
+  opacity: var(--paws-opacity);
+  /* opcional: suaviza un pelín sin perder “realismo” */
+  filter: saturate(0.9) contrast(0.95);
+}
 
 /* Evita que el header tape las secciones */
 #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
@@ -54,6 +73,8 @@ a{ text-decoration:none; color:inherit; }
     scroll-margin-top: calc(var(--header-h-m) + 16px);
   }
 }
+
+a{ text-decoration:none; color:inherit; }
 
 /* ===== Header ===== */
 header{
@@ -650,12 +671,6 @@ footer .btn{
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
-  .hero-badge{ font-size:0.74em; padding:6px 10px; }
-  .hero-card h1{ font-size:1.25em; }
-  .hero-card p{ font-size:0.88em; }
-  .trust-row{ display:none; }
-  .hero-actions .btn{ font-size:0.86em; padding: 8px 12px; }
-  .scroll-hint{ display:none; }
 
   .hero-video-main{
     object-fit: cover;
@@ -663,6 +678,12 @@ footer .btn{
   }
   .hero-video-bg{
     filter: blur(16px) brightness(.64);
+  }
+
+  /* patrón móvil: un pelín más grande y más suave */
+  body::before{
+    opacity: 0.08;
+    background-size: 1050px;
   }
 }
 
@@ -701,10 +722,8 @@ footer .btn{
   </div>
 </header>
 
-<!-- 🔁 CARRUSEL -->
 <div class="hero-slider" id="top">
 
-  <!-- Vídeo -->
   <div class="slide video active">
     <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
@@ -714,7 +733,6 @@ footer .btn{
     </video>
   </div>
 
-  <!-- Fotos -->
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/06a11129-d358-454c-a15e-bc0f786909b6.jpg');"></div>
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/162e09159041e7aa0d2f8fe0fb38146b550eaea7/fff61fbc-7603-43fe-8133-9e453dd67e64.jpg');"></div>
@@ -907,7 +925,7 @@ footer .btn{
       <div class="sub">Opiniones reales de familias que repiten</div>
     </div>
 
-    <div class="testimonios" style="justify-content:flex-start;">
+    <div class="testimonios">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
         <div class="autor">- Ana G.</div>
@@ -953,7 +971,9 @@ footer .btn{
 <footer id="contacto">
   <p>Ubicación: Alicante Centro</p>
   <a class="btn" href="https://wa.me/34TUNUMERO" target="_blank" rel="noopener">Más información por WhatsApp</a>
-  <div class="footer-copy">© <span id="year"></span> Dog Company. Todos los derechos reservados.</div>
+  <div style="margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.12);font-size:0.95em;color:rgba(255,255,255,0.78);">
+    © <span id="year"></span> Dog Company. Todos los derechos reservados.
+  </div>
 </footer>
 
 <div class="whatsapp-container">
@@ -979,7 +999,6 @@ async function playVideosIn(el){
     try{ await v.play(); }catch(e){}
   }
 }
-
 playVideosIn(slides[current]);
 
 setInterval(async () => {
