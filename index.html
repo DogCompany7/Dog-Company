@@ -394,26 +394,292 @@ section{
   max-width: 70ch;
 }
 
-/* ====== ✅ SOLO ESTO: perros pegados al borde inferior de la tarjeta de intro ====== */
-.intro-card{
-  padding-bottom: 130px; /* espacio para el dibujo sin aumentar “a lo loco” */
-}
+/* ✅ Perros (DEJAR TAL CUAL COMO ESTÁ AHORA) */
+.intro-card{ padding-bottom: 130px; }
 .dogs-row{
   position:absolute;
   left:50%;
   transform: translateX(-50%);
-  bottom: -22px;            /* ✅ pegado al borde, “saliendo” */
-  width: 100%;
+  bottom: -22px;
+  width:100%;
   display:flex;
   justify-content:center;
   pointer-events:none;
-  z-index: 2;
+  z-index:2;
 }
 .dogs-row img{
   display:block;
   width: min(520px, 70vw);
   height:auto;
 }
+
+/* Títulos de sección */
+.section-title{
+  text-align:center;
+  margin: 0 auto 34px auto;
+  max-width: 900px;
+}
+.section-title .badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 12px;
+  border-radius:999px;
+  background: var(--gold);
+  color:#111;
+  font-weight:900;
+  letter-spacing:.35px;
+  text-transform:uppercase;
+  font-size:0.86em;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+.section-title h2{
+  font-family:'Playfair Display', serif;
+  font-size:2.2em;
+  color:#1f1f1f;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: .2px;
+}
+.section-title .line{
+  width: 160px;
+  height: 4px;
+  border-radius:999px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, rgba(123,108,246,0.15), rgba(123,108,246,0.65), rgba(123,108,246,0.15));
+}
+.section-title .sub{
+  margin-top: 10px;
+  color:#555;
+  font-weight:700;
+  font-size:1.02em;
+}
+
+/* Servicios (VOLVER A “CHICK” / PREMIUM COMO ANTES) */
+.services{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  align-items:stretch;
+}
+.service-box{
+  flex:1 1 250px;
+  padding:22px 20px;
+  border-radius:16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,246,255,0.92));
+  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
+  text-align:center;
+  border: 1px solid rgba(123,108,246,0.22);
+  position:relative;
+  overflow:hidden;
+  transition: transform .18s ease, box-shadow .22s ease, border-color .22s ease;
+  will-change: transform;
+}
+.service-box::before{
+  content:"";
+  position:absolute;
+  top:14px; bottom:14px; left:14px;
+  width:5px;
+  border-radius:999px;
+  background: linear-gradient(180deg, rgba(123,108,246,0.95), rgba(245,194,35,0.95));
+  opacity:.85;
+}
+.service-box::after{
+  content:"";
+  position:absolute;
+  inset:-40% -60%;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.65), transparent 70%);
+  transform: rotate(18deg);
+  opacity:0;
+  transition: opacity .22s ease;
+  pointer-events:none;
+}
+.service-box:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 46px rgba(0,0,0,0.14);
+  border-color: rgba(123,108,246,0.40);
+}
+.service-box:hover::after{ opacity:.55; }
+
+.service-box h3{
+  font-family:'Playfair Display', serif;
+  font-size:1.4em;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.service-box p{ font-size:1em; margin-bottom:8px; }
+.precio-fijo{ font-weight:bold; text-decoration:underline; }
+.service-box.horario-box{
+  background: linear-gradient(180deg, rgba(255,246,201,0.98), rgba(255,255,255,0.92));
+  border-color: rgba(245,194,35,0.55);
+}
+.service-box.horario-box::before{
+  background: linear-gradient(180deg, rgba(245,194,35,0.98), rgba(123,108,246,0.78));
+}
+.horarios{
+  color:#333;
+  font-size:1em;
+  font-weight:bold;
+  line-height:1.4;
+}
+
+/* ===== Formulario ===== */
+.reserva-form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:14px;
+  max-width:520px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.reserva-form input,
+.reserva-form select,
+.reserva-form textarea,
+.reserva-form button{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.16);
+  font-size:1em;
+  font-family:inherit;
+}
+.reserva-form textarea{ min-height:90px; resize:vertical; }
+.reserva-form input:focus,
+.reserva-form select:focus,
+.reserva-form textarea:focus{
+  outline: 3px solid rgba(123,108,246,0.18);
+  border-color: rgba(123,108,246,0.45);
+}
+.reserva-form button{
+  background: var(--brand);
+  color:white;
+  font-weight:900;
+  border:none;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(37,211,102,.22);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.reserva-form button:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
+
+.form-grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media(max-width:520px){
+  .form-grid-2{ grid-template-columns: 1fr; }
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  min-width:0;
+}
+.field-label{
+  font-weight:900;
+  font-size:0.90em;
+  line-height:1.1;
+  color:#333;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:2px;
+}
+.field-label i{ color: rgba(123,108,246,0.9); }
+
+.field input[type="date"],
+.field select{
+  width:100%;
+  max-width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.16);
+  font-size:1em;
+  font-family:inherit;
+}
+
+.field-note{
+  font-size:0.82em;
+  color:#666;
+  margin-top:0;
+}
+
+/* Destacado */
+.highlight{
+  text-align:center;
+  font-size:1.35em;
+  font-weight:900;
+  margin: 32px auto;
+  padding: 34px 16px;
+  border-radius: 26px;
+  background:
+    radial-gradient(700px 300px at 50% 50%, rgba(123,108,246,0.14), transparent 70%),
+    rgba(255,255,255,0.95);
+  border: 1px solid rgba(123,108,246,0.16);
+  box-shadow: 0 16px 38px rgba(0,0,0,0.06);
+  max-width: var(--wrap);
+}
+
+/* Reseñas */
+.testimonios{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:flex-start;
+}
+.testimonio-box{
+  flex:1 1 250px;
+  background:#f9f9f9;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 26px rgba(0,0,0,0.10);
+  text-align:left;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.testimonio-box p{ font-size:1em; margin-bottom:10px; color:#333; }
+.testimonio-box .autor{ font-weight:900; color: var(--brand); }
+
+/* Footer */
+footer{
+  background: rgba(20,20,20,0.92);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+footer .btn{
+  background: var(--brand);
+  color:white;
+  padding:12px 28px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:15px;
+}
+.footer-copy{
+  margin-top:22px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  font-size:0.95em;
+  color: rgba(255,255,255,0.78);
+}
+
+/* WhatsApp flotante */
+.whatsapp-container{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  z-index:1000;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.whatsapp-container img{ width:52px; filter: drop-shadow(0 10px 20px rgba(0,0,0,.22)); }
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
@@ -447,7 +713,7 @@ section{
     padding: 0 14px 12px 14px;
   }
 
-  /* ✅ AQUÍ ESTÁ EL CAMBIO: en móvil la tarjeta es más pequeña */
+  /* ✅ DEJAR TARJETA DEL CARRUSEL COMO LA TENÍAS “LIGERA” (solo móvil) */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -457,24 +723,33 @@ section{
     border: 1px solid rgba(255,255,255,0.11);
     backdrop-filter: blur(7px);
     -webkit-backdrop-filter: blur(7px);
+    overflow:hidden;
+  }
+  .hero-card h1{ display:none; }
+  .hero-actions .btn-primary{ display:none; }
+  .scroll-hint{ display:none; }
+  .trust-row .trust-pill:first-child{ display:none; }
+  .trust-row{
+    flex-wrap:nowrap;
+    gap:6px;
+    margin: 6px 0 8px 0;
+  }
+  .trust-pill{
+    font-size:0.70em;
+    padding: 3px 6px;
+    gap:6px;
+    white-space:nowrap;
   }
   .hero-badge{
     font-size:0.74em;
     padding: 5px 9px;
     margin-bottom:6px;
   }
-  .hero-card h1{ font-size:1.25em; }
   .hero-card p{ font-size:0.88em; margin-bottom:6px; }
-  .trust-row{ gap:6px; margin: 6px 0 8px 0; }
-  .trust-pill{
-    font-size:0.78em;
-    padding: 4px 7px;
-  }
   .hero-actions .btn{
     font-size:0.86em;
     padding: 7px 10px;
   }
-  .scroll-hint{ font-size:0.80em; margin-top:6px; }
 
   .hero-video-main{
     object-fit: cover;
@@ -489,7 +764,7 @@ section{
     background-size: 1050px;
   }
 
-  /* ✅ SOLO MÓVIL: más grandes sin mover posición */
+  /* ✅ Perros: SOLO tamaño en móvil (sin mover altura) */
   .dogs-row img{
     width: min(560px, 96vw);
   }
@@ -573,7 +848,6 @@ section{
   </div>
 </div>
 
-<!-- ✅ SOLO A ESTA SECTION le añadimos class intro-card y el bloque de perros dentro -->
 <section class="intro-card">
   <p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
@@ -583,7 +857,6 @@ section{
     Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
   </p>
 
-  <!-- ✅ DIBUJO PEGADO AL BORDE -->
   <div class="dogs-row" aria-hidden="true">
     <img src="./ChatGPT%20Image%2021%20ene%202026,%2018_02_15.png" alt="">
   </div>
