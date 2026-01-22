@@ -651,6 +651,7 @@ section{
 
 /* ✅ Rover (dentro de Reseñas) */
 .rover-proof{
+  position:relative;
   margin: 10px auto 22px auto;
   max-width: 920px;
   display:flex;
@@ -666,6 +667,19 @@ section{
   border: 1px solid rgba(123,108,246,0.14);
   box-shadow: 0 14px 34px rgba(0,0,0,0.08);
 }
+
+/* ✅ Perrito arriba-izquierda */
+.rover-dog{
+  position:absolute;
+  top:-18px;
+  left:-18px;
+  width:64px;
+  height:auto;
+  pointer-events:none;
+  z-index:2;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.12));
+}
+
 .rover-left{
   display:flex;
   align-items:center;
@@ -728,6 +742,11 @@ section{
   }
   .rover-text .t1{ white-space:normal; }
   .rover-cta{ width:100%; }
+  .rover-dog{
+    top:-16px;
+    left:-10px;
+    width:58px;
+  }
 }
 
 /* Footer */
@@ -1198,6 +1217,8 @@ footer{
 
     <!-- ✅ Rover + Star Sitter -->
     <div class="rover-proof">
+      <img class="rover-dog" src="./ChatGPT%20Image%2022%20ene%202026,%2000_46_52.png" alt="" aria-hidden="true" loading="lazy">
+
       <div class="rover-left">
         <div class="rover-badge" aria-hidden="true">
           <i class="fa-solid fa-medal"></i>
