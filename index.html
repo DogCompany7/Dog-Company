@@ -222,15 +222,6 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-repeat: no-repeat;
 }
 
-/* ✅ Ajuste SOLO para la primera foto en móvil (mostrar completa, sin recorte) */
-@media(max-width:768px){
-  .slide.first-photo::after{
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-}
-
 /* Vídeo */
 .slide.video::before,
 .slide.video::after{ content:none; }
@@ -422,7 +413,7 @@ section{
   height:auto;
 }
 
-/* ✅ SOLO PC: devolver la colocación “como antes” (más abajo) SIN tocar móvil */
+/* ✅ SOLO PC */
 @media(min-width:769px){
   .intro-card{ padding-bottom: 170px; }
   .dogs-row{ bottom: -52px; }
@@ -658,6 +649,87 @@ section{
 .testimonio-box p{ font-size:1em; margin-bottom:10px; color:#333; }
 .testimonio-box .autor{ font-weight:900; color: var(--brand); }
 
+/* ✅ Rover (dentro de Reseñas) */
+.rover-proof{
+  margin: 10px auto 22px auto;
+  max-width: 920px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 16px;
+  border-radius:18px;
+  background:
+    radial-gradient(520px 220px at 15% 50%, rgba(245,194,35,0.22), transparent 65%),
+    radial-gradient(520px 220px at 85% 50%, rgba(123,108,246,0.16), transparent 65%),
+    rgba(255,255,255,0.96);
+  border: 1px solid rgba(123,108,246,0.14);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+}
+.rover-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+.rover-badge{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(245,194,35,0.95);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+  flex:0 0 auto;
+}
+.rover-badge i{ color:#111; font-size:1.2em; }
+.rover-text{
+  min-width:0;
+}
+.rover-text .t1{
+  font-weight:900;
+  color:#1f1f1f;
+  line-height:1.15;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.rover-text .t2{
+  margin-top:4px;
+  color:#555;
+  font-weight:700;
+  font-size:0.98em;
+}
+.rover-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  font-weight:900;
+  background: var(--brand);
+  color:white;
+  white-space:nowrap;
+  box-shadow: 0 14px 28px rgba(37,211,102,.22);
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.rover-cta:hover{ transform: translateY(-1px); box-shadow: 0 18px 34px rgba(37,211,102,.26); }
+
+@media(max-width:768px){
+  .rover-proof{
+    flex-direction:column;
+    text-align:center;
+    align-items:stretch;
+  }
+  .rover-left{
+    justify-content:center;
+  }
+  .rover-text .t1{ white-space:normal; }
+  .rover-cta{ width:100%; }
+}
+
 /* Footer */
 footer{
   background: rgba(20,20,20,0.92);
@@ -667,25 +739,6 @@ footer{
   margin-top: 30px;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
-footer .btn{
-  background: var(--brand);
-  color:white;
-  padding:12px 28px;
-  border-radius:999px;
-  font-weight:900;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:15px;
-}
-.footer-copy{
-  margin-top:22px;
-  padding-top:16px;
-  border-top:1px solid rgba(255,255,255,0.12);
-  font-size:0.95em;
-  color: rgba(255,255,255,0.78);
-}
-
-/* ✅ Footer PRO */
 .footer-inner{
   max-width: var(--wrap);
   margin: 0 auto;
@@ -710,27 +763,6 @@ footer .btn{
 
 .footer-muted{ color: rgba(255,255,255,0.82); font-weight:700; }
 .footer-small{ color: rgba(255,255,255,0.72); font-size:0.95em; }
-
-.footer-trust{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:flex-start;
-  margin: 10px 0 0 0;
-}
-.footer-trust-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 8px 10px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.14);
-  color: rgba(255,255,255,0.92);
-  font-weight:900;
-  font-size:0.90em;
-}
-.footer-trust-pill i{ color: rgba(245,194,35,0.95); }
 
 .footer-actions{
   display:flex;
@@ -759,7 +791,7 @@ footer .btn{
 }
 .footer-icon-btn i{ font-size:1.15em; }
 
-/* ✅ Mini mapa (compacto) */
+/* Mini mapa */
 .footer-map{
   margin-top: 10px;
   width: 100%;
@@ -800,6 +832,14 @@ footer .btn{
   pointer-events:none;
 }
 
+.footer-copy{
+  margin-top:22px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,0.12);
+  font-size:0.95em;
+  color: rgba(255,255,255,0.78);
+}
+
 @media(max-width:768px){
   .footer-grid{
     grid-template-columns: 1fr;
@@ -807,7 +847,6 @@ footer .btn{
   }
   .footer-title{ justify-content:center; }
   .footer-actions{ justify-content:center; }
-  .footer-trust{ justify-content:center; }
   .footer-map{ margin-left:auto; margin-right:auto; }
 }
 
@@ -855,6 +894,7 @@ footer .btn{
     padding: 0 14px 12px 14px;
   }
 
+  /* móvil: tarjeta ligera */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -905,6 +945,7 @@ footer .btn{
     background-size: 1050px;
   }
 
+  /* móvil: tamaño perros (NO TOCO POSICIÓN) */
   .dogs-row img{
     width: min(560px, 96vw);
   }
@@ -947,8 +988,10 @@ footer .btn{
 
 <div class="hero-slider" id="top">
 
-  <div class="slide first-photo active" style="--bg:url('fbdfbsdfbds.jpg');"></div>
+  <!-- ✅ Foto primero (como pediste) -->
+  <div class="slide active" style="--bg:url('fbdfbsdfbds.jpg');"></div>
 
+  <!-- ✅ Vídeo después -->
   <div class="slide video">
     <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
       <source src="./document6014938721218992869.mp4" type="video/mp4">
@@ -958,6 +1001,7 @@ footer .btn{
     </video>
   </div>
 
+  <!-- ✅ Solo 1 foto extra (las 2 últimas eliminadas) -->
   <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
 
   <div class="hero-overlay"></div>
@@ -1152,6 +1196,23 @@ footer .btn{
       <div class="sub">Opiniones reales de familias que repiten</div>
     </div>
 
+    <!-- ✅ AQUÍ va lo de Rover (en la sección de reseñas, “way”) -->
+    <div class="rover-proof">
+      <div class="rover-left">
+        <div class="rover-badge" aria-hidden="true">
+          <i class="fa-solid fa-medal"></i>
+        </div>
+        <div class="rover-text">
+          <div class="t1">150+ reseñas verificadas en Rover</div>
+          <div class="t2">Top posicionadas en la app · confianza real</div>
+        </div>
+      </div>
+
+      <a class="rover-cta" href="https://www.rover.com/sit/aialas113946" target="_blank" rel="noopener">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver perfil en Rover
+      </a>
+    </div>
+
     <div class="testimonios">
       <div class="testimonio-box">
         <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
@@ -1204,7 +1265,6 @@ footer .btn{
         <div class="footer-muted">Alicante Centro</div>
 
         <div class="footer-map">
-          <!-- ✅ Clickable a Google Maps (zona Renfe/Maisonnave) -->
           <a href="https://www.google.com/maps?q=38.3456,-0.4903" target="_blank" rel="noopener" aria-label="Abrir ubicación en Google Maps">
             <div class="map-wrap">
               <img src="./mapss%20renfe.jpg" alt="Mapa Alicante Centro (zona Renfe)" loading="lazy">
@@ -1217,12 +1277,6 @@ footer .btn{
         <div class="footer-title"><i class="fa-regular fa-clock"></i> Horario</div>
         <div class="footer-muted">10:00h a 20:00h</div>
         <div class="footer-small" style="margin-top:6px;">Lunes a Domingo</div>
-
-        <div class="footer-trust" aria-label="Bloque de confianza" style="margin-top:14px;">
-          <span class="footer-trust-pill"><i class="fa-solid fa-star"></i> 5.0 Reseñas</span>
-          <span class="footer-trust-pill"><i class="fa-solid fa-paw"></i> Trato familiar</span>
-          <span class="footer-trust-pill"><i class="fa-solid fa-house"></i> Sin jaulas</span>
-        </div>
       </div>
 
       <div>
