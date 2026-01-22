@@ -413,11 +413,11 @@ section{
   height:auto;
 }
 
-/* ✅ SOLO PC */
+/* ✅ SOLO PC: devolver la colocación “como antes” (más abajo) SIN tocar móvil */
 @media(min-width:769px){
-  .intro-card{ padding-bottom: 170px; }
-  .dogs-row{ bottom: -52px; }
-  .dogs-row img{ width: min(560px, 62vw); }
+  .intro-card{ padding-bottom: 170px; }   /* espacio extra solo en PC */
+  .dogs-row{ bottom: -52px; }            /* baja la fila en PC */
+  .dogs-row img{ width: min(560px, 62vw); } /* PC parecido a antes */
 }
 
 /* Títulos de sección */
@@ -462,7 +462,7 @@ section{
   font-size:1.02em;
 }
 
-/* Servicios */
+/* Servicios (como lo tienes ahora) */
 .services{
   display:flex;
   gap:20px;
@@ -894,7 +894,7 @@ footer{
     padding: 0 14px 12px 14px;
   }
 
-  /* móvil: tarjeta ligera */
+  /* ✅ móvil: tarjeta ligera como la querías */
   .hero-card{
     width: min(300px, 86vw);
     max-height: 26vh;
@@ -945,7 +945,7 @@ footer{
     background-size: 1050px;
   }
 
-  /* móvil: tamaño perros (NO TOCO POSICIÓN) */
+  /* ✅ móvil: tamaño perros (NO TOCO POSICIÓN) */
   .dogs-row img{
     width: min(560px, 96vw);
   }
@@ -1196,15 +1196,15 @@ footer{
       <div class="sub">Opiniones reales de familias que repiten</div>
     </div>
 
-    <!-- ✅ AQUÍ va lo de Rover (en la sección de reseñas, “way”) -->
+    <!-- ✅ Rover + Star Sitter -->
     <div class="rover-proof">
       <div class="rover-left">
         <div class="rover-badge" aria-hidden="true">
           <i class="fa-solid fa-medal"></i>
         </div>
         <div class="rover-text">
-          <div class="t1">150+ reseñas verificadas en Rover</div>
-          <div class="t2">Top posicionadas en la app · confianza real</div>
+          <div class="t1">Aiála y Sandra son Star Sitter</div>
+          <div class="t2">150+ reseñas verificadas en Rover · súper valoradas</div>
         </div>
       </div>
 
@@ -1213,18 +1213,22 @@ footer{
       </a>
     </div>
 
+    <p style="max-width:920px;margin:0 auto 18px auto;color:#444;font-weight:700;line-height:1.6;text-align:center;">
+      El programa Cuidador estrella reconoce a los cuidadores de mascotas comprometidos que ofrecen servicios supervalorados y que suelen anunciar una disponibilidad y preferencias precisas. Eso les facilita a los dueños de mascotas la tarea de que sus mascotas estén en las mejores manos.
+    </p>
+
     <div class="testimonios">
       <div class="testimonio-box">
-        <p>"Mi perro estuvo encantado, el personal es súper atento y cariñoso."</p>
-        <div class="autor">- Ana G.</div>
+        <p>"La paz de sentir que puedes irte de vacaciones y que tu peludito se queda con unas personas super amorosas y responsables!!! Gracias 🩷🩷🩷"</p>
+        <div class="autor">- Rocio B.</div>
       </div>
       <div class="testimonio-box">
-        <p>"Excelente cuidado y ambiente familiar, muy recomendable."</p>
-        <div class="autor">- Luis M.</div>
+        <p>"Ha sido la primera vez que dejábamos a nuestro perro en casa de un cuidador. Aiala y Sandra nos han hecho sentir que Sumo estaba en buenas manos. Y así ha sido. La comunicación con ellas ha sido perfecta y cada día hemos recibido noticias de Sumo via fotos o videos. Sumo es un perrito ya mayor y Sandra y Aiala han estado muy atentas a sus necesidades. Sin duda, son dos cuidadoras muy recomendables."</p>
+        <div class="autor">- Francisco H.</div>
       </div>
       <div class="testimonio-box">
-        <p>"Se nota el amor y respeto que tienen por los animales."</p>
-        <div class="autor">- Marta R.</div>
+        <p>"Nuestra perrita pasó unos días estupendos con ellas. Estuvo como en casa y tuvo experiencias positivas con otros perritos. Todos los días nos comunicábamos y nos enviaban fotos y vídeos, lo cual nos daba la tranquilidad de que estaba muy bien. Gracias a las dos 🙏🏼"</p>
+        <div class="autor">- Nazareth M.</div>
       </div>
     </div>
   </div>
