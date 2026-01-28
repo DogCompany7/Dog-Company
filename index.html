@@ -1,3 +1,4 @@
+Dog Company — index.html (código completo actualizado)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -972,6 +973,122 @@ footer{
 
 /* Estado menú móvil */
 .mobile-open .mobile-nav{ display:block; }
+/* ===== Quiénes somos (Premium: elegante + alma) ===== */
+.about-premium{
+  margin: 0 auto;
+  max-width: 980px;
+  border-radius: 24px;
+  padding: 22px 18px 18px 18px;
+  background:
+    radial-gradient(720px 280px at 18% 30%, rgba(245,194,35,0.18), transparent 60%),
+    radial-gradient(720px 280px at 82% 55%, rgba(123,108,246,0.14), transparent 60%),
+    rgba(255,255,255,0.96);
+  border: 1px solid rgba(123,108,246,0.12);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.07);
+  position: relative;
+  overflow:hidden;
+}
+.about-premium::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(245,194,35,0.0), rgba(245,194,35,0.95), rgba(245,194,35,0.0));
+  opacity:.9;
+}
+.about-premium-inner{
+  display:grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap:18px;
+  align-items:start;
+}
+.about-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 7px 12px;
+  border-radius:999px;
+  background: rgba(245,194,35,0.92);
+  color:#111;
+  font-weight:900;
+  letter-spacing:.25px;
+  font-size:0.86em;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+}
+.about-title{
+  margin-top:12px;
+  font-family:'Playfair Display', serif;
+  font-size:1.72em;
+  letter-spacing:.2px;
+  color:#1f1f1f;
+  line-height:1.15;
+}
+.about-text{
+  margin-top:10px;
+  font-size:1.03em;
+  color:#444;
+  line-height:1.75;
+  font-weight:700;
+}
+.about-right{
+  display:grid;
+  gap:12px;
+}
+.about-card{
+  border-radius:18px;
+  padding:14px 14px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.06);
+  transition: transform .16s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.about-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.09);
+  border-color: rgba(123,108,246,0.18);
+}
+.about-icon{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(123,108,246,0.12);
+  border: 1px solid rgba(123,108,246,0.16);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+.about-icon i{ color: rgba(123,108,246,0.95); font-size:1.15em; }
+.about-card-title{
+  margin-top:10px;
+  font-weight:900;
+  color:#1f1f1f;
+  letter-spacing:.15px;
+}
+.about-card-text{
+  margin-top:6px;
+  color:#555;
+  font-weight:700;
+  line-height:1.55;
+  font-size:0.98em;
+}
+.about-whisper{
+  margin-top:14px;
+  padding-top:14px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  text-align:center;
+  font-weight:900;
+  color:#2b2b2b;
+  letter-spacing:.15px;
+}
+@media(max-width:900px){
+  .about-premium-inner{ grid-template-columns: 1fr; }
+  .about-title{ font-size:1.55em; }
+}
+
 </style>
 </head>
 
@@ -1254,7 +1371,7 @@ footer{
     </div>
   </div>
 
-  <div id="quienes-somos-footer">
+    <div id="quienes-somos-footer">
     <div class="section-title">
       <div class="badge"><i class="fa-solid fa-heart"></i> QUIÉNES SOMOS</div>
       <h2>Quiénes somos</h2>
@@ -1262,22 +1379,43 @@ footer{
       <div class="sub">Cuidado consciente, experiencia y amor real por los perros</div>
     </div>
 
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
-      En <strong>Dog Company</strong> somos un equipo apasionado del cuidado canino con años de experiencia
-      ofreciendo un servicio profesional, cercano y dedicado a la felicidad de tu mascota.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
-      Nuestro trabajo nace de la convicción de brindar un ambiente <strong>tranquilo, familiar y seguro</strong>
-      donde cada perro recibe atención personalizada con cariño y respeto por su ritmo y necesidades.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; margin-bottom:12px; text-align:center;">
-      Creemos firmemente en el trabajo bien hecho, en la profesionalidad y en el trato humano tanto con
-      las mascotas como con sus familias. Nuestro objetivo es que cada estancia sea una experiencia
-      feliz y sin estrés para tu perro.
-    </p>
-    <p style="font-size:1.1em; color:#444; line-height:1.7; text-align:center;">
-      Porque para nosotros tu compañero no es un cliente más: <strong>es parte de nuestra familia.</strong>
-    </p>
+    <div class="about-premium">
+      <div class="about-premium-inner">
+        <div class="about-left">
+          <div class="about-kicker"><i class="fa-solid fa-sparkles"></i> Elegancia y alma</div>
+          <h3 class="about-title">Más que una residencia. Un hogar consciente para tu perro.</h3>
+          <p class="about-text">
+            En <strong>Dog Company</strong> acompañamos a cada perro desde la presencia, el respeto y el cariño real.
+            No creemos en el cuidado en serie: creemos en ritmos respetados, calma y un entorno donde tu perro se siente en casa.
+          </p>
+          <p class="about-text">
+            Nuestro trabajo nace del amor por los animales, la experiencia profesional y la responsabilidad profunda de cuidar lo que más amas.
+          </p>
+        </div>
+
+        <div class="about-right" aria-label="Nuestros valores">
+          <div class="about-card">
+            <div class="about-icon"><i class="fa-solid fa-paw"></i></div>
+            <div class="about-card-title">Atención individual</div>
+            <div class="about-card-text">Cada perro es único. Adaptamos el cuidado a su carácter, energía y necesidades.</div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon"><i class="fa-solid fa-heart"></i></div>
+            <div class="about-card-title">Entorno tranquilo</div>
+            <div class="about-card-text">Convivencia equilibrada, sin jaulas, sin estrés, con presencia real.</div>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon"><i class="fa-solid fa-shield-dog"></i></div>
+            <div class="about-card-title">Profesionalidad consciente</div>
+            <div class="about-card-text">Experiencia, responsabilidad y compromiso genuino con su bienestar.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-whisper">Porque tu perro no es un cliente. <strong>Es familia.</strong></div>
+    </div>
   </div>
 </section>
 
