@@ -1076,6 +1076,37 @@ footer{
   .about-title{ font-size:1.55em; }
 }
 
+/* ===== Intro (Premium suave, sin mover los perritos) ===== */
+.intro-premium{
+  position: relative;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 26px 18px 28px 18px;
+  border-radius: 24px;
+  background:
+    radial-gradient(740px 260px at 18% 28%, rgba(245,194,35,0.16), transparent 62%),
+    radial-gradient(740px 260px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
+    rgba(255,255,255,0.96);
+  border: 1px solid rgba(123,108,246,0.10);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.07);
+  overflow:hidden;
+}
+.intro-premium::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(245,194,35,0.0), rgba(245,194,35,0.95), rgba(245,194,35,0.0));
+  opacity:.9;
+}
+/* Ajuste fino de la tipografía dentro de la card (manteniendo tu estilo) */
+.intro-premium .presentacion{
+  margin: 10px auto;
+}
+
 </style>
 </head>
 
@@ -1156,7 +1187,8 @@ footer{
 </div>
 
 <section class="intro-card">
-  <p class="presentacion">
+    <div class="intro-premium">
+<p class="presentacion">
     Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
     con atención individual y respeto por sus ritmos.
   </p>
@@ -1164,7 +1196,9 @@ footer{
     Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
   </p>
 
-  <div class="dogs-row" aria-hidden="true">
+    </div>
+
+<div class="dogs-row" aria-hidden="true">
     <img src="./ChatGPT%20Image%2021%20ene%202026,%2018_02_15.png" alt="">
   </div>
 </section>
