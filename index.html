@@ -1108,26 +1108,7 @@ footer{
   margin: 10px auto;
 }
 
-/* ===== Perrito esquina inferior derecha ===== */
-.corner-dog{
-  position: fixed;
-  right: -40px;
-  bottom: -35px;
-  width: 220px;
-  max-width: 40vw;
-  height: auto;
-  z-index: 2000;
-  pointer-events: none;
-  filter: drop-shadow(0 18px 34px rgba(0,0,0,0.25));
-  transition: transform .4s ease;
-}
 
-/* Efecto sutil en desktop */
-@media(min-width:769px){
-  .corner-dog:hover{
-    transform: translate(-10px, -6px) rotate(-2deg);
-  }
-}
 
 /* Móvil: más pequeño */
 @media(max-width:768px){
@@ -1136,6 +1117,38 @@ footer{
     right: -30px;
     bottom: -28px;
     opacity: 0.85;
+  }
+}
+
+/* ===== Perrito esquina inferior derecha (pequeño) ===== */
+.corner-dog{
+  position: fixed;
+  right: -14px;
+  bottom: -14px;
+  width: 92px;
+  height: auto;
+  z-index: 2000;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.22));
+  opacity: 0.95;
+}
+
+/* Desktop: un pelín más grande */
+@media(min-width:769px){
+  .corner-dog{
+    width: 110px;
+    right: -16px;
+    bottom: -16px;
+  }
+}
+
+/* Móvil: más pequeño para no molestar */
+@media(max-width:768px){
+  .corner-dog{
+    width: 78px;
+    right: -12px;
+    bottom: -12px;
+    opacity: 0.90;
   }
 }
 
@@ -1609,7 +1622,8 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 </script>
 
 <!-- Perrito decorativo esquina (IMPORTANTE: renombra la imagen a "corner-dog.png" y colócala junto a index.html) -->
-<img src="https://raw.githubusercontent.com/DogCompany7/Dog-Company/c820c5940af29bd059900c0d8be814c48599ae91/ChatGPT%20Image%2029%20ene%202026,%2000_27_33.png" alt="" class="corner-dog" aria-hidden="true">
+<!-- Perrito esquina inferior derecha (decorativo) -->
+<img src="https://raw.githubusercontent.com/DogCompany7/Dog-Company/c820c5940af29bd059900c0d8be814c48599ae91/ChatGPT%20Image%2029%20ene%202026,%2000_27_33.png" alt="" class="corner-dog" aria-hidden="true" loading="lazy">
 
 </body>
 </html>
