@@ -1130,11 +1130,12 @@ footer#contacto{ position:relative; overflow:visible; }
 
 /* ✅ MÓVIL (como te gustó): NO es fijo, queda dentro del footer */
 @media(max-width:768px){
-  .footer-dog{ right:12px; bottom:48px; }
+  .footer-dog{ right:12px; bottom:96px; } /* ⬆️ subido para no tapar el copyright */
   .footer-dog img{
     width:190px;
-    transform: translateY(8%);
+    transform: translateY(0%);
   }
+  .footer-copy{ padding-bottom: 70px; } /* espacio extra por seguridad */
 }
 
 </style>
