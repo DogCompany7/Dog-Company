@@ -1,5 +1,3 @@
-Dog Company — index.html (CÓDIGO COMPLETO CORREGIDO)
-Dog Company — index.html (código completo actualizado)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1110,45 +1108,27 @@ footer{
 
 
 
-/* Móvil: más pequeño */
+/* === Perrito en el footer (derecha) — SOLO en la parte negra (PC + móvil) === */
+footer#contacto{ position:relative; overflow:visible; }
+.footer-dog{
+  position:absolute;
+  right:24px;
+  bottom:0;
+  z-index:1200;
+  pointer-events:none;
+}
+.footer-dog img{
+  width:190px;
+  height:auto;
+  display:block;
+  transform: translateY(35%);
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
+}
 @media(max-width:768px){
-  .corner-dog{
-    width: 140px;
-    right: -30px;
-    bottom: -28px;
-    opacity: 0.85;
-  }
-}
-
-/* ===== Perrito esquina inferior derecha (pequeño) ===== */
-.corner-dog{
-  position: fixed;
-  right: -14px;
-  bottom: -14px;
-  width: 92px;
-  height: auto;
-  z-index: 2000;
-  pointer-events: none;
-  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.22));
-  opacity: 0.95;
-}
-
-/* Desktop: un pelín más grande */
-@media(min-width:769px){
-  .corner-dog{
-    width: 110px;
-    right: -16px;
-    bottom: -16px;
-  }
-}
-
-/* Móvil: más pequeño para no molestar */
-@media(max-width:768px){
-  .corner-dog{
-    width: 78px;
-    right: -12px;
-    bottom: -12px;
-    opacity: 0.90;
+  .footer-dog{ right:12px; }
+  .footer-dog img{
+    width:140px;
+    transform: translateY(40%);
   }
 }
 
@@ -1244,7 +1224,7 @@ footer{
     </div>
 
 <div class="dogs-row" aria-hidden="true">
-    <img src="https://raw.githubusercontent.com/DogCompany7/Dog-Company/c820c5940af29bd059900c0d8be814c48599ae91/ChatGPT%20Image%2029%20ene%202026,%2000_27_33.png" alt="">
+    <img src="./ChatGPT%20Image%2021%20ene%202026,%2018_02_15.png" alt="">
   </div>
 </section>
 
@@ -1400,7 +1380,7 @@ footer{
 
     <!-- ✅ Rover + Star Sitter -->
     <div class="rover-proof">
-      <img class="rover-dog" src="https://raw.githubusercontent.com/DogCompany7/Dog-Company/c820c5940af29bd059900c0d8be814c48599ae91/ChatGPT%20Image%2029%20ene%202026,%2000_27_33.png" alt="" aria-hidden="true" loading="lazy">
+      <img class="rover-dog" src="./ChatGPT%20Image%2022%20ene%202026,%2000_46_52.png" alt="" aria-hidden="true" loading="lazy">
 
       <div class="rover-left">
         <div class="rover-badge" aria-hidden="true">
@@ -1546,6 +1526,12 @@ footer{
       © <span id="year"></span> Dog Company. Todos los derechos reservados.
     </div>
   </div>
+
+  <!-- ✅ Perrito footer derecha -->
+  <div class="footer-dog" aria-hidden="true">
+    <img src="./ChatGPT Image 29 ene 2026, 00_27_33.png" alt="">
+  </div>
+
 </footer>
 
 <div class="whatsapp-container">
@@ -1621,10 +1607,5 @@ menuBtn?.addEventListener('click', () => document.body.classList.toggle('mobile-
 mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') document.body.classList.remove('mobile-open'); });
 </script>
 
-<!-- Perrito decorativo esquina (IMPORTANTE: renombra la imagen a "corner-dog.png" y colócala junto a index.html) -->
-<!-- Perrito esquina inferior derecha (decorativo) -->
-<img src="https://raw.githubusercontent.com/DogCompany7/Dog-Company/c820c5940af29bd059900c0d8be814c48599ae91/ChatGPT%20Image%2029%20ene%202026,%2000_27_33.png" alt="" class="corner-dog" aria-hidden="true" loading="lazy">
-
 </body>
 </html>
-
