@@ -1162,95 +1162,64 @@ footer#contacto{ position:relative; overflow:visible; }
 }
 
 
-/* === Reserva: bloque premium previo al formulario === */
-.reserva-premium{
-  max-width: 880px;
-  margin: 0 auto 14px auto;
-  padding: 14px 14px;
-  border-radius: 18px;
+.reserva-premium{ padding: 16px 14px; border-radius: 18px; }
+  .reserva-premium-title{ font-size: 1.25em; }
+}
+
+
+/* === Reserva: tarjeta informativa (premium ligera) === */
+.reserva-info-card{
+  max-width: 920px;
+  margin: 10px auto 18px auto;
+  padding: 16px 16px;
+  border-radius: 20px;
   background:
-    radial-gradient(480px 200px at 18% 30%, rgba(245,194,35,0.14), transparent 62%),
-    radial-gradient(480px 200px at 82% 55%, rgba(123,108,246,0.10), transparent 62%),
-    rgba(255,255,255,0.97);
-  border: 1px solid rgba(123,108,246,0.10);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-}
-.reserva-premium-title{
-  font-family:'Playfair Display', serif;
-  font-size: 1.15em;
-  font-weight: 700;
-  color:#1f1f1f;
+    radial-gradient(520px 220px at 18% 30%, rgba(245,194,35,0.16), transparent 62%),
+    radial-gradient(520px 220px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
+    rgba(255,255,255,0.96);
+  border: 1px solid rgba(123,108,246,0.12);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.06);
   text-align:center;
-  margin: 0 0 8px 0;
-  letter-spacing:.15px;
 }
-.reserva-premium-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap:10px;
-  margin-top: 6px;
-}
-.reserva-pill{
-  border-radius: 14px;
-  padding: 10px 10px;
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
-}
-.reserva-pill .t{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  gap:10px;
+.reserva-info-lines{
   font-weight: 900;
   color:#1f1f1f;
-  line-height:1.15;
+  line-height:1.35;
 }
-.reserva-pill .t i{ color: rgba(123,108,246,0.95); }
-.reserva-pill .d{
-  margin-top: 8px;
-  color:#555;
-  font-weight:700;
-  line-height:1.55;
-  font-size:0.96em;
-}
-.reserva-premium-note{
-  margin-top: 8px;
-  text-align:center;
+.reserva-info-lines .muted{
   color:#444;
   font-weight:800;
-  font-size:0.92em;
 }
-.reserva-premium-note em{
-  font-style: italic;
-  font-weight:800;
+.reserva-info-note{
+  margin-top: 10px;
+  color:#444;
+  font-weight:700;
 }
-@media(max-width:768px){
-  .reserva-premium-grid{ grid-template-columns: 1fr; gap:8px; }
-  .reserva-premium{ padding: 12px 12px; border-radius: 16px; }
-  .reserva-premium-title{ font-size: 1.05em; }
+.reserva-info-row{
+  margin-top: 12px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
 }
-  .reserva-premium{
-  max-width: 880px;
-  margin: 0 auto 14px auto;
-  padding: 14px 14px;
-  border-radius: 18px;
-  background:
-    radial-gradient(480px 200px at 18% 30%, rgba(245,194,35,0.14), transparent 62%),
-    radial-gradient(480px 200px at 82% 55%, rgba(123,108,246,0.10), transparent 62%),
-    rgba(255,255,255,0.97);
-  border: 1px solid rgba(123,108,246,0.10);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.05);
-}
-  .reserva-premium-title{
-  font-family:'Playfair Display', serif;
-  font-size: 1.15em;
-  font-weight: 700;
+.reserva-info-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+  font-weight:900;
   color:#1f1f1f;
-  text-align:center;
-  margin: 0 0 8px 0;
-  letter-spacing:.15px;
+  white-space:nowrap;
 }
+.reserva-info-chip i{ color: rgba(123,108,246,0.95); }
+@media(max-width:768px){
+  .reserva-info-card{ padding: 14px 14px; border-radius: 18px; }
+  .reserva-info-row{ gap:8px; }
+  .reserva-info-chip{ width:100%; justify-content:center; }
 }
 
 </style>
@@ -1386,38 +1355,28 @@ footer#contacto{ position:relative; overflow:visible; }
     <div class="badge"><i class="fa-solid fa-calendar-check"></i> RESERVA</div>
     <h2>Haz tu reserva</h2>
     <div class="line"></div>
-    <div class="sub">Consulta disponibilidad sin compromiso · Respuesta rápida por WhatsApp</div>
+    <div class="sub"></div>
   </div>
 
-  <p style="text-align:center;font-weight:700;color:#444;margin-bottom:18px;">
-    Nos pondremos en contacto contigo para confirmar todos los detalles con calma 🤍
-  </p>
-
-  <div class="reserva-premium" aria-label="Solicitud de reserva cuidada">
-    <div class="reserva-premium-title">Solicitud de reserva cuidada</div>
-
-    <div class="reserva-premium-grid">
-      <div class="reserva-pill">
-        <div class="t"><i class="fa-solid fa-hand-sparkles"></i> Solicitud sin compromiso</div>
-        <div class="d">Revisamos tu petición con calma, sin obligación de reserva.</div>
-      </div>
-
-      <div class="reserva-pill">
-        <div class="t"><i class="fa-solid fa-heart"></i> Atención individual</div>
-        <div class="d">Revisamos cada solicitud de forma individual.</div>
-      </div>
-
-      <div class="reserva-pill">
-        <div class="t"><i class="fa-solid fa-star"></i> Plazas limitadas</div>
-        <div class="d">Trabajamos con un número reducido de perros para garantizar bienestar y tranquilidad.</div>
-      </div>
+  
+  <div class="reserva-info-card" aria-label="Información de reserva">
+    <div class="reserva-info-lines">
+      Consulta disponibilidad sin compromiso<br>
+      <span class="muted">Respuesta rápida por WhatsApp</span>
     </div>
 
-    <div class="reserva-premium-note"><em>Cada solicitud es el inicio de una conversación, no un trámite.</em></div>
+    <div class="reserva-info-note">
+      Nos pondremos en contacto contigo para confirmar todos los detalles con calma 🤍
+    </div>
+
+    <div class="reserva-info-row" aria-label="Condiciones">
+      <span class="reserva-info-chip"><i class="fa-solid fa-hand-sparkles"></i> Solicitud sin compromiso</span>
+      <span class="reserva-info-chip"><i class="fa-solid fa-heart"></i> Atención individual</span>
+      <span class="reserva-info-chip"><i class="fa-solid fa-star"></i> Plazas limitadas</span>
+    </div>
   </div>
 
-
-  <form id="reservaForm" class="reserva-form">
+<form id="reservaForm" class="reserva-form">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
 
     <select name="numPerros" required>
