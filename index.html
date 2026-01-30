@@ -67,9 +67,12 @@ body::before{
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 @media(max-width:768px){
-  #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
-    scroll-margin-top: calc(var(--header-h-m) + 16px);
+  .footer-dog{ right:12px; bottom:90px; }
+  .footer-dog img{
+    width:210px;
+    transform: translateY(0%);
   }
+}
 }
 
 a{ text-decoration:none; color:inherit; }
@@ -1113,15 +1116,15 @@ footer#contacto{ position:relative; overflow:visible; }
 .footer-dog{
   position:absolute;
   right:24px;
-  bottom:60px;
+  bottom:110px;
   z-index:1200;
   pointer-events:none;
 }
 .footer-dog img{
-  width:250px;
+  width:260px;
   height:auto;
   display:block;
-  transform: translateY(5%);
+  transform: translateY(0%);
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
 @media(max-width:768px){
