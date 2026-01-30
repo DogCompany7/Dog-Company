@@ -1112,24 +1112,34 @@ footer{
 
 
 
-/* === Perrito en el footer (derecha) — SOLO en la parte negra (PC + móvil) === */
+
+
+
+/* === Perrito en el footer (derecha) — PC + móvil (NO interfiere con iconos) === */
 footer#contacto{ position:relative; overflow:visible; }
+
+.footer-actions{
+  position:relative;
+  z-index:2000; /* asegura clic en Instagram/TikTok en PC */
+}
+
 .footer-dog{
   position:absolute;
   right:24px;
   bottom:110px;
-  z-index:1200;
-  pointer-events:none;
+  z-index:900; /* por debajo de los iconos */
+  pointer-events:none; /* nunca bloquea clics */
 }
+
 .footer-dog img{
-  width:290px; /* PC como antes */
+  width:290px; /* PC como estaba */
   height:auto;
   display:block;
   transform: translateY(0%);
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
 
-/* ✅ MÓVIL: abajo y más grande */
+/* MÓVIL */
 @media(max-width:768px){
   footer#contacto .footer-dog{
     right:12px;
@@ -1137,10 +1147,9 @@ footer#contacto{ position:relative; overflow:visible; }
   }
   footer#contacto .footer-dog img{
     width:245px;
-    transform: translateY(0%);
   }
   footer#contacto .footer-copy{
-    padding-bottom: 90px; /* evita tapar el texto */
+    padding-bottom: 90px;
   }
 }
 
