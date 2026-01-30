@@ -1231,19 +1231,6 @@ footer#contacto{ position:relative; overflow:visible; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
 
-/* ✅ Iconos de Servicios: toque premium SOLO a cama/sol/reloj */
-.service-box h3 i.fa-bed,
-.service-box h3 i.fa-sun,
-.service-box h3 i.fa-clock{
-  background: linear-gradient(135deg, rgba(245,194,35,0.98), rgba(123,108,246,0.90));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 8px 18px rgba(0,0,0,0.10);
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.10));
-}
-
-
 /* ✅ PC: tarjeta del carrusel más pequeña y SIN barra de desplazamiento */
 @media(min-width:769px){
   .hero-card{
@@ -1258,6 +1245,26 @@ footer#contacto{ position:relative; overflow:visible; }
   .trust-pill{ font-size:0.78em; padding:4px 7px; gap:7px; }
   .hero-actions .btn{ font-size:0.84em; padding:7px 10px; }
   .scroll-hint{ font-size:0.80em; margin-top:6px; }
+}
+
+
+/* ✅ Iconos Servicios · Premium minimal (elegante y limpio) */
+.service-box h3 i{
+  color:#1f1f1f;
+  position:relative;
+}
+.service-box h3 i::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:36px;
+  height:36px;
+  transform:translate(-50%,-50%);
+  border-radius:12px;
+  border:2px solid rgba(245,194,35,0.85);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+  z-index:-1;
 }
 
 </style>
