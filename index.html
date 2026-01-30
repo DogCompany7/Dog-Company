@@ -1169,6 +1169,11 @@ footer#contacto{ position:relative; overflow:visible; }
 
 /* === Reserva: tarjeta informativa (premium ligera) === */
 .reserva-info-card{
+  background:
+    radial-gradient(740px 260px at 18% 28%, rgba(245,194,35,0.16), transparent 62%),
+    radial-gradient(740px 260px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
+    rgba(255,255,255,0.96);
+
   max-width: 920px;
   margin: 10px auto 18px auto;
   padding: 16px 16px;
@@ -1217,7 +1222,12 @@ footer#contacto{ position:relative; overflow:visible; }
 }
 .reserva-info-chip i{ color: rgba(123,108,246,0.95); }
 @media(max-width:768px){
-  .reserva-info-card{ padding: 14px 14px; border-radius: 18px; }
+  .reserva-info-card{
+  background:
+    radial-gradient(740px 260px at 18% 28%, rgba(245,194,35,0.16), transparent 62%),
+    radial-gradient(740px 260px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
+    rgba(255,255,255,0.96);
+ padding: 14px 14px; border-radius: 18px; }
   .reserva-info-row{ gap:8px; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
