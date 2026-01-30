@@ -1231,30 +1231,33 @@ footer#contacto{ position:relative; overflow:visible; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
 
-/* === ICONOS SERVICIOS · PREMIUM REAL === */
-.service-box h3 i{
-  width:48px;
-  height:48px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:16px;
-  background:
-    radial-gradient(circle at 30% 30%, #fff6cc, #f5c223 65%);
-  color:#1f1f1f;
-  box-shadow:
-    0 12px 26px rgba(0,0,0,0.18),
-    inset 0 2px 4px rgba(255,255,255,0.6);
+/* ✅ Iconos de Servicios: toque premium SOLO a cama/sol/reloj */
+.service-box h3 i.fa-bed,
+.service-box h3 i.fa-sun,
+.service-box h3 i.fa-clock{
+  background: linear-gradient(135deg, rgba(245,194,35,0.98), rgba(123,108,246,0.90));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 8px 18px rgba(0,0,0,0.10);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.10));
 }
 
 
+/* ✅ PC: tarjeta del carrusel más pequeña y SIN barra de desplazamiento */
 @media(min-width:769px){
   .hero-card{
-    width: min(320px, 82vw);
-    max-height: 48vh;
+    width: min(310px, 86vw);
     padding: 10px 10px 8px 10px;
+    max-height: none;
+    overflow: hidden;
   }
-  .hero-card p{ font-size:0.88em; }
+  .hero-badge{ font-size:0.76em; padding:5px 9px; margin-bottom:6px; }
+  .hero-card h1{ font-size:1.28em; }
+  .hero-card p{ font-size:0.86em; margin-bottom:6px; }
+  .trust-pill{ font-size:0.78em; padding:4px 7px; gap:7px; }
+  .hero-actions .btn{ font-size:0.84em; padding:7px 10px; }
+  .scroll-hint{ font-size:0.80em; margin-top:6px; }
 }
 
 </style>
