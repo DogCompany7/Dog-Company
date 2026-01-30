@@ -70,7 +70,6 @@ body::before{
   #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
     scroll-margin-top: calc(var(--header-h-m) + 16px);
   }
-}
 
 a{ text-decoration:none; color:inherit; }
 
@@ -1108,8 +1107,10 @@ footer{
 
 
 
-/* === Perrito en el footer (derecha) === */
-/* PC: dentro del footer negro */
+
+
+
+/* === Perrito en el footer (derecha) — SOLO en la parte negra (PC + móvil) === */
 footer#contacto{ position:relative; overflow:visible; }
 .footer-dog{
   position:absolute;
@@ -1119,44 +1120,25 @@ footer#contacto{ position:relative; overflow:visible; }
   pointer-events:none;
 }
 .footer-dog img{
-  width:290px;
+  width:290px; /* PC como antes */
   height:auto;
   display:block;
   transform: translateY(0%);
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
 
-/* MÓVIL: fijo para poder subirlo realmente */
-
-
-footer#contacto .footer-dog img{
-    width:190px !important;
-    height:auto !important;
-    display:block !important;
-    transform: translateY(0%) !important;
-  }
-  footer#contacto .footer-copy{
-    padding-bottom: 170px !important; /* espacio extra para que el texto no quede debajo */
-  }
-}
-
-
-/* === AJUSTE FINAL MÓVIL: perrito ABAJO sin tapar derechos (NO TOCA PC) === */
+/* ✅ MÓVIL: abajo y más grande */
 @media(max-width:768px){
   footer#contacto .footer-dog{
-    position:absolute !important;
-    right:12px !important;
-    bottom:20px !important;   /* ⬇️ abajo, pegado al borde */
-    z-index:1200 !important;
-    pointer-events:none;
+    right:12px;
+    bottom:20px;
   }
   footer#contacto .footer-dog img{
-    width:290px;   /* un poco más pequeño para que no moleste */
-    height:auto !important;
-    transform: translateY(0%) !important;
+    width:245px;
+    transform: translateY(0%);
   }
   footer#contacto .footer-copy{
-    padding-bottom: 90px !important; /* deja respirar el texto */
+    padding-bottom: 90px; /* evita tapar el texto */
   }
 }
 
