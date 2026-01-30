@@ -521,6 +521,17 @@ section{
   gap:8px;
 }
 
+
+.service-box h3 i::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(245,194,35,0.55), rgba(123,108,246,0.35), transparent 70%);
+  z-index:-1;
+  filter: blur(2px);
+}
+
 .service-box p{ font-size:1em; margin-bottom:8px; }
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
 .service-box.horario-box{
@@ -972,18 +983,11 @@ footer{
   .dogs-row img{
     width: min(560px, 96vw);
   }
-
-  /* ✅ Móvil: título de Servicios más pequeño y sin mayúsculas */
-  #servicios .section-title h2{
-    font-size: 1.55em;
-    text-transform: none;
-    letter-spacing: 0;
-  }
 }
 
 /* Estado menú móvil */
 .mobile-open .mobile-nav{ display:block; }
-/* ===== Quiénes somos (Premium) ===== */
+/* ===== Quiénes Somos (Premium) ===== */
 .about-premium{
   margin: 0 auto;
   max-width: 980px;
@@ -1226,6 +1230,33 @@ footer#contacto{ position:relative; overflow:visible; }
   .reserva-info-row{ gap:8px; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
+
+/* === ICONOS SERVICIOS · PREMIUM REAL === */
+.service-box h3 i{
+  width:48px;
+  height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 30% 30%, #fff6cc, #f5c223 65%);
+  color:#1f1f1f;
+  box-shadow:
+    0 12px 26px rgba(0,0,0,0.18),
+    inset 0 2px 4px rgba(255,255,255,0.6);
+}
+
+
+@media(min-width:769px){
+  .hero-card{
+    width: min(320px, 82vw);
+    max-height: 48vh;
+    padding: 10px 10px 8px 10px;
+  }
+  .hero-card p{ font-size:0.88em; }
+}
+
 </style>
 </head>
 
@@ -1237,7 +1268,7 @@ footer#contacto{ position:relative; overflow:visible; }
       <a href="#top">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#resenas-footer">Reseñas</a>
-      <a href="#quienes-somos-footer">Quiénes somos</a>
+      <a href="#quienes-somos-footer">Quiénes Somos</a>
     </nav>
 
     <div class="logo-container">
@@ -1255,7 +1286,7 @@ footer#contacto{ position:relative; overflow:visible; }
     <a href="#top">Inicio</a>
     <a href="#servicios">Servicios</a>
     <a href="#resenas-footer">Reseñas</a>
-    <a href="#quienes-somos-footer">Quiénes somos</a>
+    <a href="#quienes-somos-footer">Quiénes Somos</a>
   </div>
 </header>
 
@@ -1339,7 +1370,7 @@ footer#contacto{ position:relative; overflow:visible; }
 <section id="servicios">
   <div class="section-title">
     <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
-    <h2>Nuestros Servicios</h2>
+    <h2>NUESTROS SERVICIOS</h2>
     <div class="line"></div>
     <div class="sub">Alojamiento de noche y guardería de día con atención real</div>
   </div>
@@ -1540,7 +1571,7 @@ footer#contacto{ position:relative; overflow:visible; }
   <div id="quienes-somos-footer">
     <div class="section-title">
       <div class="badge"><i class="fa-solid fa-heart"></i> QUIÉNES SOMOS</div>
-      <h2>Quiénes somos</h2>
+      <h2>Quiénes Somos</h2>
       <div class="line"></div>
       <div class="sub">Cuidado consciente, experiencia y amor real por los perros</div>
     </div>
