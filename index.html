@@ -67,7 +67,9 @@ body::before{
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
 @media(max-width:768px){
-  .footer-dog{ right:12px; bottom:210px; }
+  /* En móvil lo anclamos a la pantalla para poder subirlo realmente */
+  .footer-dog{ right:12px; bottom:210px; position:fixed; opacity:0; transition: opacity .15s ease; }
+  body.footer-inview .footer-dog{ opacity:1; }
   .footer-dog img{
     width:210px;
     transform: translateY(0%);
