@@ -1168,67 +1168,83 @@ footer#contacto{ position:relative; overflow:visible; }
 
 
 /* === Reserva: tarjeta informativa (premium ligera) === */
+/* ===== Tarjeta premium (Reserva) ===== */
 .reserva-info-card{
-  background:
-    radial-gradient(740px 260px at 18% 28%, rgba(245,194,35,0.16), transparent 62%),
-    radial-gradient(740px 260px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
-    rgba(255,255,255,0.96);
-
   max-width: 920px;
-  margin: 10px auto 18px auto;
-  padding: 16px 16px;
+  margin: 18px auto 18px auto;
+  padding: 18px 18px;
   border-radius: 20px;
   background:
-    radial-gradient(520px 220px at 18% 30%, rgba(245,194,35,0.16), transparent 62%),
-    radial-gradient(520px 220px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
+    radial-gradient(560px 220px at 15% 35%, rgba(245,194,35,0.20), transparent 62%),
+    radial-gradient(560px 220px at 85% 55%, rgba(123,108,246,0.16), transparent 62%),
     rgba(255,255,255,0.96);
-  border: 1px solid rgba(123,108,246,0.12);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.06);
+  border: 1px solid rgba(123,108,246,0.14);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+  position:relative;
+  overflow:hidden;
   text-align:center;
 }
-.reserva-info-lines{
-  font-weight: 900;
-  color:#1f1f1f;
-  line-height:1.35;
+.reserva-info-card::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  top:14px;
+  bottom:14px;
+  width:5px;
+  border-radius:999px;
+  background: linear-gradient(180deg, rgba(123,108,246,0.95), rgba(245,194,35,0.95));
+  opacity:.85;
 }
-.reserva-info-lines .muted{
+.reserva-info-card::after{
+  content:"";
+  position:absolute;
+  inset:-45% -60%;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.70), transparent 70%);
+  transform: rotate(18deg);
+  opacity:.35;
+  pointer-events:none;
+}
+.reserva-info-lines{
+  max-width: 820px;
+  margin: 0 auto 12px auto;
   color:#444;
   font-weight:800;
+  line-height:1.45;
 }
-.reserva-info-note{
-  margin-top: 10px;
-  color:#444;
-  font-weight:700;
-}
+.reserva-info-lines b{ color:#1f1f1f; }
+
 .reserva-info-row{
-  margin-top: 12px;
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
+  justify-content:center;
   gap:10px;
+  margin-top:12px;
 }
 .reserva-info-chip{
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding: 8px 10px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.78);
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.80);
   border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.06);
   font-weight:900;
   color:#1f1f1f;
   white-space:nowrap;
 }
 .reserva-info-chip i{ color: rgba(123,108,246,0.95); }
+
 @media(max-width:768px){
   .reserva-info-card{
-  background:
-    radial-gradient(740px 260px at 18% 28%, rgba(245,194,35,0.16), transparent 62%),
-    radial-gradient(740px 260px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
-    rgba(255,255,255,0.96);
- padding: 14px 14px; border-radius: 18px; }
+    padding: 14px 14px;
+    border-radius: 18px;
+  }
   .reserva-info-row{ gap:8px; }
+  .reserva-info-chip{ width:100%; justify-content:center; }
+}
+
+.reserva-info-row{ gap:8px; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
 
