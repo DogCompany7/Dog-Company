@@ -70,7 +70,7 @@ body::before{
   #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
     scroll-margin-top: calc(var(--header-h-m) + 16px);
   }
-
+}
 
 a{ text-decoration:none; color:inherit; }
 
@@ -1108,10 +1108,8 @@ footer{
 
 
 
-
-
-
-/* === Perrito en el footer (derecha) — SOLO en la parte negra (PC + móvil) === */
+/* === Perrito en el footer (derecha) === */
+/* PC: dentro del footer negro */
 footer#contacto{ position:relative; overflow:visible; }
 .footer-dog{
   position:absolute;
@@ -1124,28 +1122,31 @@ footer#contacto{ position:relative; overflow:visible; }
   width:290px;
   height:auto;
   display:block;
-  transform: translateY(0%);
+  transform: translateY(0);
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
 
-/* ✅ MÓVIL (como te gustó): NO es fijo, queda dentro del footer */
-@media(max-width:768px){
-  .footer-dog{ right:12px; bottom:96px; } /* ⬆️ subido para no tapar el copyright */
-  .footer-dog img{
-    width:190px;
-    transform: translateY(0%);
-  }
-  .footer-copy{ padding-bottom: 70px; } /* espacio extra por seguridad */
-}
+/* MÓVIL: fijo para poder subirlo realmente */
 
 
+/* === PATCH MÓVIL (NO TOCA PC): evita tapar el copyright === */
 @media(max-width:768px){
-  .footer-dog{ right:12px; bottom:170px; } /* ⬆️ mucho más arriba */
-  .footer-dog img{
-    width:180px;
-    transform: translateY(0%);
+  footer#contacto .footer-dog{
+    position:absolute !important; /* se queda SOLO en la parte negra */
+    right:12px !important;
+    bottom:170px !important;      /* ⬆️ bastante más arriba */
+    z-index:1200 !important;
+    pointer-events:none;
   }
-  .footer-copy{ padding-bottom: 140px; } /* evita que el texto quede debajo */
+  footer#contacto .footer-dog img{
+    width:190px !important;
+    height:auto !important;
+    display:block !important;
+    transform: translateY(0%) !important;
+  }
+  footer#contacto .footer-copy{
+    padding-bottom: 170px !important; /* espacio extra para que el texto no quede debajo */
+  }
 }
 
 </style>
