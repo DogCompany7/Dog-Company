@@ -70,7 +70,7 @@ body::before{
   #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
     scroll-margin-top: calc(var(--header-h-m) + 16px);
   }
-}
+
 
 a{ text-decoration:none; color:inherit; }
 
@@ -1136,6 +1136,16 @@ footer#contacto{ position:relative; overflow:visible; }
     transform: translateY(0%);
   }
   .footer-copy{ padding-bottom: 70px; } /* espacio extra por seguridad */
+}
+
+
+@media(max-width:768px){
+  .footer-dog{ right:12px; bottom:170px; } /* ⬆️ mucho más arriba */
+  .footer-dog img{
+    width:180px;
+    transform: translateY(0%);
+  }
+  .footer-copy{ padding-bottom: 140px; } /* evita que el texto quede debajo */
 }
 
 </style>
