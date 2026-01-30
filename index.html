@@ -70,8 +70,6 @@ body::before{
   #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
     scroll-margin-top: calc(var(--header-h-m) + 16px);
   }
-
-
 }
 a{ text-decoration:none; color:inherit; }
 
@@ -222,6 +220,10 @@ header nav a:hover{ color: var(--brand); transform: translateY(-1px); }
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* ✅ Blanco y negro SOLO para la primera foto solicitada */
+.slide.bw::before{ filter: blur(18px) grayscale(1); }
+.slide.bw::after{ filter: grayscale(1); }
 
 /* Vídeo */
 .slide.video::before,
@@ -1267,21 +1269,39 @@ footer#contacto{ position:relative; overflow:visible; }
 
 <div class="hero-slider" id="top">
 
-  <!-- ✅ Foto primero (como pediste) -->
-  <div class="slide active" style="--bg:url('./photo_2026-01-30_20-17-56 (2).jpg');"></div>
+  <!-- ✅ 1) PRIMERO: la ÚLTIMA FOTO (la que antes estaba la última) en BLANCO Y NEGRO -->
+  <div class="slide bw active" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
 
-  <!-- ✅ Vídeo después -->
+  <!-- ✅ 2) DESPUÉS: la foto local que antes estaba primera (sin cambios) -->
+  <div class="slide" style="--bg:url('./photo_2026-01-30_20-17-56 (2).jpg');"></div>
+
+  <!-- ✅ 3) DESPUÉS: vídeos EXACTOS en orden -->
   <div class="slide video">
     <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
-      <source src="./document6014938721218992869.mp4" type="video/mp4">
+      <source src="./Esquema 1.mp4" type="video/mp4">
     </video>
     <video class="hero-video-main" autoplay muted playsinline loop preload="auto">
-      <source src="./document6014938721218992869.mp4" type="video/mp4">
+      <source src="./Esquema 1.mp4" type="video/mp4">
     </video>
   </div>
 
-  <!-- ✅ Solo 1 foto extra (las 2 últimas eliminadas) -->
-  <div class="slide" style="--bg:url('https://raw.githubusercontent.com/DogCompany7/Dog-Company/15b5e6d0237709b3b90e694c0a7ade6bb6a71a46/b4c1ee43-8999-4a6c-ac2f-dbf4386ec211.jpg');"></div>
+  <div class="slide video">
+    <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
+      <source src="./Esquema 2.mp4" type="video/mp4">
+    </video>
+    <video class="hero-video-main" autoplay muted playsinline loop preload="auto">
+      <source src="./Esquema 2.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="slide video">
+    <video class="hero-video-bg" autoplay muted playsinline loop preload="auto">
+      <source src="./Esquema 3.mp4" type="video/mp4">
+    </video>
+    <video class="hero-video-main" autoplay muted playsinline loop preload="auto">
+      <source src="./Esquema 3.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <div class="hero-overlay"></div>
 
@@ -1312,18 +1332,17 @@ footer#contacto{ position:relative; overflow:visible; }
 </div>
 
 <section class="intro-card">
-    <div class="intro-premium">
-<p class="presentacion">
-    Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
-    con atención individual y respeto por sus ritmos.
-  </p>
-  <p class="presentacion">
-    Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
-  </p>
+  <div class="intro-premium">
+    <p class="presentacion">
+      Somos una residencia canina de ambiente familiar donde los perros conviven en calma,
+      con atención individual y respeto por sus ritmos.
+    </p>
+    <p class="presentacion">
+      Aquí no hay jaulas ni estrés: hay presencia, cuidado y cariño real.
+    </p>
+  </div>
 
-    </div>
-
-<div class="dogs-row" aria-hidden="true">
+  <div class="dogs-row" aria-hidden="true">
     <img src="./ChatGPT%20Image%2021%20ene%202026,%2018_02_15.png" alt="">
   </div>
 </section>
@@ -1368,7 +1387,6 @@ footer#contacto{ position:relative; overflow:visible; }
     <div class="sub"></div>
   </div>
 
-  <!-- ✅ TARJETA DE RESERVA (NO SE ELIMINA) -->
   <div class="reserva-info-card" aria-label="Información de reserva">
     <div class="reserva-info-lines">
       Consulta disponibilidad sin compromiso<br>
@@ -1386,7 +1404,7 @@ footer#contacto{ position:relative; overflow:visible; }
     </div>
   </div>
 
-<form id="reservaForm" class="reserva-form">
+  <form id="reservaForm" class="reserva-form">
     <input type="text" name="nombre" placeholder="Tu nombre" required>
 
     <select name="numPerros" required>
@@ -1492,7 +1510,6 @@ footer#contacto{ position:relative; overflow:visible; }
       <div class="sub">Opiniones reales de familias que repiten</div>
     </div>
 
-    <!-- ✅ Rover + Star Sitter -->
     <div class="rover-proof">
       <img class="rover-dog" src="./ChatGPT%20Image%2022%20ene%202026,%2000_46_52.png" alt="" aria-hidden="true" loading="lazy">
 
@@ -1531,7 +1548,7 @@ footer#contacto{ position:relative; overflow:visible; }
     </div>
   </div>
 
-    <div id="quienes-somos-footer">
+  <div id="quienes-somos-footer">
     <div class="section-title">
       <div class="badge"><i class="fa-solid fa-heart"></i> QUIÉNES SOMOS</div>
       <h2>Quiénes somos</h2>
@@ -1541,7 +1558,7 @@ footer#contacto{ position:relative; overflow:visible; }
 
     <div class="about-premium">
       <div class="about-premium-inner">
-                <div class="about-left">
+        <div class="about-left">
           <h3 class="about-title">Más que una residencia. Un hogar consciente para tu perro.</h3>
 
           <p class="about-text">
@@ -1641,12 +1658,10 @@ footer#contacto{ position:relative; overflow:visible; }
     </div>
   </div>
 
-    <!-- ✅ Perrito footer derecha -->
-    <div class="footer-dog" aria-hidden="true">
-      <img src="./ChatGPT Image 29 ene 2026, 00_27_33.png" alt="">
-    </div>
-
+  <div class="footer-dog" aria-hidden="true">
+    <img src="./ChatGPT Image 29 ene 2026, 00_27_33.png" alt="">
   </div>
+
 </footer>
 
 <div class="whatsapp-container">
