@@ -66,9 +66,7 @@ body::before{
 #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
-@media(max-width:768px){
-  /* MÓVIL: fijo para poder subirlo realmente */
-  .footer-dog{ right:12px; bottom:340px; position:fixed; z-index:2000; pointer-events:none; }
+
   .footer-dog img{ width:210px; transform: translateY(0%); height:auto; display:block; }
 }
 
@@ -1132,11 +1130,28 @@ footer#contacto{ position:relative; overflow:visible; }
   transform: translateY(0%);
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
-@media(max-width:768px){
-  .footer-dog{ right:12px; bottom:48px; }
+
   .footer-dog img{
     width:190px;
     transform: translateY(8%);
+  }
+}
+
+
+@media(max-width:768px){
+  /* 🔧 FIX DEFINITIVO: forzar anclaje real en móvil */
+  body .footer-dog{
+    position: fixed !important;
+    right: 12px !important;
+    bottom: 380px !important;
+    z-index: 3000 !important;
+    pointer-events: none;
+  }
+  body .footer-dog img{
+    width: 210px !important;
+    transform: translateY(0) !important;
+    height: auto;
+    display: block;
   }
 }
 
@@ -1519,11 +1534,11 @@ footer#contacto{ position:relative; overflow:visible; }
         </div>
 
         <div class="footer-actions" style="margin-top:16px;">
-          <a class="footer-icon-btn" href="https://instagram.com/TUUSUARIO" target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="footer-icon-btn" href="https://www.instagram.com/dog__company?igsh=MTRnNjZkb21iMTFqOA==" target="_blank" rel="noopener" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
 
-          <a class="footer-icon-btn" href="https://tiktok.com/@TUUSUARIO" target="_blank" rel="noopener" aria-label="TikTok">
+          <a class="footer-icon-btn" href="https://www.tiktok.com/@dog__company?_r=1&_t=ZN-93VeSkkdEKU" target="_blank" rel="noopener" aria-label="TikTok">
             <i class="fa-brands fa-tiktok"></i>
           </a>
         </div>
