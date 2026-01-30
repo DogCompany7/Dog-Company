@@ -1129,16 +1129,7 @@ footer#contacto{ position:relative; overflow:visible; }
 /* MÓVIL: fijo para poder subirlo realmente */
 
 
-/* === PATCH MÓVIL (NO TOCA PC): evita tapar el copyright === */
-@media(max-width:768px){
-  footer#contacto .footer-dog{
-    position:absolute !important; /* se queda SOLO en la parte negra */
-    right:12px !important;
-    bottom:170px !important;      /* ⬆️ bastante más arriba */
-    z-index:1200 !important;
-    pointer-events:none;
-  }
-  footer#contacto .footer-dog img{
+footer#contacto .footer-dog img{
     width:190px !important;
     height:auto !important;
     display:block !important;
@@ -1146,6 +1137,26 @@ footer#contacto{ position:relative; overflow:visible; }
   }
   footer#contacto .footer-copy{
     padding-bottom: 170px !important; /* espacio extra para que el texto no quede debajo */
+  }
+}
+
+
+/* === AJUSTE FINAL MÓVIL: perrito ABAJO sin tapar derechos (NO TOCA PC) === */
+@media(max-width:768px){
+  footer#contacto .footer-dog{
+    position:absolute !important;
+    right:12px !important;
+    bottom:20px !important;   /* ⬇️ abajo, pegado al borde */
+    z-index:1200 !important;
+    pointer-events:none;
+  }
+  footer#contacto .footer-dog img{
+    width:170px !important;   /* un poco más pequeño para que no moleste */
+    height:auto !important;
+    transform: translateY(0%) !important;
+  }
+  footer#contacto .footer-copy{
+    padding-bottom: 90px !important; /* deja respirar el texto */
   }
 }
 
