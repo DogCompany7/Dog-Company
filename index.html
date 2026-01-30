@@ -1107,14 +1107,6 @@ footer{
   margin: 10px auto;
 }
 
-
-
-
-
-
-
-
-
 /* === Perrito en el footer (derecha) — PC + móvil (NO interfiere con iconos) === */
 footer#contacto{ position:relative; overflow:visible; }
 
@@ -1153,7 +1145,6 @@ footer#contacto{ position:relative; overflow:visible; }
   }
 }
 
-
 /* === SOLO MÓVIL: carrusel a pantalla completa sin sombras laterales === */
 @media(max-width:768px){
   .slide::after{
@@ -1161,90 +1152,58 @@ footer#contacto{ position:relative; overflow:visible; }
   }
 }
 
-
-.reserva-premium{ padding: 16px 14px; border-radius: 18px; }
-  .reserva-premium-title{ font-size: 1.25em; }
-}
-
-
 /* === Reserva: tarjeta informativa (premium ligera) === */
-/* ===== Tarjeta premium (Reserva) ===== */
 .reserva-info-card{
   max-width: 920px;
-  margin: 18px auto 18px auto;
-  padding: 18px 18px;
+  margin: 10px auto 18px auto;
+  padding: 16px 16px;
   border-radius: 20px;
   background:
-    radial-gradient(560px 220px at 15% 35%, rgba(245,194,35,0.20), transparent 62%),
-    radial-gradient(560px 220px at 85% 55%, rgba(123,108,246,0.16), transparent 62%),
+    radial-gradient(520px 220px at 18% 30%, rgba(245,194,35,0.16), transparent 62%),
+    radial-gradient(520px 220px at 82% 55%, rgba(123,108,246,0.12), transparent 62%),
     rgba(255,255,255,0.96);
-  border: 1px solid rgba(123,108,246,0.14);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
-  position:relative;
-  overflow:hidden;
+  border: 1px solid rgba(123,108,246,0.12);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.06);
   text-align:center;
 }
-.reserva-info-card::before{
-  content:"";
-  position:absolute;
-  left:14px;
-  top:14px;
-  bottom:14px;
-  width:5px;
-  border-radius:999px;
-  background: linear-gradient(180deg, rgba(123,108,246,0.95), rgba(245,194,35,0.95));
-  opacity:.85;
-}
-.reserva-info-card::after{
-  content:"";
-  position:absolute;
-  inset:-45% -60%;
-  background: radial-gradient(closest-side, rgba(255,255,255,0.70), transparent 70%);
-  transform: rotate(18deg);
-  opacity:.35;
-  pointer-events:none;
-}
 .reserva-info-lines{
-  max-width: 820px;
-  margin: 0 auto 12px auto;
+  font-weight: 900;
+  color:#1f1f1f;
+  line-height:1.35;
+}
+.reserva-info-lines .muted{
   color:#444;
   font-weight:800;
-  line-height:1.45;
 }
-.reserva-info-lines b{ color:#1f1f1f; }
-
+.reserva-info-note{
+  margin-top: 10px;
+  color:#444;
+  font-weight:700;
+}
 .reserva-info-row{
+  margin-top: 12px;
   display:flex;
-  flex-wrap:wrap;
   justify-content:center;
+  flex-wrap:wrap;
   gap:10px;
-  margin-top:12px;
 }
 .reserva-info-chip{
   display:inline-flex;
   align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.80);
+  gap:8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.78);
   border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
   font-weight:900;
   color:#1f1f1f;
   white-space:nowrap;
 }
 .reserva-info-chip i{ color: rgba(123,108,246,0.95); }
-
 @media(max-width:768px){
-  .reserva-info-card{
-    padding: 14px 14px;
-    border-radius: 18px;
-  }
+  .reserva-info-card{ padding: 14px 14px; border-radius: 18px; }
   .reserva-info-row{ gap:8px; }
-  .reserva-info-chip{ width:100%; justify-content:center; }
-}
-
-.reserva-info-row{ gap:8px; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
 
@@ -1384,7 +1343,6 @@ footer#contacto{ position:relative; overflow:visible; }
     <div class="sub"></div>
   </div>
 
-  
   <div class="reserva-info-card" aria-label="Información de reserva">
     <div class="reserva-info-lines">
       Consulta disponibilidad sin compromiso<br>
@@ -1740,3 +1698,4 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 
 </body>
 </html>
+
