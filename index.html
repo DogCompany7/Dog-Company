@@ -1153,6 +1153,14 @@ footer#contacto{ position:relative; overflow:visible; }
   }
 }
 
+
+/* === SOLO MÓVIL: carrusel a pantalla completa sin sombras laterales === */
+@media(max-width:768px){
+  .slide::after{
+    background-size: cover;
+  }
+}
+
 </style>
 </head>
 
