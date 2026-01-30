@@ -70,6 +70,8 @@ body::before{
   #top, #servicios, #reservaForm, #resenas-footer, #quienes-somos-footer, #contacto{
     scroll-margin-top: calc(var(--header-h-m) + 16px);
   }
+
+
 }
 a{ text-decoration:none; color:inherit; }
 
@@ -517,7 +519,7 @@ section{
   gap:8px;
 }
 
-/* ✅ PLUS CHIC: halo suave detrás del icono (solo visual, no altera layout) */
+/* ✅ Decoración chic (solo iconos de servicios) */
 .service-box h3 i{
   position:relative;
   z-index:1;
@@ -1166,10 +1168,6 @@ footer#contacto{ position:relative; overflow:visible; }
   }
 }
 
-.reserva-premium{ padding: 16px 14px; border-radius: 18px; }
-  .reserva-premium-title{ font-size: 1.25em; }
-}
-
 /* === Reserva: tarjeta informativa (premium ligera) === */
 .reserva-info-card{
   background:
@@ -1234,7 +1232,6 @@ footer#contacto{ position:relative; overflow:visible; }
   .reserva-info-row{ gap:8px; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
-
 </style>
 </head>
 
@@ -1371,7 +1368,7 @@ footer#contacto{ position:relative; overflow:visible; }
     <div class="sub"></div>
   </div>
 
-  
+  <!-- ✅ TARJETA DE RESERVA (NO SE ELIMINA) -->
   <div class="reserva-info-card" aria-label="Información de reserva">
     <div class="reserva-info-lines">
       Consulta disponibilidad sin compromiso<br>
