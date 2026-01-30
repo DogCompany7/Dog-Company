@@ -521,21 +521,6 @@ section{
   gap:8px;
 }
 
-/* ✅ Decoración chic (solo iconos de servicios) */
-.service-box h3 i{
-  position:relative;
-  z-index:1;
-}
-.service-box h3 i::after{
-  content:"";
-  position:absolute;
-  inset:-6px;
-  border-radius:50%;
-  background: radial-gradient(circle at 30% 30%, rgba(245,194,35,0.55), rgba(123,108,246,0.35), transparent 70%);
-  z-index:-1;
-  filter: blur(2px);
-}
-
 .service-box p{ font-size:1em; margin-bottom:8px; }
 .precio-fijo{ font-weight:bold; text-decoration:underline; }
 .service-box.horario-box{
@@ -987,6 +972,13 @@ footer{
   .dogs-row img{
     width: min(560px, 96vw);
   }
+
+  /* ✅ Móvil: título de Servicios más pequeño y sin mayúsculas */
+  #servicios .section-title h2{
+    font-size: 1.55em;
+    text-transform: none;
+    letter-spacing: 0;
+  }
 }
 
 /* Estado menú móvil */
@@ -1347,7 +1339,7 @@ footer#contacto{ position:relative; overflow:visible; }
 <section id="servicios">
   <div class="section-title">
     <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
-    <h2>NUESTROS SERVICIOS</h2>
+    <h2>Nuestros Servicios</h2>
     <div class="line"></div>
     <div class="sub">Alojamiento de noche y guardería de día con atención real</div>
   </div>
