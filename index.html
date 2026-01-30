@@ -1108,8 +1108,10 @@ footer{
 
 
 
-/* === Perrito en el footer (derecha) === */
-/* PC: dentro del footer negro */
+
+
+
+/* === Perrito en el footer (derecha) — SOLO en la parte negra (PC + móvil) === */
 footer#contacto{ position:relative; overflow:visible; }
 .footer-dog{
   position:absolute;
@@ -1122,25 +1124,16 @@ footer#contacto{ position:relative; overflow:visible; }
   width:290px;
   height:auto;
   display:block;
-  transform: translateY(0);
+  transform: translateY(0%);
   filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
 }
 
-/* MÓVIL: fijo para poder subirlo realmente */
+/* ✅ MÓVIL (como te gustó): NO es fijo, queda dentro del footer */
 @media(max-width:768px){
-  body .footer-dog{
-    position: fixed !important;
-    right: 12px !important;
-    bottom: 360px !important;
-    z-index: 3000 !important;
-    pointer-events:none;
-  }
-  body .footer-dog img{
-    width: 210px !important;
-    height:auto !important;
-    display:block !important;
-    transform: translateY(0) !important;
-    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.28));
+  .footer-dog{ right:12px; bottom:48px; }
+  .footer-dog img{
+    width:190px;
+    transform: translateY(8%);
   }
 }
 
