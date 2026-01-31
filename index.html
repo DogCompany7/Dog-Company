@@ -1397,11 +1397,17 @@ footer#contacto{ position:relative; overflow:visible; }
 }
 
 
-/* ✅ Botón "volver arriba" (solo al final, centrado) */
+.footer-backtotop button{ width:50px; height:50px; border-radius:17px; }
+}
+
+
+/* ✅ Botón "volver arriba" centrado al final del footer (PC + móvil) */
 .footer-backtotop{
+  width:100%;
   display:flex;
   justify-content:center;
-  margin: 22px auto 6px auto;
+  align-items:center;
+  margin: 18px 0 6px 0;
 }
 .footer-backtotop button{
   width:52px;
@@ -1427,7 +1433,7 @@ footer#contacto{ position:relative; overflow:visible; }
   border-color: rgba(255,255,255,0.26);
 }
 @media(max-width:768px){
-  .footer-backtotop{ margin-top:18px; }
+  .footer-backtotop{ margin: 14px 0 4px 0; }
   .footer-backtotop button{ width:50px; height:50px; border-radius:17px; }
 }
 
@@ -1846,21 +1852,20 @@ footer#contacto{ position:relative; overflow:visible; }
         </div>
       </div>
     </div>
-
-
-    <div class="footer-backtotop" aria-label="Volver arriba">
-      <button id="backToTop" type="button" aria-label="Subir arriba">
-        <i class="fa-solid fa-arrow-up"></i>
-      </button>
-    </div>
-
-    <div class="footer-copy">
+<div class="footer-copy">
       © <span id="year"></span> Dog Company. Todos los derechos reservados.
     </div>
   </div>
 
   <div class="footer-dog" aria-hidden="true">
     <img src="./ChatGPT Image 29 ene 2026, 00_27_33.png" alt="">
+  </div>
+
+
+  <div class="footer-backtotop" aria-label="Volver arriba">
+    <button id="backToTop" type="button" aria-label="Subir arriba">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
   </div>
 
 </footer>
@@ -1940,9 +1945,17 @@ mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') docum
 });
 
 
-/* Volver arriba (botón en el footer) */
-document.getElementById('backToTop')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+/* Volver arriba (footer, centrado) */
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTopBtn = document.getElementById('backToTop');
+  if(backToTopBtn){
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    });
+  }
 });
 
 </script>
