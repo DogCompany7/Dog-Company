@@ -1337,6 +1337,28 @@ footer#contacto{ position:relative; overflow:visible; }
   }
 }
 
+
+/* ✅ AJUSTE ÚNICO EXTRA (MÓVIL): reducir MÁS la tarjeta del carrusel, su texto y las pills.
+   + resaltar "Ver servicios" en violeta (solo el texto del botón secundario) */
+@media(max-width:768px){
+  .hero-card{
+    width: min(220px, 78vw);
+    padding: 5px 5px 4px 5px;
+    max-height:none;
+    overflow:hidden;
+  }
+  .hero-badge{ font-size:0.62em; padding:3px 6px; margin-bottom:4px; }
+  .hero-card h1{ font-size:0.98em; }
+  .hero-card p{ font-size:0.72em; margin-bottom:4px; }
+  .trust-pill{ font-size:0.58em; padding:2px 5px; gap:4px; }
+  .hero-actions .btn{ font-size:0.74em; padding:5px 8px; }
+  /* "Ver servicios" (btn-secondary) con texto violeta para destacar */
+  .hero-actions .btn-secondary{
+    color: rgba(123,108,246,0.95);
+    border-color: rgba(123,108,246,0.45);
+  }
+}
+
 </style>
 </head>
 
