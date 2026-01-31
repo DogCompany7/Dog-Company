@@ -1382,6 +1382,63 @@ footer#contacto{ position:relative; overflow:visible; }
   }
 }
 
+
+/* ✅ AJUSTE ÚNICO (MÓVIL): reducir un pelín más las pills (Entorno seguro / Atención individual) */
+@media(max-width:768px){
+  .hero-card .trust-pill{
+    font-size:0.50em;
+    padding:2px 4px;
+    gap:4px;
+  }
+  .hero-card .trust-pill i{ font-size:0.95em; }
+}
+
+
+/* ✅ Botón "volver arriba" */
+.back-to-top{
+  position:fixed;
+  right:18px;
+  bottom:22px;
+  z-index:1200;
+  width:46px;
+  height:46px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.16);
+  cursor:pointer;
+  opacity:0;
+  transform: translateY(10px);
+  pointer-events:none;
+  transition: opacity .18s ease, transform .18s ease, background .18s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.back-to-top i{
+  font-size:1.05em;
+  color: rgba(123,108,246,0.95);
+}
+.back-to-top.show{
+  opacity:1;
+  transform: translateY(0);
+  pointer-events:auto;
+}
+.back-to-top:hover{
+  background: rgba(255,255,255,0.98);
+}
+@media(max-width:768px){
+  .back-to-top{
+    right:14px;
+    bottom:86px; /* evita solaparse con el botón WhatsApp */
+    width:44px;
+    height:44px;
+    border-radius:15px;
+  }
+}
+
 </style>
 </head>
 
@@ -1880,7 +1937,28 @@ const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
 menuBtn?.addEventListener('click', () => document.body.classList.toggle('mobile-open'));
 mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') document.body.classList.remove('mobile-open'); });
+
+/* Volver arriba */
+const backToTop = document.getElementById('backToTop');
+function toggleBackToTop(){
+  if(!backToTop) return;
+  if(window.scrollY > 600) backToTop.classList.add('show');
+  else backToTop.classList.remove('show');
+}
+window.addEventListener('scroll', toggleBackToTop, { passive:true });
+toggleBackToTop();
+
+backToTop?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 </script>
+
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="Volver arriba">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
 
 </body>
 </html>
