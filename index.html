@@ -1232,10 +1232,7 @@ footer#contacto{ position:relative; overflow:visible; }
   .reserva-info-chip{ width:100%; justify-content:center; }
 }
 
-/* ✅ PC: tarjeta del carrusel más pequeña y SIN barra de desplazamiento */
-@media(min-width:769px){
-  .hero-card{ margin-left:-60px; }
-  .hero-card{
+.hero-card{
     width: min(310px, 86vw);
     padding: 10px 10px 8px 10px;
     max-height: none;
@@ -1267,6 +1264,44 @@ footer#contacto{ position:relative; overflow:visible; }
   border:2px solid rgba(245,194,35,0.85);
   box-shadow: 0 6px 14px rgba(0,0,0,0.10);
   z-index:-1;
+}
+
+
+/* ✅ PC: tarjeta del carrusel más pequeña, sin desplazamiento y más a la izquierda */
+@media(min-width:769px){
+  .hero-content{
+    justify-content:flex-start;
+  }
+  .hero-card{
+    width: min(270px, 80vw);
+    padding: 8px 8px 6px 8px;
+    margin-left:-95px;
+    max-height:none;
+    overflow:hidden;
+  }
+  .hero-badge{
+    font-size:0.72em;
+    padding:4px 8px;
+    margin-bottom:5px;
+  }
+  .hero-card h1{ font-size:1.18em; }
+  .hero-card p{
+    font-size:0.82em;
+    margin-bottom:5px;
+  }
+  .trust-pill{
+    font-size:0.74em;
+    padding:3px 6px;
+    gap:6px;
+  }
+  .hero-actions .btn{
+    font-size:0.80em;
+    padding:6px 9px;
+  }
+  .scroll-hint{
+    font-size:0.76em;
+    margin-top:5px;
+  }
 }
 
 </style>
