@@ -1506,6 +1506,125 @@ footer#contacto::before{
   .reserva-form .ig-icon{ transition:none !important; }
 }
 
+
+
+/* ===== FAQ (Preguntas frecuentes) ===== */
+.faq-wrap{
+  max-width: 980px;
+  margin: 46px auto 0 auto;
+  border-radius: 24px;
+  padding: 22px 18px 18px 18px;
+  background:
+    radial-gradient(720px 280px at 18% 30%, rgba(245,194,35,0.16), transparent 60%),
+    radial-gradient(720px 280px at 82% 55%, rgba(123,108,246,0.12), transparent 60%),
+    rgba(255,255,255,0.96);
+  border: 1px solid rgba(123,108,246,0.12);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.07);
+  position: relative;
+  overflow:hidden;
+}
+.faq-wrap::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background: linear-gradient(90deg, rgba(245,194,35,0.0), rgba(245,194,35,0.95), rgba(245,194,35,0.0));
+  opacity:.9;
+}
+.faq-list{
+  margin-top: 14px;
+  display:grid;
+  gap:10px;
+}
+.faq-item{
+  border-radius:18px;
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.06);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding: 14px 14px;
+  background: transparent;
+  border:0;
+  cursor:pointer;
+  text-align:left;
+  font-family:inherit;
+}
+.faq-q .q-left{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  min-width:0;
+}
+.faq-q .q-ic{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(245,194,35,0.18);
+  border: 1px solid rgba(245,194,35,0.30);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+  flex:0 0 auto;
+}
+.faq-q .q-ic i{ color: rgba(123,108,246,0.95); }
+.faq-q .q-txt{
+  font-weight:900;
+  color:#1f1f1f;
+  line-height:1.25;
+}
+.faq-q .q-arrow{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.06);
+  flex:0 0 auto;
+  transition: transform .18s ease;
+}
+.faq-q .q-arrow i{ color:#444; }
+
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition: max-height .22s ease;
+}
+.faq-a-inner{
+  padding: 0 14px 14px 14px;
+  color:#444;
+  font-weight:700;
+  line-height:1.7;
+}
+.faq-a-inner ul{
+  margin: 10px 0 0 18px;
+}
+.faq-a-inner li{
+  margin: 6px 0;
+}
+.faq-item.open .faq-a{ max-height: 520px; }
+.faq-item.open .faq-q .q-arrow{ transform: rotate(180deg); }
+
+@media(max-width:768px){
+  .faq-wrap{ padding: 18px 14px 14px 14px; border-radius: 20px; }
+  .faq-q{ padding: 12px 12px; }
+  .faq-q .q-ic{ width:36px; height:36px; border-radius:13px; }
+  .faq-q .q-arrow{ width:36px; height:36px; border-radius:13px; }
+  .faq-q .q-txt{ font-size:0.98em; }
+}
+
 </style>
 </head>
 
@@ -1878,6 +1997,248 @@ footer#contacto::before{
       <div class="about-whisper">Porque tu perro no es un cliente. <strong>Es familia.</strong></div>
     </div>
   </div>
+
+  <div id="faq-footer">
+    <div class="section-title" style="margin-top:60px;">
+      <div class="badge"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+      <h2>Preguntas frecuentes</h2>
+      <div class="line"></div>
+      <div class="sub">Resolvemos las dudas más comunes antes de reservar</div>
+    </div>
+
+    <div class="faq-wrap" aria-label="Preguntas frecuentes">
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-house"></i></span>
+              <span class="q-txt">¿Los perros duermen en jaulas?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              No. No trabajamos con jaulas. Tu perro descansa en su camita/manta o en el sofá, en un entorno de casa y con calma, como si estuviera en su propio hogar.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-dog"></i></span>
+              <span class="q-txt">¿Cuántos perros hay al mismo tiempo?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Por bienestar y demanda, solemos trabajar con un máximo de 3 perritos:
+              <ul>
+                <li>3 pequeños, o</li>
+                <li>1 grande + 2 pequeños.</li>
+              </ul>
+              Siempre valoramos carácter, sociabilidad y compatibilidad. Priorizamos en todo momento la tranquilidad, seguridad y equilibrio del grupo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-suitcase"></i></span>
+              <span class="q-txt">¿Qué debo traer para su estancia?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Para que se sienta como en casa, recomendamos traer:
+              <ul>
+                <li>Su camita/manta (o lo que use habitualmente).</li>
+                <li>Cartilla veterinaria o pasaporte.</li>
+                <li>Premios/chuches y algún juguete que le guste.</li>
+                <li>Empapadores (si los utiliza).</li>
+                <li>Toallitas húmedas (patitas y zona íntima).</li>
+                <li>Su comida para toda la estancia.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-credit-card"></i></span>
+              <span class="q-txt">¿Cómo funciona la reserva?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Para confirmar fechas se abona el 50% del total por adelantado. El 50% restante se abona el día de la entrada.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-calendar-xmark"></i></span>
+              <span class="q-txt">¿Qué pasa si necesito cancelar?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <strong>Temporada baja:</strong> cancelación con mínimo 7 días de antelación para reembolso del 50%.<br>
+              <strong>Temporada alta y festivos:</strong> en caso de cancelación no se realizará reembolso.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-handshake"></i></span>
+              <span class="q-txt">¿Podemos conoceros antes o hacer una adaptación previa?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Seguimos un protocolo pensado para que la adaptación sea tranquila y segura antes de una estancia larga. En estos casos solicitamos una <strong>guardería de día</strong> o un <strong>alojamiento mínimo de 48h</strong> previo para que se habitúe al entorno, olores y a nosotras con calma, reduciendo el estrés en futuras estancias.<br><br>
+              El punto de encuentro es en la puerta principal de la estación de Renfe. Desde allí damos un paseo breve por la zona (entorno neutro) mientras nos contáis detalles y observamos su comportamiento. Después nosotras nos vamos con él a casa para que empiece a familiarizarse de forma progresiva.<br><br>
+              Por experiencia, preferimos que los dueños no suban a casa: cuando lo hacen, muchos perros se quedan pendientes de la puerta y les cuesta relajarse. Así el cambio suele ser más natural y rápido para ellos.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-heart-pulse"></i></span>
+              <span class="q-txt">¿Cuidáis de perritos mayores o con cuidados especiales?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Tenemos experiencia con perritos senior (13 a 20 años), incluso ciegos o sordos, y con administración de medicación cuando es necesario.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-camera"></i></span>
+              <span class="q-txt">¿Enviáis fotos y vídeos durante la estancia?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Nos gusta que estéis tranquilos y que veáis cómo está disfrutando de sus “vacaciones” con nosotras.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+              <span class="q-txt">¿Dónde estáis exactamente?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Estamos en Alicante Centro (España). Tras confirmar compatibilidad, os facilitaremos la ubicación exacta.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-regular fa-clock"></i></span>
+              <span class="q-txt">¿Hay horarios de entrada y recogida?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Nuestro horario es de 10:00h a 20:00h. Lo organizamos así para mantener la rutina y la calma en casa.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+              <span class="q-txt">¿Trabajáis en festivos y en verano?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí, pero son fechas de alta demanda y plazas muy limitadas. Recomendamos reservar con antelación.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-circle-check"></i></span>
+              <span class="q-txt">¿Cómo sé si vuestro servicio es adecuado para mi perro?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Si tu perro es sociable, equilibrado, se adapta bien a convivir en casa y disfruta de paseos tranquilos, este entorno encaja perfectamente. Ante cualquier duda, lo valoramos juntas antes de confirmar.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-bowl-food"></i></span>
+              <span class="q-txt">¿Podéis seguir sus rutinas de comida y paseo?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Nos adaptamos al máximo a sus rutinas de comida y paseos para que se sienta como en casa.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">
+            <span class="q-left">
+              <span class="q-ic" aria-hidden="true"><i class="fa-solid fa-drumstick-bite"></i></span>
+              <span class="q-txt">¿Aceptáis dietas especiales o BARF?</span>
+            </span>
+            <span class="q-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Sí. Estamos familiarizadas con dietas especiales y BARF, y nos encanta que los peludos disfruten de una buena alimentación.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <footer id="contacto">
@@ -2004,6 +2365,27 @@ const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
 menuBtn?.addEventListener('click', () => document.body.classList.toggle('mobile-open'));
 mobileNav?.addEventListener('click', (e) => { if(e.target.tagName === 'A') document.body.classList.remove('mobile-open'); });
+
+
+/* FAQ acordeón */
+document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item.open').forEach((openItem) => {
+      if(openItem !== item){
+        openItem.classList.remove('open');
+        const b = openItem.querySelector('.faq-q');
+        if(b) b.setAttribute('aria-expanded','false');
+      }
+    });
+
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+});
+
 </script>
 
 </body>
