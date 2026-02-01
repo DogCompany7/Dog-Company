@@ -1477,24 +1477,33 @@ footer#contacto::before{
 }
 
 
-/* ✨ Micro‑animación premium al hacer focus en los campos del formulario */
+/* ✨ Micro-animación premium al hacer focus en los campos del formulario (override final) */
 .reserva-form .input-group{
-  transition: box-shadow .18s ease, transform .12s ease, border-color .18s ease;
+  transition: box-shadow .18s ease, transform .12s ease, border-color .18s ease !important;
+  will-change: transform, box-shadow;
 }
 
 .reserva-form .input-group:focus-within{
-  box-shadow: 0 8px 22px rgba(123,108,246,0.18);
-  transform: translateY(-2px);
-  border-color: rgba(123,108,246,0.55);
+  box-shadow: 0 10px 26px rgba(123,108,246,0.20) !important;
+  transform: translateY(-2px) !important;
+  border-color: rgba(123,108,246,0.60) !important;
 }
 
+/* Icono reacciona al focus */
 .reserva-form .ig-icon{
-  transition: background .18s ease, color .18s ease;
+  transition: background .18s ease, color .18s ease !important;
 }
 
 .reserva-form .input-group:focus-within .ig-icon{
-  background: rgba(123,108,246,0.12);
-  color: rgba(123,108,246,0.95);
+  background: rgba(123,108,246,0.12) !important;
+  color: rgba(123,108,246,0.95) !important;
+}
+
+/* Accesibilidad: respeta reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .reserva-form .input-group{ transition:none !important; }
+  .reserva-form .input-group:focus-within{ transform:none !important; }
+  .reserva-form .ig-icon{ transition:none !important; }
 }
 
 </style>
