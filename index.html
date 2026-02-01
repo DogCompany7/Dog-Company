@@ -1625,6 +1625,64 @@ footer#contacto::before{
   .faq-q .q-txt{ font-size:0.98em; }
 }
 
+
+
+/* Insignia flotante en Servicios (arriba derecha ajustada) */
+#servicios{ position: relative; }
+
+.insignia-servicios-float{
+  position:absolute;
+  top: 18px;
+  right: 160px;   /* más hacia la izquierda */
+  z-index: 6;
+  pointer-events:none;
+}
+
+.insignia-servicios-float img{
+  width: 200px;  /* más grande */
+  max-width: 45vw;
+  height:auto;
+  filter: drop-shadow(0 14px 34px rgba(0,0,0,0.22));
+}
+
+@media(max-width:768px){
+  .insignia-servicios-float{
+    top: 12px;
+    right: 24px;
+  }
+  .insignia-servicios-float img{
+    width: 140px;
+    max-width: 55vw;
+  }
+}
+
+
+.insignia-servicios-float{
+  position:absolute;
+  top: 18px;
+  right: 160px;
+  z-index: 6;
+  pointer-events:none;
+}
+
+.insignia-servicios-float img{
+  width: 140px;
+  max-width: 38vw;
+  height:auto;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.18));
+}
+
+@media(max-width:768px){
+  .insignia-servicios-float{
+    top: 12px;
+    right: 12px;
+  }
+  .insignia-servicios-float img{
+    width: 108px;
+    max-width: 42vw;
+  }
+}
+
 </style>
 </head>
 
@@ -1737,6 +1795,11 @@ footer#contacto::before{
 </section>
 
 <section id="servicios">
+
+  <div class="insignia-servicios-float" aria-hidden="true">
+    <img src="./ChatGPT%20Image%201%20feb%202026,%2019_32_54.png" alt="Quality · 10+ años de experiencia">
+  </div>
+
   <div class="section-title">
     <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
     <h2>Nuestros Servicios</h2>
