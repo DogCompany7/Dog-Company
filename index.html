@@ -1404,6 +1404,21 @@ footer#contacto{ position:relative; overflow:visible; }
   .hero-card .trust-pill i{ font-size:0.98em; }
 }
 
+
+/* Línea decorativa premium arriba del footer */
+footer#contacto::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:3px;
+  border-radius:999px;
+  background: linear-gradient(90deg, transparent, #F5C223, transparent);
+  opacity:.75;
+}
+
 </style>
 </head>
 
@@ -1784,7 +1799,7 @@ footer#contacto{ position:relative; overflow:visible; }
     <div class="footer-grid">
       <div>
         <div class="footer-title"><i class="fa-solid fa-location-dot"></i> Ubicación</div>
-        <div class="footer-muted">Alicante Centro</div>
+        <div class="footer-muted">Alicante Centro (España)</div>
 
         <div class="footer-map">
           <a href="https://www.google.com/maps?q=Estación+de+Renfe+Alicante,+Avenida+Salamanca+1" target="_blank" rel="noopener" aria-label="Abrir ubicación en Google Maps">
