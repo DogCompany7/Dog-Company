@@ -1629,8 +1629,34 @@ footer#contacto::before{
 
 
 
-/* Insignia flotante en Servicios (tamaño máximo visible) */
+
+/* Insignia flotante en Servicios (posición mantenida, tamaño equilibrado) */
 #servicios{ position: relative; }
+
+.insignia-servicios-float{
+  position:absolute;
+  top: 18px;
+  right: 240px;   /* misma posición que te gustaba */
+  z-index: 6;
+  pointer-events:none;
+}
+
+.insignia-servicios-float img{
+  width: 260px;   /* un poco más grande que al principio */
+  height: auto;
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,0.28));
+}
+
+@media(max-width:768px){
+  .insignia-servicios-float{
+    top: 12px;
+    right: 28px;
+  }
+  .insignia-servicios-float img{
+    width: 160px;   /* móvil proporcionado */
+  }
+}
+
 
 .insignia-servicios-float{
   position:absolute;
