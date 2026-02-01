@@ -1629,8 +1629,36 @@ footer#contacto::before{
 
 
 
-/* Insignia flotante en Servicios (más grande en PC y móvil) */
+
+/* Insignia flotante en Servicios (tamaño máximo visible) */
 #servicios{ position: relative; }
+
+.insignia-servicios-float{
+  position:absolute;
+  top: 18px;
+  right: 240px;
+  z-index: 6;
+  pointer-events:none;
+}
+
+.insignia-servicios-float img{
+  width: 420px;   /* MUY GRANDE PC */
+  max-width: 80vw;
+  height:auto;
+  filter: drop-shadow(0 20px 48px rgba(0,0,0,0.30));
+}
+
+@media(max-width:768px){
+  .insignia-servicios-float{
+    top: 12px;
+    right: 28px;
+  }
+  .insignia-servicios-float img{
+    width: 260px;   /* MUY GRANDE MÓVIL */
+    max-width: 90vw;
+  }
+}
+
 
 .insignia-servicios-float{
   position:absolute;
