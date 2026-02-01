@@ -1626,35 +1626,31 @@ footer#contacto::before{
 }
 
 
-/* Insignia experiencia en servicios */
-.badge-experiencia-servicios{
-  text-align:center;
-  margin-bottom:18px;
-}
-.badge-experiencia-servicios img{
-  width:120px;
-  max-width:40%;
-  height:auto;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.15));
+/* Insignia flotante en Servicios (arriba derecha) */
+.services-section{
+  position: relative;
 }
 
+.insignia-servicios-float{
+  position: absolute;
+  top: -20px;
+  right: 40px;
+  z-index: 5;
+}
 
-/* Insignia experiencia en Servicios (sobre Horarios) */
-.badge-experiencia-servicios{
-  display:flex;
-  justify-content:center;
-  margin: 4px 0 14px 0;
+.insignia-servicios-float img{
+  width: 150px;
+  height: auto;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,0.18));
 }
-.badge-experiencia-servicios img{
-  width:120px;
-  height:auto;
-  max-width: 55%;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.15));
-}
+
 @media(max-width:768px){
-  .badge-experiencia-servicios img{
-    width:110px;
-    max-width: 60%;
+  .insignia-servicios-float{
+    top: -10px;
+    right: 10px;
+  }
+  .insignia-servicios-float img{
+    width: 110px;
   }
 }
 
@@ -1728,7 +1724,7 @@ footer#contacto::before{
 
   <div class="hero-content">
     <div class="hero-card">
-      <div class="hero-badge">Residencia canina · 🏅 10+ años de experiencia</div>
+      <div class="hero-badge">Residencia canina</div>
       <h1>Dog Company</h1>
       <p>Cuidado personalizado, entorno tranquilo y atención como en casa</p>
 
@@ -1736,7 +1732,6 @@ footer#contacto::before{
         <span class="trust-pill"><i class="fa-solid fa-heart"></i> Trato familiar</span>
         <span class="trust-pill"><i class="fa-solid fa-shield-dog"></i> Entorno seguro</span>
         <span class="trust-pill"><i class="fa-solid fa-person-circle-check"></i> Atención individual</span>
-        <span class="trust-pill"><i class="fa-solid fa-award"></i> 10+ años de experiencia</span>
       </div>
 
       <div class="hero-actions">
@@ -1769,7 +1764,11 @@ footer#contacto::before{
   </div>
 </section>
 
-<section id="servicios">
+<section id="servicios"
+  <div class="insignia-servicios-float">
+    <img src="./ChatGPT%20Image%201%20feb%202026,%2019_32_54.png" alt="10 años de experiencia">
+  </div>
+>
   <div class="section-title">
     <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
     <h2>Nuestros Servicios</h2>
@@ -1792,10 +1791,6 @@ footer#contacto::before{
     </div>
 
     <div class="service-box horario-box">
-
-      <div class="badge-experiencia-servicios" aria-hidden="true">
-        <img src="./ChatGPT%20Image%201%20feb%202026,%2019_32_54.png" alt="Quality · 10+ años de experiencia">
-      </div>
       <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
       <p class="horarios">
         Atención al cliente<br>
@@ -1988,7 +1983,7 @@ footer#contacto::before{
           <h3 class="about-title">Más que una residencia. Un hogar consciente para tu perro.</h3>
 
           <p class="about-text">
-            En <strong>Dog Company</strong>, con más de 10 años de experiencia cuidando perros, acompañamos a cada uno desde la presencia, el respeto y el cariño real.
+            En <strong>Dog Company</strong> acompañamos a cada perro desde la presencia, el respeto y el cariño real.
             No creemos en el cuidado en serie, sino en vínculos auténticos, ritmos respetados y entornos tranquilos
             donde cada perro puede sentirse seguro y en casa.
           </p>
