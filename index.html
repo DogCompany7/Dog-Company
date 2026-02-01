@@ -1419,6 +1419,63 @@ footer#contacto::before{
   opacity:.75;
 }
 
+
+/* ✅ Formulario: estilo con icono lateral (tipo "input-group") */
+.reserva-form .input-group{
+  display:flex;
+  align-items:stretch;
+  border:1px solid rgba(0,0,0,0.16);
+  border-radius:12px;
+  overflow:hidden;
+  background: rgba(255,255,255,0.98);
+}
+.reserva-form .ig-icon{
+  width:46px;
+  min-width:46px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.04);
+  border-right:1px solid rgba(0,0,0,0.10);
+  color:#666;
+}
+.reserva-form .ig-icon i{ font-size:1em; }
+
+/* Evitar doble borde: el borde lo gestiona .input-group */
+.reserva-form .input-group input,
+.reserva-form .input-group select,
+.reserva-form .input-group textarea{
+  border:0 !important;
+  outline:0;
+  border-radius:0;
+  width:100%;
+  padding:12px;
+  font-size:1em;
+  font-family:inherit;
+  background: transparent;
+}
+.reserva-form .input-group textarea{ min-height:90px; resize:vertical; }
+
+/* Focus premium */
+.reserva-form .input-group:focus-within{
+  outline: 3px solid rgba(123,108,246,0.18);
+  border-color: rgba(123,108,246,0.45);
+}
+
+/* Icono alineado arriba para textarea */
+.reserva-form .ig-icon.textarea{
+  align-items:flex-start;
+  padding-top:12px;
+}
+
+/* Select: mantener caret visible */
+.reserva-form .input-group select{ background: transparent; }
+
+/* Móvil: compacto */
+@media(max-width:768px){
+  .reserva-form .ig-icon{ width:44px; min-width:44px; }
+}
+
 </style>
 </head>
 
@@ -1587,20 +1644,20 @@ footer#contacto::before{
   </div>
 
   <form id="reservaForm" class="reserva-form">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-user"></i></span><input type="text" name="nombre" placeholder="Tu nombre" required></div>
 
-    <select name="numPerros" required>
+    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-dog"></i></span><select name="numPerros" required>
       <option value="" disabled selected>Número de perros</option>
       <option value="1">1 perro</option>
       <option value="2">2 perros</option>
       <option value="3">3 perros</option>
       <option value="4">4 perros</option>
       <option value="5+">5 o más</option>
-    </select>
+    </select></div>
 
-    <input type="text" name="raza" placeholder="Raza de tu perro" required>
+    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span><input type="text" name="raza" placeholder="Raza de tu perro" required></div>
 
-    <select name="peso" required>
+    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-weight-hanging"></i></span><select name="peso" required>
       <option value="" disabled selected>Peso de tu perro</option>
       <option value="0.5-5kg">0.5kg – 5kg</option>
       <option value="5-10kg">5kg – 10kg</option>
@@ -1612,23 +1669,23 @@ footer#contacto::before{
       <option value="35-40kg">35kg – 40kg</option>
       <option value="40-45kg">40kg – 45kg</option>
       <option value="45kg+">Más de 45kg</option>
-    </select>
+    </select></div></div>
 
-    <textarea name="descripcion" placeholder="Descripción de tu perro (carácter, necesidades, sociabilidad...)" required></textarea>
+    <div class="input-group"><span class="ig-icon textarea" aria-hidden="true"><i class="fa-solid fa-note-sticky"></i></span><textarea name="descripcion" placeholder="Descripción de tu perro (carácter, necesidades, sociabilidad...)" required></textarea></div>
 
-    <select name="servicio" required>
+    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></span><select name="servicio" required>
       <option value="" disabled selected>Selecciona servicio</option>
       <option value="Alojamiento Noche">Alojamiento de noche</option>
       <option value="Guardería de Día">Guardería de día</option>
-    </select>
+    </select></div>
 
     <div class="form-grid-2">
       <div class="field">
         <div class="field-label"><i class="fa-regular fa-calendar-check"></i> Check-in</div>
-        <input type="date" name="entrada" required aria-label="Fecha de entrada (Check-in)">
+        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-calendar-check"></i></span><input type="date" name="entrada" required aria-label="Fecha de entrada (Check-in)"></div>
 
         <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de check-in</div>
-        <select name="horaEntrada" required aria-label="Hora de check-in">
+        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span><select name="horaEntrada" required aria-label="Hora de check-in">
           <option value="" disabled selected>Selecciona hora</option>
           <option>10:00</option><option>10:30</option>
           <option>11:00</option><option>11:30</option>
@@ -1641,15 +1698,15 @@ footer#contacto::before{
           <option>18:00</option><option>18:30</option>
           <option>19:00</option><option>19:30</option>
           <option>20:00</option>
-        </select>
+        </select></div>
       </div>
 
       <div class="field">
         <div class="field-label"><i class="fa-regular fa-calendar-xmark"></i> Check-out</div>
-        <input type="date" name="salida" required aria-label="Fecha de salida (Check-out)">
+        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-calendar-xmark"></i></span><input type="date" name="salida" required aria-label="Fecha de salida (Check-out)"></div>
 
         <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de check-out</div>
-        <select name="horaSalida" required aria-label="Hora de check-out">
+        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span><select name="horaSalida" required aria-label="Hora de check-out">
           <option value="" disabled selected>Selecciona hora</option>
           <option>10:00</option><option>10:30</option>
           <option>11:00</option><option>11:30</option>
@@ -1662,7 +1719,7 @@ footer#contacto::before{
           <option>18:00</option><option>18:30</option>
           <option>19:00</option><option>19:30</option>
           <option>20:00</option>
-        </select>
+        </select></div>
 
         <div class="field-note">Horario de atención: 10:00 a 20:00</div>
       </div>
