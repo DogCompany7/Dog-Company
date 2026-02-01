@@ -1638,6 +1638,26 @@ footer#contacto::before{
   filter: drop-shadow(0 8px 18px rgba(0,0,0,0.15));
 }
 
+
+/* Insignia experiencia en Servicios (sobre Horarios) */
+.badge-experiencia-servicios{
+  display:flex;
+  justify-content:center;
+  margin: 4px 0 14px 0;
+}
+.badge-experiencia-servicios img{
+  width:120px;
+  height:auto;
+  max-width: 55%;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.15));
+}
+@media(max-width:768px){
+  .badge-experiencia-servicios img{
+    width:110px;
+    max-width: 60%;
+  }
+}
+
 </style>
 </head>
 
@@ -1772,6 +1792,10 @@ footer#contacto::before{
     </div>
 
     <div class="service-box horario-box">
+
+      <div class="badge-experiencia-servicios" aria-hidden="true">
+        <img src="./ChatGPT%20Image%201%20feb%202026,%2019_32_54.png" alt="Quality · 10+ años de experiencia">
+      </div>
       <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
       <p class="horarios">
         Atención al cliente<br>
