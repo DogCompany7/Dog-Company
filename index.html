@@ -1476,6 +1476,27 @@ footer#contacto::before{
   .reserva-form .ig-icon{ width:44px; min-width:44px; }
 }
 
+
+/* ✨ Micro‑animación premium al hacer focus en los campos del formulario */
+.reserva-form .input-group{
+  transition: box-shadow .18s ease, transform .12s ease, border-color .18s ease;
+}
+
+.reserva-form .input-group:focus-within{
+  box-shadow: 0 8px 22px rgba(123,108,246,0.18);
+  transform: translateY(-2px);
+  border-color: rgba(123,108,246,0.55);
+}
+
+.reserva-form .ig-icon{
+  transition: background .18s ease, color .18s ease;
+}
+
+.reserva-form .input-group:focus-within .ig-icon{
+  background: rgba(123,108,246,0.12);
+  color: rgba(123,108,246,0.95);
+}
+
 </style>
 </head>
 
