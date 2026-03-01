@@ -1700,49 +1700,143 @@ footer#contacto::before{
     linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,246,201,0.70));
   border: 1px solid rgba(245,194,35,0.75) !important;
   box-shadow: 0 22px 54px rgba(0,0,0,0.14) !important;
+  border-radius: 22px;
+  overflow: visible;
 }
 
+/* línea vertical degradada (como referencia) */
 .premium-exclusive::before{
-  background: linear-gradient(180deg, rgba(245,194,35,0.98), rgba(123,108,246,0.88)) !important;
-  opacity: .95 !important;
+  content:"";
+  position:absolute;
+  left: 18px;
+  top: 22px;
+  bottom: 22px;
+  width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(245,194,35,0.98), rgba(123,108,246,0.88));
+  opacity: .95;
 }
 
-.premium-exclusive .premium-crown{
+/* Etiqueta negra elegante */
+.premium-exclusive .premium-ribbon{
+  position:absolute;
+  top: -20px;
+  left: 32px;
+  background: linear-gradient(180deg,#1a1a1a,#000);
+  color:#fff;
+  padding: 16px 26px;
+  border-radius: 14px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.10);
+  z-index: 2;
+}
+.premium-exclusive .premium-ribbon:after{
+  content:"";
+  position:absolute;
+  left: 22px;
+  bottom: -12px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #000;
+  filter: drop-shadow(0 12px 14px rgba(0,0,0,0.18));
+}
+
+/* Pastilla blanca +20 (arriba derecha) */
+.premium-exclusive .premium-price-pill{
   position:absolute;
   top:-18px;
-  right:18px;
-  width:52px;
-  height:52px;
-  border-radius:18px;
+  right: 26px;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 800;
+  display:flex;
+  gap: 10px;
+  align-items:center;
+  box-shadow: 0 18px 38px rgba(0,0,0,0.14);
+  z-index: 2;
+}
+.premium-exclusive .premium-price-pill strong{
+  font-weight: 900;
+}
+.premium-exclusive .premium-price-pill span{
+  font-weight: 600;
+  color:#333;
+}
+
+/* Título y corona centrados */
+.premium-exclusive h3{
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  margin: 16px 0 10px;
+  text-align:center;
+}
+.premium-exclusive .premium-crown-center{
+  display:flex;
+  justify-content:center;
+  margin: 6px 0 18px;
+}
+.premium-exclusive .premium-crown-center i{
+  color:#d4af37;
+  font-size: 28px;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,0.08));
+}
+
+/* Texto y lista */
+.premium-exclusive .premium-desc{
+  max-width: 720px;
+  margin: 0 auto 20px;
+  text-align:center;
+  font-size: 18px;
+  line-height: 1.6;
+  color:#2a2a2a;
+}
+.premium-exclusive .premium-list{
+  list-style:none;
+  padding:0;
+  margin: 18px auto 18px;
+  max-width: 620px;
+}
+.premium-exclusive .premium-list li{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  margin: 14px 0;
+  font-weight: 700;
+  color:#222;
+  justify-content:flex-start;
+}
+.premium-exclusive .premium-list .check{
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background: rgba(245,194,35,0.95);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+  background:#f5c223;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+  flex: 0 0 26px;
 }
-
-.premium-exclusive .premium-crown i{
+.premium-exclusive .premium-list .check i{
   color:#111;
-  font-size:1.35em;
+  font-size: 13px;
 }
 
-.premium-price{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 7px 10px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
-  font-weight:900;
+/* Nota final */
+.premium-exclusive .premium-note{
+  text-align:center;
+  font-style: italic;
+  color:#555;
+  margin-top: 10px;
 }
 
-.premium-note{
-  font-weight:800;
-  color:#333;
-}
 
 @media(max-width:768px){
   .premium-exclusive .premium-crown{
@@ -1762,196 +1856,6 @@ footer#contacto::before{
 }
 #servicios .section-title .sub{
   text-align:center;
-}
-
-
-
-/* =======================
-   SERVICIO PREMIUM (OVERRIDE)
-   ======================= */
-
-#premium{
-  padding: 110px 20px;
-  text-align: center;
-}
-
-.premium-badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background: linear-gradient(135deg, #F5C223 0%, #E2AB00 100%);
-  color:#111;
-  padding: 12px 34px;
-  border-radius: 999px;
-  font-weight: 800;
-  letter-spacing: 3px;
-  font-size: 13px;
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
-  margin: 0 auto 22px;
-}
-
-.premium-title{
-  font-family: 'Playfair Display', serif;
-  font-size: 54px;
-  margin: 0 0 14px;
-}
-
-.premium-subtitle{
-  font-size: 18px;
-  color: #666;
-  margin: 0 0 56px;
-}
-
-.premium-card{
-  max-width: 980px;
-  margin: 0 auto;
-  background: radial-gradient(1200px 500px at 30% 20%, rgba(245,194,35,.18), rgba(255,255,255,0)) ,
-              linear-gradient(135deg,#fffdf5,#f3ecd2);
-  border: 2px solid rgba(240,215,122,.95);
-  border-radius: 24px;
-  padding: 64px 54px 44px;
-  position: relative;
-  box-shadow: 0 18px 50px rgba(0,0,0,.10);
-}
-
-/* Etiqueta negra elegante estilo referencia */
-.premium-ribbon{
-  position:absolute;
-  top: -18px;
-  left: 28px;
-  background: linear-gradient(180deg, #151515 0%, #0b0b0b 100%);
-  color:#fff;
-  padding: 14px 22px;
-  border-radius: 12px;
-  font-family: 'Playfair Display', serif;
-  letter-spacing: 2px;
-  font-size: 13px;
-  text-transform: uppercase;
-  box-shadow: 0 14px 28px rgba(0,0,0,.28);
-  border: 1px solid rgba(255,255,255,.10);
-}
-.premium-ribbon:after{
-  content:"";
-  position:absolute;
-  left: 18px;
-  bottom: -10px;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid #0b0b0b;
-  filter: drop-shadow(0 10px 10px rgba(0,0,0,.18));
-}
-
-/* Corona en esquina (sin perder elegancia) */
-.premium-corner-crown{
-  position:absolute;
-  top: -18px;
-  right: 26px;
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
-  background: linear-gradient(135deg,#F5C223,#E2AB00);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow: 0 14px 28px rgba(0,0,0,.16);
-}
-.premium-corner-crown i{
-  color:#111;
-  font-size: 20px;
-}
-
-.premium-heading{
-  font-family:'Playfair Display', serif;
-  font-size: 42px;
-  margin: 0 0 16px;
-}
-
-/* Precio centrado + diamante elegante */
-.premium-price{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap: 12px;
-  margin: 12px 0 24px;
-  font-weight: 800;
-  font-size: 20px;
-  color:#111;
-}
-
-.premium-diamond{
-  width: 16px;
-  height: 16px;
-  display:inline-block;
-  transform: rotate(45deg);
-  background: radial-gradient(circle at 30% 30%, #ffffff 0 22%, rgba(255,255,255,.0) 23%),
-              linear-gradient(135deg, #111 0%, #2b2b2b 55%, #0b0b0b 100%);
-  border: 1px solid rgba(255,255,255,.35);
-  box-shadow: 0 10px 20px rgba(0,0,0,.18);
-  border-radius: 3px;
-  position: relative;
-}
-.premium-diamond:before{
-  content:"";
-  position:absolute;
-  inset: 3px;
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: 2px;
-}
-
-.premium-description{
-  max-width: 780px;
-  margin: 0 auto 26px;
-  font-size: 18px;
-  color:#2a2a2a;
-  line-height: 1.55;
-}
-
-/* Checks centrados */
-.premium-list{
-  list-style:none;
-  padding:0;
-  margin: 0 auto 22px;
-  max-width: 760px;
-  display:flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.premium-list li{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap: 12px;
-  font-size: 17px;
-  font-weight: 700;
-  color:#1f1f1f;
-  text-align:center;
-}
-
-.premium-check{
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(245,194,35,.95);
-  box-shadow: 0 12px 22px rgba(0,0,0,.10);
-  flex: 0 0 26px;
-}
-
-.premium-check i{
-  color:#111;
-  font-size: 13px;
-}
-
-.premium-note{
-  margin: 14px 0 0;
-  font-size: 15px;
-  color:#555;
-  font-style: italic;
 }
 
 </style>
@@ -2072,46 +1976,78 @@ footer#contacto::before{
     <img src="./ChatGPT%20Image%201%20feb%202026,%2019_32_54.png" alt="Quality · 10+ años de experiencia">
   </div>
 
-  <section id="premium">
-  <div class="section-title" style="margin-top:46px;">
-    <div class="premium-badge">PREMIUM</div>
-    <h2 class="premium-title">Servicio Premium</h2>
+  <div class="section-title">
+    <div class="badge"><i class="fa-solid fa-paw"></i> SERVICIOS</div>
+    <h2>Nuestros Servicios</h2>
     <div class="line"></div>
-    <div class="premium-subtitle">Máxima tranquilidad · Atención 100% personalizada</div>
+    <div class="sub">Alojamiento de noche y guardería de día con atención real</div>
   </div>
 
-  <div class="services" style="margin-top:22px;">
-    <div class="premium-card">
-      <div class="premium-ribbon">EXPERIENCIA EXCLUSIVA</div>
-      <div class="premium-corner-crown" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
+  <div class="services">
+    <div class="service-box">
+      <h3><i class="fa-solid fa-bed"></i> Alojamiento Noche</h3>
+      <p>Perro adulto: <strong>24€ / noche</strong></p>
+      <p>Cachorros 1-12 meses y <strong>perros con cuidados especiales</strong>: <strong>26€ / noche</strong></p>
+    </div>
 
-      <h3 class="premium-heading">Exclusividad Absoluta</h3>
+    <div class="service-box">
+      <h3><i class="fa-solid fa-sun"></i> Guardería de Día</h3>
+      <p>Perro adulto: <strong>22€</strong></p>
+      <p>Cachorros 1-12 meses y <strong>perros con cuidados especiales</strong>: <strong>24€</strong></p>
+      <p class="precio-fijo">Precio fijo hasta 6 horas</p>
+    </div>
 
-      <div class="premium-price">
-        <span class="premium-diamond" aria-hidden="true"></span>
-        <span>20€ / noche</span>
-      </div>
-
-      <p class="premium-description">
-        Una experiencia diseñada para perritos sensibles, mayores o que simplemente sus tutores quieren una estancia privada y exclusiva.
-      </p>
-
-      <ul class="premium-list">
-        <li><span class="premium-check"><i class="fa-solid fa-check"></i></span> Estancia completamente privada</li>
-        <li><span class="premium-check"><i class="fa-solid fa-check"></i></span> Máxima calma y estabilidad</li>
-        <li><span class="premium-check"><i class="fa-solid fa-check"></i></span> Rutinas adaptadas al bienestar de cada perrito</li>
-        <li><span class="premium-check"><i class="fa-solid fa-check"></i></span> Actualizaciones diarias con fotos y vídeos</li>
-      </ul>
-
-      <p class="premium-note">
-        Al implicar bloqueo total de la agenda, esta modalidad tiene una tarifa distinta a la estándar.
+    <div class="service-box horario-box">
+      <h3><i class="fa-regular fa-clock"></i> Horarios</h3>
+      <p class="horarios">
+        Atención al cliente<br>
+        10:00h a 20:00h · Lunes a Domingo<br><br>
+        Entradas y salidas de reservas<br>
+        10:00h a 20:00h
       </p>
     </div>
   </div>
-</section>
+  <div class="section-title" style="margin-top:46px;">
+    <div class="badge"><i class="fa-solid fa-crown"></i> SERVICIO PREMIUM</div>
+    <h2>Servicio Premium Exclusivo</h2>
+    <div class="line"></div>
+    <div class="sub">Máxima tranquilidad · Atención 100% personalizada</div>
+  </div>
 
+  <div class="services" style="margin-top:22px;">
+    <div class="service-box premium-exclusive" style="flex:1 1 100%; max-width:900px; margin:0 auto;">
 
-  <div class="section-title" style="margin-top:60px;">
+  <div class="premium-ribbon">EXPERIENCIA EXCLUSIVA</div>
+
+  <div class="premium-price-pill">
+    <strong>+ 20€ / noche</strong>
+    <span>Exclusividad total garantizada</span>
+  </div>
+
+  <h3>Exclusividad Absoluta</h3>
+
+  <div class="premium-crown-center" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
+
+  <p class="premium-desc">
+    Una experiencia diseñada para perritos <strong>sensibles</strong>, <strong>mayores</strong> o que simplemente sus tutores
+    quieren una estancia privada y exclusiva.
+  </p>
+
+  <ul class="premium-list">
+    <li><span class="check"><i class="fa-solid fa-check"></i></span> Estancia completamente privada</li>
+    <li><span class="check"><i class="fa-solid fa-check"></i></span> Máxima calma y estabilidad</li>
+    <li><span class="check"><i class="fa-solid fa-check"></i></span> Rutinas adaptadas al bienestar de cada perrito</li>
+    <li><span class="check"><i class="fa-solid fa-check"></i></span> Actualizaciones diarias con fotos y vídeos</li>
+  </ul>
+
+  <p class="premium-note">
+    Al implicar bloqueo total de la agenda, esta modalidad tiene una tarifa distinta a la estándar.
+  </p>
+
+</div>
+</div>
+
+<div class="section-title" style="margin-top:60px;">
     <div class="badge"><i class="fa-solid fa-calendar-check"></i> RESERVA</div>
     <h2>Haz tu reserva</h2>
     <div class="line"></div>
