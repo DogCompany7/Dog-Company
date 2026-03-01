@@ -1691,70 +1691,175 @@ footer#contacto::before{
 }
 
 
-/* ===== Servicio Premium Exclusivo (destacado) ===== */
-.premium-exclusive{
+/* ===== Servicio Premium Exclusivo (visual) ===== */
+.premium-wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+
+.premium-card{
   position:relative;
+  width:100%;
+  border-radius: 26px;
+  padding: 34px 22px 22px 22px;
   background:
-    radial-gradient(720px 280px at 18% 30%, rgba(245,194,35,0.22), transparent 60%),
-    radial-gradient(720px 280px at 82% 55%, rgba(123,108,246,0.16), transparent 60%),
+    radial-gradient(880px 320px at 15% 18%, rgba(245,194,35,0.20), transparent 62%),
+    radial-gradient(880px 320px at 85% 52%, rgba(123,108,246,0.14), transparent 62%),
     linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,246,201,0.70));
-  border: 1px solid rgba(245,194,35,0.75) !important;
-  box-shadow: 0 22px 54px rgba(0,0,0,0.14) !important;
+  border: 2px solid rgba(245,194,35,0.55);
+  box-shadow: 0 22px 54px rgba(0,0,0,0.14);
+  overflow:hidden;
 }
 
-.premium-exclusive::before{
-  background: linear-gradient(180deg, rgba(245,194,35,0.98), rgba(123,108,246,0.88)) !important;
-  opacity: .95 !important;
-}
-
-.premium-exclusive .premium-crown{
+.premium-card::before{
+  content:"";
   position:absolute;
-  top:-18px;
+  inset: 14px 14px 14px 14px;
+  border-radius: 22px;
+  border: 1px solid rgba(245,194,35,0.35);
+  pointer-events:none;
+}
+
+.premium-top{
+  position:absolute;
+  left:18px;
   right:18px;
-  width:52px;
-  height:52px;
-  border-radius:18px;
+  top:14px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  pointer-events:none;
+}
+
+.premium-ribbon{
+  pointer-events:none;
   display:flex;
   align-items:center;
   justify-content:center;
-  background: rgba(245,194,35,0.95);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+  text-align:center;
+  padding: 10px 14px;
+  border-radius: 16px 16px 18px 18px;
+  background: linear-gradient(180deg, rgba(25,25,25,0.92), rgba(10,10,10,0.92));
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+  font-family:'Merriweather', serif;
+  line-height:1.05;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+  border: 1px solid rgba(245,194,35,0.45);
 }
 
-.premium-exclusive .premium-crown i{
-  color:#111;
-  font-size:1.35em;
-}
-
-.premium-price{
+.premium-pill{
+  pointer-events:none;
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding: 7px 10px;
+  padding: 10px 14px;
   border-radius:999px;
-  background: rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.82);
   border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
   font-weight:900;
+  color:#1f1f1f;
+  white-space:nowrap;
 }
 
-.premium-note{
-  font-weight:800;
-  color:#333;
+.premium-pill .plus{
+  color:#111;
+}
+
+.premium-title{
+  margin-top: 28px;
+  text-align:center;
+  font-family:'Playfair Display', serif;
+  font-size: 2.2em;
+  color:#1f1f1f;
+  letter-spacing:.2px;
+  line-height:1.05;
+}
+
+.premium-title .crown{
+  display:block;
+  margin: 8px auto 0 auto;
+  color: rgba(245,194,35,0.95);
+  font-size: 1.05em;
+}
+
+.premium-desc{
+  margin: 14px auto 0 auto;
+  max-width: 72ch;
+  text-align:center;
+  color:#444;
+  font-weight:700;
+  line-height:1.75;
+}
+
+.premium-list{
+  margin: 18px auto 0 auto;
+  max-width: 640px;
+  list-style:none;
+  display:grid;
+  gap:10px;
+  padding:0;
+}
+
+.premium-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-weight:900;
+  color:#1f1f1f;
+}
+
+.premium-list li i{
+  margin-top:2px;
+  color: rgba(245,194,35,0.95);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.10));
+}
+
+.premium-footnote{
+  margin-top: 14px;
+  text-align:center;
+  color:#555;
+  font-weight:700;
+  font-style:italic;
+}
+
+.premium-reserva-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight:900;
+  background: rgba(245,194,35,0.95);
+  color:#111;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+  text-transform:uppercase;
+  letter-spacing:.6px;
+}
+.premium-reserva-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 22px 46px rgba(0,0,0,0.18);
+  background: rgba(245,194,35,1);
 }
 
 @media(max-width:768px){
-  .premium-exclusive .premium-crown{
-    top:-14px;
-    right:14px;
-    width:46px;
-    height:46px;
-    border-radius:16px;
-  }
-  .premium-exclusive .premium-crown i{ font-size:1.22em; }
+  .premium-card{ padding: 34px 16px 18px 16px; border-radius: 22px; }
+  .premium-top{ left:14px; right:14px; }
+  .premium-pill{ white-space:normal; text-align:center; justify-content:center; }
+  .premium-title{ font-size: 1.75em; }
+  .premium-desc{ font-size: 0.98em; }
 }
-
 
 /* ===== FIX CENTRADO TITULO SERVICIO PREMIUM ===== */
 #servicios .section-title{
@@ -1762,38 +1867,6 @@ footer#contacto::before{
 }
 #servicios .section-title .sub{
   text-align:center;
-}
-
-
-/* ===== Premium estilo boutique ===== */
-
-.premium-title{
-  font-family:'Playfair Display', serif;
-  font-size:2.2em;
-  margin-bottom:12px;
-  text-align:center;
-  letter-spacing:.4px;
-}
-
-.premium-divider{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:18px;
-  margin-bottom:26px;
-}
-
-.premium-divider span{
-  width:90px;
-  height:1.5px;
-  background: linear-gradient(90deg, transparent, #C6A13A, transparent);
-  opacity:.85;
-}
-
-.premium-crown-svg{
-  width:44px;
-  height:auto;
-  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
 }
 
 </style>
@@ -1952,48 +2025,38 @@ footer#contacto::before{
     <div class="sub">Máxima tranquilidad · Atención 100% personalizada</div>
   </div>
 
-  <div class="services" style="margin-top:22px;">
-    <div class="service-box premium-exclusive" style="flex:1 1 100%; max-width:900px; margin:0 auto;">
-      
-      
-<h3 class="premium-title">
-  Exclusividad Absoluta
-</h3>
+  <div class="premium-wrap">
+    <div class="premium-card" aria-label="Servicio Premium Exclusivo">
+      <div class="premium-top" aria-hidden="true">
+        <div class="premium-ribbon">EXPERIENCIA<br>EXCLUSIVA</div>
+        <div class="premium-pill"><span class="plus">+ 20€ / noche</span> · Exclusividad total garantizada</div>
+      </div>
 
-<div class="premium-divider">
-  <span></span>
-  <svg viewBox="0 0 64 32" class="premium-crown-svg" aria-hidden="true">
-    <path d="M4 26 L14 10 L24 22 L32 8 L40 22 L50 10 L60 26 Z"
-          fill="none"
-          stroke="#C6A13A"
-          stroke-width="2.2"
-          stroke-linejoin="round"/>
-  </svg>
-  <span></span>
-</div>
+      <div class="premium-title">
+        Exclusividad Absoluta
+        <span class="crown"><i class="fa-solid fa-crown"></i></span>
+      </div>
 
+      <div class="premium-desc">
+        Una experiencia diseñada para perritos <strong>sensibles</strong>, <strong>mayores</strong> o que simplemente sus tutores quieren una estancia privada y exclusiva.
+      </div>
 
-      <p class="premium-price"><i class="fa-solid fa-plus"></i> +20€ / noche</p>
-      <p class="premium-note">Se suma a la tarifa estándar.</p>
+      <ul class="premium-list">
+        <li><i class="fa-solid fa-circle-check"></i> Estancia completamente privada</li>
+        <li><i class="fa-solid fa-circle-check"></i> Máxima calma y estabilidad</li>
+        <li><i class="fa-solid fa-circle-check"></i> Rutinas adaptadas al bienestar de cada perrito</li>
+        <li><i class="fa-solid fa-circle-check"></i> Actualizaciones diarias con fotos y vídeos</li>
+      </ul>
 
-      <p>
-        Pensado para perritos que requieren <strong>máxima tranquilidad</strong>
-        o cuyos tutores prefieren una <strong>atención completamente personalizada</strong>.
-      </p>
-
-      <p>
-        Durante la estancia Premium <strong>no alojamos a ningún otro perrito</strong>,
-        dedicando el <strong>100% del tiempo, espacio y energía</strong> exclusivamente a él.
-      </p>
-
-      <p>
-        Al implicar <strong>bloqueo total de la agenda</strong>, esta modalidad tiene una tarifa distinta a la estándar.
-      </p>
+      <div class="premium-footnote">
+        Al implicar bloqueo total de la agenda, esta modalidad tiene una tarifa distinta a la estándar.
+      </div>
     </div>
+
+    <a class="premium-reserva-btn" href="#reservaForm"><i class="fa-solid fa-calendar-check"></i> Reserva</a>
   </div>
 
-
-  <div class="section-title" style="margin-top:60px;">
+<div class="section-title" style="margin-top:60px;">
     <div class="badge"><i class="fa-solid fa-calendar-check"></i> RESERVA</div>
     <h2>Haz tu reserva</h2>
     <div class="line"></div>
