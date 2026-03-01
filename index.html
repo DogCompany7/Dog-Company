@@ -1700,6 +1700,22 @@ footer#contacto::before{
   align-items:center;
   gap:16px;
 }
+/* Badge PREMIUM (2 líneas) */
+.premium-badge{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  padding: 10px 18px;
+  line-height:1.05;
+}
+.premium-badge span{
+  font-weight:800;
+  opacity:0.9;
+  letter-spacing:.6px;
+  font-size: .92em;
+}
 
 .premium-card{
   position:relative;
@@ -1731,7 +1747,7 @@ footer#contacto::before{
   top:14px;
   display:flex;
   align-items:flex-start;
-  justify-content:space-between;
+  justify-content:flex-start;
   gap:14px;
   pointer-events:none;
 }
@@ -1742,22 +1758,27 @@ footer#contacto::before{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding: 10px 14px;
-  border-radius: 16px 16px 18px 18px;
-  background: linear-gradient(180deg, rgba(25,25,25,0.92), rgba(10,10,10,0.92));
+  padding: 10px 16px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(18,18,18,0.96), rgba(0,0,0,0.96));
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 70% 100%, 30% 100%, 0 78%);
   color:#fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
   font-weight:900;
   letter-spacing:.9px;
   text-transform:uppercase;
-  font-family:'Merriweather', serif;
+  font-family:'Playfair Display', serif;
   line-height:1.05;
-  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
-  border: 1px solid rgba(245,194,35,0.45);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.26);
+  border: 1px solid rgba(245,194,35,0.65);
 }
 
 .premium-pill{
   pointer-events:none;
   display:inline-flex;
+  max-width: 760px;
+  text-align:center;
+  justify-content:center;
   align-items:center;
   gap:8px;
   padding: 10px 14px;
@@ -1767,7 +1788,11 @@ footer#contacto::before{
   box-shadow: 0 14px 30px rgba(0,0,0,0.10);
   font-weight:900;
   color:#1f1f1f;
-  white-space:nowrap;
+  white-space:normal;
+}
+.premium-pill-center{
+  position:relative;
+  margin: 12px auto 0 auto;
 }
 
 .premium-pill .plus{
@@ -1788,7 +1813,8 @@ footer#contacto::before{
   display:block;
   margin: 8px auto 0 auto;
   color: rgba(245,194,35,0.95);
-  font-size: 1.05em;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18));
+  font-size: 0.98em;
 }
 
 .premium-desc{
@@ -2019,23 +2045,24 @@ footer#contacto::before{
     </div>
   </div>
   <div class="section-title" style="margin-top:46px;">
-    <div class="badge"><i class="fa-solid fa-crown"></i> SERVICIO PREMIUM</div>
-    <h2>Servicio Premium Exclusivo</h2>
+    <div class="badge premium-badge">PREMIUM<br><span>SERVICIO PREMIUM</span></div>
+    <h2>Servicio Premium</h2>
     <div class="line"></div>
     <div class="sub">Máxima tranquilidad · Atención 100% personalizada</div>
   </div>
 
   <div class="premium-wrap">
-    <div class="premium-card" aria-label="Servicio Premium Exclusivo">
+    <div class="premium-card" aria-label="Servicio Premium">
       <div class="premium-top" aria-hidden="true">
         <div class="premium-ribbon">EXPERIENCIA<br>EXCLUSIVA</div>
-        <div class="premium-pill"><span class="plus">+ 20€ / noche</span> · Exclusividad total garantizada</div>
+
       </div>
 
       <div class="premium-title">
         Exclusividad Absoluta
         <span class="crown"><i class="fa-solid fa-crown"></i></span>
       </div>
+      <div class="premium-pill premium-pill-center"><span class="plus">+ 20€ / noche</span> · Exclusividad total garantizada</div>
 
       <div class="premium-desc">
         Una experiencia diseñada para perritos <strong>sensibles</strong>, <strong>mayores</strong> o que simplemente sus tutores quieren una estancia privada y exclusiva.
