@@ -1773,30 +1773,21 @@ footer#contacto::before{
   border: 1px solid rgba(245,194,35,0.65);
 }
 
-.premium-pill{
-  pointer-events:none;
-  display:inline-flex;
-  max-width: 760px;
-  text-align:center;
+.premium-price{
+  display:flex;
   justify-content:center;
   align-items:center;
-  gap:8px;
-  padding: 10px 14px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  gap:10px;
+  margin: 12px auto 0 auto;
   font-weight:900;
   color:#1f1f1f;
-  white-space:normal;
 }
-.premium-pill-center{
-  position:relative;
-  margin: 12px auto 0 auto;
+.premium-price .diamond{
+  font-size: 18px;
+  line-height:1;
 }
-
-.premium-pill .plus{
-  color:#111;
+.premium-price .amount{
+  font-size: 18px;
 }
 
 .premium-title{
@@ -1882,7 +1873,7 @@ footer#contacto::before{
 @media(max-width:768px){
   .premium-card{ padding: 34px 16px 18px 16px; border-radius: 22px; }
   .premium-top{ left:14px; right:14px; }
-  .premium-pill{ white-space:normal; text-align:center; justify-content:center; }
+  .premium-price{ justify-content:center; }
   .premium-title{ font-size: 1.75em; }
   .premium-desc{ font-size: 0.98em; }
 }
@@ -2062,7 +2053,7 @@ footer#contacto::before{
         Exclusividad Absoluta
         <span class="crown"><i class="fa-solid fa-crown"></i></span>
       </div>
-      <div class="premium-pill premium-pill-center"><span class="plus">+ 20€ / noche</span> · Exclusividad total garantizada</div>
+      <div class="premium-price"><span class="diamond">◆</span><span class="amount">20€ / noche</span></div>
 
       <div class="premium-desc">
         Una experiencia diseñada para perritos <strong>sensibles</strong>, <strong>mayores</strong> o que simplemente sus tutores quieren una estancia privada y exclusiva.
