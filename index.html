@@ -1690,71 +1690,6 @@ footer#contacto::before{
   }
 }
 
-
-/* ===== Servicio Premium Exclusivo (destacado) ===== */
-.premium-exclusive{
-  position:relative;
-  background:
-    radial-gradient(720px 280px at 18% 30%, rgba(245,194,35,0.22), transparent 60%),
-    radial-gradient(720px 280px at 82% 55%, rgba(123,108,246,0.16), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,246,201,0.70));
-  border: 1px solid rgba(245,194,35,0.75) !important;
-  box-shadow: 0 22px 54px rgba(0,0,0,0.14) !important;
-}
-
-.premium-exclusive::before{
-  background: linear-gradient(180deg, rgba(245,194,35,0.98), rgba(123,108,246,0.88)) !important;
-  opacity: .95 !important;
-}
-
-.premium-exclusive .premium-crown{
-  position:absolute;
-  top:-18px;
-  right:18px;
-  width:52px;
-  height:52px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(245,194,35,0.95);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
-}
-
-.premium-exclusive .premium-crown i{
-  color:#111;
-  font-size:1.35em;
-}
-
-.premium-price{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding: 7px 10px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
-  font-weight:900;
-}
-
-.premium-note{
-  font-weight:800;
-  color:#333;
-}
-
-@media(max-width:768px){
-  .premium-exclusive .premium-crown{
-    top:-14px;
-    right:14px;
-    width:46px;
-    height:46px;
-    border-radius:16px;
-  }
-  .premium-exclusive .premium-crown i{ font-size:1.22em; }
-}
-
 </style>
 </head>
 
@@ -1908,7 +1843,7 @@ footer#contacto::before{
   <div class="section-title" style="margin-top:60px;">
     <div class="badge"><i class="fa-solid fa-calendar-check"></i> RESERVA</div>
 
-  <!-- ===== Servicio Premium Exclusivo (debajo de Servicios) ===== -->
+  <!-- ===== Servicio Premium Exclusivo ===== -->
   <div class="section-title" style="margin-top:46px;">
     <div class="badge"><i class="fa-solid fa-crown"></i> SERVICIO PREMIUM</div>
     <h2>Servicio Premium Exclusivo</h2>
@@ -1922,7 +1857,7 @@ footer#contacto::before{
       <h3><i class="fa-solid fa-gem"></i> Exclusividad Absoluta</h3>
 
       <p class="premium-price"><i class="fa-solid fa-plus"></i> +20€ / noche</p>
-      <p class="premium-note">Se suma a la tarifa estándar.</p>
+      <p><strong>Se suma a la tarifa estándar.</strong></p>
 
       <p>
         Pensado para perritos que requieren <strong>máxima tranquilidad</strong>
