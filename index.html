@@ -1728,16 +1728,59 @@ footer#contacto::before{
 }
 
 .premium-price{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin: 18px 0 18px;
+  font-weight:900;
+  font-size: 20px;
+  letter-spacing: .2px;
+  color:#111;
+}
+
+.premium-price i{
+  color:#111;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.10));
+  transform: translateY(-1px);
+}
+
+/* CHECKS CENTRADOS */
+.premium-list{
+  list-style:none;
+  padding:0;
+  margin: 18px auto 8px;
+  max-width: 760px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.premium-list li{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-weight:700;
+  color:#222;
+}
+
+.premium-list li .check{
+  width:26px;
+  height:26px;
+  border-radius:999px;
   display:inline-flex;
   align-items:center;
-  gap:8px;
-  padding: 7px 10px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.05);
-  font-weight:900;
+  justify-content:center;
+  background: rgba(245,194,35,0.95);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
 }
+
+.premium-list li .check i{
+  color:#111;
+  font-size: 0.85em;
+}
+
 
 .premium-note{
   font-weight:800;
@@ -1762,141 +1805,6 @@ footer#contacto::before{
 }
 #servicios .section-title .sub{
   text-align:center;
-}
-
-/* =======================
-   SECCIÓN SERVICIO PREMIUM
-   ======================= */
-
-.premium-section{
-  padding:120px 20px;
-  background:#f8f8f8;
-  text-align:center;
-  font-family:'Poppins', sans-serif;
-}
-
-.premium-badge{
-  display:inline-block;
-  background:linear-gradient(135deg,#f5c223,#e0ac00);
-  color:#111;
-  padding:14px 45px;
-  border-radius:50px;
-  font-weight:700;
-  letter-spacing:3px;
-  font-size:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.15);
-  margin-bottom:30px;
-}
-
-.premium-title{
-  font-family:'Playfair Display', serif;
-  font-size:48px;
-  margin:0 0 10px;
-}
-
-.premium-subtitle{
-  font-size:18px;
-  color:#666;
-  margin:0 0 60px;
-}
-
-.premium-card{
-  max-width:950px;
-  margin:0 auto;
-  background:linear-gradient(135deg,#fffdf5,#f3ecd2);
-  padding:70px 60px;
-  border-radius:25px;
-  border:2px solid #f0d77a;
-  position:relative;
-}
-
-.premium-ribbon{
-  position:absolute;
-  top:-20px;
-  left:40px;
-  background:#111;
-  color:#fff;
-  padding:14px 28px;
-  border-radius:8px;
-  font-family:'Playfair Display', serif;
-  font-size:14px;
-  letter-spacing:2px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.25);
-}
-
-.premium-heading{
-  font-family:'Playfair Display', serif;
-  font-size:40px;
-  margin:0 0 18px;
-}
-
-.premium-crown{
-  font-size:32px;
-  margin:0 0 12px;
-  color:#d4af37;
-}
-
-.premium-price{
-  font-size:20px;
-  font-weight:600;
-  margin:0 0 28px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:14px;
-}
-
-.premium-price::before{
-  content:"";
-  width:12px;
-  height:12px;
-  background:radial-gradient(circle at 30% 30%, #ffffff 0 20%, #111 35% 100%);
-  transform:rotate(45deg);
-  display:inline-block;
-  box-shadow:0 0 10px rgba(0,0,0,0.25);
-  border:1px solid rgba(255,255,255,0.35);
-}
-
-.premium-description{
-  font-size:18px;
-  margin:0 auto 34px;
-  max-width:760px;
-}
-
-.premium-list{
-  list-style:none;
-  padding:0;
-  margin:0 auto 26px;
-  max-width:680px;
-}
-
-.premium-list li{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:12px;
-  margin:14px 0;
-  font-size:17px;
-}
-
-.premium-list li::before{
-  content:"✓";
-  background:#f5c223;
-  color:#111;
-  font-weight:700;
-  width:24px;
-  height:24px;
-  border-radius:999px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 6px 16px rgba(0,0,0,0.10);
-}
-
-.premium-note{
-  font-size:15px;
-  color:#555;
-  margin:18px 0 0;
 }
 
 </style>
@@ -2049,142 +1957,37 @@ footer#contacto::before{
     </div>
   </div>
   <div class="section-title" style="margin-top:46px;">
-    <div class="badge"><i class="fa-solid fa-crown"></i> SERVICIO PREMIUM</div>
-    <h2>Servicio Premium Exclusivo</h2>
-    <div class="line"></div>
-    <div class="sub">Máxima tranquilidad · Atención 100% personalizada</div>
+  <div class="badge"><i class="fa-solid fa-gem"></i> PREMIUM</div>
+  <h2>Servicio Premium</h2>
+  <div class="line"></div>
+  <div class="sub">Máxima tranquilidad · Atención 100% personalizada</div>
+</div>
+
+<div class="services" style="margin-top:22px;">
+  <div class="service-box premium-exclusive" style="flex:1 1 100%; max-width:900px; margin:0 auto;">
+    <div class="premium-crown" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
+
+    <h3>Exclusividad Absoluta</h3>
+
+    <div class="premium-price"><i class="fa-solid fa-gem"></i> 20€ / noche</div>
+
+    <p class="premium-description">
+      Una experiencia diseñada para perritos sensibles, mayores o que simplemente sus tutores
+      quieren una estancia privada y exclusiva.
+    </p>
+
+    <ul class="premium-list">
+      <li><span class="check"><i class="fa-solid fa-check"></i></span> Estancia completamente privada</li>
+      <li><span class="check"><i class="fa-solid fa-check"></i></span> Máxima calma y estabilidad</li>
+      <li><span class="check"><i class="fa-solid fa-check"></i></span> Rutinas adaptadas al bienestar de cada perrito</li>
+      <li><span class="check"><i class="fa-solid fa-check"></i></span> Actualizaciones diarias con fotos y vídeos</li>
+    </ul>
+
+    <p class="premium-note">
+      Al implicar <strong>bloqueo total de la agenda</strong>, esta modalidad tiene una tarifa distinta a la estándar.
+    </p>
   </div>
-
-  <div class="services" style="margin-top:22px;">
-    <div class="service-box premium-exclusive" style="flex:1 1 100%; max-width:900px; margin:0 auto;">
-      <div class="premium-crown" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
-      <h3><i class="fa-solid fa-gem"></i> Exclusividad Absoluta</h3>
-
-      <p class="premium-price"><i class="fa-solid fa-plus"></i> +20€ / noche</p>
-      <p class="premium-note">Se suma a la tarifa estándar.</p>
-
-      <p>
-        Pensado para perritos que requieren <strong>máxima tranquilidad</strong>
-        o cuyos tutores prefieren una <strong>atención completamente personalizada</strong>.
-      </p>
-
-      <p>
-        Durante la estancia Premium <strong>no alojamos a ningún otro perrito</strong>,
-        dedicando el <strong>100% del tiempo, espacio y energía</strong> exclusivamente a él.
-      </p>
-
-      <p>
-        Al implicar <strong>bloqueo total de la agenda</strong>, esta modalidad tiene una tarifa distinta a la estándar.
-      </p>
-    </div>
-  </div>
-
-
-  <div class="section-title" style="margin-top:60px;">
-    <div class="badge"><i class="fa-solid fa-calendar-check"></i> RESERVA</div>
-    <h2>Haz tu reserva</h2>
-    <div class="line"></div>
-    <div class="sub"></div>
-  </div>
-
-<div class="reserva-info-card" aria-label="Información de reserva">
-    <div class="reserva-info-lines">
-      Consulta disponibilidad sin compromiso<br>
-      <span class="muted">Respuesta rápida por WhatsApp</span>
-    </div>
-
-    <div class="reserva-info-note">
-      Nos pondremos en contacto contigo para confirmar todos los detalles con calma 🤍
-    </div>
-
-    <div class="reserva-info-row" aria-label="Condiciones">
-      <span class="reserva-info-chip"><i class="fa-solid fa-hand-sparkles"></i> Solicitud sin compromiso</span>
-      <span class="reserva-info-chip"><i class="fa-solid fa-heart"></i> Atención individual</span>
-      <span class="reserva-info-chip"><i class="fa-solid fa-star"></i> Plazas limitadas</span>
-    </div>
-  </div>
-
-  <form id="reservaForm" class="reserva-form">
-    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-user"></i></span><input type="text" name="nombre" placeholder="Tu nombre" required></div>
-
-    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-dog"></i></span><select name="numPerros" required>
-      <option value="" disabled selected>Número de perros</option>
-      <option value="1">1 perro</option>
-      <option value="2">2 perros</option>
-      <option value="3">3 perros</option>
-      <option value="4">4 perros</option>
-      <option value="5+">5 o más</option>
-    </select></div>
-
-    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-paw"></i></span><input type="text" name="raza" placeholder="Raza de tu perro" required></div>
-
-    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-weight-hanging"></i></span><select name="peso" required>
-      <option value="" disabled selected>Peso de tu perro</option>
-      <option value="0.5-5kg">0.5kg – 5kg</option>
-      <option value="5-10kg">5kg – 10kg</option>
-      <option value="10-15kg">10kg – 15kg</option>
-      <option value="15-20kg">15kg – 20kg</option>
-      <option value="20-25kg">20kg – 25kg</option>
-      <option value="25-30kg">25kg – 30kg</option>
-      <option value="30-35kg">30kg – 35kg</option>
-      <option value="35-40kg">35kg – 40kg</option>
-      <option value="40-45kg">40kg – 45kg</option>
-      <option value="45kg+">Más de 45kg</option>
-    </select></div></div>
-
-    <div class="input-group"><span class="ig-icon textarea" aria-hidden="true"><i class="fa-solid fa-note-sticky"></i></span><textarea name="descripcion" placeholder="Descripción de tu perro (carácter, necesidades, sociabilidad...)" required></textarea></div>
-
-    <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></span><select name="servicio" required>
-      <option value="" disabled selected>Selecciona servicio</option>
-      <option value="Alojamiento Noche">Alojamiento de noche</option>
-      <option value="Guardería de Día">Guardería de día</option>
-    </select></div>
-
-    <div class="form-grid-2">
-      <div class="field">
-        <div class="field-label"><i class="fa-regular fa-calendar-check"></i> Check-in</div>
-        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-calendar-check"></i></span><input type="date" name="entrada" required aria-label="Fecha de entrada (Check-in)"></div>
-
-        <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de check-in</div>
-        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span><select name="horaEntrada" required aria-label="Hora de check-in">
-          <option value="" disabled selected>Selecciona hora</option>
-          <option>10:00</option><option>10:30</option>
-          <option>11:00</option><option>11:30</option>
-          <option>12:00</option><option>12:30</option>
-          <option>13:00</option><option>13:30</option>
-          <option>14:00</option><option>14:30</option>
-          <option>15:00</option><option>15:30</option>
-          <option>16:00</option><option>16:30</option>
-          <option>17:00</option><option>17:30</option>
-          <option>18:00</option><option>18:30</option>
-          <option>19:00</option><option>19:30</option>
-          <option>20:00</option>
-        </select></div>
-      </div>
-
-      <div class="field">
-        <div class="field-label"><i class="fa-regular fa-calendar-xmark"></i> Check-out</div>
-        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-calendar-xmark"></i></span><input type="date" name="salida" required aria-label="Fecha de salida (Check-out)"></div>
-
-        <div class="field-label"><i class="fa-regular fa-clock"></i> Hora de check-out</div>
-        <div class="input-group"><span class="ig-icon" aria-hidden="true"><i class="fa-regular fa-clock"></i></span><select name="horaSalida" required aria-label="Hora de check-out">
-          <option value="" disabled selected>Selecciona hora</option>
-          <option>10:00</option><option>10:30</option>
-          <option>11:00</option><option>11:30</option>
-          <option>12:00</option><option>12:30</option>
-          <option>13:00</option><option>13:30</option>
-          <option>14:00</option><option>14:30</option>
-          <option>15:00</option><option>15:30</option>
-          <option>16:00</option><option>16:30</option>
-          <option>17:00</option><option>17:30</option>
-          <option>18:00</option><option>18:30</option>
-          <option>19:00</option><option>19:30</option>
-          <option>20:00</option>
-        </select></div>
-
-        <div class="field-note">Horario de atención: 10:00 a 20:00</div>
-      </div>
-    </div>
+</div>
 
     <button type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
   </form>
@@ -2734,41 +2537,4 @@ document.querySelectorAll('.faq-item .faq-q').forEach((btn) => {
 
 </body>
 </html>
-
-
-<!-- ======================= -->
-<!--  SECCIÓN SERVICIO PREMIUM  -->
-<!-- ======================= -->
-
-<section class="premium-section" id="premium">
-  <div class="premium-badge">PREMIUM</div>
-
-  <h2 class="premium-title">Servicio Premium</h2>
-  <p class="premium-subtitle">Máxima tranquilidad · Atención 100% personalizada</p>
-
-  <div class="premium-card">
-    <div class="premium-ribbon">EXPERIENCIA EXCLUSIVA</div>
-
-    <h3 class="premium-heading">Exclusividad Absoluta</h3>
-    <div class="premium-crown" aria-hidden="true">♕</div>
-
-    <div class="premium-price">20€ / noche</div>
-
-    <p class="premium-description">
-      Una experiencia diseñada para perritos sensibles, mayores o que simplemente
-      sus tutores quieren una estancia privada y exclusiva.
-    </p>
-
-    <ul class="premium-list">
-      <li>Estancia completamente privada</li>
-      <li>Máxima calma y estabilidad</li>
-      <li>Rutinas adaptadas al bienestar de cada perrito</li>
-      <li>Actualizaciones diarias con fotos y vídeos</li>
-    </ul>
-
-    <p class="premium-note">
-      Al implicar bloqueo total de la agenda, esta modalidad tiene una tarifa distinta a la estándar.
-    </p>
-  </div>
-</section>
 
