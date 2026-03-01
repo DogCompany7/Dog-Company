@@ -1709,27 +1709,17 @@ footer#contacto::before{
 
 .premium-exclusive .premium-crown{
   position:absolute;
-  top:-22px;
-  right:22px;
-  width:60px;
-  height:60px;
-  border-radius:22px;
+  top:-18px;
+  right:18px;
+  width:52px;
+  height:52px;
+  border-radius:18px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background: linear-gradient(145deg, #F5C223, #d4a80f);
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow:
-    0 22px 48px rgba(0,0,0,0.25),
-    inset 0 3px 8px rgba(255,255,255,0.35);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.premium-exclusive .premium-crown:hover{
-  transform: translateY(-4px);
-  box-shadow:
-    0 28px 60px rgba(0,0,0,0.30),
-    inset 0 3px 10px rgba(255,255,255,0.45);
+  background: rgba(245,194,35,0.95);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
 }
 
 .premium-exclusive .premium-crown i{
@@ -1772,6 +1762,38 @@ footer#contacto::before{
 }
 #servicios .section-title .sub{
   text-align:center;
+}
+
+
+/* ===== Premium estilo boutique ===== */
+
+.premium-title{
+  font-family:'Playfair Display', serif;
+  font-size:2.2em;
+  margin-bottom:12px;
+  text-align:center;
+  letter-spacing:.4px;
+}
+
+.premium-divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  margin-bottom:26px;
+}
+
+.premium-divider span{
+  width:90px;
+  height:1.5px;
+  background: linear-gradient(90deg, transparent, #C6A13A, transparent);
+  opacity:.85;
+}
+
+.premium-crown-svg{
+  width:44px;
+  height:auto;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
 }
 
 </style>
@@ -1932,8 +1954,24 @@ footer#contacto::before{
 
   <div class="services" style="margin-top:22px;">
     <div class="service-box premium-exclusive" style="flex:1 1 100%; max-width:900px; margin:0 auto;">
-      <div class="premium-crown" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
-      <h3><i class="fa-solid fa-gem"></i> Exclusividad Absoluta</h3>
+      
+      
+<h3 class="premium-title">
+  Exclusividad Absoluta
+</h3>
+
+<div class="premium-divider">
+  <span></span>
+  <svg viewBox="0 0 64 32" class="premium-crown-svg" aria-hidden="true">
+    <path d="M4 26 L14 10 L24 22 L32 8 L40 22 L50 10 L60 26 Z"
+          fill="none"
+          stroke="#C6A13A"
+          stroke-width="2.2"
+          stroke-linejoin="round"/>
+  </svg>
+  <span></span>
+</div>
+
 
       <p class="premium-price"><i class="fa-solid fa-plus"></i> +20€ / noche</p>
       <p class="premium-note">Se suma a la tarifa estándar.</p>
