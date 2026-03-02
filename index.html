@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+¡<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -1920,6 +1920,64 @@ footer#contacto::before{
   font-size: 0.92em !important;
   margin-top: 22px !important;
 }
+
+
+/* ===== AJUSTE PREMIUM DEFINITIVO ===== */
+
+/* Bloque centrado */
+.premium-checks{
+  width: 480px;
+  margin: 24px auto 14px auto;
+}
+
+/* Cada línea perfectamente alineada */
+.premium-checks li{
+  display: grid !important;
+  grid-template-columns: 36px 1fr !important;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+}
+
+/* Icono fijo */
+.premium-checks .pc-ic{
+  width: 32px !important;
+  height: 32px !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ===== BADGE NEGRO MÁS PREMIUM ===== */
+
+.premium-exclusive .premium-badge{
+  background: linear-gradient(145deg,#000000,#1a1a1a);
+  border-radius: 16px;
+  padding: 12px 18px;
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* Efecto brillo superior */
+.premium-exclusive .premium-badge::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:40%;
+  border-radius:16px 16px 0 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.25), transparent);
+  pointer-events:none;
+}
+
 
 </style>
 </head>
