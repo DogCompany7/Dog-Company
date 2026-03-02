@@ -2110,6 +2110,19 @@ footer#contacto::before{
   }
 }
 
+
+@media (max-width: 560px){
+  .mobile-hide{
+    display: none !important;
+  }
+
+  /* Checks un poco más a la derecha */
+  .premium-checks li{
+    padding-left: 14px !important;
+  }
+}
+
+
 </style>
 </head>
 
@@ -2288,10 +2301,10 @@ footer#contacto::before{
     <li><span class="pc-ic" aria-hidden="true"><i class="fa-solid fa-check"></i></span><span>Actualizaciones diarias con fotos y vídeos</span></li>
   </ul>
 
-  <p>
+  <p class="mobile-hide"><p>
         Pensado para perritos que requieren <strong>máxima tranquilidad</strong>
         o cuyos tutores prefieren una <strong>atención completamente personalizada</strong>.
-      </p>
+      </p></p>
 
       <p>
         Durante la estancia Premium <strong>no alojamos a ningún otro perrito</strong>,
