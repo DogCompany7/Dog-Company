@@ -1870,28 +1870,31 @@ footer#contacto::before{
 .premium-list{
   list-style:none;
   padding:0;
-  margin: 10px auto 12px auto;
+  margin: 18px auto 12px auto;
   max-width: 640px;
-  text-align:left;
-  display:grid;
-  gap:10px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
 .premium-list li{
-  position:relative;
-  padding-left: 44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
   font-weight:800;
   color:#2b2b2b;
+  padding:0;
 }
 
 .premium-list li::before{
-  content:"\f00c";
+  content:"
+00c";
   font-family:"Font Awesome 6 Free";
   font-weight:900;
-  position:absolute;
-  left:0;
-  top:50%;
-  transform: translateY(-50%);
   width:30px;
   height:30px;
   border-radius:999px;
@@ -1901,7 +1904,9 @@ footer#contacto::before{
   background: rgba(245,194,35,0.92);
   color:#111;
   box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+  flex: 0 0 auto;
 }
+
 
 .premium-footnote{
   margin-top: 10px;
@@ -2131,17 +2136,18 @@ footer#contacto::before{
         <div class="premium-plaque" aria-hidden="true">
           EXPERIENCIA<br>EXCLUSIVA
         </div>
-
-        <div class="premium-pill">
-          <span class="premium-pill-strong">+ 20€ / noche</span>
-          <span class="premium-pill-sep">·</span>
-          Suplemento sobre tarifa estándar
-        </div>
       </div>
 
       <div class="premium-main">
         <h3 class="premium-title">Exclusividad Absoluta</h3>
         <div class="premium-crown-mini" aria-hidden="true"><i class="fa-solid fa-crown"></i></div>
+
+                <div class="premium-pill">
+                  <span class="premium-pill-strong">+ 20€ / noche</span>
+                  <span class="premium-pill-sep">·</span>
+                  Suplemento sobre tarifa estándar
+                </div>
+
 
         <p class="premium-desc">
           Una experiencia diseñada para <strong>perritos sensibles</strong>, mayores o que
