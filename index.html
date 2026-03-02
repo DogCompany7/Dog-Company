@@ -1870,6 +1870,44 @@ footer#contacto::before{
   .premium-exclusive .premium-badge{ top:14px; left:14px; border-radius:14px; padding:10px 14px; }
 }
 
+
+/* ===== REFINAMIENTO FINAL PREMIUM ===== */
+
+/* CHECKS más centrados (bloque más estrecho y simétrico) */
+.premium-checks{
+  width: min(460px, 90%);
+  margin: 22px auto 12px auto;
+}
+
+.premium-checks li{
+  grid-template-columns: 34px 1fr;
+}
+
+/* BADGE NEGRO ULTRA PREMIUM */
+.premium-exclusive .premium-badge{
+  background: linear-gradient(145deg,#000000,#1c1c1c 60%, #111 100%);
+  border: 1px solid rgba(245,194,35,0.35);
+  border-radius: 18px;
+  padding: 13px 20px;
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.55),
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    inset 0 2px 4px rgba(255,255,255,0.12);
+}
+
+.premium-exclusive .premium-badge::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:48%;
+  border-radius:18px 18px 0 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.28), transparent 70%);
+  pointer-events:none;
+}
+
+
 </style>
 </head>
 
