@@ -2033,6 +2033,83 @@ footer#contacto::before{
 }
 
 
+/* ===== FIX PREMIUM MÓVIL (sin tocar PC) ===== */
+@media (max-width: 560px){
+
+  /* tarjeta: padding más cómodo y sin “gigante” */
+  .premium-exclusive{
+    max-width: 92vw !important;
+    padding: 18px 16px 20px 16px !important;
+  }
+
+  /* badge: fuera de absoluto para que no pise el título */
+  .premium-exclusive .premium-badge{
+    position: static !important;
+    display: inline-block !important;
+    margin: 0 auto 12px auto !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    border-radius: 16px !important;
+    padding: 10px 14px !important;
+  }
+
+  /* título: más pequeño y con salto natural */
+  .premium-h3{
+    font-size: 1.45em !important;
+    line-height: 1.15 !important;
+    margin-top: 6px !important;
+    margin-bottom: 10px !important;
+    flex-wrap: wrap !important;
+  }
+  .premium-h3 i{ font-size: 0.95em !important; }
+
+  /* corona */
+  .premium-exclusive .premium-crown{
+    width: 44px !important;
+    height: 44px !important;
+    margin: 6px auto 10px auto !important;
+  }
+
+  /* pill precio: que no se salga y se vea centrada */
+  .premium-price-pill{
+    display: block !important;
+    width: min(320px, 100%) !important;
+    margin: 0 auto 12px auto !important;
+    padding: 8px 12px !important;
+    font-size: 0.92em !important;
+  }
+
+  /* texto intro más compacto */
+  .premium-intro{
+    font-size: 0.98em !important;
+    line-height: 1.55 !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* checks: ocupan el ancho, alineados y sin desplazamientos raros */
+  .premium-checks{
+    width: 100% !important;
+    margin: 12px auto 8px auto !important;
+  }
+  .premium-checks li{
+    grid-template-columns: 30px 1fr !important;
+    gap: 12px !important;
+    padding-left: 0 !important;
+    margin: 10px 0 !important;
+  }
+  .premium-checks .pc-ic{
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* párrafos finales: aire y legibilidad */
+  .premium-exclusive p{
+    margin-bottom: 10px !important;
+    line-height: 1.55 !important;
+  }
+}
+
 </style>
 </head>
 
